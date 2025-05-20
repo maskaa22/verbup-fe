@@ -1,0 +1,48 @@
+.wrap{
+    padding: 24px;
+    margin: 0 auto;
+    width: 358px;
+    border-radius: 16px;
+    background-image: linear-gradient(
+        #BCADDF,
+        #FBD2EE
+    );
+}
+
+.instructions{
+    margin-bottom: 24px;
+    width: fit-content;
+    margin: 0 auto;
+}
+.instructions p{
+    text-align: center;
+    max-width: 264px;
+}
+
+.instructions p:nth-child(1){
+    font-size: 20px;
+    margin-bottom: 16px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 310px;
+}
+
+.form input{
+    min-width: 310px;
+    border-radius: 8px;
+    padding: 17px 12px;
+    border: 1px solid #E5E7EB;
+}
+
+.form button{
+    width: 310px;
+    height: 48px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
