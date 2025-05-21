@@ -1,4 +1,5 @@
 import { Field, Form, Formik, type FormikHelpers } from "formik";
+import s from "./RegistraterForm.module.css";
 
 export interface RegFormValues {
   email: string,
@@ -6,32 +7,36 @@ name: string,
 password: string,
 }
 
-export default function RegisterForm() {
-  const dispatch = useDispatch<AppDispatch>();
+const RegisterForm: React.FC = () => {
+//   const dispatch = useDispatch<AppDispatch>();
   const handleSubmit = (values: RegFormValues, actions: FormikHelpers<RegFormValues>): void => {
-    dispatch(register(values));
+    console.log(values)
+    // dispatch(register(values));
     actions.resetForm();
   };
+
   return (
     <Formik
       initialValues={{ name: "", email: "", password: "" }}
       onSubmit={handleSubmit}
     >
-      <Form>
-        <label>
-          Usarname
-          <Field type="text" name="name" />
-        </label>
-        <label>
+      <Form className={s.form}>
+        <label htmlFor="name">
+          Ім'я
+        </label> 
+        <Field type="text" name="name" placeholder="Введіть ваше ім'я" />
+        <label htmlFor="email">
           Email
-          <Field type="email" name="email" />
         </label>
-        <label>
-          Password
-          <Field type="password" name="password" />
+        <Field type="email" name="email" placeholder="your@email.com" />
+        <label htmlFor="password">
+          Пароль
         </label>
-        <button type="submit">Register</button>
+        <Field type="password" name="password" placeholder="Мінімум 8 символів" />
+        <button type="submit">Створити акаунт</button>
       </Form>
     </Formik>
   );
 }
+
+export default RegisterForm;
