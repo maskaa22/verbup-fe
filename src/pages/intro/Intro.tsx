@@ -5,8 +5,7 @@ import cuteAstro from "../../assets/cute astronaut sitting with flag.png"
 const Intro = () => {
   return <div className={css.intro}>
     <div className={css.headlineWrap}>
-      <h1 className={css.headline}>let's <span>verb</span> <span>up</span> </h1>
-      {/* <div className={css.droopyHL}></div> */}
+      <h1 className={css.headline}>let's <span>verb</span> <span>up</span> <span className={css.droopyHL}>up</span> </h1>
     </div>
     <p>Щоденна практика — твій ключ до справжнього прогресу.</p>
     <img className={css.image} src={cuteAstro} alt="" />
