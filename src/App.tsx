@@ -1,11 +1,12 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import SignUp from "./pages/signUp/SignUp";
 import NavBar from "./components/NavBar/NavBar";
+import Intro from "./pages/intro/Intro";
 
 function App() {
   return <>
-  <Link to="/signup">Зареєструватись</Link>
+  <Intro/>
   <NavBar/>
   <Routes>
     <Route path="/signup" element={<SignUp/>}/>
