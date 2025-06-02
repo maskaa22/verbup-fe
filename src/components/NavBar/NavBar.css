@@ -64,6 +64,8 @@ z-index: 1;
   width: 60px;
   height: 60px;
   padding: 10px;
+  fill: transparent;
+  stroke: white;
 }
 
 .navigation ul li.active a .icon {

@@ -1,10 +1,10 @@
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
-import s from "./SignUp.module.css";
+import css from "./SignUp.module.css";
 
 
 const SignUp = () => {
-  return <div className={s.wrap}>
- <div className={s.instructions}>
+  return <div className={`${css.wrap} container`}>
+ <div className={css.instructions}>
     <p>Реєстрація</p>
     <p>Створи обліковий запис для вивчення неправильнич дієслів</p>
   </div>

@@ -3,7 +3,7 @@ import css from "./Intro.module.css";
 import cuteAstro from "../../assets/cute astronaut sitting with flag.png"
 
 const Intro = () => {
-  return <div className={css.intro}>
+  return <div className={`${css.intro} container`}>
     <div className={css.headlineWrap}>
       <h1 className={css.headline}>let's <span>verb</span> <span>up</span> <span className={css.droopyHL}>up</span> </h1>
     </div>

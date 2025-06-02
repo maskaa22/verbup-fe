@@ -1,11 +1,6 @@
 import { useState } from "react";
 import "./NavBar.css"
 import { NavLink } from "react-router-dom";
-import { ReactComponent as CupIcon } from '../../assets/cup.svg';
-import { ReactComponent as GameIcon } from '../../assets/game.svg';
-import { ReactComponent as VocIcon } from '../../assets/voc.svg';
-import { ReactComponent as SetIcon } from '../../assets/set.svg';
-import { ReactComponent as ShareIcon } from '../../assets/share.svg';
 
 
 
@@ -22,32 +17,38 @@ return (
       <li className={0 === activeIndex ? "active" : ""}
           onClick={() => setActiveIndex(0)}>
             <NavLink to="/game">
-            <GameIcon className="icon"/>
-            </NavLink>
+<svg className="icon">
+        <use href="./icons.svg#icon-game"></use>
+      </svg>            </NavLink>
         </li>
         <li className={1 === activeIndex ? "active" : ""}
           onClick={() => setActiveIndex(1)}>
             <NavLink to="/cup">
-            <CupIcon className="icon"/>
+      <svg className="icon">
+        <use href="./icons.svg#icon-cup"></use>
+      </svg>
             </NavLink>
         </li>
         <li className={2 === activeIndex ? "active" : ""}
           onClick={() => setActiveIndex(2)}>
             <NavLink to="/voc">
-            <VocIcon className="icon"/>
-            </NavLink>
+<svg className="icon">
+        <use href="./icons.svg#icon-voc"></use>
+      </svg>            </NavLink>
         </li>
         <li className={3 === activeIndex ? "active" : ""}
           onClick={() => setActiveIndex(3)}>
             <NavLink to="/set">
-            <SetIcon className="icon"/>
-            </NavLink>
+<svg className="icon">
+        <use href="./icons.svg#icon-set"></use>
+      </svg>            </NavLink>
         </li>
         <li className={4 === activeIndex ? "active" : ""}
           onClick={() => setActiveIndex(4)}>
             <NavLink to="/share">
-            <ShareIcon className="icon"/>
-            </NavLink>
+<svg className="icon">
+        <use href="./icons.svg#icon-share"></use>
+      </svg>            </NavLink>
         </li>
       {/* {["game", "cup", "voc", "set", "share"].map((label, index) => (
         <li
