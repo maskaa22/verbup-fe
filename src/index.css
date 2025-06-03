@@ -3,6 +3,11 @@
 *::after {
   box-sizing: border-box;
 }
+
+:root{
+  --base-color-blue: #6fa1ad;
+   --base-color-yellow: #e9ab55;
+}
 body {
   margin: 0;
   font-family: var(--font-family-inter);
