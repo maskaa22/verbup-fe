@@ -6,6 +6,11 @@
 *::after {
   box-sizing: border-box;
 }
+
+:root{
+  --base-color-blue: #6fa1ad;
+   --base-color-yellow: #e9ab55;
+}
 body {
   margin: 0;
   font-family: var(--font-family-messiri);
@@ -47,3 +52,28 @@ img {
   font-weight: 100 900;
   font-display: swap;
 }
+.container {
+  width: 375px;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+/* @media only screen and (min-width: 375px) {
+.container {
+max-width: 375px;
+}
+} */
+  
+/* @media only screen and (min-width: 768px) {
+.container {
+ padding: 0 32px;
+ max-width: 768px;
+}
+}
+  
+ @media only screen and (min-width: 1280px) {
+.container {
+padding: 0 100px;
+ max-width: 1280px;
+}
+} */
