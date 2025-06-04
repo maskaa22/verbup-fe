@@ -1,0 +1,80 @@
+.container {
+  padding: 64px 10px 60px 10px;
+}
+.boxModel {
+  border-radius: 20px;
+  width: 355px;
+  height: 434px;
+  backdrop-filter: blur(40px);
+  background: linear-gradient(
+    141deg,
+    rgba(232, 232, 232, 0.8) 0%,
+    rgba(94, 144, 158, 0.8) 100%
+  );
+  padding: 0 6px;
+}
+.topContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.close {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #c0c0c0;
+  margin: 12px 0 0 0;
+  /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+.current {
+  font-weight: 700;
+font-size: 12px;
+line-height: 130%;
+color: #000;
+}
+.inputContainer {
+  width: 343px;
+  height: 73px;
+}
+.gameInput {
+  border-radius: 16px;
+  padding: 0 38px;
+width: 100%;
+height: 100%;
+  border: none;
+  background: linear-gradient(180deg, #7ba2a4 0%, #deaa5d 71.94%);
+}
+.imgContainer,
+.inputContainer {
+  display: flex;
+  justify-content: center;
+}
+.imgContainer {
+  margin-top: 31px;
+}
+.title {
+  font-family: var(--font-family-messiri);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  text-align: justify;
+  color: #000;
+  margin: 14px 0 20px 0;
+}
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  border-radius: 48px;
+padding: 16px 32px;
+width: 202px;
+height: 48px; 
+background: #5e909e;
+color: white;
+border: none;
+margin-top: 36px;
+}

@@ -1,0 +1,36 @@
+.keyboard {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 16px;
+  max-width: 400px;
+  margin: auto;
+  user-select: none;
+  margin-top: 32px;
+}
+
+.keyboardRow {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.keyboardKey {
+  padding: 4px 7px;
+  /* font-size: 18px; */
+  border: none;
+  background: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  flex: 1;
+  max-width: 40px;
+  text-align: center;
+}
+
+.keyboardKey.special {
+  max-width: 60px;
+  background: #ddd;
+}

@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Game from "./pages/game/Game";
 import SignUp from "./pages/signUp/SignUp";
 import NavBar from "./components/navBar/NavBar";
 import Intro from "./pages/intro/Intro";
@@ -11,7 +12,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/game" element={<h1>Game</h1>} />
+        <Route path="/game" element={<Game />} />
         <Route path="/cup" element={<h1>Cup</h1>} />
         <Route path="/voc" element={<h1>Voc</h1>} />
         <Route path="/set" element={<h1>Set</h1>} />
