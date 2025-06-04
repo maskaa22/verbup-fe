@@ -1,0 +1,15 @@
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  border-radius: 48px;
+padding: 16px 32px;
+width: 202px;
+height: 48px; 
+background: #5e909e;
+color: white;
+border: none;
+margin-top: 36px;
+}

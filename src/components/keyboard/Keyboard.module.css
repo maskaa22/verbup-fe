@@ -18,19 +18,27 @@
   gap: 6px;
 }
 
-.keyboardKey {
-  padding: 4px 7px;
-  /* font-size: 18px; */
+.keyboardKey,
+.special {
+  /* padding: 4px 7px; */
+  font-size: 18px;
   border: none;
-  background: #f0f0f0;
+  background: #e5e1dc;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  flex: 1;
+  /* flex: 1; */
   max-width: 40px;
   text-align: center;
+  width: 28px;
+  height: 42px;
 }
 
-.keyboardKey.special {
+.special {
   max-width: 60px;
-  background: #ddd;
+  background: #deaa5d;
+  width: 40px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
