@@ -1,0 +1,29 @@
+.boxModel {
+  border-radius: 20px;
+  width: 355px;
+  height: 434px;
+  backdrop-filter: blur(40px);
+  background: linear-gradient(
+    141deg,
+    rgba(232, 232, 232, 0.8) 0%,
+    rgba(94, 144, 158, 0.8) 100%
+  );
+  padding: 0 6px;
+}
+.inputContainer {
+  width: 343px;
+  height: 73px;
+}
+.gameInput {
+  border-radius: 16px;
+  padding: 0 38px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 20px;
+  background: linear-gradient(180deg, #7ba2a4 0%, #deaa5d 71.94%);
+}
+.inputContainer {
+  display: flex;
+  justify-content: center;
+}
