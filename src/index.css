@@ -1,3 +1,6 @@
+:root {
+  --font-family-messiri: 'ElMessiri';
+}
 *,
 *::before,
 *::after {
@@ -5,7 +8,7 @@
 }
 body {
   margin: 0;
-  font-family: var(--font-family-inter);
+  font-family: var(--font-family-messiri);
 }
 h1,
 h2,
@@ -36,4 +39,11 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+@font-face {
+  font-family: 'ElMessiri';
+  src: url('./fonts/ElMessiri-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
 }
