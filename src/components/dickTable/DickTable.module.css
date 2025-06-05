@@ -1,0 +1,17 @@
+.icon{
+    width: 23px;
+    height: 23px;
+}
+.table{
+    width: 100%;
+}
+.table tr{
+display: flex;
+justify-content: space-between;
+  border-bottom: 1px solid #ccc; /* Or any color */
+  padding: 8px 0;
+}
+.table tr td{
+    text-align:left;
+}
+
