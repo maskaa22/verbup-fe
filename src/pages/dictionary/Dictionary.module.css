@@ -1,0 +1,34 @@
+.dicheadline{
+font-family: var(--font-family-messiri);
+font-weight: 400;
+font-size: 32px;
+line-height: 140%;
+letter-spacing: -0.01em;
+color: #5e909e;
+text-transform: capitalize;
+}
+.markup ul{
+    display: flex;
+    justify-content: space-around;
+}
+.markup ul li p{
+    color: #808080;
+}
+.markup ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+.color{
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    border: 1px solid #808080;
+}
+.markup ul li:nth-child(1) .color{
+background: linear-gradient(180deg, #65b441 0%, #aaf886 100%);}
+.markup ul li:nth-child(2) .color{
+background: linear-gradient(180deg, #ffb612 0%, #ffdd90 100%);}
+.markup ul li:nth-child(3) .color{
+background: linear-gradient(180deg, #c43d28 0%, #ff8c7a 100%);}
