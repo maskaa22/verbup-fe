@@ -10,6 +10,7 @@
 :root{
   --base-color-blue: #6fa1ad;
   --base-color-yellow: #e9ab55;
+  --base-color-gray: #808080;
 }
 body {
   margin: 0;

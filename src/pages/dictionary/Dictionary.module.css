@@ -4,15 +4,15 @@ font-weight: 400;
 font-size: 32px;
 line-height: 140%;
 letter-spacing: -0.01em;
-color: #5e909e;
+color: var(--base-color-blue);
 text-transform: capitalize;
 }
 .markup ul{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .markup ul li p{
-    color: #808080;
+    color: var(--base-color-gray);
 }
 .markup ul li{
     display: flex;
@@ -24,7 +24,7 @@ text-transform: capitalize;
     width: 12px;
     height: 12px;
     border-radius: 2px;
-    border: 1px solid #808080;
+    border: 1px solid var(--base-color-gray);
 }
 .markup ul li:nth-child(1) .color{
 background: linear-gradient(180deg, #65b441 0%, #aaf886 100%);}

@@ -1,4 +1,5 @@
 import DickTable from "../../components/dickTable/DickTable"
+import DicSearchBox from "../../components/dicSearchBox/DicSearchBox";
 import Logo from "../../components/logo/Logo";
 import s from "./Dictionary.module.css";
 
@@ -6,6 +7,7 @@ const Dictionary = () => {
   return <div className={`${s.div} ${"container"}`}>
     <Logo/>
     <h2 className={s.dicheadline}>словник</h2>
+    <DicSearchBox/>
     <div className={s.markup}>
       <ul>
         <li>
@@ -22,6 +24,7 @@ const Dictionary = () => {
         </li>
       </ul>
     </div>
+
     <DickTable/>
 
 
