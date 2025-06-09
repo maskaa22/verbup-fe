@@ -57,7 +57,22 @@ left: 159px;
     font-size: 14px;
     font-weight: 400;
 }
-
+.or{
+display: flex;
+margin-top: 12px;
+}
+.or hr{
+    flex-grow: 1;
+    border: none;
+    border-top: 1px solid var(--third-color-gray);
+    height: 0;
+}
+.or p{
+    color: var(--base-color-blue);
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0 20px;
+}
 .bottomlink{
     margin-top: 12px;
     display: flex;
