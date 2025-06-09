@@ -1,10 +1,13 @@
-.wrap h4{
-    color: var(--base-color-blue);
-    font-weight: 400;
-font-size: 20px;
+.wrap h4 {
+  color: var(--base-color-blue);
+  font-weight: 400;
+  font-size: 32px;
 }
-.wrap p{
-    color: var(--base-color-blue);
-    font-weight: 400;
-font-size: 13px;
+.wrap h4 span {
+  color: var(--base-color-yellow);
+}
+.wrap p {
+  color: var(--base-color-blue);
+  font-weight: 400;
+  font-size: 13px;
 }
