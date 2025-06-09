@@ -13,6 +13,7 @@
   --base-color-gray: #808080;
   --second-color-gray: #bcbebf;
   --third-color-gray: #7f8689;
+  --font-color-dark: #3b3c3d;
 }
 body {
   margin: 0;

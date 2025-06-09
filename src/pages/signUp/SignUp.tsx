@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import Logo from "../../components/logo/Logo";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import css from "./SignUp.module.css";
+import ExtraSignup from "../../components/extraSignup/ExtraSignup";
 
 
 const SignUp = () => {
@@ -23,6 +24,7 @@ const SignUp = () => {
   <p>або</p>
   <hr />
   </div>
+  <ExtraSignup/>
   <div className={css.bottomlink}>
 <p>Вже є кабінет?</p>
 <NavLink to="/signin">Увійти</NavLink>
