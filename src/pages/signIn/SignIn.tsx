@@ -1,11 +1,12 @@
-import s from "./SignIn.module.css";
+import Logo from "../../components/logo/Logo";
+import css from "./SignIn.module.css";
 
 
 
 const SignIn = () => {
   
-  return <div className={s.div}>
-   <p>Sign In</p>
+  return <div className={`${css.wrap} container`}>
+   <Logo/>
   </div>;
 };
 
