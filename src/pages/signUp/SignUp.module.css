@@ -1,25 +1,68 @@
 .wrap{
-    padding: 24px;
-    width: 358px;
-    border-radius: 16px;
-    background-image: linear-gradient(
-        #BCADDF,
-        #FBD2EE
-    );
+    position: relative;
+    padding: 20px;
 }
 
+.glass{
+    margin-top: 24px;
+    margin-bottom: 104px;
+    border-radius: 20px;
+padding: 30px 12px;
+width: 335px;
+height: 487px;
+box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
+background: linear-gradient(141deg, rgba(232, 232, 232, 0.8) 0%, rgba(94, 144, 158, 0.8) 100%);
+}
+.planet{
+    border-radius: 100%;
+    position: absolute;
+    z-index: -1;
+}
+.planet:nth-child(1){
+    background: linear-gradient(142deg, #5a8b96 10.62%, #9aa281 46.62%, #e2bb69 78.85%);
+    width: 178px;
+    height: 178px;
+    top: 37px;
+    right: -12px;
+}
+.planet:nth-child(2){
+    background: linear-gradient(322deg, #6a9ba6 0%, #abae88 50.79%, #e4be6d 100%);
+width: 140px;
+height: 140px;
+bottom: 95px;
+left: -22px;
+}
+.planet:nth-child(3){
+    background: linear-gradient(208deg, #deaa5d 0%, #a39e7b 59.62%, #5e909e 100%);
+width: 44px;
+height: 44px;
+bottom: 30px;
+left: 159px;
+}
 .instructions{
-    margin-bottom: 24px;
     width: fit-content;
     margin: 0 auto;
 }
 .instructions p{
     text-align: center;
     max-width: 264px;
+    color: var(--base-color-blue);
 }
 
 .instructions p:nth-child(1){
-    font-size: 20px;
-    margin-bottom: 16px;
+    font-size: 30px;
+    font-weight: 700;
+}
+.instructions p:nth-child(2){
+    font-size: 14px;
+    font-weight: 400;
 }
 
+.bottomlink{
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    color: var(--base-color-blue);
+    font-weight: 400;
+font-size: 14px;
+}

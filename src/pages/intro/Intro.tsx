@@ -11,6 +11,14 @@ const Intro = () => {
     <img className={css.image} src={cuteAstro} alt="" />
     <p>Що спільного в go, went і gone? VerbUp знає відповідь — і ти скоро теж.</p>
     <NavLink className={css.link} to="/signup">Почати</NavLink>
+    <div>
+      <div>
+        <p>Вже є акаунт?</p>
+        <NavLink to="/signin">Увійти</NavLink>
+      </div>
+      <p>або</p>
+      <NavLink to="/signup">Зареєструватись</NavLink>
+    </div>
   </div>;
 };
 
