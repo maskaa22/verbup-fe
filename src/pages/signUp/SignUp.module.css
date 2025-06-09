@@ -31,7 +31,7 @@ gap: 4px;
     font-size: 14px;
     font-weight: 400;
 }
-.or{
+/* .or{
 display: flex;
 margin-top: 12px;
 }
@@ -46,7 +46,7 @@ margin-top: 12px;
     font-weight: 400;
     font-size: 14px;
     margin: 0 20px;
-}
+} */
 .bottomlink{
     margin-top: 12px;
     display: flex;

@@ -12,11 +12,6 @@ const SignUp = () => {
           <p>Створи обліковий запис для вивчення неправильнич дієслів</p>
         </div>
         <RegisterForm />
-        <div className={css.or}>
-          <hr />
-          <p>або</p>
-          <hr />
-        </div>
         <ExtraSignup />
         <div className={css.bottomlink}>
           <p>Вже є кабінет?</p>
