@@ -1,23 +1,53 @@
-.form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    width: 310px;
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 310px;
+}
+.form label {
+  color: var(--second-color-gray);
+  font-weight: 500;
+  font-size: 13px;
+}
+.form div {
+  position: relative;
+}
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: var(--second-color-gray);
+  stroke: var(--second-color-gray);
+  color: var(--second-color-gray);
+  position: absolute;
+  left: 24px;
+  top: 16px;
+}
+.form input {
+  min-width: 310px;
+  min-height: 48px;
+  border-radius: 48px;
+  padding: 12px 17px 12px 49px;
+  border: 1px solid var(--third-color-gray);
 }
 
-.form input{
-    min-width: 310px;
-    border-radius: 8px;
-    padding: 17px 12px;
-    border: 1px solid #E5E7EB;
+.form input::placeholder {
+  color: var(--second-color-gray);
+  font-weight: 400;
+  font-size: 12px;
 }
 
-.form button{
-    width: 310px;
-    height: 48px;
-    border-radius: 8px;
-    outline: none;
-    border: none;
-    cursor: pointer;
+.form button {
+  width: 310px;
+  height: 48px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 48px;
+  padding: 11px 79px;
+  background-color: var(--base-color-blue);
+  color: var(--base-color-yellow);
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 6px;
 }
