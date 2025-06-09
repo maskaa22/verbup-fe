@@ -5,6 +5,7 @@ import SignUp from "./pages/signUp/SignUp";
 import Intro from "./pages/intro/Intro";
 import Dictionary from "./pages/dictionary/Dictionary";
 import SignIn from "./pages/signIn/SignIn";
+import Home from "./pages/home/Home";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Intro />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/home" element={ <Home/> } />
         <Route path="/game" element={<Game />} />
         <Route path="/cup" element={<h1>Cup</h1>} />
         <Route path="/voc" element={<Dictionary />} />

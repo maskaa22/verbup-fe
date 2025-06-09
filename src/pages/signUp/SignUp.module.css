@@ -78,5 +78,8 @@ margin-top: 12px;
     justify-content: center;
     color: var(--base-color-blue);
     font-weight: 400;
-font-size: 14px;
+    font-size: 14px;
+}
+.bottomlink a{
+    text-decoration: underline;
 }
