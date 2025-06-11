@@ -1,11 +1,12 @@
-import s from "./SignIn.module.css";
+import ExtraSignup from "../../components/extraSignup/ExtraSignup";
+import css from "./SignIn.module.css";
 
 
 
 const SignIn = () => {
   
-  return <div className={s.div}>
-   
+  return <div className={css.wrap}>
+<ExtraSignup/>
   </div>;
 };
 

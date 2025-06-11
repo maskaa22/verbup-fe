@@ -10,7 +10,15 @@ const Intro = () => {
     <p>Щоденна практика — твій ключ до справжнього прогресу.</p>
     <img className={css.image} src={cuteAstro} alt="" />
     <p>Що спільного в go, went і gone? VerbUp знає відповідь — і ти скоро теж.</p>
-    <NavLink className={css.link} to="/signup">Почати</NavLink>
+    <NavLink className={css.link} to="/home">Почати</NavLink>
+    <div className={css.signWrap}>
+      <div>
+        <span>Вже є акаунт?</span>
+        <NavLink to="/signin"> Увійти</NavLink>
+      </div>
+      <span>або</span>
+      <NavLink to="/signup">Зареєструватись</NavLink>
+    </div>
   </div>;
 };
 

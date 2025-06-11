@@ -114,3 +114,18 @@ color: #fff;
 padding: 16px 130px;
 margin-top: 48px;
 }
+
+.signWrap{
+    width: 150px;
+    margin: 22px auto 78px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+.signWrap div{
+    display: flex;
+}
+.signWrap a{
+color: var(--base-color-blue);
+}
