@@ -1,5 +1,5 @@
 import VERBS from "../../data/irr-verbs.json";
-import css from "./DickTable.module.css"
+import css from "./DictTable.module.css"
 import clsx from "clsx"
 
 const progress = {

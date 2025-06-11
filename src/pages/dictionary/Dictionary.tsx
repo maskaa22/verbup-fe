@@ -1,4 +1,4 @@
-import DickTable from "../../components/dickTable/DickTable"
+import DickTable from "../../components/dickTable/DictTable"
 import DicSearchBox from "../../components/dicSearchBox/DicSearchBox";
 import Logo from "../../components/logo/Logo";
 import s from "./Dictionary.module.css";
