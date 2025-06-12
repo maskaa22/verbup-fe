@@ -68,6 +68,11 @@
   stroke: var(--third-color-gray);
 }
 
+.navigation ul li a .iconone{
+  fill: var(--third-color-gray);
+  stroke: transparent;
+}
+
 /* .navigation ul li.active a .icon {
   transform: translateY(-16px);
 } */

@@ -11,14 +11,14 @@ const NavBar = () => {
   const location = useLocation().pathname;
 const activeLink = ({ isActive }: { isActive: boolean }) => {
   if(isActive){setNoActive(false)}
-  console.log(isActive);
-  console.log(noActive)
   return clsx(isActive && css.active);
 };
 
   useEffect(() => {
-    console.log(location);
     switch (location) {
+      case "/game":
+        setActiveIndex(0);
+        break;
       case "/cup":
         setActiveIndex(1);
         break;
@@ -50,21 +50,21 @@ const activeLink = ({ isActive }: { isActive: boolean }) => {
           </li>
           <li>
             <NavLink className={activeLink} to="/cup">
-              <svg className={css.icon}>
+              <svg className={clsx(css.icon, css.iconone)}>
                 <use href="./icons.svg#icon-cup"></use>
               </svg>
             </NavLink>
           </li>
           <li>
             <NavLink className={activeLink} to="/voc">
-              <svg className={css.icon}>
+              <svg className={clsx(css.icon, css.iconone)}>
                 <use href="./icons.svg#icon-voc"></use>
               </svg>{" "}
             </NavLink>
           </li>
           <li>
             <NavLink className={activeLink} to="/set">
-              <svg className={css.icon}>
+              <svg className={clsx(css.icon, css.iconone)}>
                 <use href="./icons.svg#icon-set"></use>
               </svg>{" "}
             </NavLink>
