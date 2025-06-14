@@ -3,9 +3,16 @@ import c from "./WordGame.module.css";
 import BaseComponentGame from "../baseComponentGame/BaseComponentGame";
 import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
 
-const WordGame = () => {
-  const [current, setCurrent] = useState(0);
-  const totalQuestions = 10;
+const WordGame = ({
+  setCheckAnswerType,
+  setShowCheckAnswer,
+  current,
+  totalQuestions,
+  setModalActive,
+}) => {
+  const [word, setWord] = useState("");
+  const [activeWord, setActiveWord] = useState(null);
+
   const imgWrite = "/image/game/fly.png";
 
   const btnText = [
@@ -14,8 +21,14 @@ const WordGame = () => {
     { name: "flow" },
     { name: "fly" },
   ];
+
+  const handleWordClick = (wordName) => {
+    setWord(wordName);
+    setActiveWord(wordName);
+  };
+
   return (
-    <div>
+    <div className="container">
       <BaseComponentGame
         current={current}
         totalQuestions={totalQuestions}
@@ -23,12 +36,25 @@ const WordGame = () => {
         question={"Which is the Past simple (V2) of “fly”?"}
       />
 
-      <div className={c.buttonContainer}>
-        {btnText.map((btn) => (
-          <button className={c.btn}>{btn.name}</button>
+      <ul className={c.buttonContainer}>
+        {btnText.map((btn, i) => (
+          <li
+            key={i}
+            className={`${c.btn} ${activeWord === btn.name ? c.activeBtn : ""}`}
+            onClick={() => {
+              handleWordClick(btn.name);
+            }}
+          >
+            {btn.name}
+          </li>
         ))}
-      </div>
-      <BaseButtonGame totalQuestions={totalQuestions} setCurrent={setCurrent}/>
+      </ul>
+      <BaseButtonGame
+        word={word}
+        setShowCheckAnswer={setShowCheckAnswer}
+        setCheckAnswerType={setCheckAnswerType}
+        setModalActive={setModalActive}
+      />
     </div>
   );
 };

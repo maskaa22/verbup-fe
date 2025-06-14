@@ -1,18 +1,30 @@
-import React from "react";
 import s from "./BaseButtonGame.module.css";
 
-const BaseButtonGame = ({totalQuestions, setCurrent}) => {
+const BaseButtonGame = ({
+  word,
+  setCheckAnswerType,
+  setShowCheckAnswer,
+  setModalActive,
+}) => {
+  //логіка перевірки на правильність відповіді
+  const handleCheckAnswer = () => {
+    if (word === "flew") {
+      setCheckAnswerType("success");
+    } else {
+      setCheckAnswerType("error");
+    }
+    setShowCheckAnswer(true);
+    setModalActive(true);
+  };
+
   return (
-    <div className={s.btnContainer}>
-      <button
-        className={s.btn}
-        onClick={() =>
-          setCurrent((prev) => Math.min(prev + 1, totalQuestions - 1))
-        }
-      >
-        Перевірити
-      </button>
-    </div>
+    <>
+      <div className={s.btnContainer}>
+        <button className={s.btn} onClick={handleCheckAnswer}>
+          Перевірити
+        </button>
+      </div>
+    </>
   );
 };
 
