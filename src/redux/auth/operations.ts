@@ -1,6 +1,28 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+import type { RegFormValues } from "../../components/RegisterForm/RegisterForm";
 
-export const register = createAsyncThunk("auth/register", async () => {})
+// axios.defaults.baseURL ="http://localhost:8000/api/v1"
+export const api = axios.create({
+  baseURL: "http://localhost:8000/api/v1",
+});
+
+const handleError = (error: unknown, rejectWithValue: (value: string) => unknown) => {
+  if (error instanceof Error) {
+    return rejectWithValue(error.message);
+  }
+  return rejectWithValue("Something went wrong");
+};
+
+export const register = createAsyncThunk("auth/register", async (credentials: RegFormValues, thunkApi) => {
+    try {
+      const { data } = await api.post("/auth/register", credentials);
+    //   setAuthHeader(data.token);
+      return data;
+    } catch (error: unknown) {
+      return handleError(error, thunkApi.rejectWithValue)
+    }
+})
 
 export const login = createAsyncThunk("auth/login", async () => {})
 
