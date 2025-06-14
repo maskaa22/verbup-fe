@@ -13,11 +13,11 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Intro />} />
+        <Route path="/game" element={<Game />} />
         <Route element={<AuthLayout />}>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/game" element={<Game />} />
           <Route path="/cup" element={<h1>Cup</h1>} />
           <Route path="/voc" element={<Dictionary />} />
           <Route path="/set" element={<h1>Set</h1>} />

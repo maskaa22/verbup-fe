@@ -1,3 +1,3 @@
-.container {
-  padding: 64px 10px 60px 10px;
+.baseContainer {
+  position: relative;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import s from "./BaseComponentGame.module.css";
 import QuestionProgressBar from "../questionProgressBar/QuestionProgressBar";
 import type { baseComponentType } from "../../utils/type";
+import { useNavigate } from "react-router-dom";
 
 const BaseComponentGame: React.FC<baseComponentType> = ({
   current,
@@ -9,10 +10,12 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
   img,
   question,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className={s.topContainer}>
-        <button className={s.close}>
+        <button className={s.close} onClick={() => navigate("/home")}>
           <svg
             width="16"
             height="16"
