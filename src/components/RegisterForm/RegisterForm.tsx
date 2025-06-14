@@ -3,6 +3,7 @@ import s from "./RegistraterForm.module.css";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
 import { register } from "../../redux/auth/operations";
+import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
 
 export interface RegFormValues {
   username: string;  
@@ -51,7 +52,7 @@ const RegisterForm: React.FC = () => {
             <use href="./icons.svg#icon-password"></use>
           </svg>
         </div>
-        <button type="submit">Зарееструватися</button>
+        <BaseButtonStart label="Зарееструватися"/>
       </Form>
     </Formik>
   );
