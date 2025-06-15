@@ -24,11 +24,13 @@
   top: 16px;
 }
 .form input {
-width: 100%;
+  width: 100%;
   min-height: 48px;
   border-radius: 48px;
   padding: 12px 17px 12px 49px;
   border: 1px solid var(--third-color-gray);
+  outline: none;
+  background-color: transparent;
 }
 
 .form input::placeholder {
@@ -36,5 +38,3 @@ width: 100%;
   font-weight: 400;
   font-size: 12px;
 }
-
-
