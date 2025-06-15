@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { login, register } from "./operations";
 
 interface authState {
   user: {
@@ -24,11 +25,21 @@ const initialState: authState = {
     isError: false,
   } 
 
+//username: 'Mich', email: 'mrMitch@gmail.com', password: 'mrMitch@gmail.com'
+
 const authSlice = createSlice({
     name: "auth",
     initialState: initialState,
     reducers: {},
-    // extraReducers: {},
+    extraReducers: (builder) => {
+      builder.addCase(register.fulfilled, (state, action) => {
+        state.token = action.payload.accessToken
+        state.isLoggedIn = true;
+      }).addCase(login.fulfilled, (state, action) => {
+        state.token = action.payload.accessToken
+        state.isLoggedIn = true;
+      })
+    },
 
 })
 

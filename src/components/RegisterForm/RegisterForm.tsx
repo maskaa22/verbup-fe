@@ -1,32 +1,35 @@
 import { Field, Form, Formik, type FormikHelpers } from "formik";
 import s from "./RegistraterForm.module.css";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "../../redux/store";
+import { register } from "../../redux/auth/operations";
+import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
 
 export interface RegFormValues {
+  username: string;  
   email: string;
-  name: string;
   password: string;
 }
 
 const RegisterForm: React.FC = () => {
-  //   const dispatch = useDispatch<AppDispatch>();
+    const dispatch = useDispatch<AppDispatch>();
   const handleSubmit = (
     values: RegFormValues,
     actions: FormikHelpers<RegFormValues>
   ): void => {
-    console.log(values);
-    // dispatch(register(values));
+    dispatch(register(values));
     actions.resetForm();
   };
 
   return (
     <Formik
-      initialValues={{ name: "", email: "", password: "" }}
+      initialValues={{ username: "", email: "", password: "" }}
       onSubmit={handleSubmit}
     >
       <Form className={s.form}>
         <label htmlFor="name">Ім'я</label>
         <div>
-          <Field type="text" name="name" placeholder="Введіть ваше ім'я" />
+          <Field type="text" name="username" placeholder="Введіть ваше ім'я" />
           <svg className={s.icon}>
             <use href="./icons.svg#icon-user"></use>
           </svg>
@@ -49,7 +52,7 @@ const RegisterForm: React.FC = () => {
             <use href="./icons.svg#icon-password"></use>
           </svg>
         </div>
-        <button type="submit">Зарееструватися</button>
+        <BaseButtonStart label="Зарееструватися"/>
       </Form>
     </Formik>
   );

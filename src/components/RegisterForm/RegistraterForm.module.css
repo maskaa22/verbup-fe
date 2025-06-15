@@ -24,30 +24,17 @@
   top: 16px;
 }
 .form input {
-width: 100%;
+  width: 100%;
   min-height: 48px;
   border-radius: 48px;
   padding: 12px 17px 12px 49px;
   border: 1px solid var(--third-color-gray);
+  outline: none;
+  background-color: transparent;
 }
 
 .form input::placeholder {
   color: var(--second-color-gray);
   font-weight: 400;
   font-size: 12px;
-}
-
-.form button {
-  width: 310px;
-  height: 48px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  border-radius: 48px;
-  padding: 11px 79px;
-  background-color: var(--base-color-blue);
-  color: var(--base-color-yellow);
-  font-weight: 500;
-  font-size: 20px;
-  margin-top: 6px;
 }

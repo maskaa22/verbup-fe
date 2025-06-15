@@ -34,7 +34,7 @@ const progress = {
             },
             {
                 "id": 9,
-                "status": "mistake",
+                "status": "studied",
                 "createdAt": "2025-06-08T14:07:46.330Z",
                 "updatedAt": "2025-06-08T14:07:46.330Z",
                 "word": {
