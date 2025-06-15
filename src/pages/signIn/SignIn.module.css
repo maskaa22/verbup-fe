@@ -1,3 +1,10 @@
 .wrap{
     position: relative;
 }
+
+.wrap h2{
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--base-color-blue)
+}
+

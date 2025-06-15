@@ -3,6 +3,7 @@ import css from "./SigninForm.module.css";
 // import { useDispatch } from "react-redux";
 // import { logIn } from "../../redux/auth/operations";
 // import { AppDispatch } from "../../redux/store";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
 
@@ -23,14 +24,15 @@ const [visible, setVisible] = useState(false)
     <Formik initialValues={{ email: "", password: "" }} onSubmit={handleSubmit}>
       <Form className={css.form}>
         <div className={css.inputwrap}>
-        <Field type="email" name="email" className={css.input} placeholder=" " autoComplete="off" />
-        <label htmlFor="email" className={css.label}>Email</label>
+        <Field type="email" name="email" className={css.input} placeholder="E-mail" autoComplete="off" />
+        {/* <label htmlFor="email" className={css.label}>Email</label> */}
         </div>
         <div className={css.inputwrap}>
-        <Field type={visible ? "text" : "password"} name="password" className={css.input} placeholder=" " autoComplete="off"/>
-        <label htmlFor="password" className={css.label}>Password</label>
-        <span className={css.eye} onClick={() => setVisible(!visible)} >{visible ? "show" : "hide"}</span>
+        <Field type={visible ? "text" : "password"} name="password" className={css.input} placeholder="Password" autoComplete="off"/>
+        {/* <label htmlFor="password" className={css.label}>Password</label> */}
+        <span className={css.eye} onClick={() => setVisible(!visible)} >{visible ? "hide" : "show"}</span>
         </div>
+        <Link className={css.forgotPassword} to="/">Забули пароль?</Link>
         <BaseButtonStart label="Увійти"/>
       </Form>
     </Formik>

@@ -1,5 +1,5 @@
 .button {
-  width: 310px;
+  width: 100%;
   height: 48px;
   outline: none;
   border: none;
@@ -10,5 +10,4 @@
   color: var(--base-color-yellow);
   font-weight: 500;
   font-size: 20px;
-  margin-top: 6px;
 }
