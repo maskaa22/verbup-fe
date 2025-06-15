@@ -19,7 +19,9 @@ function App() {
           <Route path="/signup" element={ <RestrictedRoute 
               component={<SignUp />} 
               redirectTo="/home" /> } />
-          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signin" element={<RestrictedRoute 
+              component={<SignIn />} 
+              redirectTo="/home" />} />
           <Route path="/home" element={<Home />} />
           <Route path="/cup" element={<h1>Cup</h1>} />
           <Route path="/voc" element={<Dictionary />} />

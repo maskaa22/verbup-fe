@@ -1,8 +1,8 @@
 import { Formik, Form, Field, type FormikHelpers } from "formik";
 import css from "./SigninForm.module.css";
-// import { useDispatch } from "react-redux";
-// import { logIn } from "../../redux/auth/operations";
-// import { AppDispatch } from "../../redux/store";
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/auth/operations";
+import type { AppDispatch } from "../../redux/store";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
@@ -15,9 +15,9 @@ password: string,
 const SigninForm = () => {
 const [visible, setVisible] = useState(false)
 
-//   const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch<AppDispatch>();
   const handleSubmit = (values: LogFormValues, actions: FormikHelpers<LogFormValues>): void => {
-    // dispatch(logIn(values));
+    dispatch(login(values));
     actions.resetForm();
   };
   return (
