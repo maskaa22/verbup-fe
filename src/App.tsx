@@ -8,8 +8,15 @@ import SignIn from "./pages/signIn/SignIn";
 import Home from "./pages/home/Home";
 import AuthLayout from "./components/authLayout/AuthLayout";
 import RestrictedRoute from "./components/RestrictedRoute";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { refreshUser } from "./redux/auth/operations";
+import type { AppDispatch } from "./redux/store";
 
 function App() {
+  const dispatch = useDispatch<AppDispatch>()
+
+  useEffect(()=>{dispatch(refreshUser())}, [dispatch])
   return (
     <>
       <Routes>

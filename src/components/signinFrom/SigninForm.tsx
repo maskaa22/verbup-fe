@@ -40,3 +40,13 @@ const [visible, setVisible] = useState(false)
 }
 
 export default SigninForm;
+
+//{"username": "Fine",
+//     "email": "missFine@gmail.com",
+//     "password": "missFine@gmail.com"
+// }
+
+// {
+//     "message": "Registration successful",
+//     "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE1LCJpYXQiOjE3NTAyMjc3NDYsImV4cCI6MTc1MDIyODY0Nn0.SmKvlxlAhey1E6WnnRt_2-p5__i2p7SSN_HQDWrLfqI"
+// }
