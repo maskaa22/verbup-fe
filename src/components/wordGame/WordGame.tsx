@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import c from "./WordGame.module.css";
 import BaseComponentGame from "../baseComponentGame/BaseComponentGame";
 import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
+import type { allGameType } from "../../utils/gameType";
 
-const WordGame = ({
-  setCheckAnswerType,
-  setShowCheckAnswer,
-  current,
-  totalQuestions,
-  setModalActive,
-}) => {
+const WordGame = () => {
+  const { setCheckAnswerType, setShowCheckAnswer, current, setModalActive } =
+    useOutletContext<allGameType>();
+
   const [word, setWord] = useState("");
-  const [activeWord, setActiveWord] = useState(null);
+  const [activeWord, setActiveWord] = useState<string | null>(null);
 
   const imgWrite = "/image/game/fly.png";
 
@@ -22,7 +21,7 @@ const WordGame = ({
     { name: "fly" },
   ];
 
-  const handleWordClick = (wordName) => {
+  const handleWordClick = (wordName : string) => {
     setWord(wordName);
     setActiveWord(wordName);
   };
@@ -31,7 +30,6 @@ const WordGame = ({
     <div className="container">
       <BaseComponentGame
         current={current}
-        totalQuestions={totalQuestions}
         img={imgWrite}
         question={"Which is the Past simple (V2) of “fly”?"}
       />

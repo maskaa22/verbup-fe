@@ -1,3 +1,4 @@
+import type { baseButtonType } from "../../utils/gameType";
 import s from "./BaseButtonGame.module.css";
 
 const BaseButtonGame = ({
@@ -5,7 +6,7 @@ const BaseButtonGame = ({
   setCheckAnswerType,
   setShowCheckAnswer,
   setModalActive,
-}) => {
+}: baseButtonType) => {
   //логіка перевірки на правильність відповіді
   const handleCheckAnswer = () => {
     if (word === "flew") {

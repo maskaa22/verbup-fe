@@ -8,20 +8,32 @@ import SignIn from "./pages/signIn/SignIn";
 import Home from "./pages/home/Home";
 import AuthLayout from "./components/authLayout/AuthLayout";
 import RestrictedRoute from "./components/RestrictedRoute";
+import WordGame from "./components/wordGame/WordGame";
+import WriteGame from "./components/writeGame/WriteGame";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Intro />} />
-        <Route path="/game" element={<Game />} />
+        <Route path="/game" element={<Game />}>
+          <Route path="write-word" element={<WriteGame />} />
+          <Route path="check-word" element={<WordGame />} />
+        </Route>
+
         <Route element={<AuthLayout />}>
-          <Route path="/signup" element={ <RestrictedRoute 
-              component={<SignUp />} 
-              redirectTo="/home" /> } />
-          <Route path="/signin" element={<RestrictedRoute 
-              component={<SignIn />} 
-              redirectTo="/home" />} />
+          <Route
+            path="/signup"
+            element={
+              <RestrictedRoute component={<SignUp />} redirectTo="/home" />
+            }
+          />
+          <Route
+            path="/signin"
+            element={
+              <RestrictedRoute component={<SignIn />} redirectTo="/home" />
+            }
+          />
           <Route path="/home" element={<Home />} />
           <Route path="/cup" element={<h1>Cup</h1>} />
           <Route path="/voc" element={<Dictionary />} />
