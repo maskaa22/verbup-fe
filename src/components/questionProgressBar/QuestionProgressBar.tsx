@@ -1,5 +1,5 @@
-import React from 'react';
-import './QuestionProgressBar.css';
+import React from "react";
+import "./QuestionProgressBar.css";
 
 type Props = {
   total: number;
@@ -8,9 +8,9 @@ type Props = {
 
 const QuestionProgressBar: React.FC<Props> = ({ total, currentIndex }) => {
   const bars = Array.from({ length: total }, (_, index) => {
-    if (index < currentIndex) return 'passed';
-    if (index === currentIndex) return 'current';
-    return 'pending';
+    if (index < currentIndex) return "passed";
+    if (index === currentIndex) return "current";
+    return "pending";
   });
 
   return (

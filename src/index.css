@@ -53,7 +53,7 @@ img {
 
 @font-face {
   font-family: 'ElMessiri';
-  src: url('./fonts/ElMessiri-VariableFont_wght.ttf') format('truetype');
+  src: url('./font/ElMessiri-VariableFont_wght.ttf') format('truetype');
   font-weight: 100 900;
   font-display: swap;
 }
