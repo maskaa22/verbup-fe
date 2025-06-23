@@ -12,9 +12,11 @@ const Game = () => {
 
   const [modalActive, setModalActive] = useState(false);
 
+  const [questions, setQuestions] = useState([]);
+
   return (
     <div className={s.baseContainer}>
-      <GameOptions />
+      <GameOptions setQuestions={setQuestions} />
 
       <Outlet
         context={{
@@ -26,6 +28,7 @@ const Game = () => {
           setShowCheckAnswer,
           modalActive,
           setModalActive,
+          questions,
         }}
       />
 
