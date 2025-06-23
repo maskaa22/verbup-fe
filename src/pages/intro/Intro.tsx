@@ -7,9 +7,9 @@ const Intro = () => {
     <div className={css.headlineWrap}>
       <h1 className={css.headline}>let's <span>verb</span> <span>up</span> <span className={css.droopyHL}>up</span> </h1>
     </div>
-    <p>Щоденна практика — твій ключ до справжнього прогресу.</p>
+    <p>Щоденна практика — твій ключ до <span> справжнього прогресу.</span></p>
     <img className={css.image} src={cuteAstro} alt="" />
-    <p>Що спільного в go, went і gone? VerbUp знає відповідь — і ти скоро теж.</p>
+    <p>Що спільного в go, went і gone? <span> VerbUp знає відповідь — і ти скоро теж. </span></p>
     <NavLink className={css.link} to="/home">Почати</NavLink>
     <div className={css.signWrap}>
       <div>

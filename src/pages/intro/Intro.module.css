@@ -21,53 +21,58 @@
 font-size: 48px;
 text-transform: capitalize;
 background-color: #fff;
+line-height: 1;
 }
 .headline span:nth-child(1){
     color: #5E909E;
+
 }
 .headline span:nth-child(2){
     color: #edb35c;
     font-size: 64px;
     position: absolute;
+    top: 20px;
     background-color: #fff;
     border-radius: 50%;
-    padding: 10px 15px;
+    padding-bottom: 6px;
+    margin-left: 13px;
 }
 .headline span:nth-child(2):before{
     content: "";
     width: 20px;
-    height: 20px;
+    height: 22px;
     background-color: transparent;
     position: absolute;
-    bottom: 12px;
-    left: -12px;
+    bottom: 4px;
+    left: -14px;
     border-top-right-radius: 50px;
     box-shadow: 4px -4px 0 0 #fff;
-    transform: rotate(-22deg);
+    transform: rotate(-26deg);
 }
 .headline span:nth-child(2):after{
     content: "";
     width: 20px;
-    height: 20px;
+    height: 22px;
     background-color: transparent;
     position: absolute;
-    bottom: 12px;
-    right: -12px;
+    bottom: 4px;
+    right: -14px;
     border-top-left-radius: 50px;
     box-shadow: -4px -4px 0 0 #fff;
-    transform: rotate(22deg);
+    transform: rotate(26deg);
 }
 .droopyHL{
     color: transparent;
     font-size: 64px;
     position: absolute;
+    top: 20px;
     background-color: transparent;
     box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.25);
     border-radius: 50%;
-    padding: 10px 15px;
+    margin-left: 13px;
+padding-bottom: 6px;
     z-index: -1;
 }
-
 
 .droopyHL:before{
     content: "";
@@ -95,8 +100,11 @@ background-color: #fff;
 }
 
 .intro p{
-    width: 270px;
     text-align: center;
+    line-height: 1;
+}
+.intro p span{
+    display: inline-block;
 }
 
 .intro img{
@@ -106,12 +114,15 @@ background-color: #fff;
 
 .link{
 border-radius: 48px;
-width: 327px;
+width: 333px;
 height: 48px;
+line-height: 48px;
+text-align: center;
+font-size: 20px;
 box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
 background: #5e909e;
 color: #fff;
-padding: 16px 130px;
+/* padding: 16px 130px; */
 margin-top: 48px;
 }
 
@@ -125,6 +136,9 @@ margin-top: 48px;
 }
 .signWrap div{
     display: flex;
+}
+.signWrap div span {
+    margin-right: 4px;
 }
 .signWrap a{
 color: var(--base-color-blue);
