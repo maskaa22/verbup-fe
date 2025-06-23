@@ -1,13 +1,14 @@
-import React from "react";
+import { useCountWord } from "../../hooks/gameHooks";
+import type { checkAnswerType } from "../../utils/gameType";
 import c from "./CheckAnswer.module.css";
 
 const CheckAnswer = ({
   type,
   setCurrent,
-  totalQuestions,
   active,
   setActive,
-}) => {
+}: checkAnswerType) => {
+  const count = useCountWord();
   return (
     <div
       className={active ? `${c.modal} ${c.active}` : `${c.modal}`}
@@ -41,7 +42,7 @@ const CheckAnswer = ({
             //має відкритися наступне питання
 
             //реалізований прогрес верхній питань
-            setCurrent((prev) => Math.min(prev + 1, totalQuestions - 1));
+            setCurrent((prev) => Math.min(prev + 1, count - 1));
 
             //закриття модального вікна
             setActive(false);
