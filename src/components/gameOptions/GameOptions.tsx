@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import s from "./GameOptions.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
+import { generateQuestionsList } from "../../utils/game/generateQuestionsList";
 
-const GameOptions = () => {
+const GameOptions = ({ setQuestions }) => {
   const [gameType, setGameType] = useState("");
   const [wordCount, setWordCount] = useState("");
 
@@ -16,6 +17,29 @@ const GameOptions = () => {
       navigate(`/game/${gameType}?count=${wordCount}`);
     }
   };
+
+  const level = "easy";
+  const count = Number(wordCount);
+  useEffect(() => {
+    const createQuestions = async () => {
+      try {
+        const res = await fetch("/data/irr-verbs.filtered.json");
+        const fetchQuestions = await res.json();
+        if (level === "easy" && count > 0) {
+          const selectedQuestions = generateQuestionsList(
+            fetchQuestions.easy,
+            count
+          );
+          setQuestions(selectedQuestions);
+        }
+      } catch (error) {
+        console.error("Помилка завантаження JSON:", error);
+      }
+    };
+
+    createQuestions();
+  }, [count, setQuestions]);
+
   return (
     <>
       {!hideSelect && (

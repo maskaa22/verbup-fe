@@ -1,58 +1,17 @@
-import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import c from "./WordGame.module.css";
-import BaseComponentGame from "../baseComponentGame/BaseComponentGame";
-import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
-import type { allGameType } from "../../utils/gameType";
+
+import CardGame from "../cardGame/CardGame";
 
 const WordGame = () => {
-  const { setCheckAnswerType, setShowCheckAnswer, current, setModalActive } =
-    useOutletContext<allGameType>();
+  const { questions, current } = useOutletContext();
 
-  const [word, setWord] = useState("");
-  const [activeWord, setActiveWord] = useState<string | null>(null);
-
-  const imgWrite = "/image/game/fly.png";
-
-  const btnText = [
-    { name: "flown" },
-    { name: "flew" },
-    { name: "flow" },
-    { name: "fly" },
-  ];
-
-  const handleWordClick = (wordName : string) => {
-    setWord(wordName);
-    setActiveWord(wordName);
-  };
+  const question = questions[current];
+  if (!question) return <p>Loading...</p>; // або "Кінець гри", якщо current >= questions.length
 
   return (
     <div className="container">
-      <BaseComponentGame
-        current={current}
-        img={imgWrite}
-        question={"Which is the Past simple (V2) of “fly”?"}
-      />
-
-      <ul className={c.buttonContainer}>
-        {btnText.map((btn, i) => (
-          <li
-            key={i}
-            className={`${c.btn} ${activeWord === btn.name ? c.activeBtn : ""}`}
-            onClick={() => {
-              handleWordClick(btn.name);
-            }}
-          >
-            {btn.name}
-          </li>
-        ))}
-      </ul>
-      <BaseButtonGame
-        word={word}
-        setShowCheckAnswer={setShowCheckAnswer}
-        setCheckAnswerType={setCheckAnswerType}
-        setModalActive={setModalActive}
-      />
+      <CardGame question={question} />
     </div>
   );
 };
