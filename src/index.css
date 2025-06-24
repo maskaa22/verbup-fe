@@ -16,8 +16,21 @@
   --font-color-dark: #3b3c3d;
   --fourth-color-gray: #9eaec5;
 }
-body {
+::-webkit-scrollbar{
+  width: 2px;
+}
+::-webkit-scrollbar-track{
+  background: var(--second-color-gray);
+}
+
+::-webkit-scrollbar-thumb{
+  background: var(--base-color-blue);
+  height: 46px;
+}
+html, body {
   margin: 0;
+   height: 100%;
+  overflow: auto;
   font-family: var(--font-family-messiri);
 }
 h1,
@@ -59,6 +72,7 @@ img {
 }
 .container {
   width: 375px;
+  max-height: 100vh;
   padding: 0 16px;
   margin: 0 auto;
 }

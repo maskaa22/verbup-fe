@@ -71,6 +71,7 @@ interface myVerbs {
 }
 const DickTable = () => {
     const [myVerbs, setMyVerbs] = useState<myVerbs | null>(null);
+
     useEffect(() => {
    const fetchData = async () => {
       try {
@@ -88,7 +89,7 @@ if(!myVerbs){
     return "couldn't fetch the verbs";
 }
     const verbs =  myVerbs.easy;
-return <div>
+return <div className={css.wrap}>
     <ul className={css.table}>
 
     {verbs.map((verb, idx) => (

@@ -1,8 +1,16 @@
+.wrap{
+   overflow-y: auto; 
+   height: 484px;
+   padding-top: 10px;
+   padding-left: 8px;
+}
 .table{
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    /* scrollbar-color: var(--base-color-blue) #fff;
+  scrollbar-width: thin; */
 }
 
 
