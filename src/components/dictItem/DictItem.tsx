@@ -1,8 +1,8 @@
-import { useState } from "react";
+// import { useState } from "react";
 import css from "./DictItem.module.css";
 import { Accordion, AccordionItem } from "@szhsin/react-accordion";
 
-import clsx from "clsx";
+// import clsx from "clsx";
 
 interface Props {
   word: {
@@ -16,24 +16,21 @@ interface Props {
 const DictItem: React.FC<Props> = ({
   word: { base_form, past_simple, past_participle, uk },
 }) => {
-  const [hideForms, setHideForms] = useState(true);
-  const handleShowForms = () => {
-    setHideForms(!hideForms);
-  };
+//   const [hideForms, setHideForms] = useState(true);
+//   const handleShowForms = () => {
+//     setHideForms(!hideForms);
+//   };
   return (
-    <Accordion>
-      <AccordionItem
+    <Accordion className={css.wordWrap}>
+      <AccordionItem style={{width: "100%"}}
         header={({ state: { isEnter } }) => (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
+          <div className={css.bsWrap}>
+            <div className={css.dotWrap}>
+            <span ></span>
             <div className={css.baseForm}>
               <p>{base_form}</p>
               <p>{uk}</p>
+            </div>
             </div>
             <svg
               className={css.arrow}
@@ -46,6 +43,7 @@ const DictItem: React.FC<Props> = ({
             </svg>
           </div>
         )}
+        buttonProps={{ className: css.customButton }}
       >
         <div className={css.irrForm}>
           <p>{past_simple}</p>

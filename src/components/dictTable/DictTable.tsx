@@ -1,62 +1,93 @@
-import VERBS from "../../../public/data/irr-verbs.filtered.json";
+import { useEffect, useState } from "react";
+// import VERBS from "../../../public/data/irr-verbs.filtered.json";
 import DictItem from "../dictItem/DictItem";
 
 import css from "./DictTable.module.css"
-import clsx from "clsx"
+// import clsx from "clsx"
 
-const progress = {
-    "data": {
-        "progressPs": [
-            {
-                "id": 1,
-                "status": "studied",
-                "createdAt": "2025-06-03T13:31:36.705Z",
-                "updatedAt": "2025-06-03T13:31:36.705Z",
-                "word": {
-                    "basic": "go"
-                }
-            },
-            {
-                "id": 2,
-                "status": "studied",
-                "createdAt": "2025-06-03T13:31:36.705Z",
-                "updatedAt": "2025-06-03T13:31:36.705Z",
-                "word": {
-                    "basic": "do"
-                }
-            },
-            {
-                "id": 7,
-                "status": "mistake",
-                "createdAt": "2025-06-08T14:07:46.330Z",
-                "updatedAt": "2025-06-08T14:07:46.330Z",
-                "word": {
-                    "basic": "eat"
-                }
-            },
-            {
-                "id": 9,
-                "status": "studied",
-                "createdAt": "2025-06-08T14:07:46.330Z",
-                "updatedAt": "2025-06-08T14:07:46.330Z",
-                "word": {
-                    "basic": "become"
-                }
-            }
-        ],
-        "progressPp": []
-    }
+// const progress = {
+//     "data": {
+//         "progressPs": [
+//             {
+//                 "id": 1,
+//                 "status": "studied",
+//                 "createdAt": "2025-06-03T13:31:36.705Z",
+//                 "updatedAt": "2025-06-03T13:31:36.705Z",
+//                 "word": {
+//                     "basic": "go"
+//                 }
+//             },
+//             {
+//                 "id": 2,
+//                 "status": "studied",
+//                 "createdAt": "2025-06-03T13:31:36.705Z",
+//                 "updatedAt": "2025-06-03T13:31:36.705Z",
+//                 "word": {
+//                     "basic": "do"
+//                 }
+//             },
+//             {
+//                 "id": 7,
+//                 "status": "mistake",
+//                 "createdAt": "2025-06-08T14:07:46.330Z",
+//                 "updatedAt": "2025-06-08T14:07:46.330Z",
+//                 "word": {
+//                     "basic": "eat"
+//                 }
+//             },
+//             {
+//                 "id": 9,
+//                 "status": "studied",
+//                 "createdAt": "2025-06-08T14:07:46.330Z",
+//                 "updatedAt": "2025-06-08T14:07:46.330Z",
+//                 "word": {
+//                     "basic": "become"
+//                 }
+//             }
+//         ],
+//         "progressPp": []
+//     }
+// }
+// const psmistakes = progress.data.progressPs.filter(el => el.status === "mistake").map(el => el.word.basic)
+// const psstudied = progress.data.progressPs.filter(el => el.status === "studied").map(el => el.word.basic)
+
+// const highlightClass = (item: string, mistake: string[], studied: string[]) => {
+
+// return clsx(`${mistake.includes(item) ? css.red : studied.includes(item) ? css.green : css.base}`)
+// }
+
+interface Verb {
+    base_form: string,
+      past_simple: string,
+      past_participle: string,
+      uk: string,
+      fake: string
 }
-const psmistakes = progress.data.progressPs.filter(el => el.status === "mistake").map(el => el.word.basic)
-const psstudied = progress.data.progressPs.filter(el => el.status === "studied").map(el => el.word.basic)
-// console.log(psstudied)
-const highlightClass = (item: string, mistake: string[], studied: string[]) => {
-  // console.log(item);
-  // console.log(highlights.includes(item))
-return clsx(`${mistake.includes(item) ? css.red : studied.includes(item) ? css.green : css.base}`)
+
+interface myVerbs {
+    easy: Verb[],
+    medium: Verb[],
+    hard: Verb[]
 }
 const DickTable = () => {
-    const verbs = VERBS.easy;
+    const [myVerbs, setMyVerbs] = useState<myVerbs | null>(null);
+    useEffect(() => {
+   const fetchData = async () => {
+      try {
+        const response = await fetch('/data/irr-verbs.filtered.json');
+        const data = await response.json();
+        setMyVerbs(data);
+      } catch (error) {
+        console.error("Error loading JSON:", error);
+      }
+    };
+
+    fetchData();
+}, []);
+if(!myVerbs){
+    return "couldn't fetch the verbs";
+}
+    const verbs =  myVerbs.easy;
 return <div>
     <ul className={css.table}>
 

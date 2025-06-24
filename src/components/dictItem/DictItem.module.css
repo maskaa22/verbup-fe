@@ -1,4 +1,4 @@
-.szh-accordion {
+.wordWrap {
   border-radius: 20px;
   padding: 4px 28px;
   width: 315px;
@@ -13,17 +13,62 @@
     rgba(94, 144, 158, 0.5) 100%
   );
 }
+.customButton{
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    padding: 0;
+}
+.bsWrap{
 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
 .baseForm{
-
+    font-family: var(--font-family-messiri);
+    text-align: start;
 }
-
-.hidden {
-  display: none;
+.baseForm p:nth-child(1){
+font-weight: 400;
+font-size: 14px;
 }
-
-.baseFrom::before, .irrForm p::before {
+.baseForm p:nth-child(2){
+font-weight: 400;
+font-size: 12px;
+color: var(--third-color-gray)
+}
+.dotWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.dotWrap span{
   display: inline-block;
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: green;
+}
+.irrForm p{
+    font-weight: 400;
+font-size: 14px;
+}
+.irrForm p::before {
+  display: inline-block;
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: green;
+  margin-right: 20px;
+}
+
+.baseFrom::before{
+      display: inline-block;
   content: "";
   width: 6px;
   height: 6px;
@@ -33,4 +78,5 @@
 .arrow{
     width: 32px;
     height: 16px;
+    fill: var(--base-color-blue)
 }
