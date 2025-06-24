@@ -9,6 +9,7 @@ export type baseButtonType = {
   setCheckAnswerType: React.Dispatch<React.SetStateAction<string>>;
   setShowCheckAnswer: React.Dispatch<React.SetStateAction<boolean>>;
   setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+  correctAnswer: string
 };
 
 export type allGameType = {

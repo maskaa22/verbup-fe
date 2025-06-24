@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import c from "./CardGame.module.css";
 import BaseComponentGame from "../baseComponentGame/BaseComponentGame";
 import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
@@ -18,6 +18,11 @@ const CardGame = ({ question }) => {
     setWord(wordName);
     setActiveWord(wordName);
   };
+
+  useEffect(() => {
+    setWord("");
+    setActiveWord(null);
+  }, [current]);
 
   return (
     <>
@@ -45,6 +50,7 @@ const CardGame = ({ question }) => {
         setShowCheckAnswer={setShowCheckAnswer}
         setCheckAnswerType={setCheckAnswerType}
         setModalActive={setModalActive}
+        correctAnswer={question.correctAnswer}
       />
     </>
   );
