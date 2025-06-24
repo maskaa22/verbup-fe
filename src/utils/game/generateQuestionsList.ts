@@ -1,11 +1,5 @@
+import type { Verb } from "../gameType";
 import { generateQuestion } from "./generateQuestion";
-
-type Verb = {
-  base_form: string;
-  past_simple: string;
-  past_participle: string;
-  fake: string;
-};
 
 export const generateQuestionsList = (
   verbsArray: Verb[],

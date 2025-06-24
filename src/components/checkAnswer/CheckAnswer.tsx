@@ -9,7 +9,7 @@ const CheckAnswer = ({
   active,
   setActive,
 }: checkAnswerType) => {
-  const count = useCountWord();
+  // const count = useCountWord();
 
   return (
     <div

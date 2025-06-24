@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import s from "./GameOptions.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { generateQuestionsList } from "../../utils/game/generateQuestionsList";
+import type { gameOptions } from "../../utils/gameType";
 
-const GameOptions = ({ setQuestions }) => {
+const GameOptions = ({ setQuestions }: gameOptions) => {
   const [gameType, setGameType] = useState("");
   const [wordCount, setWordCount] = useState("");
 
