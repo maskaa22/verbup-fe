@@ -1,17 +1,25 @@
-import { useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import c from "./WordGame.module.css";
 
 import CardGame from "../cardGame/CardGame";
+import { useEffect, useState } from "react";
 
 const WordGame = () => {
   const { questions, current } = useOutletContext();
 
   const question = questions[current];
-  if (!question) return <p>Loading...</p>; // або "Кінець гри", якщо current >= questions.length
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (questions.length > 0 && current >= questions.length) {
+      navigate("/game/result");
+    }
+  }, [current, questions, navigate]);
 
   return (
     <div className="container">
-      <CardGame question={question} />
+      {question && <CardGame question={question} />}
     </div>
   );
 };

@@ -10,6 +10,7 @@ import AuthLayout from "./components/authLayout/AuthLayout";
 import RestrictedRoute from "./components/RestrictedRoute";
 import WordGame from "./components/wordGame/WordGame";
 import WriteGame from "./components/writeGame/WriteGame";
+import ResultGame from "./pages/resultGame/ResultGame";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/game" element={<Game />}>
           <Route path="write-word" element={<WriteGame />} />
           <Route path="check-word" element={<WordGame />} />
+          <Route path="result" element={<ResultGame />} />
         </Route>
 
         <Route element={<AuthLayout />}>
