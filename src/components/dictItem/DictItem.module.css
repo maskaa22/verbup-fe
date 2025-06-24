@@ -1,0 +1,36 @@
+.szh-accordion {
+  border-radius: 20px;
+  padding: 4px 28px;
+  width: 315px;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  backdrop-filter: blur(40px);
+  box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    180deg,
+    rgba(232, 232, 232, 0.5) 0%,
+    rgba(94, 144, 158, 0.5) 100%
+  );
+}
+
+.baseForm{
+
+}
+
+.hidden {
+  display: none;
+}
+
+.baseFrom::before, .irrForm p::before {
+  display: inline-block;
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: green;
+}
+.arrow{
+    width: 32px;
+    height: 16px;
+}

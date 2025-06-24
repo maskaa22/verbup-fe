@@ -1,4 +1,6 @@
-import VERBS from "../../data/irr-verbs.json";
+import VERBS from "../../../public/data/irr-verbs.filtered.json";
+import DictItem from "../dictItem/DictItem";
+
 import css from "./DictTable.module.css"
 import clsx from "clsx"
 
@@ -56,18 +58,14 @@ return clsx(`${mistake.includes(item) ? css.red : studied.includes(item) ? css.g
 const DickTable = () => {
     const verbs = VERBS.easy;
 return <div>
-    <table className={css.table}>
-  <tbody>
+    <ul className={css.table}>
+
     {verbs.map((verb, idx) => (
-      <tr key={idx}>
-        <td><svg className={css.icon}><use href="./icons.svg#icon-voc"></use></svg></td>
-        <td>{verb.base_form}</td>
-        <td className={highlightClass(verb.base_form, psmistakes, psstudied)}>{verb.past_simple}</td>
-        <td>{verb.past_participle}</td>
-      </tr>
+        <li key={idx}>
+     <DictItem word={verb}/>
+      </li>
     ))}
-  </tbody>
-</table>
+</ul>
 </div>
 };
 export default DickTable;
