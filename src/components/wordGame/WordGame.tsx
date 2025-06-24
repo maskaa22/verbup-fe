@@ -2,10 +2,11 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import c from "./WordGame.module.css";
 
 import CardGame from "../cardGame/CardGame";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import type { currentAnswerAndQuestions } from "../../utils/gameType";
 
 const WordGame = () => {
-  const { questions, current } = useOutletContext();
+  const { questions, current } = useOutletContext<currentAnswerAndQuestions>();
 
   const question = questions[current];
 

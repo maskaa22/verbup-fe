@@ -1,9 +1,11 @@
-export const questionTemplates = {
+import type { QuestionTemplates } from "../gameType";
+
+export const questionTemplates: QuestionTemplates = {
   v2: [
     (verb) => `Which is the Past Simple (V2) of “${verb.base_form}”?`,
     (verb) => `Choose the correct past form of “${verb.base_form}”.`,
     (verb) => `What is the V2 form of “${verb.base_form}”?`,
-    (verb) => `Select the simple past form:`,
+    () => `Select the simple past form:`,
     (verb) => `Find the correct V2: “${verb.base_form}”`,
     (verb) => `${verb.base_form} → ... → ${verb.past_participle}`,
     (verb) => `The Past Simple of  “${verb.base_form}” is`,
@@ -16,7 +18,7 @@ export const questionTemplates = {
     (verb) => `Choose the third form of “${verb.base_form}”.`,
     (verb) => `${verb.base_form} → ${verb.past_participle} → ...`,
     (verb) => `What is the V3 form of “${verb.base_form}”?`,
-    (verb) => `Select the participle past form:`,
+    () => `Select the participle past form:`,
     (verb) => `Find the correct V3: “${verb.base_form}”`,
     (verb) => `The Past Participle of  “${verb.base_form}” is`,
     (verb) =>

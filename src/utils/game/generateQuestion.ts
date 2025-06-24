@@ -1,22 +1,5 @@
+import type { Question, Verb } from "../gameType";
 import { questionTemplates } from "./questionTemplates";
-
-type Verb = {
-  base_form: string;
-  past_simple: string;
-  past_participle: string;
-  fake: string;
-};
-
-type Question = {
-  question: string;
-  correctAnswer: string;
-  variants: {
-    first: string;
-    second: string;
-    third: string;
-    fourth: string;
-  };
-};
 
 export const generateQuestion = (
   verb: Verb,
