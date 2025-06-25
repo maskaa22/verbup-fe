@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchWords } from "../../redux/dict/operations";
 import type { AppDispatch } from "../../redux/store";
+// import CuteAstronautWithLaptop from 
 
 const Dictionary = () => {
   const dispatch = useDispatch<AppDispatch>()
