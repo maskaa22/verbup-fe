@@ -5,8 +5,10 @@ import type { LogFormValues } from "../../components/signinFrom/SigninForm";
 
 export const api = axios.create({
   baseURL: "http://localhost:8000/api/v1",
+  withCredentials: true
 });
 export const setAuthHeader = (token: string): void => {
+  console.log(token)
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
@@ -50,4 +52,14 @@ export const logout = createAsyncThunk("auth/logout", async () => {
   
 });
 
-export const refreshUser = createAsyncThunk("auth/refreshUser", async () => {});
+export const refreshUser = createAsyncThunk("auth/refresh", async () => {
+  try {
+    const { data } = await api.post("/auth/refresh");
+    
+      if(data) {
+        setAuthHeader(data.accessToken)};
+  } catch (error: unknown) {
+    console.log(error)
+    // return handleError(error, thunkApi.rejectWithValue);
+  }
+});

@@ -1,30 +1,25 @@
-import DickTable from "../../components/dictTable/DictTable"
+import DictTable from "../../components/dictTable/DictTable"
 import DicSearchBox from "../../components/dicSearchBox/DicSearchBox";
 import Logo from "../../components/logo/Logo";
 import s from "./Dictionary.module.css";
+import DictABCFilter from "../../components/dictABCFilter/DictABCFilter";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchWords } from "../../redux/dict/operations";
+import type { AppDispatch } from "../../redux/store";
+// import CuteAstronautWithLaptop from 
 
 const Dictionary = () => {
-  return <div className={s.div}>
+  const dispatch = useDispatch<AppDispatch>()
+  useEffect(() => {
+    dispatch(fetchWords())
+  }, [])
+  return <div className={`${s.div} container`}>
     <Logo/>
     <h2 className={s.dicheadline}>словник</h2>
     <DicSearchBox/>
-    <div className={s.markup}>
-      <ul>
-        <li>
-          <div className={s.color}></div>
-          <p>Вивчені</p>
-        </li>
-        <li>
-          <div className={s.color}></div>
-          <p>У процесі</p>
-        </li>
-        <li>
-          <div className={s.color}></div>
-          <p>Старайся</p>
-        </li>
-      </ul>
-    </div>
-    <DickTable/>
+    <DictABCFilter/>
+    <DictTable/>
   </div>;
 };
 

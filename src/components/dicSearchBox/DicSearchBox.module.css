@@ -1,5 +1,11 @@
 .wrap{
-    margin-bottom: 46px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.wrap img{
+position: absolute;
+bottom: 30px;
+right: 0;
 }
 .inputwrap input{
     border: 1px solid #d9d9d9;
