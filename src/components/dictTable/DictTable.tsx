@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import DictItem from "../dictItem/DictItem";
 
 import css from "./DictTable.module.css"
+import { useSelector } from "react-redux";
+import { allWordsStore, letterFilter } from "../../redux/dict/selectors";
 // import clsx from "clsx"
 
 // const progress = {
@@ -71,6 +73,8 @@ interface myVerbs {
 }
 const DickTable = () => {
     const [myVerbs, setMyVerbs] = useState<myVerbs | null>(null);
+    const findByLetter = useSelector(letterFilter)
+    const allVerbs = useSelector(allWordsStore)
 
     useEffect(() => {
    const fetchData = async () => {
