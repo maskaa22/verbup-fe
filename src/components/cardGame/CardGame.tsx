@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import c from "./CardGame.module.css";
 import BaseComponentGame from "../baseComponentGame/BaseComponentGame";
 import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
 import { useOutletContext } from "react-router-dom";
+import type { BtnType, CardGameProps, cardGameType} from "../../utils/gameType";
 // import type { allGameType } from "../../utils/gameType";
 
-const CardGame = ({ question }) => {
+const CardGame = ({ question }: CardGameProps) => {
   const { setCheckAnswerType, setShowCheckAnswer, current, setModalActive } =
-    useOutletContext();
+    useOutletContext<cardGameType>();
 
   const [word, setWord] = useState("");
   const [activeWord, setActiveWord] = useState<string | null>(null);
@@ -19,6 +20,11 @@ const CardGame = ({ question }) => {
     setActiveWord(wordName);
   };
 
+  useEffect(() => {
+    setWord("");
+    setActiveWord(null);
+  }, [current]);
+
   return (
     <>
       <BaseComponentGame
@@ -28,7 +34,7 @@ const CardGame = ({ question }) => {
       />
 
       <ul className={c.buttonContainer}>
-        {question?.variants?.map((btn, i) => (
+        {question?.variants?.map((btn: BtnType, i: number) => (
           <li
             key={i}
             className={`${c.btn} ${activeWord === btn.name ? c.activeBtn : ""}`}
@@ -45,6 +51,7 @@ const CardGame = ({ question }) => {
         setShowCheckAnswer={setShowCheckAnswer}
         setCheckAnswerType={setCheckAnswerType}
         setModalActive={setModalActive}
+        correctAnswer={question.correctAnswer}
       />
     </>
   );
