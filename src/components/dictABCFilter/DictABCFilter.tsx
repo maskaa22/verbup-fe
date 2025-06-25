@@ -30,7 +30,7 @@ const DictABCFilter = () => {
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
       ) {
-        dispatch(setLetter(" "));
+        dispatch(setLetter(""));
         setActive("");
       }
     };

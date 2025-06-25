@@ -30,16 +30,12 @@ const dictSlice = createSlice({
     initialState: initialState,
     reducers: {
         setLetter(state, action) {
-            console.log("dispatch works");
             state.letter = action.payload 
-            console.log(state.letter)
         }
     },
     extraReducers: (builder) => {
         builder.addCase(fetchWords.fulfilled, (state, action) => {
-            console.log("dispatch works all words fetch")
             state.allWords = action.payload
-            console.log(state.allWords)
         })
     }
 

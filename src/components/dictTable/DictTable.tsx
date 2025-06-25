@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 // import VERBS from "../../../public/data/irr-verbs.filtered.json";
 import DictItem from "../dictItem/DictItem";
 
 import css from "./DictTable.module.css"
 import { useSelector } from "react-redux";
-import { allWordsStore, letterFilter } from "../../redux/dict/selectors";
+import { visibleWordsStore } from "../../redux/dict/selectors";
 // import clsx from "clsx"
 
 // const progress = {
@@ -58,45 +58,47 @@ import { allWordsStore, letterFilter } from "../../redux/dict/selectors";
 // return clsx(`${mistake.includes(item) ? css.red : studied.includes(item) ? css.green : css.base}`)
 // }
 
-interface Verb {
-    base_form: string,
-      past_simple: string,
-      past_participle: string,
-      uk: string,
-      fake: string
-}
+// interface Verb {
+//     base_form: string,
+//       past_simple: string,
+//       past_participle: string,
+//       uk: string,
+//       fake: string
+// }
 
-interface myVerbs {
-    easy: Verb[],
-    medium: Verb[],
-    hard: Verb[]
-}
+// interface myVerbs {
+//     easy: Verb[],
+//     medium: Verb[],
+//     hard: Verb[]
+//}
 const DickTable = () => {
-    const [myVerbs, setMyVerbs] = useState<myVerbs | null>(null);
-    const findByLetter = useSelector(letterFilter)
-    const allVerbs = useSelector(allWordsStore)
+    // const [myVerbs, setMyVerbs] = useState<myVerbs | null>(null);
+const visibleVerbs = useSelector(visibleWordsStore);
+//     useEffect(() => {
+//    const fetchData = async () => {
+//       try {
+//         const response = await fetch('/data/irr-verbs.filtered.json');
+//         const data = await response.json();
+//         setMyVerbs(data);
+//       } catch (error) {
+//         console.error("Error loading JSON:", error);
+//       }
+//     };
 
-    useEffect(() => {
-   const fetchData = async () => {
-      try {
-        const response = await fetch('/data/irr-verbs.filtered.json');
-        const data = await response.json();
-        setMyVerbs(data);
-      } catch (error) {
-        console.error("Error loading JSON:", error);
-      }
-    };
+//     fetchData();
+// }, []);
 
-    fetchData();
-}, []);
-if(!myVerbs){
+if(!visibleVerbs){
     return "couldn't fetch the verbs";
 }
-    const verbs =  myVerbs.easy;
+if(visibleVerbs.length <= 0){
+  return "There are no verbs on the letter"
+}
+const myVerbs = visibleVerbs;
 return <div className={css.wrap}>
     <ul className={css.table}>
 
-    {verbs.map((verb, idx) => (
+    {myVerbs.map((verb, idx) => (
         <li key={idx}>
      <DictItem word={verb}/>
       </li>
