@@ -1,12 +1,11 @@
-.list{
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;
+.list div{
+align-items: center;
 }
+
 .li{
+  display: flex;
+  align-items: center;
+  width: 31px !important;
     text-transform: capitalize;
     font-weight: 400;
 font-size: 32px;
