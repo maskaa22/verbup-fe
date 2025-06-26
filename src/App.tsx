@@ -15,6 +15,7 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { refreshUser } from "./redux/auth/operations";
 import type { AppDispatch } from "./redux/store";
+import GameSetting from "./pages/gameSetting/GameSetting";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -47,6 +48,7 @@ function App() {
           />
           <Route path="/home" element={<Home />} />
           <Route path="/cup" element={<h1>Cup</h1>} />
+          <Route path="/gameSetting" element={<GameSetting/>} />
 
           <Route path="/set" element={<h1>Set</h1>} />
           <Route path="/share" element={<h1>Share</h1>} />

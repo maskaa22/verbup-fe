@@ -8,7 +8,6 @@ export const api = axios.create({
   withCredentials: true
 });
 export const setAuthHeader = (token: string): void => {
-  console.log(token)
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
@@ -27,14 +26,14 @@ export const register = createAsyncThunk(
   async (credentials: RegFormValues, thunkApi) => {
     try {
       const { data } = await api.post("/auth/register", credentials);
-      setAuthHeader(data.token);
+      setAuthHeader(data.accessToken);
       return data;
     } catch (error: unknown) {
       return handleError(error, thunkApi.rejectWithValue);
     }
   }
 );
-
+//mrCam@gmail.com
 export const login = createAsyncThunk(
   "auth/login",
   async (credentials: LogFormValues, thunkApi) => {

@@ -7,7 +7,8 @@
   border-radius: 48px;
   padding: 11px 79px;
   background-color: var(--base-color-blue);
-  color: var(--base-color-yellow);
+  color: #fff;
   font-weight: 500;
   font-size: 20px;
+  font-family: var(--font-family-messiri);
 }

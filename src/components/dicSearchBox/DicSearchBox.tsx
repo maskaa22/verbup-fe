@@ -8,7 +8,7 @@ const DicSearchBox = () => {
         className={css.input}
         id="search"
         type="text"
-        placeholder="Пошук" 
+        placeholder="Пошук..." 
         autoComplete="off"
       />
     </div>

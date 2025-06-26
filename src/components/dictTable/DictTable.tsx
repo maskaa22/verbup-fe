@@ -94,6 +94,9 @@ if(!visibleVerbs){
 if(visibleVerbs.length <= 0){
   return "There are no verbs on the letter"
 }
+if(visibleVerbs.length === 1){
+    return <DictItem word={visibleVerbs[0]}/>
+}
 const myVerbs = visibleVerbs;
 return <div className={css.wrap}>
     <ul className={css.table}>
