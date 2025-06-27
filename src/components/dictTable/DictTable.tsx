@@ -58,35 +58,10 @@ import { visibleWordsStore } from "../../redux/dict/selectors";
 // return clsx(`${mistake.includes(item) ? css.red : studied.includes(item) ? css.green : css.base}`)
 // }
 
-// interface Verb {
-//     base_form: string,
-//       past_simple: string,
-//       past_participle: string,
-//       uk: string,
-//       fake: string
-// }
 
-// interface myVerbs {
-//     easy: Verb[],
-//     medium: Verb[],
-//     hard: Verb[]
-//}
 const DickTable = () => {
-    // const [myVerbs, setMyVerbs] = useState<myVerbs | null>(null);
 const visibleVerbs = useSelector(visibleWordsStore);
-//     useEffect(() => {
-//    const fetchData = async () => {
-//       try {
-//         const response = await fetch('/data/irr-verbs.filtered.json');
-//         const data = await response.json();
-//         setMyVerbs(data);
-//       } catch (error) {
-//         console.error("Error loading JSON:", error);
-//       }
-//     };
 
-//     fetchData();
-// }, []);
 
 if(!visibleVerbs){
     return "couldn't fetch the verbs";
@@ -94,9 +69,9 @@ if(!visibleVerbs){
 if(visibleVerbs.length <= 0){
   return "There are no verbs on the letter"
 }
-if(visibleVerbs.length === 1){
-    return <DictItem word={visibleVerbs[0]}/>
-}
+// if(visibleVerbs.length === 1){
+//     return <DictItem word={visibleVerbs[0]}/>
+// }
 const myVerbs = visibleVerbs;
 return <div className={css.wrap}>
     <ul className={css.table}>

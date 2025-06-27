@@ -7,9 +7,9 @@ export const selectwordFilter = (state: RootState) => state.dict.word;
 //memo-filter m-7 - less-2 - 30min-45min
 export const visibleWordsStore = createSelector([selectletterFilter, selectallWordsStore, selectwordFilter], (letterFilter, allWordsStore, wordFilter) => {
     const filteredWords = allWordsStore?.easy;
-//     if(wordFilter !== ""){
-// return filteredWords?.find(word => word.base_form === wordFilter)
-//     }
+    if(wordFilter !== ""){
+return filteredWords?.filter(word => word.base_form.includes(wordFilter.toLowerCase()))
+    }
     if(letterFilter !== ""){
 return filteredWords?.filter(word => word.base_form[0] === letterFilter)
 }

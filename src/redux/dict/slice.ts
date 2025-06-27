@@ -43,5 +43,5 @@ const dictSlice = createSlice({
   },
 });
 
-export const { setLetter } = dictSlice.actions;
+export const { setLetter, setWord } = dictSlice.actions;
 export default dictSlice.reducer;
