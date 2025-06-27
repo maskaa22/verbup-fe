@@ -17,12 +17,13 @@ import { refreshUser } from "./redux/auth/operations";
 import type { AppDispatch } from "./redux/store";
 import GameSetting from "./pages/gameSetting/GameSetting";
 
+
 function App() {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch]);
+  }, [dispatch, ]);
   return (
     <>
       <Routes>
