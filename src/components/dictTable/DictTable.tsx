@@ -5,6 +5,7 @@ import DictItem from "../dictItem/DictItem";
 import css from "./DictTable.module.css"
 import { useSelector } from "react-redux";
 import { visibleWordsStore } from "../../redux/dict/selectors";
+
 // import clsx from "clsx"
 
 // const progress = {
@@ -61,7 +62,17 @@ import { visibleWordsStore } from "../../redux/dict/selectors";
 
 const DickTable = () => {
 const visibleVerbs = useSelector(visibleWordsStore);
+// const letterFilter = useSelector(selectletterFilter)
+// const wordRefs = useRef<Record<string, HTMLLIElement | null>>({})
+// const ref = wordRefs.current[letterFilter]
+// useEffect(() => {
+//   if (ref) {
+//     console.log(ref)
+//     ref.scrollIntoView({ behavior: 'smooth', block: 'start' })
+//   }
+// }, [letterFilter])
 
+//ref={(el) => {(wordRefs.current[verb.base_form] = el)}}
 
 if(!visibleVerbs){
     return "couldn't fetch the verbs";
@@ -69,15 +80,13 @@ if(!visibleVerbs){
 if(visibleVerbs.length <= 0){
   return "There are no verbs on the letter"
 }
-// if(visibleVerbs.length === 1){
-//     return <DictItem word={visibleVerbs[0]}/>
-// }
+
 const myVerbs = visibleVerbs;
 return <div className={css.wrap}>
     <ul className={css.table}>
 
     {myVerbs.map((verb, idx) => (
-        <li key={idx}>
+        <li key={idx} >
      <DictItem word={verb}/>
       </li>
     ))}
