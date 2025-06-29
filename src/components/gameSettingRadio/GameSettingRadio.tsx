@@ -12,10 +12,10 @@ return <div className={css.rset}>{options.map((option) => (
             type="radio"
             name={name}
             value={option}
-            // checked={selectedValue === option}
+            checked={selectedValue === option}
             onChange={() => { console.log(option); onChange(option)}}
           />
-          {option}
+          <span className={css.text}>{option}</span>
         </label>
       ))}</div>
 }
