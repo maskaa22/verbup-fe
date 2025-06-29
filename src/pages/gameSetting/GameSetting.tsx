@@ -22,13 +22,15 @@ useEffect(()=> {console.log(formData)}, [formData])
   options={['Begginer', 'Intermediate', 'Advanced']}
   selectedValue={formData.level}
   onChange={(value) => setFormData(prev => ({ ...prev, level: value }))}
+  needSpan={false}
 />
     <p>Вибір режиму гри</p>
     <GameSettingRadio
   name="verbForm"
-  options={['Past Simple (V2)', 'Past Participle (V2)', 'Змішаний (V2, V3)']}
+  options={['Past Simple', 'Past Participle', 'Змішаний']}
   selectedValue={formData.verbForm}
   onChange={(value) => setFormData(prev => ({ ...prev, verbForm: value }))}
+  needSpan={true}
 />
     <p>Вибір кількості питань у грі</p>
     <GameSettingRadio
@@ -36,6 +38,7 @@ useEffect(()=> {console.log(formData)}, [formData])
   options={['5 питань', '10 питань', '20 питань']}
   selectedValue={formData.numQuest}
   onChange={(value) => { console.log(value); setFormData(prev => ({ ...prev, numQuest: value }))}}
+  needSpan={false}
 />
 </div>
 <BaseButtonStart label="Далі"/>
@@ -43,3 +46,5 @@ useEffect(()=> {console.log(formData)}, [formData])
 };
 
 export default GameSetting;
+
+//['Past Simple (V2)', 'Past Participle (V3)', 'Змішаний (V2, V3)']

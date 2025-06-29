@@ -1,38 +1,45 @@
-.rset{
-    margin-bottom: 20px;
+.rset {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.inputWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--base-color-gray);
+  cursor: pointer;
+  height: 56px;
+  width: 105px;
+  font-weight: 500;
+  font-size: 12px;
 }
 .label{
-    display: inline-block;
-
-    cursor: pointer;
-    height: 56px;
-    line-height: 56px;
-    text-align: center;
-    width: 105px;
-    font-weight: 500;
-font-size: 12px;
-}
-
-.label input[type="radio"] + span{
-     display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: 100%;
-    border: 1px solid var(--base-color-gray);
+    cursor: pointer;
 }
 
-.label:first-child input[type="radio"] + span {
-    border-radius: 48px 0 0 48px;
+.inputWrap:first-child {
+  border-radius: 48px 0 0 48px;
 }
 
-.label:last-child input[type="radio"] + span {
-    border-radius:  0 48px 48px 0 ;
+.inputWrap:last-child {
+  border-radius: 0 48px 48px 0;
 }
 
 .input[type="radio"] {
   display: none;
 }
 
-.label input[type="radio"]:checked + span {
-   
-border: 2px solid var(--base-color-blue);
+.inputWrapChecked {
+  border: 2px solid var(--base-color-blue);
 }
+

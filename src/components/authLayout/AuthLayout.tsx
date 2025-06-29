@@ -8,11 +8,12 @@ const AuthLayout = () => {
     <div className={`${css.wrap} container`}>
       <Logo />
       <div className={css.planets}>
+        {/* <div className={css.planet}></div>
         <div className={css.planet}></div>
-        <div className={css.planet}></div>
-        <div className={css.planet}></div>
+        <div className={css.planet}></div> */}
+     
+      <div className={css.glass}>{<Outlet />}</div> 
       </div>
-      <div className={css.glass}>{<Outlet />}</div>
     </div>
     <NavBar/>
     </div>
