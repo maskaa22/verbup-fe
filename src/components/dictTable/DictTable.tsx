@@ -5,6 +5,7 @@ import DictItem from "../dictItem/DictItem";
 import css from "./DictTable.module.css"
 import { useSelector } from "react-redux";
 import { visibleWordsStore } from "../../redux/dict/selectors";
+
 // import clsx from "clsx"
 
 // const progress = {
@@ -58,35 +59,20 @@ import { visibleWordsStore } from "../../redux/dict/selectors";
 // return clsx(`${mistake.includes(item) ? css.red : studied.includes(item) ? css.green : css.base}`)
 // }
 
-// interface Verb {
-//     base_form: string,
-//       past_simple: string,
-//       past_participle: string,
-//       uk: string,
-//       fake: string
-// }
 
-// interface myVerbs {
-//     easy: Verb[],
-//     medium: Verb[],
-//     hard: Verb[]
-//}
 const DickTable = () => {
-    // const [myVerbs, setMyVerbs] = useState<myVerbs | null>(null);
 const visibleVerbs = useSelector(visibleWordsStore);
-//     useEffect(() => {
-//    const fetchData = async () => {
-//       try {
-//         const response = await fetch('/data/irr-verbs.filtered.json');
-//         const data = await response.json();
-//         setMyVerbs(data);
-//       } catch (error) {
-//         console.error("Error loading JSON:", error);
-//       }
-//     };
+// const letterFilter = useSelector(selectletterFilter)
+// const wordRefs = useRef<Record<string, HTMLLIElement | null>>({})
+// const ref = wordRefs.current[letterFilter]
+// useEffect(() => {
+//   if (ref) {
+//     console.log(ref)
+//     ref.scrollIntoView({ behavior: 'smooth', block: 'start' })
+//   }
+// }, [letterFilter])
 
-//     fetchData();
-// }, []);
+//ref={(el) => {(wordRefs.current[verb.base_form] = el)}}
 
 if(!visibleVerbs){
     return "couldn't fetch the verbs";
@@ -94,12 +80,13 @@ if(!visibleVerbs){
 if(visibleVerbs.length <= 0){
   return "There are no verbs on the letter"
 }
+
 const myVerbs = visibleVerbs;
 return <div className={css.wrap}>
     <ul className={css.table}>
 
     {myVerbs.map((verb, idx) => (
-        <li key={idx}>
+        <li key={idx} >
      <DictItem word={verb}/>
       </li>
     ))}

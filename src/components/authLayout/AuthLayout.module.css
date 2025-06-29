@@ -4,6 +4,12 @@
   min-height: 812px;
   height: auto;
 }
+
+.planets{
+  height: 100%;
+  border: 1px solid red;
+  background-image: url();
+}
 .planet {
   border-radius: 100%;
   position: absolute;

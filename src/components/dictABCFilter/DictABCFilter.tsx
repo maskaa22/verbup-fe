@@ -42,7 +42,7 @@ const DictABCFilter = () => {
   }, []);
   return (
     <div ref={dropdownRef}>
-      <Swiper spaceBetween={10} className={css.list}>
+      <Swiper loop={false} slidesPerView={5} spaceBetween={10} className={css.list}>
         {alphabet.map((letter, idx) => (
           <SwiperSlide
             className={clsx(css.li, active === letter && css.actv)}

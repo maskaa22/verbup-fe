@@ -1,25 +1,13 @@
-// import { useState } from "react";
+import type { Props } from "../../utils/dict/dictTypes";
 import css from "./DictItem.module.css";
 import { Accordion, AccordionItem } from "@szhsin/react-accordion";
 
-// import clsx from "clsx";
 
-interface Props {
-  word: {
-    base_form: string;
-    past_simple: string;
-    past_participle: string;
-    uk: string;
-  };
-}
 
 const DictItem: React.FC<Props> = ({
   word: { base_form, past_simple, past_participle, uk },
 }) => {
-//   const [hideForms, setHideForms] = useState(true);
-//   const handleShowForms = () => {
-//     setHideForms(!hideForms);
-//   };
+
   return (
     <Accordion className={css.wordWrap}>
       <AccordionItem style={{width: "100%"}}

@@ -1,25 +1,24 @@
-.list div{
-align-items: center;
+.list div {
+  align-items: center;
 }
 
-.li{
+.li {
   display: flex;
   align-items: center;
   width: 31px !important;
-    text-transform: capitalize;
-    font-weight: 400;
-font-size: 32px;
-line-height: 1;
-color: var(--base-color-yellow);
-transition: all 0.5s ease-in-out;
-cursor: pointer;
+  text-transform: capitalize;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--base-color-yellow);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .scroll-container::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
 
-.actv{
-    font-size: 48px;
-
+.actv {
+  font-size: 48px;
 }
