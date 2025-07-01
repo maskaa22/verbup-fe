@@ -28,11 +28,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Intro />} />
-        <Route path="/game" element={<Game />}>
-          <Route path="write-word" element={<WriteGame />} />
-          <Route path="check-word" element={<WordGame />} />
-          <Route path="result" element={<ResultGame />} />
-        </Route>
+
         <Route path="/voc" element={<Dictionary />} />
 
         <Route element={<AuthLayout />}>
@@ -48,6 +44,11 @@ function App() {
               <RestrictedRoute component={<SignIn />} redirectTo="/home" />
             }
           />
+          <Route path="/game" element={<Game />}>
+            <Route path="write-word" element={<WriteGame />} />
+            <Route path="check-word" element={<WordGame />} />
+            <Route path="result" element={<ResultGame />} />
+          </Route>
           <Route path="/home" element={<Home />} />
           <Route path="/cup" element={<h1>Cup</h1>} />
 
