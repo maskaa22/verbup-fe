@@ -33,7 +33,6 @@ function App() {
           <Route path="check-word" element={<WordGame />} />
           <Route path="result" element={<ResultGame />} />
         </Route>
-        <Route path="/voc" element={<Dictionary />} />
 
         <Route element={<AuthLayout />}>
           <Route
@@ -48,9 +47,11 @@ function App() {
               <RestrictedRoute component={<SignIn />} redirectTo="/home" />
             }
           />
+
+          
           <Route path="/home" element={<Home />} />
           <Route path="/cup" element={<h1>Cup</h1>} />
-
+          <Route path="/voc" element={<Dictionary />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/setting/game" element={<GameSetting />} />
 

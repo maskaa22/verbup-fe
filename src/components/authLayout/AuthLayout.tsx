@@ -5,22 +5,68 @@ import NavBar from "../navBar/NavBar";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 const AuthLayout = () => {
-  const { pathname } = useLocation();
 
-  const showNavBar = pathname !== "/signin" && pathname !== "/signup";
+const [glass, setGlass] = useState(false);
+  const [planets, setPlantes] = useState(false);
+  const [navigation, setNavigation] = useState(false);
+  const location = useLocation().pathname;
+
+useEffect(() => {
+    switch (location) {
+      case "/home":
+        setGlass(true);
+        setPlantes(false);
+        setNavigation(true);
+        break;
+      case "/signup":
+        setGlass(true);
+        setPlantes(false);
+        setNavigation(false);
+        break;
+      case "/game":
+        setGlass(false);
+        setPlantes(false);
+        setNavigation(true);
+        break;
+        // case location.includes("/game/check-word"):
+        //   setGlass(false);
+        // setPlantes(false);
+        // setNavigation(true);
+        //   break; 
+      case "/cup":
+        break;
+      case "/voc":
+        setGlass(false);
+        setPlantes(false);
+        setNavigation(true);
+        break;
+      case "/setting":
+        setGlass(true);
+        setPlantes(false);
+        setNavigation(true);
+        break;
+      case "/share":
+        break;
+        default: 
+        setGlass(false);
+        setPlantes(false);
+        setNavigation(true);
+    }
+  }, [location]);
+  // const showNavBar = pathname !== "/signin" && pathname !== "/signup";
   return (
     <div>
       <div className={`${css.wrap} container`}>
         <Logo />
-        <div className={css.planets}>
+        <div className={clsx(planets ? css.planets : css.noPlanets) }>
           {/* <div className={css.planet}></div>
         <div className={css.planet}></div>
         <div className={css.planet}></div> */}
 
-          <div className={css.glass}>{<Outlet />}</div>
+          {<div className={clsx(glass && css.glass)}>{<Outlet />}</div>}
         </div>
       </div>
-      {showNavBar && <NavBar />}
+      {navigation && <NavBar />}
     </div>
   );
 };
