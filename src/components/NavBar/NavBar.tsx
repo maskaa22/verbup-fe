@@ -25,7 +25,7 @@ const activeLink = ({ isActive }: { isActive: boolean }) => {
       case "/voc":
         setActiveIndex(2);
         break;
-      case "/set":
+      case "/setting":
         setActiveIndex(3);
         break;
       case "/share":
@@ -63,7 +63,7 @@ const activeLink = ({ isActive }: { isActive: boolean }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink className={activeLink} to="/set">
+            <NavLink className={activeLink} to="/setting">
               <svg className={clsx(css.icon, css.iconone)}>
                 <use href="./icons.svg#icon-set"></use>
               </svg>{" "}
