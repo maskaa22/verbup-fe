@@ -1,4 +1,4 @@
-import { Outlet, useLocation, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import css from "./AuthLayout.module.css";
 import Logo from "../logo/Logo";
 import NavBar from "../navBar/NavBar";
