@@ -1,18 +1,22 @@
-.div h1, .div p {
-text-align: center;
+.div h1,
+.div p {
+  text-align: center;
 }
-.div h1 {
-    font-weight: 600;
-font-size: 30px;
-color: var(--base-color-blue);
+.div .title {
+  font-weight: 600;
+  font-size: 30px;
+  color: var(--base-color-blue);
+  text-align: center;
+  line-height: 100%;
+  margin-bottom: 8px;
 }
 
 .form {
-    margin-bottom: 48px;
+  margin-bottom: 48px;
 }
-.warning{
-    font-weight: 400;
-font-size: 14px;
-color: var(--base-color-blue);
-margin-bottom: 32px;
+.warning {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--base-color-blue);
+  margin-bottom: 32px;
 }
