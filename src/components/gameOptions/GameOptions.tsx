@@ -6,10 +6,10 @@ import type { gameOptions } from "../../utils/gameType";
 import { useSelector } from "react-redux";
 import { selectGameSetting } from "../../redux/game/selectors";
 import { ADVANCED, BEGGINER, INTERMEDIATE } from "../../constants";
+import GameSettingType from "../gameSettingType/GameSettingType";
 
 const GameOptions = ({ setQuestions }: gameOptions) => {
   const [gameType, setGameType] = useState("");
-  const [wordCount, setWordCount] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -19,16 +19,14 @@ const GameOptions = ({ setQuestions }: gameOptions) => {
   const gameSetting = useSelector(selectGameSetting);
   // console.log(gameSetting);
   const numQuest = gameSetting.numQuest;
-  const count = Number(numQuest.split(' ')[0]);
-  
+  const count = Number(numQuest.split(" ")[0]);
 
   const handleSubmit = () => {
-    if (gameType && wordCount) {
+    if (gameType && count) {
       navigate(`/game/${gameType}?count=${count}`);
     }
   };
 
-  
   useEffect(() => {
     const createQuestions = async () => {
       try {
@@ -65,11 +63,43 @@ const GameOptions = ({ setQuestions }: gameOptions) => {
     };
 
     createQuestions();
-  }, [count, setQuestions]);
+  }, [count, setQuestions, gameSetting.level]);
 
   return (
     <>
-      {!hideSelect && (
+    {
+      !hideSelect && (
+        <>
+         <GameSettingType
+        icon={"/icons.svg#icon-text"}
+        text={"Тестуйся граючи - неправильні дієслова стануть легкими"}
+        title={"VerbTest"}
+        path={'/image/text.png'}
+        count={count}
+        gameType={'check-word'}
+      />
+      <GameSettingType
+        icon={"/icons.svg#icon-spell"}
+        text={"Літера за літерою - зберіть правильне дієслово"}
+        title={"VerbSpell"}
+        path={'/image/spell.png'}
+        count={count}
+        gameType={'spell-word'}
+      />
+      <GameSettingType
+        icon={"/icons.svg#icon-tense"}
+        text={"Впиши правильне дієслово - склади речення без помилок"}
+        title={"VerbTense"}
+        path={'/image/tense.png'}
+        count={count}
+        gameType={'write-word'}
+      />
+        </>
+      )
+    }
+     
+   
+      {/* {!hideSelect && (
         <>
           <div className={s.select}>
             <p>Оберіть гру:</p>
@@ -93,42 +123,11 @@ const GameOptions = ({ setQuestions }: gameOptions) => {
             </label>
           </div>
 
-          <div className={s.count}>
-            <p>Оберіть кількість слів:</p>
-            <label>
-              <input
-                type="radio"
-                name="wordCount"
-                value="5"
-                onChange={(e) => setWordCount(e.target.value)}
-              />
-              5
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="wordCount"
-                value="10"
-                onChange={(e) => setWordCount(e.target.value)}
-              />
-              10
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="wordCount"
-                value="20"
-                onChange={(e) => setWordCount(e.target.value)}
-              />
-              20
-            </label>
-          </div>
-
-          <button onClick={handleSubmit} disabled={!gameType || !wordCount}>
+          <button onClick={handleSubmit} disabled={!gameType}>
             Підтвердити
           </button>
         </>
-      )}
+      )} */}
     </>
   );
 };
