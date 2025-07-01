@@ -3,6 +3,9 @@ import s from "./GameOptions.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { generateQuestionsList } from "../../utils/game/generateQuestionsList";
 import type { gameOptions } from "../../utils/gameType";
+import { useSelector } from "react-redux";
+import { selectGameSetting } from "../../redux/game/selectors";
+import { ADVANCED, BEGGINER, INTERMEDIATE } from "../../constants";
 
 const GameOptions = ({ setQuestions }: gameOptions) => {
   const [gameType, setGameType] = useState("");
@@ -13,26 +16,49 @@ const GameOptions = ({ setQuestions }: gameOptions) => {
 
   const hideSelect = location.pathname !== "/game";
 
+  const gameSetting = useSelector(selectGameSetting);
+  // console.log(gameSetting);
+  const numQuest = gameSetting.numQuest;
+  const count = Number(numQuest.split(' ')[0]);
+  
+
   const handleSubmit = () => {
     if (gameType && wordCount) {
-      navigate(`/game/${gameType}?count=${wordCount}`);
+      navigate(`/game/${gameType}?count=${count}`);
     }
   };
 
-  const level = "easy";
-  const count = Number(wordCount);
+  
   useEffect(() => {
     const createQuestions = async () => {
       try {
         const res = await fetch("/data/irr-verbs.filtered.json");
         const fetchQuestions = await res.json();
-        if (level === "easy" && count > 0) {
-          const selectedQuestions = generateQuestionsList(
-            fetchQuestions.easy,
-            count
-          );
+        if (count > 0) {
+          let selectedQuestions = [];
+          if (gameSetting.level === BEGGINER) {
+            selectedQuestions = generateQuestionsList(
+              fetchQuestions.easy,
+              count
+            );
+          } else if (gameSetting.level === INTERMEDIATE) {
+            selectedQuestions = generateQuestionsList(
+              fetchQuestions.medium,
+              count
+            );
+          } else if (gameSetting.level === ADVANCED) {
+            selectedQuestions = generateQuestionsList(
+              fetchQuestions.hard,
+              count
+            );
+          }
           setQuestions(selectedQuestions);
         }
+        // if (gameSetting.level !== BEGGINER && count > 0)
+        // const selectedQuestions = generateQuestionsList(
+        //   fetchQuestions.easy,
+        //   count
+        // );
       } catch (error) {
         console.error("Помилка завантаження JSON:", error);
       }
