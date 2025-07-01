@@ -14,9 +14,9 @@ export type baseButtonType = {
 
 export type cardGameType = {
   current: number;
-  setCheckAnswerType: (type: string) => void;
-  setShowCheckAnswer: (show: boolean) => void;
-  setModalActive: (active: boolean) => void;
+  setCheckAnswerType: React.Dispatch<React.SetStateAction<string>>;
+  setShowCheckAnswer: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
 };
 export type BtnType = {
   name: string;
