@@ -18,12 +18,28 @@ const CardGame = ({ question }: CardGameProps) => {
   const handleWordClick = (wordName: string) => {
     setWord(wordName);
     setActiveWord(wordName);
+     speakText(wordName); // озвучування вибраної відповіді
   };
 
   useEffect(() => {
     setWord("");
     setActiveWord(null);
   }, [current]);
+
+  //озвучування питання
+//   useEffect(() => {
+//   if (question?.question) {
+//     speakText(question.question);
+//   }
+// }, [question]);
+
+  const speakText = (text: string) => {
+  speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "en-US";
+  utterance.rate = 0.95;
+  speechSynthesis.speak(utterance);
+};
 
   return (
     <>

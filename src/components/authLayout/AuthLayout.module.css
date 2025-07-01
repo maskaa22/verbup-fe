@@ -1,13 +1,13 @@
 .wrap {
   margin-top: 19px;
   position: relative;
-  min-height: 812px;
+  /* min-height: 812px; */
   height: auto;
 }
 
 .planets {
   height: 100%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-image: url();
 }
 .planet {
@@ -47,7 +47,7 @@
   z-index: -1;
   width: 100%;
   margin-top: 24px;
-  margin-bottom: 104px;
+  /* margin-bottom: 104px; */
   border-radius: 20px;
   padding: 30px 12px;
   box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);

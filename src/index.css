@@ -15,6 +15,15 @@
   --third-color-gray: #7f8689;
   --font-color-dark: #3b3c3d;
   --fourth-color-gray: #9eaec5;
+  --background-white-default: #FCFAFA;
+
+  --other-1: #0D9467;
+  --other-3: #F97316;
+  --primary-1: #5E909E;
+  --soft: #F0F0F0;
+  --secondary: #A0A2A3;
+
+  --font-6: 'Be Vietnam Pro';
 }
 .scroll-area::-webkit-scrollbar {
   overflow-y: auto;
@@ -72,9 +81,13 @@ img {
   font-weight: 100 900;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Be Vietnam Pro';
+  src: url('./font/BeVietnamPro-Medium.ttf') format('truetype');
+}
 .container {
   width: 375px;
-  padding: 0 16px;
+  padding: 0 20px;
   margin: 0 auto;
 }
 
