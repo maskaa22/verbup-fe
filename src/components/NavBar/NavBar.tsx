@@ -16,8 +16,6 @@ const NavBar = () => {
 
 const activeLink = ({ isActive }: { isActive: boolean }) => clsx(isActive && css.active)
   useEffect(() => {
-
-    console.log(noActive)
     switch (location) {
       case "/game":
         setActiveIndex(0);

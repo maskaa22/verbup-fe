@@ -29,8 +29,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Intro />} />
 
-        <Route path="/voc" element={<Dictionary />} />
-
         <Route element={<AuthLayout />}>
           <Route
             path="/signup"
