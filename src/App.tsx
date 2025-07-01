@@ -16,14 +16,14 @@ import { useEffect } from "react";
 import { refreshUser } from "./redux/auth/operations";
 import type { AppDispatch } from "./redux/store";
 import GameSetting from "./pages/gameSetting/GameSetting";
-
+import Loader from "./components/loader/Loader";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch, ]);
+  }, [dispatch]);
   return (
     <>
       <Routes>
@@ -33,7 +33,7 @@ function App() {
           <Route path="check-word" element={<WordGame />} />
           <Route path="result" element={<ResultGame />} />
         </Route>
-        <Route path="/voc" element={<Dictionary />} />
+
         <Route element={<AuthLayout />}>
           <Route
             path="/signup"
@@ -49,10 +49,10 @@ function App() {
           />
           <Route path="/home" element={<Home />} />
           <Route path="/cup" element={<h1>Cup</h1>} />
-          <Route path="/gameSetting" element={<GameSetting/>} />
-
+          <Route path="/gameSetting" element={<GameSetting />} />
+          <Route path="/voc" element={<Dictionary />} />
           <Route path="/set" element={<h1>Set</h1>} />
-          <Route path="/share" element={<h1>Share</h1>} />
+          <Route path="/share" element={<Loader />} />
         </Route>
       </Routes>
     </>

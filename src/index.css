@@ -11,13 +11,17 @@
   --base-color-blue: #6fa1ad;
   --base-color-yellow: #e9ab55;
   --base-color-gray: #808080;
-  --second-color-gray: #bcbebf;
+  --second-color-gray: #a0a2a3;
   --third-color-gray: #7f8689;
   --font-color-dark: #3b3c3d;
   --fourth-color-gray: #9eaec5;
 }
+.scroll-area::-webkit-scrollbar {
+  overflow-y: auto;
+  padding-right: 1rem;
+}
 ::-webkit-scrollbar{
-  width: 2px;
+  width: 2px;  
 }
 ::-webkit-scrollbar-track{
   background: var(--second-color-gray);

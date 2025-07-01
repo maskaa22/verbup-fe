@@ -1,3 +1,11 @@
+.noWordsWrap p {
+    text-align: center;
+}
+
+.noWordsWrap img{
+    margin: 0 auto;
+}
+
 .wrap{
    overflow-y: auto; 
    height: 484px;

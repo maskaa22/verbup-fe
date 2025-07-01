@@ -1,6 +1,5 @@
 import DictTable from "../../components/dictTable/DictTable"
 import DicSearchBox from "../../components/dicSearchBox/DicSearchBox";
-import Logo from "../../components/logo/Logo";
 import s from "./Dictionary.module.css";
 import DictABCFilter from "../../components/dictABCFilter/DictABCFilter";
 import { useDispatch } from "react-redux";
@@ -14,8 +13,7 @@ const Dictionary = () => {
   useEffect(() => {
     dispatch(fetchWords())
   }, [])
-  return <div className={`${s.div} container`}>
-    <Logo/>
+  return <div className={`${s.div}`}>
     <h2 className={s.dicheadline}>словник</h2>
     <DicSearchBox/>
     <DictABCFilter/>

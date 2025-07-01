@@ -1,7 +1,6 @@
 .wordWrap {
   border-radius: 20px;
   padding: 4px 28px;
-  width: 315px;
   height: auto;
   display: flex;
   justify-content: space-between;
@@ -74,6 +73,11 @@ font-size: 14px;
   height: 6px;
   border-radius: 50%;
   background-color: green;
+}
+.sound{
+  fill: var(--second-color-gray);
+  width: 24px;
+  height: 24px;
 }
 .arrow{
     width: 32px;
