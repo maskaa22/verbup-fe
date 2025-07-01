@@ -1,3 +1,6 @@
+.wrap{
+  padding-left: 8px;
+}
 .list div {
   align-items: center;
 }

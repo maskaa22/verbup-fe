@@ -75,7 +75,9 @@ const visibleVerbs = useSelector(visibleWordsStore);
 //ref={(el) => {(wordRefs.current[verb.base_form] = el)}}
 
 if(!visibleVerbs){
-    return "couldn't fetch the verbs";
+    return <div className={css.noWordsWrap}>
+      <p>couldn't fetch the verbs</p>
+    </div>;
 }
 if(visibleVerbs.length <= 0){
   return <div className={css.noWordsWrap}>
