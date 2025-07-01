@@ -5,11 +5,13 @@
 }
 .btn {
   border-radius: 48px;
-padding: 16px 32px;
-width: 202px;
-height: 48px; 
-background: #5e909e;
-color: white;
-border: none;
-margin-top: 36px;
+  padding: 16px 80px;
+  background: #5e909e;
+  color: white;
+  border: none;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 80%;
+  text-align: center;
+  font-family: var(--font-family-messiri);
 }

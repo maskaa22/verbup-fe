@@ -19,8 +19,10 @@ const WordGame = () => {
   }, [current, questions, navigate]);
 
   return (
-    <div className="container">
-      {question && <CardGame question={question} />}
+    <div className={c.gameContainer}>
+      <div className="container">
+        {question && <CardGame question={question} />}
+      </div>
     </div>
   );
 };
