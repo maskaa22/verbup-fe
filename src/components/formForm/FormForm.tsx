@@ -1,27 +1,25 @@
-import { Formik, Form } from "formik";
+import { Formik, Form, type FormikHelpers } from "formik";
 import FormInput from "../formInput/FormInput";
 import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
 import css from "./FormForm.module.css"
+import type { NameField } from "../../utils/formTypes";
 
-interface NameField {
-label: string
-name: string
-type?: string
-placeholder?: string
-icon: string
-}
-interface Props{
+
+interface Props<T>{
 arrOfNames: NameField[]
-  onSubmit: React.Dispatch<React.SetStateAction<boolean>>  
+  onSubmit: (values: T, actions: FormikHelpers<T>) => void
 }
-const FormForm: React.FC<Props> = ({arrOfNames, onSubmit}) => {
+
+
+const FormForm = <T extends Record<string, any>> ({arrOfNames, onSubmit}: Props<T>) => {
+   
     const initialValues = arrOfNames.reduce((acc, el) => {
-  acc[el.name] = '';
+  acc[el.name as keyof T] = '' as T[keyof T];
   return acc;
-}, {} as Record<string, string>);
+}, {} as T);
 return (<Formik
   initialValues={initialValues}
-  onSubmit={(values) => {console.log(values); onSubmit(true)}}
+  onSubmit={onSubmit}
 >
   <Form className={css.form}>
     {arrOfNames.map(({label, name, type, placeholder, icon }) => 
