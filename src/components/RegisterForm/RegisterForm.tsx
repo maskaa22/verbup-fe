@@ -11,6 +11,8 @@ export interface RegFormValues {
   password: string;
 }
 
+
+
 const RegisterForm: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
   const handleSubmit = (
@@ -20,7 +22,27 @@ const RegisterForm: React.FC = () => {
     dispatch(register(values));
     actions.resetForm();
   };
-
+const arrOfNamesPassword = [{
+        label: "Ім'я",
+        name: "username",
+        type: "text",
+        placeholder: "Введіть ваше ім'я",
+        icon: "icon-user"
+    },
+  {
+        label: "Email",
+        name: "email",
+        type: "email",
+        placeholder: "your@email.com",
+        icon: "icon-email"
+    },
+  {
+        label: "Ім'я",
+        name: "username",
+        type: "text",
+        placeholder: "Введіть ваше ім'я",
+        icon: "icon-password"
+    },]
   return (
     <Formik
       initialValues={{ username: "", email: "", password: "" }}

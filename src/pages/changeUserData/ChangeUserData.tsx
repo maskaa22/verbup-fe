@@ -13,21 +13,21 @@ const ChangeUserData: React.FC<Props> = ({userData}) => {
         name: "current",
         type: "password",
         placeholder: "Мінімум 8 символів",
-        icon: ["icon-password"]
+        icon: "icon-password"
     },
     {
         label: "Новий пароль",
         name: "new",
         type: "password",
         placeholder: "Мінімум 8 символів",
-        icon: ["icon-password"]
+        icon: "icon-password"
     },
     {
         label: "Підтвердити новий пароль",
         name: "repeat",
         type: "password",
         placeholder: "Мінімум 8 символів",
-        icon: ["icon-password"]
+        icon: "icon-password"
     }]
 
     const arrOfNamesUser = [
@@ -36,14 +36,14 @@ const ChangeUserData: React.FC<Props> = ({userData}) => {
         name: "current",
         type: "text",
         placeholder: "Введіть ваше ім'я",
-        icon: ["icon-user"]
+        icon: "icon-user"
     },
     {
         label: "Нове ім’я",
         name: "new",
         type: "text",
          placeholder: "Введіть ваше ім'я",
-        icon: ["icon-user"]
+        icon: "icon-user"
     },
     ]
 
