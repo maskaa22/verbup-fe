@@ -45,6 +45,11 @@ useEffect(() => {
         setPlantes(true);
         setNavigation(true);
         break;
+        case "/change-password":
+          setGlass(true);
+        setPlantes(true);
+        setNavigation(true);
+          break;
       case "/share":
         break;
         default: 

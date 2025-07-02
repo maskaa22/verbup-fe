@@ -13,7 +13,7 @@ const Setting = () => {
           <Link to={"/"}>Змінити Імя</Link>
         </li>
         <li>
-          <Link to={"/"}>Змінити пароль</Link>
+          <Link to={"/change-password"}>Змінити пароль</Link>
         </li>
       </ul>
 

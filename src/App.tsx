@@ -17,6 +17,7 @@ import { refreshUser } from "./redux/auth/operations";
 import type { AppDispatch } from "./redux/store";
 import GameSetting from "./pages/gameSetting/GameSetting";
 import Setting from "./pages/setting/Setting";
+import ChangeUserData from "./pages/changeUserData/ChangeUserData";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -52,8 +53,8 @@ function App() {
           <Route path="/voc" element={<Dictionary />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/setting/game" element={<GameSetting />} />
-
           <Route path="/share" element={<h1>Share</h1>} />
+          <Route path="/change-password" element={<ChangeUserData/>}/>
         </Route>
       </Routes>
     </>

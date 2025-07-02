@@ -1,0 +1,29 @@
+.inputWrap{
+    position: relative;
+}
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: var(--second-color-gray);
+  stroke: var(--second-color-gray);
+  color: var(--second-color-gray);
+  position: absolute;
+  left: 24px;
+  top: 16px;
+}
+
+.input {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 48px;
+  padding: 12px 17px 12px 49px;
+  border: 1px solid var(--third-color-gray);
+  outline: none;
+  background-color: transparent;
+}
+
+.input::placeholder {
+  color: var(--second-color-gray);
+  font-weight: 400;
+  font-size: 12px;
+}
