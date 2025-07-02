@@ -18,6 +18,7 @@ import type { AppDispatch } from "./redux/store";
 import GameSetting from "./pages/gameSetting/GameSetting";
 import Setting from "./pages/setting/Setting";
 import ChangeUserData from "./pages/changeUserData/ChangeUserData";
+import NotificationParams from "./pages/notificationParams/NotificationParams";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -56,6 +57,7 @@ function App() {
           <Route path="/share" element={<h1>Share</h1>} />
           <Route path="/change-password" element={<ChangeUserData userData="password"/>}/>
           <Route path="/change-username" element={<ChangeUserData userData="username"/>}/>
+          <Route path="/notification-params" element={<NotificationParams/>}/>
         </Route>
       </Routes>
     </>

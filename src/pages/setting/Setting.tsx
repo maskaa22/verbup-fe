@@ -20,7 +20,7 @@ const Setting = () => {
       <h3>Інше</h3>
       <ul>
         <li>
-          <Link to={"/"}>Параметри сповіщень</Link>
+          <Link to={"/notification-params"}>Параметри сповіщень</Link>
         </li>
         <li>
           <Link to={"/"}>Контакти</Link>

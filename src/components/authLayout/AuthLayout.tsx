@@ -50,6 +50,11 @@ useEffect(() => {
         setPlantes(true);
         setNavigation(true);
           break;
+          case "/notification-params":
+            setGlass(true);
+        setPlantes(true);
+        setNavigation(true);
+            break;
       case "/share":
         break;
         default: 

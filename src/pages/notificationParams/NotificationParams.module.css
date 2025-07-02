@@ -1,0 +1,26 @@
+.title{
+    font-weight: 600;
+font-size: 30px;
+    margin-bottom: 20px;
+    color: var(--base-color-blue);
+}
+.allnotifi{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.allnotifi li{
+    display: flex;
+    justify-content: space-between;
+}
+.mainText{
+    font-weight: 700;
+font-size: 16px;
+}
+
+.addText{
+    font-weight: 400;
+font-size: 13px;
+}
