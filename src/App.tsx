@@ -54,7 +54,8 @@ function App() {
           <Route path="/setting" element={<Setting />} />
           <Route path="/setting/game" element={<GameSetting />} />
           <Route path="/share" element={<h1>Share</h1>} />
-          <Route path="/change-password" element={<ChangeUserData/>}/>
+          <Route path="/change-password" element={<ChangeUserData userData="password"/>}/>
+          <Route path="/change-username" element={<ChangeUserData userData="username"/>}/>
         </Route>
       </Routes>
     </>
