@@ -19,6 +19,7 @@ import GameSetting from "./pages/gameSetting/GameSetting";
 import Setting from "./pages/setting/Setting";
 import ChangeUserData from "./pages/changeUserData/ChangeUserData";
 import NotificationParams from "./pages/notificationParams/NotificationParams";
+import ThemeSwitcher from "./pages/themeSwitcher/ThemeSwitcher";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -58,6 +59,7 @@ function App() {
           <Route path="/change-password" element={<ChangeUserData userData="password"/>}/>
           <Route path="/change-username" element={<ChangeUserData userData="username"/>}/>
           <Route path="/notification-params" element={<NotificationParams/>}/>
+          <Route path="/theme-switcher" element={<ThemeSwitcher/>}/>
         </Route>
       </Routes>
     </>

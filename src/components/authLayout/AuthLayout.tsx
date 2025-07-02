@@ -55,6 +55,11 @@ useEffect(() => {
         setPlantes(true);
         setNavigation(true);
             break;
+            case "/theme-switcher":
+            setGlass(true);
+        setPlantes(true);
+        setNavigation(true);
+            break;
       case "/share":
         break;
         default: 

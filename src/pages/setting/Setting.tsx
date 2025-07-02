@@ -29,7 +29,7 @@ const Setting = () => {
           <Link to={"/"}>Поділитись з друзями</Link>
         </li>
         <li>
-          <Link to={"/"}>Тема</Link>
+          <Link to={"/theme-switcher"}>Тема</Link>
         </li>
         <li>
           <Link to={"/setting/game"}>Обрати інший рівень</Link>
