@@ -1,3 +1,6 @@
+.outerWrap{
+  padding-bottom: 20px;
+}
 .wrap {
   /* margin-top: 19px; */
   position: relative;
@@ -8,7 +11,21 @@
 .planets {
   height: 100%;
   /* border: 1px solid red; */
-  background-image: url();
+  background-image: 
+    url('/image/planets/planetThree.png'),
+    url('/image/planets/planetTwo.png'),
+    url('/image/planets/planetOne.png');
+    
+  background-position: 
+    top right,
+    bottom left,
+    bottom center;
+
+  background-repeat: no-repeat;
+  background-size: 
+    178px 178px, 
+    140px 140px, 
+    59px 59px;;
 }
 .planet {
   border-radius: 100%;

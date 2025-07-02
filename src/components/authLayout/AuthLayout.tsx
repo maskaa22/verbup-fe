@@ -42,7 +42,7 @@ useEffect(() => {
         break;
       case "/setting":
         setGlass(true);
-        setPlantes(false);
+        setPlantes(true);
         setNavigation(true);
         break;
       case "/share":
@@ -55,14 +55,10 @@ useEffect(() => {
   }, [location]);
   // const showNavBar = pathname !== "/signin" && pathname !== "/signup";
   return (
-    <div>
+    <div className={clsx(css.outerWrap, planets ? css.planets : css.noPlanets) }>
       <div className={`${css.wrap} container`}>
-        <Logo />
-        <div className={clsx(planets ? css.planets : css.noPlanets) }>
-          {/* <div className={css.planet}></div>
-        <div className={css.planet}></div>
-        <div className={css.planet}></div> */}
-
+        <div >
+          <Logo />
           {<div className={clsx(glass && css.glass)}>{<Outlet />}</div>}
         </div>
       </div>

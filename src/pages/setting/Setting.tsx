@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import css from "./Setting.module.css";
 
 const Setting = () => {
   return (
@@ -34,7 +35,7 @@ const Setting = () => {
           <Link to={"/setting/game"}>Обрати інший рівень</Link>
         </li>
         <li>
-          <button>Вийти з акаунту</button>
+          <button className={css.button}>Вийти з акаунту</button>
         </li>
       </ul>
 
