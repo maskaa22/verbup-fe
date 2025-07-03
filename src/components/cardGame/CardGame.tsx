@@ -3,8 +3,12 @@ import c from "./CardGame.module.css";
 import BaseComponentGame from "../baseComponentGame/BaseComponentGame";
 import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
 import { useOutletContext } from "react-router-dom";
-import type { BtnType, CardGameProps, cardGameType} from "../../utils/gameType";
-// import type { allGameType } from "../../utils/gameType";
+import type {
+  BtnType,
+  CardGameProps,
+  cardGameType,
+} from "../../utils/gameType";
+import { speakText } from "../../utils/voiseFunction";
 
 const CardGame = ({ question }: CardGameProps) => {
   const { setCheckAnswerType, setShowCheckAnswer, current, setModalActive } =
@@ -18,28 +22,13 @@ const CardGame = ({ question }: CardGameProps) => {
   const handleWordClick = (wordName: string) => {
     setWord(wordName);
     setActiveWord(wordName);
-     speakText(wordName); // озвучування вибраної відповіді
+    speakText(wordName, true); // озвучування вибраної відповіді
   };
 
   useEffect(() => {
     setWord("");
     setActiveWord(null);
   }, [current]);
-
-  //озвучування питання
-//   useEffect(() => {
-//   if (question?.question) {
-//     speakText(question.question);
-//   }
-// }, [question]);
-
-  const speakText = (text: string) => {
-  speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "en-US";
-  utterance.rate = 0.95;
-  speechSynthesis.speak(utterance);
-};
 
   return (
     <>
