@@ -1,3 +1,9 @@
+.wrap{
+  position: relative;
+  z-index: -1;
+  background-color: transparent;
+  width: fit-content;
+}
 .wrap h4 {
   color: var(--base-color-blue);
   font-weight: 400;

@@ -1,0 +1,15 @@
+.title{
+    font-weight: 600;
+font-size: 30px;
+    color: var(--base-color-blue);
+}
+.wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+.theme{
+    display: flex;
+    justify-content: space-between;
+}

@@ -9,28 +9,36 @@ const NavBar = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [noActive, setNoActive] = useState(true);
   const location = useLocation().pathname;
-const activeLink = ({ isActive }: { isActive: boolean }) => {
-  if(isActive){setNoActive(false)}
-  return clsx(isActive && css.active);
-};
+// const activeLink = ({ isActive }: { isActive: boolean }) => {
+//   if(isActive){setNoActive(false)}   this line is not allowed during render unless it's in useEffect() !!!
+//   return clsx(isActive && css.active);
+// };
 
+const activeLink = ({ isActive }: { isActive: boolean }) => clsx(isActive && css.active)
   useEffect(() => {
     switch (location) {
       case "/game":
         setActiveIndex(0);
+        setNoActive(false)
         break;
       case "/cup":
         setActiveIndex(1);
+        setNoActive(false)
         break;
       case "/voc":
         setActiveIndex(2);
+        setNoActive(false)
         break;
       case "/setting":
         setActiveIndex(3);
+        setNoActive(false)
         break;
       case "/share":
         setActiveIndex(4);
+        setNoActive(false)
         break;
+        default:
+      setNoActive(true);
     }
   }, [location]);
   const navWidth = 70;

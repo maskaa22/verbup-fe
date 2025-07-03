@@ -75,10 +75,15 @@ const visibleVerbs = useSelector(visibleWordsStore);
 //ref={(el) => {(wordRefs.current[verb.base_form] = el)}}
 
 if(!visibleVerbs){
-    return "couldn't fetch the verbs";
+    return <div className={css.noWordsWrap}>
+      <p>couldn't fetch the verbs</p>
+    </div>;
 }
 if(visibleVerbs.length <= 0){
-  return "There are no verbs on the letter"
+  return <div className={css.noWordsWrap}>
+    <p>Нічого собі... На цю букву взагалі немає слів!</p>
+    <img src="/image/cute-astronaut-no-min.png" alt="cute astronaut with laptop sitting on the search box" />
+  </div>
 }
 
 const myVerbs = visibleVerbs;

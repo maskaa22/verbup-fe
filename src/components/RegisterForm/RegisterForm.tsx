@@ -1,15 +1,15 @@
-import { Field, Form, Formik, type FormikHelpers } from "formik";
-import s from "./RegistraterForm.module.css";
+import { type FormikHelpers } from "formik";
+// import s from "./RegistraterForm.module.css";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
 import { register } from "../../redux/auth/operations";
-import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
+import FormForm from "../formForm/FormForm";
+import { arrOfNamesSignup } from "../../constants";
+import type { RegFormValues } from "../../utils/formTypes";
 
-export interface RegFormValues {
-  username: string;  
-  email: string;
-  password: string;
-}
+
+
+
 
 const RegisterForm: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -21,8 +21,20 @@ const RegisterForm: React.FC = () => {
     actions.resetForm();
   };
 
+
+    const props = {
+        arrOfNames: arrOfNamesSignup,
+        onSubmit: handleSubmit
+    }
   return (
-    <Formik
+    <FormForm {...props}/>
+  );
+};
+
+export default RegisterForm;
+
+
+{/* <Formik
       initialValues={{ username: "", email: "", password: "" }}
       onSubmit={handleSubmit}
     >
@@ -54,8 +66,4 @@ const RegisterForm: React.FC = () => {
         </div>
         <BaseButtonStart label="Зарееструватися"/>
       </Form>
-    </Formik>
-  );
-};
-
-export default RegisterForm;
+    </Formik> */}

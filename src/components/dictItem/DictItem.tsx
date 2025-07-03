@@ -14,12 +14,15 @@ const DictItem: React.FC<Props> = ({
         header={({ state: { isEnter } }) => (
           <div className={css.bsWrap}>
             <div className={css.dotWrap}>
-            <span ></span>
+            <span></span>
             <div className={css.baseForm}>
               <p>{base_form}</p>
               <p>{uk}</p>
             </div>
             </div>
+            <svg className={css.sound}>
+              <use href="./icons.svg#icon-sound"></use>
+            </svg>
             <svg
               className={css.arrow}
               style={{

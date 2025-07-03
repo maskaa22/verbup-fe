@@ -41,7 +41,7 @@ const DictABCFilter = () => {
     };
   }, []);
   return (
-    <div ref={dropdownRef}>
+    <div className={css.wrap} ref={dropdownRef}>
       <Swiper loop={false} slidesPerView={5} spaceBetween={10} className={css.list}>
         {alphabet.map((letter, idx) => (
           <SwiperSlide
