@@ -1,0 +1,51 @@
+.rezult {
+  background-image: url("/image/game/bg-rezult.png");
+  padding: 63px 0 23px;
+}
+.innerContainer {
+  padding: 20px 0;
+  border-radius: 12px;
+  backdrop-filter: blur(40px);
+  box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    180deg,
+    rgba(232, 232, 232, 0.5) 0%,
+    rgba(94, 144, 158, 0.5) 100%
+  );
+}
+.title {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 83%;
+  text-align: center;
+  color: var(--primary-1);
+}
+.img {
+  margin: 10px auto;
+}
+.text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  text-align: center;
+  color: var(--primary-1);
+  padding: 0 32px;
+}
+.list {
+  display: flex;
+  justify-content: center;
+  gap: 11px;
+  margin-top: 20px;
+}
+.item {
+  background-color: var(--background-white-default);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 11px 24px;
+}
+.icon {
+  width: 21px;
+  height: 29px;
+}

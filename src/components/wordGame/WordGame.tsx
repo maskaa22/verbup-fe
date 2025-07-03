@@ -20,9 +20,9 @@ const WordGame = () => {
 
   return (
     <div className={c.gameContainer}>
-      <div className="container">
+      {/* <div className="container"> */}
         {question && <CardGame question={question} />}
-      </div>
+      {/* </div> */}
     </div>
   );
 };
