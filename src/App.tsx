@@ -20,6 +20,7 @@ import Setting from "./pages/setting/Setting";
 import ChangeUserData from "./pages/changeUserData/ChangeUserData";
 import NotificationParams from "./pages/notificationParams/NotificationParams";
 import ThemeSwitcher from "./pages/themeSwitcher/ThemeSwitcher";
+import Loader from "./components/loader/Loader";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -51,7 +52,7 @@ function App() {
             <Route path="result" element={<ResultGame />} />
           </Route>
           <Route path="/home" element={<Home />} />
-          <Route path="/cup" element={<h1>Cup</h1>} />
+          <Route path="/cup" element={<Loader/>} />
           <Route path="/voc" element={<Dictionary />} />
           <Route path="/setting" element={<Setting />} />
           <Route path="/setting/game" element={<GameSetting />} />

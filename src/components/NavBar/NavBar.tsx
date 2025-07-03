@@ -41,13 +41,14 @@ const activeLink = ({ isActive }: { isActive: boolean }) => clsx(isActive && css
       setNoActive(true);
     }
   }, [location]);
-  const navWidth = 70;
+  const navWidth = 72;
 
 
 
   return (
     <div className={css.navBar}>
       <div className={css.navigation}>
+        <div>
         <ul>
           <li>
             <NavLink className={activeLink} to="/game">
@@ -59,38 +60,36 @@ const activeLink = ({ isActive }: { isActive: boolean }) => clsx(isActive && css
           <li>
             <NavLink className={activeLink} to="/cup">
               <svg className={clsx(css.icon, css.iconone)}>
-                <use href="./icons.svg#icon-cup"></use>
+                <use href="./icons.svg#icon-achievements"></use>
               </svg>
             </NavLink>
           </li>
           <li>
             <NavLink className={activeLink} to="/voc">
-              <svg className={clsx(css.icon, css.iconone)}>
-                <use href="./icons.svg#icon-voc"></use>
+              <svg className={css.icon}>
+                <use href="./icons.svg#icon-vocabulary"></use>
               </svg>{" "}
             </NavLink>
           </li>
           <li>
             <NavLink className={activeLink} to="/setting">
-              <svg className={clsx(css.icon, css.iconone)}>
-                <use href="./icons.svg#icon-set"></use>
+              <svg className={clsx(css.icon)}>
+                <use href="./icons.svg#icon-setting"></use>
               </svg>{" "}
             </NavLink>
           </li>
           <li>
             <NavLink className={activeLink} to="/share">
               <svg className={css.icon}>
-                <use href="./icons.svg#icon-share"></use>
+                <use href="./icons.svg#icon-home"></use>
               </svg>{" "}
             </NavLink>
           </li>
-          <div
-            className={clsx(css.indicator, noActive && css.noActive)}
-            style={{
-              transform: `translateX(${navWidth * activeIndex}px)`,
-            }}
-          />
+          
         </ul>
+        <span className={clsx(css.indicator, noActive && css.noActive)}
+            style={{transform: `translateX(${navWidth * activeIndex}px)`,}}></span>
+            </div>
       </div>
     </div>
   );
