@@ -8,7 +8,6 @@
 .li {
   display: flex;
   align-items: center;
-  width: 31px !important;
   text-transform: capitalize;
   font-weight: 400;
   font-size: 32px;
@@ -16,6 +15,7 @@
   color: var(--base-color-yellow);
   transition: all 0.5s ease-in-out;
   cursor: pointer;
+  margin: 0;
 }
 
 .scroll-container::-webkit-scrollbar {
