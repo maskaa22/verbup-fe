@@ -8,6 +8,7 @@ import { Accordion, AccordionItem } from "@szhsin/react-accordion";
 const DictItem: React.FC<Props> = ({
   word: { base_form, past_simple, past_participle, uk },
 }) => {
+  const wordList = `${base_form} ${past_simple} ${past_participle}` 
 const handleSound = (word: string) => {
   console.log("sound")
   speakText(word, true)
@@ -24,7 +25,7 @@ const handleSound = (word: string) => {
               <p>{uk}</p>
             </div>
             </div>
-            <div onClick={() => handleSound(base_form)} className={css.soundBtn}>
+            <div onClick={() => handleSound(wordList)} className={css.soundBtn}>
             <svg className={css.sound}>
               <use href="./icons.svg#icon-sound"></use>
             </svg>
