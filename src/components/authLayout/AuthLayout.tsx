@@ -12,18 +12,25 @@ const [glass, setGlass] = useState(false);
   const location = useLocation().pathname;
 
 useEffect(() => {
-    switch (location) {
-      case "/home":
+    switch (true) {
+      case location === "/setting/game":
+         console.log(location)
+        setGlass(true);
+        setPlantes(true);
+        setNavigation(true);
+        break;
+      case location.includes("/home"):
+        console.log(location)
         setGlass(true);
         setPlantes(false);
         setNavigation(true);
         break;
-      case "/signup":
+      case location.includes("/signup"):
         setGlass(true);
         setPlantes(true);
         setNavigation(false);
         break;
-      case "/game":
+      case location.includes("/game"):
         setGlass(false);
         setPlantes(false);
         setNavigation(true);
@@ -33,35 +40,36 @@ useEffect(() => {
         // setPlantes(false);
         // setNavigation(true);
         //   break; 
-      case "/cup":
+      case location.includes("/cup"):
         break;
-      case "/voc":
+      case location.includes("/voc"):
+                console.log(location)
         setGlass(false);
         setPlantes(false);
         setNavigation(true);
         break;
-      case "/setting":
+      case location.startsWith("/setting"):
+        console.log(location)
         setGlass(true);
         setPlantes(true);
         setNavigation(true);
         break;
-        case "/change-password":
+        case location.startsWith("/change"):
+                      
           setGlass(true);
         setPlantes(true);
         setNavigation(true);
           break;
-          case "/notification-params":
+          case location === "/notification-params":
             setGlass(true);
         setPlantes(true);
         setNavigation(true);
             break;
-            case "/theme-switcher":
+            case location === "/theme-switcher":
             setGlass(true);
         setPlantes(true);
         setNavigation(true);
             break;
-      case "/share":
-        break;
         default: 
         setGlass(false);
         setPlantes(false);
