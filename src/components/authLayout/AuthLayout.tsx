@@ -20,7 +20,7 @@ useEffect(() => {
         break;
       case "/signup":
         setGlass(true);
-        setPlantes(false);
+        setPlantes(true);
         setNavigation(false);
         break;
       case "/game":

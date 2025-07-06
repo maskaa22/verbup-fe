@@ -1,34 +1,44 @@
-.dicheadline{
-font-family: var(--font-family-messiri);
-font-weight: 400;
-font-size: 32px;
-line-height: 140%;
-letter-spacing: -0.01em;
-color: var(--base-color-blue);
-text-transform: capitalize;
+.div {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  height: 90dvh;
 }
-.markup ul{
-    display: flex;
-    justify-content: space-between;
+
+.dicheadline {
+  font-family: var(--font-family-messiri);
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 140%;
+  letter-spacing: -0.01em;
+  color: var(--base-color-blue);
+  text-transform: capitalize;
 }
-.markup ul li p{
-    color: var(--base-color-gray);
+.markup ul {
+  display: flex;
+  justify-content: space-between;
 }
-.markup ul li{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
+.markup ul li p {
+  color: var(--base-color-gray);
 }
-.color{
-    width: 12px;
-    height: 12px;
-    border-radius: 2px;
-    border: 1px solid var(--base-color-gray);
+.markup ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
-.markup ul li:nth-child(1) .color{
-background: linear-gradient(180deg, #65b441 0%, #aaf886 100%);}
-.markup ul li:nth-child(2) .color{
-background: linear-gradient(180deg, #ffb612 0%, #ffdd90 100%);}
-.markup ul li:nth-child(3) .color{
-background: linear-gradient(180deg, #c43d28 0%, #ff8c7a 100%);}
+.color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 1px solid var(--base-color-gray);
+}
+.markup ul li:nth-child(1) .color {
+  background: linear-gradient(180deg, #65b441 0%, #aaf886 100%);
+}
+.markup ul li:nth-child(2) .color {
+  background: linear-gradient(180deg, #ffb612 0%, #ffdd90 100%);
+}
+.markup ul li:nth-child(3) .color {
+  background: linear-gradient(180deg, #c43d28 0%, #ff8c7a 100%);
+}

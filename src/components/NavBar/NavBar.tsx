@@ -33,7 +33,7 @@ const activeLink = ({ isActive }: { isActive: boolean }) => clsx(isActive && css
         setActiveIndex(3);
         setNoActive(false)
         break;
-      case "/share":
+      case "/home":
         setActiveIndex(4);
         setNoActive(false)
         break;
@@ -79,7 +79,7 @@ const activeLink = ({ isActive }: { isActive: boolean }) => clsx(isActive && css
             </NavLink>
           </li>
           <li>
-            <NavLink className={activeLink} to="/share">
+            <NavLink className={activeLink} to="/home">
               <svg className={css.icon}>
                 <use href="./icons.svg#icon-home"></use>
               </svg>{" "}

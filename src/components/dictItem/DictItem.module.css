@@ -86,3 +86,7 @@
   height: 16px;
   fill: var(--base-color-blue);
 }
+
+.soundBtn{
+  background: transparent;
+}

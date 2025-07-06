@@ -13,7 +13,7 @@ const Dictionary = () => {
   useEffect(() => {
     dispatch(fetchWords())
   }, [])
-  return <div className={`${s.div}`}>
+  return <div className={s.div}>
     <h2 className={s.dicheadline}>словник</h2>
     <DicSearchBox/>
     <DictABCFilter/>
