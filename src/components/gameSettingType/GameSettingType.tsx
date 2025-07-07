@@ -1,16 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import c from "./GameSettingType.module.css";
-import { useSelector } from "react-redux";
-import { selectQueries } from "../../redux/game/selectors";
-import { useEffect } from "react";
-import { baseQuestion } from "../../redux/game/slice";
-import { useDispatch } from "react-redux";
-const GameSettingType = ({ icon, text, title, path, count, gameType }) => {
+import type React from "react";
+import type { GameSettingTypeProps } from "../../utils/gameType";
 
+const GameSettingType: React.FC<GameSettingTypeProps> = ({
+  icon,
+  text,
+  title,
+  path,
+  count,
+  gameType,
+}) => {
   const navigate = useNavigate();
-
-  //  const questions = useSelector(selectQueries);
-
 
   return (
     <div className={c.type}>
@@ -24,7 +25,6 @@ const GameSettingType = ({ icon, text, title, path, count, gameType }) => {
         <button
           className={c.btn}
           onClick={() => {
-
             navigate(`/game/${gameType}?count=${count}`);
           }}
         >

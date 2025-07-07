@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import css from "./GameSettingRadio.module.css";
 import type { RadioGroupProps } from "../../utils/gameType";
-
+import { verbFrom } from "../../constants";
 
 const GameSettingRadio: React.FC<RadioGroupProps> = ({
   name,
@@ -11,7 +11,6 @@ const GameSettingRadio: React.FC<RadioGroupProps> = ({
   needSpan,
   disabled,
 }) => {
-  const verbFrom = ["(V2)", "(V3)", "(V2, V3)"];
   return (
     <div className={!disabled ? `${css.rset}` : `${css.rset} ${css.disabled}`}>
       {options.map((option, index) => (

@@ -2,13 +2,13 @@ import { ERROR, SUCCESS } from "../../constants";
 import type { baseButtonType } from "../../utils/gameType";
 import s from "./BaseButtonGame.module.css";
 
-const BaseButtonGame = ({
+const BaseButtonGame: React.FC<baseButtonType> = ({
   word,
   setCheckAnswerType,
   setShowCheckAnswer,
   setModalActive,
   correctAnswer,
-}: baseButtonType) => {
+}) => {
   //логіка перевірки на правильність відповіді
   const handleCheckAnswer = () => {
     if (!word) return;

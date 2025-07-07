@@ -7,12 +7,6 @@ import { setSetting } from "../../redux/game/slice";
 import { ADVANCED, BEGGINER, INTERMEDIATE } from "../../constants";
 
 const GameSetting = () => {
-
-  // const [formData, setFormData] = useState({
-  //   level: "",
-  //   verbForm: "",
-  //   numQuest: "",
-  // });
   const [formData, setFormData] = useState({
     level: BEGGINER,
     verbForm: "Past Simple",
@@ -73,5 +67,3 @@ const GameSetting = () => {
 };
 
 export default GameSetting;
-
-//['Past Simple (V2)', 'Past Participle (V3)', 'Змішаний (V2, V3)']

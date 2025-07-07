@@ -40,7 +40,6 @@ export type allGameType = {
 
 export type checkAnswerType = {
   type: string;
-  setCurrent: React.Dispatch<React.SetStateAction<number>>;
   active: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -94,6 +93,14 @@ export interface GameState {
   };
   items: Question[];
   current: number;
-  correct: number,
-  wrong: number
+  correct: number;
+  wrong: number;
+}
+export interface GameSettingTypeProps {
+  icon: string;
+  text: string;
+  title: string;
+  path: string;
+  count: number;
+  gameType: string;
 }

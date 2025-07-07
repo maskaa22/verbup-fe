@@ -1,23 +1,12 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { generateQuestions } from "./operations";
-import type { GameState } from "../../utils/gameType";
+import { initialStateGame } from "../../constants";
 
-const initialState: GameState = {
-  setting: {
-    level: "",
-    numQuest: "",
-    verbForm: "",
-  },
-  items: [],
-  current: 0,
-  correct: 0,
-  wrong: 0
-};
 const gameSlice = createSlice({
   name: "game",
-  initialState: initialState,
+  initialState: initialStateGame,
   reducers: {
-    setSetting(state, action: PayloadAction<typeof initialState.setting>) {
+    setSetting(state, action: PayloadAction<typeof initialStateGame.setting>) {
       state.setting = action.payload;
     },
     baseQuestion(state) {
@@ -39,14 +28,22 @@ const gameSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(generateQuestions.fulfilled, (state, action) => {
-      state.items = action.payload;
-    })
-    .addCase(generateQuestions.pending, (state) => {
-      state.items = []; 
-    });
+    builder
+      .addCase(generateQuestions.fulfilled, (state, action) => {
+        state.items = action.payload;
+      })
+      .addCase(generateQuestions.pending, (state) => {
+        state.items = [];
+      });
   },
 });
 
-export const { setSetting, baseQuestion, setCurrent, resetCurrent, setCorrect, setWrong } = gameSlice.actions;
+export const {
+  setSetting,
+  baseQuestion,
+  setCurrent,
+  resetCurrent,
+  setCorrect,
+  setWrong,
+} = gameSlice.actions;
 export default gameSlice.reducer;
