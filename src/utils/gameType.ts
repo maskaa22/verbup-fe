@@ -104,3 +104,9 @@ export interface GameSettingTypeProps {
   count: number;
   gameType: string;
 }
+
+export type StarProps = {
+  total?: number;
+  setRating: React.Dispatch<React.SetStateAction<number>>;
+  rating: number;
+};
