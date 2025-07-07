@@ -85,3 +85,15 @@ export type RadioGroupProps = {
   needSpan: boolean;
   disabled: boolean;
 };
+
+export interface GameState {
+  setting: {
+    level: string;
+    numQuest: string;
+    verbForm: string;
+  };
+  items: Question[];
+  current: number;
+  correct: number,
+  wrong: number
+}

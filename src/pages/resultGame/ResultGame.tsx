@@ -2,27 +2,40 @@ import c from "./ResultGame.module.css";
 import Star from "../../components/star/Star";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectGameSetting } from "../../redux/game/selectors";
+import {
+  selectCorrect,
+  selectGameSetting,
+  selectWrong,
+} from "../../redux/game/selectors";
 import { useDispatch } from "react-redux";
 import { baseQuestion, resetCurrent } from "../../redux/game/slice";
 import { generateQuestions } from "../../redux/game/operations";
+import type { AppDispatch } from "../../redux/store";
 
 const ResultGame = () => {
   const navigation = useNavigate();
   const gameSetting = useSelector(selectGameSetting);
+  const correct = useSelector(selectCorrect);
+  const wrong = useSelector(selectWrong);
 
   const numQuest = gameSetting.numQuest;
   const count = Number(numQuest.split(" ")[0]);
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
+
+  const resetSetting = () => {
+    dispatch(baseQuestion());
+    dispatch(resetCurrent());
+  };
 
   const home = () => {
+    resetSetting();
     navigation("/");
   };
+
   const next = async () => {
     try {
-      dispatch(baseQuestion());
-      dispatch(resetCurrent());
-      await dispatch(generateQuestions()).unwrap(); // Генерує нові
+      resetSetting();
+      await dispatch(generateQuestions()).unwrap();
       navigation(`/game/check-word?count=${count}`);
     } catch (error) {
       console.error("Помилка при генерації питань:", error);
@@ -41,20 +54,20 @@ const ResultGame = () => {
             <svg className={c.icon}>
               <use href={"/icons.svg#icon-yes"}></use>
             </svg>
-            <p>8</p>
+            <p>{correct}</p>
           </li>
           <li className={c.item}>
             <svg className={c.icon}>
               <use href={"/icons.svg#icon-no"}></use>
             </svg>
-            <p>2</p>
+            <p>{wrong}</p>
           </li>
-          <li className={c.item}>
+          {/* <li className={c.item}>
             <svg className={c.icon}>
               <use href={"/icons.svg#icon-star"}></use>
             </svg>
             <p>56</p>
-          </li>
+          </li> */}
         </ul>
         <Star onRate={(value) => console.log("Обрано:", value)} />
       </div>

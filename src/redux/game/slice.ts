@@ -1,7 +1,8 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { generateQuestions } from "./operations";
+import type { GameState } from "../../utils/gameType";
 
-const initialState = {
+const initialState: GameState = {
   setting: {
     level: "",
     numQuest: "",
@@ -9,6 +10,8 @@ const initialState = {
   },
   items: [],
   current: 0,
+  correct: 0,
+  wrong: 0
 };
 const gameSlice = createSlice({
   name: "game",
@@ -23,8 +26,16 @@ const gameSlice = createSlice({
     setCurrent(state, action: PayloadAction<number>) {
       state.current = action.payload;
     },
+    setCorrect(state, action: PayloadAction<number>) {
+      state.correct = action.payload;
+    },
+    setWrong(state, action: PayloadAction<number>) {
+      state.wrong = action.payload;
+    },
     resetCurrent(state) {
       state.current = 0;
+      state.correct = 0;
+      state.wrong = 0;
     },
   },
   extraReducers: (builder) => {
@@ -32,10 +43,10 @@ const gameSlice = createSlice({
       state.items = action.payload;
     })
     .addCase(generateQuestions.pending, (state) => {
-      state.items = []; // очищаємо попередні
+      state.items = []; 
     });
   },
 });
 
-export const { setSetting, baseQuestion, setCurrent, resetCurrent } = gameSlice.actions;
+export const { setSetting, baseQuestion, setCurrent, resetCurrent, setCorrect, setWrong } = gameSlice.actions;
 export default gameSlice.reducer;

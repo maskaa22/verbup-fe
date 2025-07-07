@@ -5,9 +5,9 @@ import { ERROR, SUCCESS } from "../../constants";
 import type { checkAnswerType } from "../../utils/gameType";
 import c from "./CheckAnswer.module.css";
 import { useDispatch } from "react-redux";
-import { setCurrent } from "../../redux/game/slice";
+import { setCorrect, setCurrent, setWrong } from "../../redux/game/slice";
 import { useSelector } from "react-redux";
-import { selectCurrent } from "../../redux/game/selectors";
+import { selectCorrect, selectCurrent, selectWrong } from "../../redux/game/selectors";
 
 
 const CheckAnswer = ({
@@ -18,6 +18,8 @@ const CheckAnswer = ({
 
  const dispatch = useDispatch();
  const current = useSelector(selectCurrent);
+ const correct = useSelector(selectCorrect);
+ const wrong = useSelector(selectWrong);
 
   return (
     <div
@@ -52,6 +54,12 @@ const CheckAnswer = ({
 
               //реалізований прогрес верхній питань
                dispatch(setCurrent(current+1));
+
+               if(type === SUCCESS) {
+                dispatch(setCorrect(correct+1))
+               } else {
+                dispatch(setWrong(wrong+1))
+               }
 
               //закриття модального вікна
               setActive(false);

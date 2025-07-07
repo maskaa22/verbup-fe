@@ -14,6 +14,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import type { GameState } from "../utils/gameType";
 
 const persistConfig = {
   key: "game",
@@ -25,7 +26,7 @@ export const store = configureStore({
   reducer: {
     auth: authReducer,
     dict: dictReducer,
-    game: persistReducer(persistConfig, gameSlice),
+    game: persistReducer<GameState>(persistConfig, gameSlice),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
