@@ -1,25 +1,27 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import GameSettingRadio from "../../components/gameSettingRadio/GameSettingRadio";
 import css from "./GameSetting.module.css";
 import BaseButtonStart from "../../components/baseButtonStart/BaseButtonStart";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { selectGameSetting } from "../../redux/game/selectors";
 import { setSetting } from "../../redux/game/slice";
 import { ADVANCED, BEGGINER, INTERMEDIATE } from "../../constants";
 
 const GameSetting = () => {
+
+  // const [formData, setFormData] = useState({
+  //   level: "",
+  //   verbForm: "",
+  //   numQuest: "",
+  // });
   const [formData, setFormData] = useState({
-    level: "",
-    verbForm: "",
+    level: BEGGINER,
+    verbForm: "Past Simple",
     numQuest: "",
   });
 
   const dispatch = useDispatch();
-  // const gameSetting = useSelector(selectGameSetting);
 
   const saveGameSetting = () => {
-    // console.log(formData, '111');
     dispatch(setSetting(formData));
   };
 
@@ -40,6 +42,7 @@ const GameSetting = () => {
             setFormData((prev) => ({ ...prev, level: value }))
           }
           needSpan={false}
+          disabled={true}
         />
         <p>Вибір режиму гри</p>
         <GameSettingRadio
@@ -50,6 +53,7 @@ const GameSetting = () => {
             setFormData((prev) => ({ ...prev, verbForm: value }))
           }
           needSpan={true}
+          disabled={true}
         />
         <p>Вибір кількості питань у грі</p>
         <GameSettingRadio
@@ -60,6 +64,7 @@ const GameSetting = () => {
             setFormData((prev) => ({ ...prev, numQuest: value }));
           }}
           needSpan={false}
+          disabled={false}
         />
       </div>
       <BaseButtonStart label="Зберегти" onClick={() => saveGameSetting()} />

@@ -70,3 +70,18 @@ export type QuestionTemplates = {
   v2: TemplateFn[];
   v3: TemplateFn[];
 };
+
+export type qestionDataOperation = {
+  easy: Verb[];
+  medium: Verb[];
+  hard: Verb[];
+};
+
+export type RadioGroupProps = {
+  name: string;
+  options: string[];
+  onChange: (value: string) => void;
+  selectedValue?: string;
+  needSpan: boolean;
+  disabled: boolean;
+};

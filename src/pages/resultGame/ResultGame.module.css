@@ -49,3 +49,21 @@
   width: 21px;
   height: 29px;
 }
+.btnContainer {
+  display: flex;
+  gap: 31px;
+  margin-top: 117px;
+  max-width: 335px;
+}
+.btn {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 80%;
+  text-align: center;
+  color: white;
+  padding: 16px 25px;
+  box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: var(--primary-1);
+  border: none;
+  border-radius: 48px;
+}

@@ -4,18 +4,26 @@ import c from "./WordGame.module.css";
 import CardGame from "../cardGame/CardGame";
 import { useEffect } from "react";
 import type { currentAnswerAndQuestions } from "../../utils/gameType";
+import { useSelector } from "react-redux";
+import { selectCurrent } from "../../redux/game/selectors";
 
 const WordGame = () => {
-  const { questions, current } = useOutletContext<currentAnswerAndQuestions>();
+  // const { questions, current } = useOutletContext<currentAnswerAndQuestions>();
+    const { questions} = useOutletContext<currentAnswerAndQuestions>();
+
+  const current = useSelector(selectCurrent);
 
   const question = questions[current];
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (questions.length === 0) return;
     if (questions.length > 0 && current >= questions.length) {
       navigate("/game/result");
     }
+    console.log(current);
+    
   }, [current, questions, navigate]);
 
   return (

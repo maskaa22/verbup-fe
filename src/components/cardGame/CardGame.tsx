@@ -9,10 +9,14 @@ import type {
   cardGameType,
 } from "../../utils/gameType";
 import { speakText } from "../../utils/voiseFunction";
+import { useSelector } from "react-redux";
+import { selectCurrent } from "../../redux/game/selectors";
 
 const CardGame = ({ question }: CardGameProps) => {
-  const { setCheckAnswerType, setShowCheckAnswer, current, setModalActive } =
+  const { setCheckAnswerType, setShowCheckAnswer,  setModalActive } =
     useOutletContext<cardGameType>();
+
+      const current = useSelector(selectCurrent);
 
   const [word, setWord] = useState("");
   const [activeWord, setActiveWord] = useState<string | null>(null);

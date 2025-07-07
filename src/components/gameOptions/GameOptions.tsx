@@ -7,63 +7,59 @@ import { useSelector } from "react-redux";
 import { selectGameSetting } from "../../redux/game/selectors";
 import { ADVANCED, BEGGINER, INTERMEDIATE } from "../../constants";
 import GameSettingType from "../gameSettingType/GameSettingType";
+import { generateQuestions } from "../../redux/game/operations";
+import { useDispatch } from "react-redux";
 
-const GameOptions = ({ setQuestions }: gameOptions) => {
-  const [gameType, setGameType] = useState("");
+const GameOptions = () => {
 
-  const navigate = useNavigate();
   const location = useLocation();
 
   const hideSelect = location.pathname !== "/game";
 
   const gameSetting = useSelector(selectGameSetting);
-  // console.log(gameSetting);
+
   const numQuest = gameSetting.numQuest;
   const count = Number(numQuest.split(" ")[0]);
 
-  const handleSubmit = () => {
-    if (gameType && count) {
-      navigate(`/game/${gameType}?count=${count}`);
-    }
-  };
+ 
 
-  useEffect(() => {
-    const createQuestions = async () => {
-      try {
-        const res = await fetch("/data/irr-verbs.filtered.json");
-        const fetchQuestions = await res.json();
-        if (count > 0) {
-          let selectedQuestions = [];
-          if (gameSetting.level === BEGGINER) {
-            selectedQuestions = generateQuestionsList(
-              fetchQuestions.easy,
-              count
-            );
-          } else if (gameSetting.level === INTERMEDIATE) {
-            selectedQuestions = generateQuestionsList(
-              fetchQuestions.medium,
-              count
-            );
-          } else if (gameSetting.level === ADVANCED) {
-            selectedQuestions = generateQuestionsList(
-              fetchQuestions.hard,
-              count
-            );
-          }
-          setQuestions(selectedQuestions);
-        }
-        // if (gameSetting.level !== BEGGINER && count > 0)
-        // const selectedQuestions = generateQuestionsList(
-        //   fetchQuestions.easy,
-        //   count
-        // );
-      } catch (error) {
-        console.error("Помилка завантаження JSON:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const createQuestions = async () => {
+  //     try {
+  //       const res = await fetch("/data/irr-verbs.filtered.json");
+  //       const fetchQuestions = await res.json();
+  //       if (count > 0) {
+  //         let selectedQuestions = [];
+  //         if (gameSetting.level === BEGGINER) {
+  //           selectedQuestions = generateQuestionsList(
+  //             fetchQuestions.easy,
+  //             count
+  //           );
+  //         } else if (gameSetting.level === INTERMEDIATE) {
+  //           selectedQuestions = generateQuestionsList(
+  //             fetchQuestions.medium,
+  //             count
+  //           );
+  //         } else if (gameSetting.level === ADVANCED) {
+  //           selectedQuestions = generateQuestionsList(
+  //             fetchQuestions.hard,
+  //             count
+  //           );
+  //         }
+  //         setQuestions(selectedQuestions);
+  //       }
+  //       // if (gameSetting.level !== BEGGINER && count > 0)
+  //       // const selectedQuestions = generateQuestionsList(
+  //       //   fetchQuestions.easy,
+  //       //   count
+  //       // );
+  //     } catch (error) {
+  //       console.error("Помилка завантаження JSON:", error);
+  //     }
+  //   };
 
-    createQuestions();
-  }, [count, setQuestions, gameSetting.level]);
+  //   createQuestions();
+  // }, [count, setQuestions, gameSetting.level]);
 
   return (
     <>

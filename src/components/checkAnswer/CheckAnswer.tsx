@@ -1,15 +1,23 @@
+
+import { useEffect } from "react";
 import { ERROR, SUCCESS } from "../../constants";
-import { useCountWord } from "../../hooks/gameHooks";
+
 import type { checkAnswerType } from "../../utils/gameType";
 import c from "./CheckAnswer.module.css";
+import { useDispatch } from "react-redux";
+import { setCurrent } from "../../redux/game/slice";
+import { useSelector } from "react-redux";
+import { selectCurrent } from "../../redux/game/selectors";
+
 
 const CheckAnswer = ({
   type,
-  setCurrent,
   active,
   setActive,
 }: checkAnswerType) => {
-  // const count = useCountWord();
+
+ const dispatch = useDispatch();
+ const current = useSelector(selectCurrent);
 
   return (
     <div
@@ -41,11 +49,9 @@ const CheckAnswer = ({
           <button
             className={c.btn}
             onClick={() => {
-              //має відкритися наступне питання
 
               //реалізований прогрес верхній питань
-              // setCurrent((prev) => Math.min(prev + 1, count - 1));
-              setCurrent((prev) => prev + 1);
+               dispatch(setCurrent(current+1));
 
               //закриття модального вікна
               setActive(false);

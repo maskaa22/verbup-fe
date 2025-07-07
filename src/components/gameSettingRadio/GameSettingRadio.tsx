@@ -1,12 +1,7 @@
 import clsx from "clsx";
 import css from "./GameSettingRadio.module.css";
-type RadioGroupProps = {
-  name: string;
-  options: string[];
-  onChange: (value: string) => void;
-  selectedValue?: string;
-  needSpan: boolean;
-};
+import type { RadioGroupProps } from "../../utils/gameType";
+
 
 const GameSettingRadio: React.FC<RadioGroupProps> = ({
   name,
@@ -14,10 +9,11 @@ const GameSettingRadio: React.FC<RadioGroupProps> = ({
   onChange,
   selectedValue,
   needSpan,
+  disabled,
 }) => {
   const verbFrom = ["(V2)", "(V3)", "(V2, V3)"];
   return (
-    <div className={css.rset}>
+    <div className={!disabled ? `${css.rset}` : `${css.rset} ${css.disabled}`}>
       {options.map((option, index) => (
         <div
           className={clsx(
@@ -38,6 +34,7 @@ const GameSettingRadio: React.FC<RadioGroupProps> = ({
             value={option}
             checked={selectedValue === option}
             onChange={() => onChange(option)}
+            disabled={disabled}
           />
         </div>
       ))}
