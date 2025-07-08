@@ -3,16 +3,15 @@ import s from "./BaseComponentGame.module.css";
 import QuestionProgressBar from "../questionProgressBar/QuestionProgressBar";
 import type { baseComponentType } from "../../utils/gameType";
 import { useNavigate } from "react-router-dom";
-import { useCountWord } from "../../hooks/gameHooks";
 
 const BaseComponentGame: React.FC<baseComponentType> = ({
   current,
   img,
   question,
+  answerStatuses,
+  count,
 }) => {
   const navigate = useNavigate();
-
-  const count = useCountWord();
 
   return (
     <>
@@ -26,7 +25,11 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
           {current + 1} з {count}
         </p>
       </div>
-      <QuestionProgressBar total={count} currentIndex={current} />
+      <QuestionProgressBar
+        total={count}
+        currentIndex={current}
+        answerStatuses={answerStatuses}
+      />
       <div className={s.imgContainer}>
         <img src={img} />
       </div>

@@ -2,7 +2,11 @@ export type baseComponentType = {
   current: number;
   img: string;
   question: string;
+  answerStatuses: AnswerStatus[];
+  count: number;
 };
+
+export type AnswerStatus = "success" | "error" | "pending";
 
 export type baseButtonType = {
   word: string;
@@ -10,6 +14,16 @@ export type baseButtonType = {
   setShowCheckAnswer: React.Dispatch<React.SetStateAction<boolean>>;
   setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
   correctAnswer: string;
+  answerStatuses: AnswerStatus[];
+  setAnswerStatuses: React.Dispatch<React.SetStateAction<AnswerStatus[]>>;
+  current: number;
+  setIsChecked: (value: boolean) => void;
+};
+
+export type progressBarProps = {
+  total: number;
+  currentIndex: number; // індекс поточного питання (від 0 до total-1)
+  answerStatuses: string[];
 };
 
 export type cardGameType = {
@@ -103,6 +117,7 @@ export interface GameSettingTypeProps {
   path: string;
   count: number;
   gameType: string;
+  disabled: boolean;
 }
 
 export type StarProps = {

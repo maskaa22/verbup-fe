@@ -12,14 +12,17 @@
   transition: background-color 0.3s;
 }
 
-.progress-segment.passed {
-  background-color: #7EA2A2; 
+.progress-segment.success {
+  background-color: var(--primary-1); 
 }
 
 .progress-segment.current {
-  background-color: #FF7B5A; 
+  background-color: var(--primary-2); 
 }
 
 .progress-segment.pending {
-  background-color: #D9D9D9; 
+  background-color: var(--soft); 
+}
+.progress-segment.error {
+  background-color: var(--other-3); 
 }

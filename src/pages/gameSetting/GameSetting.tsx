@@ -5,18 +5,21 @@ import BaseButtonStart from "../../components/baseButtonStart/BaseButtonStart";
 import { useDispatch } from "react-redux";
 import { setSetting } from "../../redux/game/slice";
 import { ADVANCED, BEGGINER, INTERMEDIATE } from "../../constants";
+import { useNavigate } from "react-router-dom";
 
 const GameSetting = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     level: BEGGINER,
     verbForm: "Past Simple",
-    numQuest: "",
+    numQuest: "5 питань",
   });
 
   const dispatch = useDispatch();
 
   const saveGameSetting = () => {
     dispatch(setSetting(formData));
+    navigate("/game");
   };
 
   return (

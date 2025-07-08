@@ -1,16 +1,17 @@
 import React from "react";
 import "./QuestionProgressBar.css";
+import type { progressBarProps } from "../../utils/gameType";
 
-type Props = {
-  total: number;
-  currentIndex: number; // індекс поточного питання (від 0 до total-1)
-};
-
-const QuestionProgressBar: React.FC<Props> = ({ total, currentIndex }) => {
+const QuestionProgressBar: React.FC<progressBarProps> = ({
+  total,
+  currentIndex,
+  answerStatuses,
+}) => {
   const bars = Array.from({ length: total }, (_, index) => {
-    if (index < currentIndex) return "passed";
-    if (index === currentIndex) return "current";
-    return "pending";
+    if (index === currentIndex && answerStatuses[index] === "pending") {
+      return "current";
+    }
+    return answerStatuses[index]; // "passed", "error" або "pending"
   });
 
   return (

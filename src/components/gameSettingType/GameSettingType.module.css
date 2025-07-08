@@ -10,6 +10,11 @@
   border-radius: 30px;
   margin-bottom: 38px;
   position: relative;
+  cursor: pointer;
+}
+.disabled {
+  background: #dbdbdb;
+  cursor: none;
 }
 .type:last-child {
   margin-bottom: 0;
@@ -40,6 +45,9 @@
   font-size: 28px;
   line-height: 130%;
   color: var(--primary-1);
+}
+.disTitle {
+  color: var(--secondary);
 }
 .btn {
   background-color: transparent;

@@ -25,22 +25,25 @@ const GameOptions: React.FC = () => {
             path={"/image/text.png"}
             count={count}
             gameType={"check-word"}
+            disabled={false}
           />
           <GameSettingType
             icon={"/icons.svg#icon-spell"}
             text={"Літера за літерою - зберіть правильне дієслово"}
             title={"VerbSpell"}
-            path={"/image/spell.png"}
+            path={"/image/repair.png"}
             count={count}
             gameType={"spell-word"}
+            disabled={true}
           />
           <GameSettingType
             icon={"/icons.svg#icon-tense"}
             text={"Впиши правильне дієслово - склади речення без помилок"}
             title={"VerbTense"}
-            path={"/image/tense.png"}
+            path={"/image/repair.png"}
             count={count}
             gameType={"write-word"}
+            disabled={true}
           />
         </>
       )}

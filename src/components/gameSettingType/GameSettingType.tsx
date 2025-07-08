@@ -10,28 +10,27 @@ const GameSettingType: React.FC<GameSettingTypeProps> = ({
   path,
   count,
   gameType,
+  disabled,
 }) => {
   const navigate = useNavigate();
 
   return (
-    <div className={c.type}>
+    <div
+      className={`${c.type} ${disabled ? c.disabled : ""}`}
+      onClick={() => {
+        navigate(`/game/${gameType}?count=${count}`);
+      }}
+    >
       <svg className={c.icon}>
         <use href={icon}></use>
       </svg>
       <img src={path} className={c.img} />
       <p className={c.text}>{text}</p>
       <div className={c.flex}>
-        <p className={c.title}>{title}</p>
-        <button
-          className={c.btn}
-          onClick={() => {
-            navigate(`/game/${gameType}?count=${count}`);
-          }}
-        >
-          <svg className={c.icon}>
-            <use href={"/icons.svg#icon-next"}></use>
-          </svg>
-        </button>
+        <p className={`${c.title} ${disabled ? c.disTitle : ""}`}>{title}</p>
+        <svg className={c.icon}>
+          <use href={"/icons.svg#icon-next"}></use>
+        </svg>
       </div>
     </div>
   );
