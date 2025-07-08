@@ -65,41 +65,47 @@ font-size: 30px;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #fbf2b5;
+    border-radius: 34px;
+    background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
+    
   }
   
   .slider:before {
+    width: 20px;
+    height: 20px;
     position: absolute;
-    content: "\1F609";
-    top: 1px;
+    content: "";
+    top: 3px;
+    left: 3px;
     background-color: #d9dad7;
     -webkit-transition: .4s;
     transition: .4s;
+        border-radius: 50%;
   }
   
   input:checked + .slider {
-    background-color: #2d4059;
+    background-color: green;
   }
   
-  input:hover + .slider {
+  /* input:hover + .slider {
     box-shadow: 0 0 2px #f96d00;
-  }
+  } */
   
   input:checked + .slider:before {
-    content: '\1F60E';
-    background-color: #222831;
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    /* content: '';
+    background-color: #222831; */
+    -webkit-transform: translateX(23px);
+    -ms-transform: translateX(23px);
+    transform: translateX(23px);
   }
   
   /* Rounded sliders */
-  .slider.round {
+  /* .slider.round {
     border-radius: 34px;
-  }
+  } */
   
-  .slider.round:before {
+  /* .slider.round:before {
     border-radius: 50%;
-  }
+  } */
