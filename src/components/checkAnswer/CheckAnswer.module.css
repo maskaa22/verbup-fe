@@ -57,3 +57,7 @@ background-color: var(--background-white-default);
   background-color: var(--soft);
   color: var(--secondary);
 }
+.icon {
+  width: 16px;
+  height: 32px;
+}

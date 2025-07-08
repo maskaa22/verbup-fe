@@ -1,7 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import c from "./GameSettingType.module.css";
-const GameSettingType = ({ icon, text, title, path, count, gameType }) => {
+import type React from "react";
+import type { GameSettingTypeProps } from "../../utils/gameType";
+
+const GameSettingType: React.FC<GameSettingTypeProps> = ({
+  icon,
+  text,
+  title,
+  path,
+  count,
+  gameType,
+}) => {
   const navigate = useNavigate();
+
   return (
     <div className={c.type}>
       <svg className={c.icon}>

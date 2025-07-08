@@ -40,7 +40,6 @@ export type allGameType = {
 
 export type checkAnswerType = {
   type: string;
-  setCurrent: React.Dispatch<React.SetStateAction<number>>;
   active: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -69,4 +68,45 @@ export type TemplateFn = (verb: Verb) => string;
 export type QuestionTemplates = {
   v2: TemplateFn[];
   v3: TemplateFn[];
+};
+
+export type qestionDataOperation = {
+  easy: Verb[];
+  medium: Verb[];
+  hard: Verb[];
+};
+
+export type RadioGroupProps = {
+  name: string;
+  options: string[];
+  onChange: (value: string) => void;
+  selectedValue?: string;
+  needSpan: boolean;
+  disabled: boolean;
+};
+
+export interface GameState {
+  setting: {
+    level: string;
+    numQuest: string;
+    verbForm: string;
+  };
+  items: Question[];
+  current: number;
+  correct: number;
+  wrong: number;
+}
+export interface GameSettingTypeProps {
+  icon: string;
+  text: string;
+  title: string;
+  path: string;
+  count: number;
+  gameType: string;
+}
+
+export type StarProps = {
+  total?: number;
+  setRating: React.Dispatch<React.SetStateAction<number>>;
+  rating: number;
 };

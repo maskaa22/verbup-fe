@@ -3,7 +3,7 @@
   padding: 63px 0 23px;
 }
 .innerContainer {
-  padding: 20px 0;
+  padding: 16px 32px;
   border-radius: 12px;
   backdrop-filter: blur(40px);
   box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
@@ -29,7 +29,6 @@
   line-height: 130%;
   text-align: center;
   color: var(--primary-1);
-  padding: 0 32px;
 }
 .list {
   display: flex;
@@ -48,4 +47,25 @@
 .icon {
   width: 21px;
   height: 29px;
+}
+.btnContainer {
+  display: flex;
+  gap: 31px;
+  margin-top: 117px;
+  max-width: 335px;
+}
+.rating {
+  margin-top: 36px;
+}
+.btn {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 80%;
+  text-align: center;
+  color: white;
+  padding: 16px 25px;
+  box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: var(--primary-1);
+  border: none;
+  border-radius: 48px;
 }

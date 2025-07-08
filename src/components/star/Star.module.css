@@ -1,7 +1,7 @@
 .starWrap {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 8px;
   cursor: pointer;
   margin-top: 26px;
@@ -12,8 +12,4 @@
   height: 44px;
   fill: #e4e5e9;
   transition: fill 0.2s ease;
-}
-
-.star.active {
-  stroke: red;
 }

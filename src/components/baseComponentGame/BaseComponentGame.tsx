@@ -18,17 +18,8 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
     <>
       <div className={s.topContainer}>
         <button className={s.close} onClick={() => navigate("/game")}>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M13.95 15.75L7.875 9.675L1.8 15.75L0 13.95L6.075 7.875L0 1.8L1.8 0L7.875 6.075L13.95 0L15.75 1.8L9.675 7.875L15.75 13.95L13.95 15.75Z"
-              fill="black"
-            />
+          <svg className={s.icon}>
+            <use href={"/icons.svg#icon-close"}></use>
           </svg>
         </button>
         <p className={s.current}>
