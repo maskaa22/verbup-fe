@@ -27,7 +27,6 @@ export const store = configureStore({
   reducer: {
     auth: authReducer,
     dict: dictReducer,
-    game: persistReducer(persistConfig, gameSlice),
     notify: notifyReducer,
     game: persistReducer<GameState>(persistConfig, gameSlice),
   },
