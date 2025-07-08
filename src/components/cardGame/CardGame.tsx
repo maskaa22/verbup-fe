@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import c from "./CardGame.module.css";
 import BaseComponentGame from "../baseComponentGame/BaseComponentGame";
 import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
@@ -9,12 +9,16 @@ import type {
   cardGameType,
 } from "../../utils/gameType";
 import { speakText } from "../../utils/voiseFunction";
+import { useSelector } from "react-redux";
+import { selectCurrent } from "../../redux/game/selectors";
 
-const CardGame = ({ question }: CardGameProps) => {
-  const { setCheckAnswerType, setShowCheckAnswer, current, setModalActive } =
+const CardGame: React.FC<CardGameProps> = ({ question }) => {
+  const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
     useOutletContext<cardGameType>();
 
-  const [word, setWord] = useState("");
+  const current = useSelector(selectCurrent);
+
+  const [word, setWord] = useState<string>("");
   const [activeWord, setActiveWord] = useState<string | null>(null);
 
   const imgWrite = "/image/game/fly.png";

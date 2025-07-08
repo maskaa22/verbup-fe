@@ -2,7 +2,10 @@
   margin-bottom: 20px;
   display: flex;
 }
-
+.disabled {
+  background-color: #eeeeee;
+  border-radius: 29px;
+}
 .inputWrap {
   display: flex;
   flex-direction: row;
@@ -18,13 +21,13 @@
   font-weight: 500;
   font-size: 12px;
 }
-.label{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
+.label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 
 .inputWrap:first-child {
@@ -42,4 +45,3 @@
 .inputWrapChecked {
   border: 2px solid var(--base-color-blue);
 }
-
