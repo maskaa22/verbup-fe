@@ -12,8 +12,8 @@
   transition: background-color 0.3s;
 }
 
-.progress-segment.passed {
-  background-color: #7EA2A2; 
+.progress-segment.success {
+  background-color: var(--primary-1); 
 }
 
 .progress-segment.current {
@@ -24,5 +24,5 @@
   background-color: var(--soft); 
 }
 .progress-segment.error {
-  background-color: red; 
+  background-color: var(--other-3); 
 }

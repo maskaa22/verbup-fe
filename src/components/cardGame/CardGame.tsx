@@ -22,6 +22,7 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
 
   const [word, setWord] = useState<string>("");
   const [activeWord, setActiveWord] = useState<string | null>(null);
+  const [isChecked, setIsChecked] = useState(false);
 
   const count = useCountWord();
 
@@ -40,6 +41,7 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
   useEffect(() => {
     setWord("");
     setActiveWord(null);
+    setIsChecked(false);
   }, [current]);
 
   return (
@@ -53,18 +55,38 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
       />
 
       <ul className={c.buttonContainer}>
-        {question?.variants?.map((btn: BtnType, i: number) => (
-          <li
-            key={i}
-            className={`${c.btn} ${activeWord === btn.name ? c.activeBtn : ""}`}
-            onClick={() => {
-              handleWordClick(btn.name);
-            }}
-          >
-            {btn.name}
-          </li>
-        ))}
+        {question?.variants?.map((btn: BtnType, i: number) => {
+          const isCorrect = btn.name === question.correctAnswer;
+          const isSelected = btn.name === activeWord;
+
+          let btnClass = c.btn;
+
+          if (isChecked) {
+            if (isSelected && isCorrect) {
+              btnClass += ` ${c.correct}`; // вибрав правильно
+            } else if (isSelected && !isCorrect) {
+              btnClass += ` ${c.wrong}`; // вибрав неправильно
+            } else if (!isSelected && isCorrect) {
+              btnClass += ` ${c.showCorrect}`; // показати правильний варіант
+            }
+          } else {
+            if (isSelected) btnClass += ` ${c.activeBtn}`; // просто вибір
+          }
+
+          return (
+            <li
+              key={i}
+              className={btnClass}
+              onClick={() => {
+                if (!isChecked) handleWordClick(btn.name); // заблокувати зміну після перевірки
+              }}
+            >
+              {btn.name}
+            </li>
+          );
+        })}
       </ul>
+
       <BaseButtonGame
         word={word}
         setShowCheckAnswer={setShowCheckAnswer}
@@ -74,6 +96,7 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
         answerStatuses={answerStatuses}
         setAnswerStatuses={setAnswerStatuses}
         current={current}
+        setIsChecked={setIsChecked}
       />
     </>
   );

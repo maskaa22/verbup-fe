@@ -11,6 +11,7 @@ const BaseButtonGame: React.FC<baseButtonType> = ({
   answerStatuses,
   setAnswerStatuses,
   current,
+  setIsChecked,
 }) => {
   //логіка перевірки на правильність відповіді
   const handleCheckAnswer = () => {
@@ -22,10 +23,11 @@ const BaseButtonGame: React.FC<baseButtonType> = ({
     }
     const newStatuses = [...answerStatuses];
     const isCorrect = word === correctAnswer;
-    newStatuses[current] = isCorrect ? "passed" : "error";
+    newStatuses[current] = isCorrect ? SUCCESS : ERROR;
     setAnswerStatuses(newStatuses);
     setShowCheckAnswer(true);
     setModalActive(true);
+    setIsChecked(true);
   };
 
   return (

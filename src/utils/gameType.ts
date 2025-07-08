@@ -6,7 +6,7 @@ export type baseComponentType = {
   count: number;
 };
 
-export type AnswerStatus = "passed" | "error" | "pending";
+export type AnswerStatus = "success" | "error" | "pending";
 
 export type baseButtonType = {
   word: string;
@@ -17,6 +17,7 @@ export type baseButtonType = {
   answerStatuses: AnswerStatus[];
   setAnswerStatuses: React.Dispatch<React.SetStateAction<AnswerStatus[]>>;
   current: number;
+  setIsChecked: (value: boolean) => void;
 };
 
 export type progressBarProps = {

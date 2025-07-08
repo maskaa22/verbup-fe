@@ -20,10 +20,9 @@
   --other-1: #0d9467;
   --other-3: #f97316;
   --primary-1: #5e909e;
-  --primary-2: #EDB35C;
+  --primary-2: #edb35c;
   --soft: #f0f0f0;
   --secondary: #a0a2a3;
-
 }
 .scroll-area::-webkit-scrollbar {
   overflow-y: auto;

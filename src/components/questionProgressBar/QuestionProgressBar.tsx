@@ -11,7 +11,6 @@ const QuestionProgressBar: React.FC<progressBarProps> = ({
     if (index === currentIndex && answerStatuses[index] === "pending") {
       return "current";
     }
-    console.log(answerStatuses[index]);
     return answerStatuses[index]; // "passed", "error" або "pending"
   });
 

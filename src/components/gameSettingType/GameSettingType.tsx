@@ -13,7 +13,6 @@ const GameSettingType: React.FC<GameSettingTypeProps> = ({
   disabled,
 }) => {
   const navigate = useNavigate();
-  console.log(disabled);
 
   return (
     <div

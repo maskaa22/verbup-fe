@@ -21,5 +21,14 @@
   color: #000;
 }
 .activeBtn {
-  border: 4px solid #5e909e;
+  border: 3px solid #5e909e;
+}
+
+.correct,
+.showCorrect {
+  border: 3px solid var(--other-1);
+}
+
+.wrong {
+  border: 3px solid var(--other-3);
 }
