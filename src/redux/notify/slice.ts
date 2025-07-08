@@ -8,7 +8,7 @@ interface NotificationState {
     motivateMe: boolean;
     sound: boolean;
   };
-  darkTheme: boolean;
+  darkTheme: string;
 }
 
 const initialState: NotificationState = {
@@ -19,7 +19,7 @@ const initialState: NotificationState = {
     motivateMe: false,
     sound: false,
   },
-  darkTheme: false,
+  darkTheme: "light",
 };
 const notifySlice = createSlice({
   name: "notify",
@@ -28,9 +28,12 @@ const notifySlice = createSlice({
     setAllNotifications: (state, action) => {
       state.notifications = action.payload;
     },
+    setTheme: (state, action) => {
+      state.darkTheme = action.payload;
+    }
   },
 });
 
-export const { setAllNotifications } = notifySlice.actions;
+export const { setAllNotifications, setTheme } = notifySlice.actions;
 
 export default notifySlice.reducer;

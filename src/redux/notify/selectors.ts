@@ -7,3 +7,4 @@ export const selectAllNotifications = (state: RootState) => state.notify.notific
 // export const selectMotivateMe = (state: RootState) => state.notify.motivateMe;
 // export const selectSound = (state: RootState) => state.notify.sound;
 export const selectDarkTheme = (state: RootState) => state.notify.darkTheme;
+
