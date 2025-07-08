@@ -1,32 +1,35 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 interface NotificationState {
-    dailyTraining: boolean,
-    achievsAndLevels: boolean,
-    specialOffers: boolean,
-    motivateMe: boolean,
-    sound: boolean,
-    darkTheme: boolean
+  notifications: {
+    dailyTraining: boolean;
+    achievsAndLevels: boolean;
+    specialOffers: boolean;
+    motivateMe: boolean;
+    sound: boolean;
+  };
+  darkTheme: boolean;
 }
 
 const initialState: NotificationState = {
+  notifications: {
     dailyTraining: false,
     achievsAndLevels: false,
     specialOffers: false,
     motivateMe: false,
     sound: false,
-    darkTheme: false
-}
+  },
+  darkTheme: false,
+};
 const notifySlice = createSlice({
-    name: "notify",
-    initialState: initialState,
-    reducers: {
-        setAllNotifications: (_, action: PayloadAction<NotificationState>) => {
-            return action.payload;
-        }
+  name: "notify",
+  initialState: initialState,
+  reducers: {
+    setAllNotifications: (state, action) => {
+      state.notifications = action.payload;
     },
-
-})
+  },
+});
 
 export const { setAllNotifications } = notifySlice.actions;
 
