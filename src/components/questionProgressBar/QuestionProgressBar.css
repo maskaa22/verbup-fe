@@ -17,9 +17,12 @@
 }
 
 .progress-segment.current {
-  background-color: #FF7B5A; 
+  background-color: var(--primary-2); 
 }
 
 .progress-segment.pending {
-  background-color: #D9D9D9; 
+  background-color: var(--soft); 
+}
+.progress-segment.error {
+  background-color: red; 
 }

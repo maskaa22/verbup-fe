@@ -4,6 +4,7 @@ import BaseComponentGame from "../baseComponentGame/BaseComponentGame";
 import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
 import { useOutletContext } from "react-router-dom";
 import type {
+  AnswerStatus,
   BtnType,
   CardGameProps,
   cardGameType,
@@ -11,6 +12,7 @@ import type {
 import { speakText } from "../../utils/voiseFunction";
 import { useSelector } from "react-redux";
 import { selectCurrent } from "../../redux/game/selectors";
+import { useCountWord } from "../../hooks/gameHooks";
 
 const CardGame: React.FC<CardGameProps> = ({ question }) => {
   const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
@@ -20,6 +22,12 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
 
   const [word, setWord] = useState<string>("");
   const [activeWord, setActiveWord] = useState<string | null>(null);
+
+  const count = useCountWord();
+
+  const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(
+    Array(count).fill("pending")
+  );
 
   const imgWrite = "/image/game/fly.png";
 
@@ -40,6 +48,8 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
         current={current}
         img={imgWrite}
         question={question.question}
+        answerStatuses={answerStatuses}
+        count={count}
       />
 
       <ul className={c.buttonContainer}>
@@ -61,6 +71,9 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
         setCheckAnswerType={setCheckAnswerType}
         setModalActive={setModalActive}
         correctAnswer={question.correctAnswer}
+        answerStatuses={answerStatuses}
+        setAnswerStatuses={setAnswerStatuses}
+        current={current}
       />
     </>
   );

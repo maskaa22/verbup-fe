@@ -19,7 +19,6 @@
   font-size: 20px;
   line-height: 105%;
   color: #000;
-  font-family: var(--font-6);
 }
 .activeBtn {
   border: 4px solid #5e909e;
