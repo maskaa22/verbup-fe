@@ -1,25 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchWords } from "./operations";
+import type { InitialState } from "../../utils/dict/dictTypes";
 
-interface Verb {
-  base_form: string;
-  past_simple: string;
-  past_participle: string;
-  uk: string;
-  fake: string;
-}
-
-interface myVerbs {
-  easy: Verb[];
-  medium: Verb[];
-  hard: Verb[];
-}
-
-interface InitialState {
-  allWords: myVerbs | null;
-  word: string;
-  letter: string;
-}
 const initialState: InitialState = {
   allWords: null,
   word: "",

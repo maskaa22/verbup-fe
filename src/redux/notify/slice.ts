@@ -1,15 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+import type { NotificationState } from "../../utils/notify/notifyTypes";
 
-interface NotificationState {
-  notifications: {
-    dailyTraining: boolean;
-    achievsAndLevels: boolean;
-    specialOffers: boolean;
-    motivateMe: boolean;
-    sound: boolean;
-  };
-  darkTheme: string;
-}
+
 
 const initialState: NotificationState = {
   notifications: {
