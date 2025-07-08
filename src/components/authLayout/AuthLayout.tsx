@@ -55,7 +55,6 @@ useEffect(() => {
         setLogo(true);
         break;
       case location.startsWith("/setting"):
-        console.log(location)
         setGlass(true);
         setPlantes(true);
         setNavigation(true);
