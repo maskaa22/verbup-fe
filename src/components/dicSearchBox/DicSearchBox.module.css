@@ -1,16 +1,17 @@
-.wrap{
-    margin-bottom: 10px;
-    position: relative;
+.wrap {
+  margin-bottom: 10px;
+  position: relative;
 }
-.wrap img{
-position: absolute;
-bottom: 30px;
-right: 0;
+.wrap img {
+  position: absolute;
+  bottom: 30px;
+  right: 0;
+  z-index: 111;
 }
-.inputwrap input{
-    border: 1px solid #d9d9d9;
-border-radius: 48px;
-padding: 8px 12px;
-width: 100%;
-height: 43px;
+.inputwrap input {
+  border: 1px solid #d9d9d9;
+  border-radius: 48px;
+  padding: 8px 12px;
+  width: 100%;
+  height: 43px;
 }

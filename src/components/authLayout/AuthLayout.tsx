@@ -9,63 +9,81 @@ const AuthLayout = () => {
 const [glass, setGlass] = useState(false);
   const [planets, setPlantes] = useState(false);
   const [navigation, setNavigation] = useState(false);
+  const [logo, setLogo] = useState(true);
   const location = useLocation().pathname;
 
 useEffect(() => {
-    switch (location) {
-      case "/home":
+    switch (true) {
+      case location === "/setting/game":
+         console.log(location)
+        setGlass(true);
+        setPlantes(true);
+        setNavigation(true);
+        setLogo(true);
+        break;
+      case location.includes("/home"):
+        console.log(location)
         setGlass(true);
         setPlantes(false);
         setNavigation(true);
+        setLogo(true);
         break;
-      case "/signup":
+      case location.includes("/signup"):
         setGlass(true);
-        setPlantes(false);
+        setPlantes(true);
         setNavigation(false);
+        setLogo(true);
         break;
-      case "/game":
+      case location.includes("/game"):
         setGlass(false);
         setPlantes(false);
         setNavigation(true);
+        setLogo(false);
         break;
         // case location.includes("/game/check-word"):
         //   setGlass(false);
         // setPlantes(false);
         // setNavigation(true);
         //   break; 
-      case "/cup":
+      case location.includes("/cup"):
         break;
-      case "/voc":
+      case location.includes("/voc"):
+                console.log(location)
         setGlass(false);
         setPlantes(false);
         setNavigation(true);
+        setLogo(true);
         break;
-      case "/setting":
+      case location.startsWith("/setting"):
         setGlass(true);
         setPlantes(true);
         setNavigation(true);
+        setLogo(true);
         break;
-        case "/change-password":
+        case location.startsWith("/change"):
+                      
           setGlass(true);
         setPlantes(true);
         setNavigation(true);
+        setLogo(true);
           break;
-          case "/notification-params":
+          case location === "/notification-params":
             setGlass(true);
         setPlantes(true);
         setNavigation(true);
+        setLogo(true);
             break;
-            case "/theme-switcher":
+            case location === "/theme-switcher":
             setGlass(true);
         setPlantes(true);
         setNavigation(true);
+        setLogo(true);
             break;
-      case "/share":
-        break;
         default: 
         setGlass(false);
         setPlantes(false);
         setNavigation(true);
+        setLogo(true);
     }
   }, [location]);
   // const showNavBar = pathname !== "/signin" && pathname !== "/signup";
@@ -73,7 +91,7 @@ useEffect(() => {
     <div className={clsx(css.outerWrap, planets ? css.planets : css.noPlanets) }>
       <div className={`${css.wrap} container`}>
         <div >
-          <Logo />
+          {logo && <Logo />}
           {<div className={clsx(glass && css.glass)}>{<Outlet />}</div>}
         </div>
       </div>

@@ -1,0 +1,10 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.form button:last-child{
+    margin-top: 40px;
+}

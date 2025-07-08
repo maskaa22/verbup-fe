@@ -44,7 +44,7 @@ const Setting = () => {
           </svg>
         </li>
         <li>
-          <Link to={"/theme-switcher"}>Тема</Link>
+          <Link to={"theme-switcher"}>Тема</Link>
           <svg>
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>

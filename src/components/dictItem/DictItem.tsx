@@ -1,4 +1,5 @@
 import type { Props } from "../../utils/dict/dictTypes";
+import { speakText } from "../../utils/voiseFunction";
 import css from "./DictItem.module.css";
 import { Accordion, AccordionItem } from "@szhsin/react-accordion";
 
@@ -7,7 +8,11 @@ import { Accordion, AccordionItem } from "@szhsin/react-accordion";
 const DictItem: React.FC<Props> = ({
   word: { base_form, past_simple, past_participle, uk },
 }) => {
-
+  const wordList = `${base_form} ${past_simple} ${past_participle}` 
+const handleSound = (word: string) => {
+  console.log("sound")
+  speakText(word, true)
+}
   return (
     <Accordion className={css.wordWrap}>
       <AccordionItem style={{width: "100%"}}
@@ -20,9 +25,11 @@ const DictItem: React.FC<Props> = ({
               <p>{uk}</p>
             </div>
             </div>
+            <div onClick={() => handleSound(wordList)} className={css.soundBtn}>
             <svg className={css.sound}>
               <use href="./icons.svg#icon-sound"></use>
             </svg>
+            </div>
             <svg
               className={css.arrow}
               style={{

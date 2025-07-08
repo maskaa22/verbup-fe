@@ -1,15 +1,15 @@
 .outerWrap{
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
 }
 .wrap {
   /* margin-top: 19px; */
   position: relative;
   /* min-height: 812px; */
-  height: auto;
+  /* height: auto; */
 }
 
 .planets {
-  height: 100%;
+  height: 100vh;
   /* border: 1px solid red; */
   background-image: 
     url('/image/planets/planetThree.png'),
@@ -17,9 +17,9 @@
     url('/image/planets/planetOne.png');
     
   background-position: 
-    top right,
-    bottom left,
-    bottom center;
+    top 37px right,
+    bottom 95px left,
+    bottom 75px center;
 
   background-repeat: no-repeat;
   background-size: 

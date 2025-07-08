@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./auth/slice";
 import dictReducer from "./dict/slice";
 import gameSlice from "./game/slice";
+import notifyReducer from "./notify/slice"
 
 import {
   persistStore,
@@ -26,6 +27,7 @@ export const store = configureStore({
   reducer: {
     auth: authReducer,
     dict: dictReducer,
+    notify: notifyReducer,
     game: persistReducer<GameState>(persistConfig, gameSlice),
   },
   middleware: (getDefaultMiddleware) =>

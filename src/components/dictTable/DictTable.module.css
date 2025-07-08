@@ -1,6 +1,3 @@
-.noWordsWrap{
-    height: 484px;
-}
 .noWordsWrap p {
     text-align: center;
 }
@@ -11,8 +8,6 @@
 
 .wrap{
    overflow-y: auto; 
-   height: 484px;
-
 }
 .table{
     width: 100%;
