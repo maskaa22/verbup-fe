@@ -1,0 +1,46 @@
+.logoWrap{
+}
+.logoWrap img{
+    margin: 0 auto;
+    width: 72px;
+    height: 72px;
+    /* transform: translateY(-300%); */
+    /* transition: all 2000ms ease-in-out; */
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(-300%) scale(1);
+  }
+
+  20% {
+    transform: translateY(200px) scale(1); /* arrived but not scaled yet */
+  }
+ 30% {
+    transform: translateY(200px) scale(2); /* arrived but not scaled yet */
+  }
+   40% {
+    transform: translateY(200px) scale(3); /* arrived but not scaled yet */
+  }
+  50% {
+    transform: translateY(200px) scale(4); /* scale up */
+  }
+
+  60% {
+    transform: translateY(200px) scale(3); /* scale back down */
+  }
+  70%{
+    transform: translateY(200px) scale(2);
+  }
+80%{
+     transform: translateY(200px) scale(1);
+
+}
+  100% {
+    transform: translateY(1000%) scale(1); /* fall down and exit */
+  }
+}
+
+.floating {
+  animation: float 10s ease-in-out infinite;
+}

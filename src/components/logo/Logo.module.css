@@ -4,6 +4,10 @@
   background-color: transparent;
   width: fit-content;
 }
+.wrap img{
+width: 80px;
+height: 60px;
+}
 .wrap h4 {
   color: var(--base-color-blue);
   font-weight: 400;

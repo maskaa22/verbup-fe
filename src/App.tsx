@@ -20,7 +20,8 @@ import Setting from "./pages/setting/Setting";
 import ChangeUserData from "./pages/changeUserData/ChangeUserData";
 import NotificationParams from "./pages/notificationParams/NotificationParams";
 import ThemeSwitcher from "./pages/themeSwitcher/ThemeSwitcher";
-import Loader from "./components/loader/Loader";
+// import Loader from "./components/loader/Loader";
+import LoaderDinamic from "./components/loaderDinamic/LoaderDinamic";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -52,7 +53,7 @@ function App() {
             <Route path="result" element={<ResultGame />} />
           </Route>
           <Route path="/home" element={<Home />} />
-          <Route path="/cup" element={<Loader/>} />
+          <Route path="/cup" element={<LoaderDinamic/>} />
           <Route path="/voc" element={<Dictionary />} />
           <Route path="/setting" element={<Setting />}>
           </Route>
