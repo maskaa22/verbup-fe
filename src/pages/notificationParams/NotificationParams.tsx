@@ -5,14 +5,10 @@ import { useEffect } from "react";
 import { setAllNotifications } from "../../redux/notify/slice";
 import { useSelector } from "react-redux";
 import { selectAllNotifications } from "../../redux/notify/selectors";
+import type { Notifications } from "../../utils/notify/notifyTypes";
 
-export interface Notifications {
-    dailyTraining: boolean;
-    achievsAndLevels: boolean;
-    specialOffers: boolean;
-    motivateMe: boolean;
-    sound: boolean;
-  }
+
+
 const NotificationParams = () => {
   const dispatch = useDispatch();
   const notifications = useSelector(selectAllNotifications);

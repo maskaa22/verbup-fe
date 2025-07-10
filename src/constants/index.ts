@@ -1,4 +1,5 @@
 import type { GameState } from "../utils/gameType";
+import type { NotificationState } from "../utils/notify/notifyTypes";
 
 export const SUCCESS = "success";
 export const ERROR = "error";
@@ -84,4 +85,16 @@ export const initialStateGame: GameState = {
   current: 0,
   correct: 0,
   wrong: 0,
+};
+
+
+export const notifyInitialState: NotificationState = {
+  notifications: {
+    dailyTraining: false,
+    achievsAndLevels: false,
+    specialOffers: false,
+    motivateMe: false,
+    sound: false,
+  },
+  darkTheme: "light",
 };

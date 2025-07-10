@@ -8,3 +8,11 @@ export interface NotificationState {
   };
   darkTheme: string;
 }
+
+export interface Notifications {
+    dailyTraining: boolean;
+    achievsAndLevels: boolean;
+    specialOffers: boolean;
+    motivateMe: boolean;
+    sound: boolean;
+  }
