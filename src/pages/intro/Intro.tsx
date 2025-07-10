@@ -4,8 +4,10 @@ import cuteAstro from "../../assets/cute astronaut sitting with flag.png"
 import LogoIntro from "../../components/logoIntro/LogoIntro";
 
 const Intro = () => {
-  return <div className={`${css.intro} container`}>
+  return <div>   
     <LogoIntro/>
+  <div className={`${css.intro} container`}>
+ 
     {/* <div className={css.headlineWrap}>
       <h1 className={css.headline}>let's <span>verb</span> <span>up</span> <span className={css.droopyHL}>up</span> </h1>
     </div> */}
@@ -22,6 +24,7 @@ const Intro = () => {
       <NavLink to="/signup">Зареєструватись</NavLink>
     </div>
   </div>;
+  </div>
 };
 
 export default Intro;

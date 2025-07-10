@@ -10,13 +10,13 @@ const Setting = () => {
       <h3>Профіль</h3>
       <ul className={css.list}>
         <li>
-          <Link to={"/change-username"}>Змінити Імя</Link>
+          <Link to={"change-username"}>Змінити Імя</Link>
           <svg>
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>
         </li>
         <li>
-          <Link to={"/change-password"}>Змінити пароль</Link>
+          <Link to={"change-password"}>Змінити пароль</Link>
           <svg>
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>
@@ -26,7 +26,7 @@ const Setting = () => {
       <h3>Інше</h3>
       <ul className={css.list}>
         <li>
-          <Link to={"/notification-params"}>Параметри сповіщень</Link>
+          <Link to={"notification-params"}>Параметри сповіщень</Link>
           <svg>
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>

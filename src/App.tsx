@@ -58,9 +58,9 @@ function App() {
           </Route>
           <Route path="/setting/game" element={<GameSetting />} />
           <Route path="/share" element={<h1>Share</h1>} />
-          <Route path="/change-password" element={<ChangeUserData userData="password"/>}/>
-          <Route path="/change-username" element={<ChangeUserData userData="username"/>}/>
-          <Route path="/notification-params" element={<NotificationParams/>}/>
+          <Route path="/setting/change-password" element={<ChangeUserData userData="password"/>}/>
+          <Route path="/setting/change-username" element={<ChangeUserData userData="username"/>}/>
+          <Route path="/setting/notification-params" element={<NotificationParams/>}/>
           <Route path="/setting/theme-switcher" element={<ThemeSwitcher/>}/>
         </Route>
       </Routes>

@@ -19,8 +19,8 @@ const GameOptions: React.FC = () => {
     <>
       {!hideSelect && (
         <>
-        <div style={{marginBottom: "50px"}}>
         <LogoIntro/>
+        <div style={{marginBottom: "50px"}}>
         </div>
           <GameSettingType
             icon={"/icons.svg#icon-text"}

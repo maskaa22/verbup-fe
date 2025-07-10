@@ -11,6 +11,8 @@
 }
 
 .headline{
+    width: fit-content;
+    margin: 0 45% 0 auto;
     font-weight: 400;
 font-size: 48px;
 text-transform: capitalize;
