@@ -54,22 +54,22 @@ const NavBar = () => {
           <li>
             <NavLink className={({ isActive }) => clsx(isActive && css.active)} to="/game">
               <svg className={css.icon}>
-                <use href="./icons.svg#icon-game"></use>
-              </svg>{" "}
+                <use href="/icons.svg#icon-game"></use>
+              </svg>
             </NavLink>
           </li>
           <li>
             <NavLink className={({ isActive }) => clsx(isActive && css.active)} to="/cup">
               <svg className={clsx(css.icon, css.iconone)}>
-                <use href="./icons.svg#icon-achievements"></use>
+                <use href="/icons.svg#icon-achievements"></use>
               </svg>
             </NavLink>
           </li>
           <li>
             <NavLink className={({ isActive }) => clsx(isActive && css.active)} to="/voc">
               <svg className={css.icon}>
-                <use href="./icons.svg#icon-vocabulary"></use>
-              </svg>{" "}
+                <use href="/icons.svg#icon-vocabulary"></use>
+              </svg>
             </NavLink>
           </li>
           <li>
@@ -80,15 +80,15 @@ const NavBar = () => {
     )
   } to="/setting">
               <svg className={clsx(css.icon)}>
-                <use href="./icons.svg#icon-setting"></use>
-              </svg>{" "}
+                <use href="/icons.svg#icon-setting"></use>
+              </svg>
             </NavLink>
           </li>
           <li>
             <NavLink className={({ isActive }) => clsx(isActive && css.active)} to="/home">
               <svg className={css.icon}>
-                <use href="./icons.svg#icon-home"></use>
-              </svg>{" "}
+                <use href="/icons.svg#icon-home"></use>
+              </svg>
             </NavLink>
           </li>
           

@@ -4,96 +4,111 @@ import Logo from "../logo/Logo";
 import NavBar from "../navBar/NavBar";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
+import LogoIntro from "../logoIntro/LogoIntro";
 const AuthLayout = () => {
-
-const [glass, setGlass] = useState(false);
+  const [glass, setGlass] = useState(false);
   const [planets, setPlantes] = useState(false);
   const [navigation, setNavigation] = useState(false);
   const [logo, setLogo] = useState(true);
+  const [logoIntro, setLogoIntro] = useState(false);
   const location = useLocation().pathname;
 
-useEffect(() => {
+  useEffect(() => {
     switch (true) {
       case location === "/setting/game":
-         console.log(location)
+        console.log(location);
         setGlass(true);
         setPlantes(true);
         setNavigation(true);
         setLogo(true);
+        setLogoIntro(false);
         break;
       case location.includes("/home"):
-        console.log(location)
+        console.log(location);
         setGlass(true);
         setPlantes(false);
         setNavigation(true);
         setLogo(true);
+        setLogoIntro(false);
         break;
       case location.includes("/signup"):
         setGlass(true);
         setPlantes(true);
         setNavigation(false);
         setLogo(true);
+        setLogoIntro(false);
+
         break;
       case location.includes("/game"):
         setGlass(false);
         setPlantes(false);
         setNavigation(true);
         setLogo(false);
+        setLogoIntro(true);
+
         break;
-        // case location.includes("/game/check-word"):
-        //   setGlass(false);
-        // setPlantes(false);
-        // setNavigation(true);
-        //   break; 
+      // case location.includes("/game/check-word"):
+      //   setGlass(false);
+      // setPlantes(false);
+      // setNavigation(true);
+      //   break;
       case location.includes("/cup"):
         break;
       case location.includes("/voc"):
-                console.log(location)
         setGlass(false);
         setPlantes(false);
         setNavigation(true);
         setLogo(true);
+        setLogoIntro(false);
+
         break;
       case location.startsWith("/setting"):
         setGlass(true);
         setPlantes(true);
         setNavigation(true);
         setLogo(true);
+        setLogoIntro(false);
+
         break;
-        case location.startsWith("/change"):
-                      
-          setGlass(true);
+      case location.startsWith("/change"):
+        setGlass(true);
         setPlantes(true);
         setNavigation(true);
         setLogo(true);
-          break;
-          case location === "/notification-params":
-            setGlass(true);
+        setLogoIntro(false);
+
+        break;
+      case location === "/notification-params":
+        setGlass(true);
         setPlantes(true);
         setNavigation(true);
         setLogo(true);
-            break;
-            case location === "/theme-switcher":
-            setGlass(true);
+        setLogoIntro(false);
+
+        break;
+      case location === "/theme-switcher":
+        setGlass(true);
         setPlantes(true);
         setNavigation(true);
         setLogo(true);
-            break;
-        default: 
+        setLogoIntro(false);
+
+        break;
+      default:
         setGlass(false);
         setPlantes(false);
         setNavigation(true);
         setLogo(true);
+        setLogoIntro(false);
     }
   }, [location]);
   // const showNavBar = pathname !== "/signin" && pathname !== "/signup";
   return (
-    <div className={clsx(css.outerWrap, planets ? css.planets : css.noPlanets) }>
+    <div className={clsx(css.outerWrap, planets ? css.planets : css.noPlanets)}>
+      {logoIntro && <LogoIntro />}
       <div className={`${css.wrap} container`}>
-        <div >
-          {logo && <Logo />}
-          {<div className={clsx(glass && css.glass)}>{<Outlet />}</div>}
-        </div>
+        {logo && <Logo />}
+        {<div className={clsx(glass && css.glass)}>{<Outlet />}</div>}
       </div>
       {navigation && <NavBar />}
     </div>

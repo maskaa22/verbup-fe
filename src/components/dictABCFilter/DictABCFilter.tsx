@@ -39,7 +39,7 @@ const DictABCFilter = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [dispatch]);
   return (
     <div className={css.wrap} ref={dropdownRef}>
       <Swiper loop={false} slidesPerView={9} className={css.list}>
