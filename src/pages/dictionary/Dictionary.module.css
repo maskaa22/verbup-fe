@@ -1,8 +1,8 @@
 .div {
   display: flex;
   flex-direction: column;
-  height: 90vh;
-  height: 90dvh;
+  height: 85vh;
+  height: 85dvh;
 }
 
 .dicheadline {
