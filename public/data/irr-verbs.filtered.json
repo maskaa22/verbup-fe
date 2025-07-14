@@ -1,27 +1,6 @@
 {
   "easy": [
     {
-      "base_form": "go",
-      "past_simple": "went",
-      "past_participle": "gone",
-      "uk": "іти",
-      "fake": "goed"
-    },
-    {
-      "base_form": "do",
-      "past_simple": "did",
-      "past_participle": "done",
-      "uk": "робити",
-      "fake": "doed"
-    },
-    {
-      "base_form": "eat",
-      "past_simple": "ate",
-      "past_participle": "eaten",
-      "uk": "їсти",
-      "fake": "eated"
-    },
-    {
       "base_form": "become",
       "past_simple": "became",
       "past_participle": "become",
@@ -99,6 +78,13 @@
       "fake": "cuted"
     },
     {
+      "base_form": "do",
+      "past_simple": "did",
+      "past_participle": "done",
+      "uk": "робити",
+      "fake": "doed"
+    },
+    {
       "base_form": "drink",
       "past_simple": "drank",
       "past_participle": "drunk",
@@ -111,6 +97,13 @@
       "past_participle": "driven",
       "uk": "водити",
       "fake": "drived"
+    },
+    {
+      "base_form": "eat",
+      "past_simple": "ate",
+      "past_participle": "eaten",
+      "uk": "їсти",
+      "fake": "eated"
     },
     {
       "base_form": "fall",
@@ -160,6 +153,13 @@
       "past_participle": "given",
       "uk": "давати",
       "fake": "gived"
+    },
+    {
+      "base_form": "go",
+      "past_simple": "went",
+      "past_participle": "gone",
+      "uk": "іти",
+      "fake": "goed"
     },
     {
       "base_form": "grow",
