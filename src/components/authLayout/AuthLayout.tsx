@@ -37,6 +37,13 @@ const AuthLayout = () => {
         setNavigation(false);
         setLogo(true);
         setLogoIntro(false);
+        break;
+        case location.includes("/signin"):
+        setGlass(true);
+        setPlantes(true);
+        setNavigation(false);
+        setLogo(true);
+        setLogoIntro(false);
 
         break;
       case location.includes("/game"):

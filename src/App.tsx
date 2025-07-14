@@ -12,7 +12,7 @@ import WordGame from "./components/wordGame/WordGame";
 import WriteGame from "./components/writeGame/WriteGame";
 import ResultGame from "./pages/resultGame/ResultGame";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { refreshUser } from "./redux/auth/operations";
 import type { AppDispatch } from "./redux/store";
 import GameSetting from "./pages/gameSetting/GameSetting";
@@ -24,13 +24,19 @@ import ThemeSwitcher from "./pages/themeSwitcher/ThemeSwitcher";
 import LoaderDinamic from "./components/loaderDinamic/LoaderDinamic";
 
 function App() {
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 3000); // 2.5s splash
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
   return (
-    <>
+    <> {loading ? <LoaderDinamic/> :
       <Routes>
         <Route path="/" element={<Intro />} />
 
@@ -64,7 +70,7 @@ function App() {
           <Route path="/setting/notification-params" element={<NotificationParams/>}/>
           <Route path="/setting/theme-switcher" element={<ThemeSwitcher/>}/>
         </Route>
-      </Routes>
+      </Routes>}
     </>
   );
 }

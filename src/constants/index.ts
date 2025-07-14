@@ -32,6 +32,22 @@ export const arrOfNamesSignup = [
   },
 ];
 
+export const arrOfNamesSignin = [
+  {
+    label: "Email",
+    name: "email",
+    type: "email",
+    placeholder: "your@email.com",
+    icon: "icon-email",
+  },
+  {
+    label: "Пароль",
+    name: "password",
+    type: "password",
+    placeholder: "Мінімум 8 символів",
+    icon: "icon-password",
+  },
+];
 export const arrOfNamesPassword = [
   {
     label: "Поточний пароль",

@@ -1,7 +1,7 @@
 import { Formik, Form, type FormikHelpers } from "formik";
 import FormInput from "../formInput/FormInput";
 import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
-import css from "./FormForm.module.css"
+import css from "./FormTemplate.module.css"
 import type { NameField } from "../../utils/formTypes";
 
 
@@ -11,7 +11,7 @@ arrOfNames: NameField[]
 }
 
 
-const FormForm = <T extends Record<string, any>> ({arrOfNames, onSubmit}: Props<T>) => {
+const FormTemplate = <T extends Record<string, any>> ({arrOfNames, onSubmit}: Props<T>) => {
    
     const initialValues = arrOfNames.reduce((acc, el) => {
   acc[el.name as keyof T] = '' as T[keyof T];
@@ -32,4 +32,4 @@ return (<Formik
 </Formik>)
 }
 
-export default FormForm;
+export default FormTemplate;
