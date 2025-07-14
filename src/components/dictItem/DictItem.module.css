@@ -2,8 +2,6 @@
   border-radius: 20px;
   padding: 4px 28px;
   height: auto;
-  display: flex;
-  justify-content: space-between;
   backdrop-filter: blur(40px);
   box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
   background: linear-gradient(
@@ -12,13 +10,9 @@
     rgba(94, 144, 158, 0.5) 100%
   );
 }
-.customButton {
-  border: none;
-  background-color: transparent;
-  width: 100%;
-  padding: 0;
-}
+
 .bsWrap {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,6 +21,8 @@
 .bsWrap > * {
     flex: 1;
 }
+
+
 .baseForm {
   font-family: var(--font-family-messiri);
   text-align: start;
@@ -80,6 +76,10 @@
   fill: var(--second-color-gray);
   width: 24px;
   height: 24px;
+  transition: fill 0.3s ease;
+}
+.speaking{
+  fill: var(--base-color-blue);
 }
 .arrow {
   width: 32px;
@@ -89,4 +89,13 @@
 
 .soundBtn{
   background: transparent;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.openBtn{
+    display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
