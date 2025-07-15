@@ -46,7 +46,7 @@ const AuthLayout = () => {
         setLogoIntro(false);
 
         break;
-      case location.includes("/game"):
+      case location === "/game":
         setGlass(false);
         setPlantes(false);
         setNavigation(true);
@@ -54,11 +54,13 @@ const AuthLayout = () => {
         setLogoIntro(true);
 
         break;
-      // case location.includes("/game/check-word"):
-      //   setGlass(false);
-      // setPlantes(false);
-      // setNavigation(true);
-      //   break;
+      case location.includes("/game/check-word"):
+        setGlass(false);
+        setPlantes(false);
+        setNavigation(false);
+        setLogo(false);
+        setLogoIntro(false);
+        break;
       case location.includes("/cup"):
         break;
       case location.includes("/voc"):
