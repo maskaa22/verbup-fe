@@ -5,6 +5,7 @@ import NavBar from "../navBar/NavBar";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import LogoIntro from "../logoIntro/LogoIntro";
+import ExplosionLines from "../explosionLines/ExplosionLines";
 const AuthLayout = () => {
   const [glass, setGlass] = useState(false);
   const [planets, setPlantes] = useState(false);
@@ -38,7 +39,7 @@ const AuthLayout = () => {
         setLogo(true);
         setLogoIntro(false);
         break;
-        case location.includes("/signin"):
+      case location.includes("/signin"):
         setGlass(true);
         setPlantes(true);
         setNavigation(false);
@@ -55,6 +56,13 @@ const AuthLayout = () => {
 
         break;
       case location.includes("/game/check-word"):
+        setGlass(false);
+        setPlantes(false);
+        setNavigation(false);
+        setLogo(false);
+        setLogoIntro(false);
+        break;
+      case location.includes("/game/result"):
         setGlass(false);
         setPlantes(false);
         setNavigation(false);
@@ -112,12 +120,22 @@ const AuthLayout = () => {
     }
   }, [location]);
   // const showNavBar = pathname !== "/signin" && pathname !== "/signup";
+  const bgGame = location.includes("/game/check-word");
+  const rezult = location.includes("/game/result");
   return (
-    <div className={clsx(css.outerWrap, planets ? css.planets : css.noPlanets)}>
+    <div
+      className={clsx(
+        css.outerWrap,
+        planets ? css.planets : css.noPlanets,
+        bgGame && css.bgGame
+      )}
+    >
       {logoIntro && <LogoIntro />}
+      {rezult && <ExplosionLines />}
+
       <div className={`${css.wrap} container`}>
         {logo && <Logo />}
-        {<div className={clsx(glass && css.glass)}>{<Outlet />}</div>}
+        <div className={glass ? css.glass : undefined}>{<Outlet />}</div>
       </div>
       {navigation && <NavBar />}
     </div>

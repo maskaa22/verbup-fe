@@ -4,21 +4,21 @@
   gap: 12px;
   margin: 12px 0;
 }
-.or{
-display: flex;
-margin-top: 12px;
+.or {
+  display: flex;
+  margin-top: 12px;
 }
-.or hr{
-    flex-grow: 1;
-    border: none;
-    border-top: 1px solid var(--third-color-gray);
-    height: 0;
+.or hr {
+  flex-grow: 1;
+  border: none;
+  border-top: 1px solid var(--third-color-gray);
+  height: 0;
 }
-.or p{
-    color: var(--base-color-blue);
-    font-weight: 400;
-    font-size: 14px;
-    margin: 0 20px;
+.or p {
+  color: var(--base-color-blue);
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0 20px;
 }
 .wrap button {
   border: 1px solid var(--third-color-gray);
@@ -46,4 +46,3 @@ margin-top: 12px;
   stroke: var(--third-color-gray);
   color: var(--third-color-gray);
 }
-

@@ -1,0 +1,45 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="11%" stop-color="rgba(90,139,150,0.8)" />
+      <stop offset="47%" stop-color="rgba(154,162,129,0.8)" />
+      <stop offset="79%" stop-color="rgba(226,187,105,0.8)" />
+    </linearGradient>
+<symbol id="icon-line-1" viewBox="0 0 37 32">
+<path stroke="url(#grad1)" fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="6.0377" d="M2.852 30.34c11.635-25.917 26.726-28.247 32.817-26.172"></path>
+</symbol>
+<symbol id="icon-line-2" viewBox="0 0 23 32">
+<path stroke="url(#grad1)" fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="5.5172" d="M4.728 0.919c-6.259 33.657 8.219 29.786 16.24 23.643"></path>
+</symbol>
+<symbol id="icon-line-3" viewBox="0 0 32 32">
+<path stroke="url(#grad1)" fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="5" d="M2.398 31.048c8.637-25.159 22.303-29.080 28.056-27.896"></path>
+</symbol>
+<symbol id="icon-line-4" viewBox="0 0 20 32">
+<path stroke="url(#grad1)" fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="3.7209" d="M0.705 29.745c22.145-4.931 18.143-21.102 13.374-28.572"></path>
+</symbol>
+<symbol id="icon-line-5" viewBox="0 0 16 32">
+<path stroke="url(#grad1)" fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="5.8182" d="M14.718 2.801c-17.235 9.982-11.068 22.137-5.829 26.966"></path>
+</symbol>
+<symbol id="icon-line-6" viewBox="0 0 34 32">
+<path stroke="url(#grad1)" fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="7.8049" d="M29.878 30.762c-6.825-38.786-20.371-26.137-26.291-14.964"></path>
+</symbol>
+<symbol id="icon-line-7" viewBox="0 0 31 32">
+<path stroke="url(#grad1)" fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="6.1538" d="M2.996 30.811c11.858-26.416 27.24-28.79 33.448-26.675"></path>
+</symbol>
+<symbol id="icon-line-8" viewBox="0 0 20 32">
+<path stroke="url(#grad1)" fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="3.7209" d="M0.632 29.832c22.145-4.931 18.143-21.102 13.374-28.572"></path>
+</symbol>
+<symbol id="icon-line-9" viewBox="0 0 11 32">
+<path stroke="url(#grad1)" fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="5.7143" d="M14.122 3.138c-16.927 9.804-10.87 21.741-5.725 26.485"></path>
+</symbol>
+<symbol id="icon-line-10" viewBox="0 0 34 32">
+<path stroke="url(#grad1)" fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="7.8049" d="M29.654 30.707c-6.825-38.786-20.371-26.137-26.291-14.964"></path>
+</symbol>
+<symbol id="icon-line-11" viewBox="0 0 17 32">
+<path stroke="url(#grad1)" fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="6.6667" d="M-2.667 28.146c21.492-4.504 17.608-19.273 12.979-26.094"></path>
+</symbol>
+<symbol id="icon-line-12" viewBox="0 0 22 32">
+<path stroke="url(#grad1)" fill="none" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="3.8554" d="M0.687 30.072c27.668-7.308 18.645-21.812 10.675-28.151"></path>
+</symbol>
+</defs>
+</svg>

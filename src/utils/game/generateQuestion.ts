@@ -1,6 +1,16 @@
 import type { Question, Verb } from "../gameType";
 import { questionTemplates } from "./questionTemplates";
 
+const generateFakeVariant = (word: string): string => {
+  const variations = [
+    word + "ed",
+    word.slice(0, -1) + "t",
+    word + word[word.length - 1],
+    word + "ing",
+  ];
+  return variations[Math.floor(Math.random() * variations.length)];
+};
+
 export const generateQuestion = (
   verb: Verb,
   mode: "v2" | "v3" = "v2"
@@ -14,14 +24,26 @@ export const generateQuestion = (
 
   const correctAnswer = mode === "v3" ? verb.past_participle : verb.past_simple;
 
+  const rawForms = [
+    verb.base_form,
+    verb.past_simple,
+    verb.past_participle,
+    verb.fake,
+  ];
+
+  const uniqueForms = new Set<string>();
+  const variants = rawForms.map((form) => {
+    let modified = form;
+    while (uniqueForms.has(modified)) {
+      modified = generateFakeVariant(modified);
+    }
+    uniqueForms.add(modified);
+    return { name: modified };
+  });
+
   return {
     question,
     correctAnswer,
-    variants: [
-      { name: verb.base_form },
-      { name: verb.past_simple },
-      { name: verb.past_participle },
-      { name: verb.fake },
-    ],
+    variants: variants.sort(() => Math.random() - 0.5),
   };
 };
