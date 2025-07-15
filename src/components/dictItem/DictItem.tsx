@@ -12,7 +12,6 @@ const DictItem: React.FC<Props> = ({
   const wordList = `${base_form} ${past_simple} ${past_participle}`;
   const handleSound = (word: string) => {speakText(word, true);
 setIsSpeaking(true);
-console.log(isSpeaking)
 setTimeout(()=>{setIsSpeaking(false)}, 1500)
   }
   const handleToggle = () => setIsOpen(!isOpen)
