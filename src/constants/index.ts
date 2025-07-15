@@ -1,4 +1,5 @@
 import type { GameState } from "../utils/gameType";
+import type { NotificationState } from "../utils/notify/notifyTypes";
 
 export const SUCCESS = "success";
 export const ERROR = "error";
@@ -31,6 +32,22 @@ export const arrOfNamesSignup = [
   },
 ];
 
+export const arrOfNamesSignin = [
+  {
+    label: "Email",
+    name: "email",
+    type: "email",
+    placeholder: "your@email.com",
+    icon: "icon-email",
+  },
+  {
+    label: "Пароль",
+    name: "password",
+    type: "password",
+    placeholder: "Мінімум 8 символів",
+    icon: "icon-password",
+  },
+];
 export const arrOfNamesPassword = [
   {
     label: "Поточний пароль",
@@ -84,4 +101,16 @@ export const initialStateGame: GameState = {
   current: 0,
   correct: 0,
   wrong: 0,
+};
+
+
+export const notifyInitialState: NotificationState = {
+  notifications: {
+    dailyTraining: false,
+    achievsAndLevels: false,
+    specialOffers: false,
+    motivateMe: false,
+    sound: false,
+  },
+  darkTheme: "light",
 };

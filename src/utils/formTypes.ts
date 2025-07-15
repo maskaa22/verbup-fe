@@ -4,6 +4,11 @@ export interface RegFormValues {
   password: string;
 }
 
+export interface LogFormValues { 
+  email: string;
+  password: string;
+}
+
 export interface ChangePasswordFormValues {
   current: string;  
   new: string;

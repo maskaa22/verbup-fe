@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import css from "./DictABCFilter.module.css";
@@ -20,33 +20,30 @@ const DictABCFilter = () => {
   const dispatch = useDispatch();
 
 
-  const handleDispatch = (letter: string) => {
-    dispatch(setLetter(letter));    
-  };
+  const handleDispatch = (letter: string) =>    letter === active ? dispatch(setLetter("")) : dispatch(setLetter(letter));   
+  // useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (
+  //       dropdownRef.current &&
+  //       !dropdownRef.current.contains(event.target as Node)
+  //     ) {
+  //       dispatch(setLetter(""));
+  //       setActive("");
+  //     }
+  //   };
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        dispatch(setLetter(""));
-        setActive("");
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [dispatch]);
   return (
     <div className={css.wrap} ref={dropdownRef}>
       <Swiper loop={false} slidesPerView={9} className={css.list}>
         {alphabet.map((letter, idx) => (
           <SwiperSlide
             className={clsx(css.li, active === letter && css.actv)}
-            onClick={() => setActive(letter)}
+            onClick={() => letter === active ? setActive("") : setActive(letter)}
             key={idx}
           >
             <div onClick={() => handleDispatch(letter)}>{letter}</div>

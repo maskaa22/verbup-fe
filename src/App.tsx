@@ -11,25 +11,32 @@ import RestrictedRoute from "./components/RestrictedRoute";
 import WordGame from "./components/wordGame/WordGame";
 import WriteGame from "./components/writeGame/WriteGame";
 import ResultGame from "./pages/resultGame/ResultGame";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { refreshUser } from "./redux/auth/operations";
-import type { AppDispatch } from "./redux/store";
+// import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+// import { refreshUser } from "./redux/auth/operations";
+// import type { AppDispatch } from "./redux/store";
 import GameSetting from "./pages/gameSetting/GameSetting";
 import Setting from "./pages/setting/Setting";
 import ChangeUserData from "./pages/changeUserData/ChangeUserData";
 import NotificationParams from "./pages/notificationParams/NotificationParams";
 import ThemeSwitcher from "./pages/themeSwitcher/ThemeSwitcher";
-import Loader from "./components/loader/Loader";
+// import Loader from "./components/loader/Loader";
+import LoaderDinamic from "./components/loaderDinamic/LoaderDinamic";
 
 function App() {
-  const dispatch = useDispatch<AppDispatch>();
+  const [loading, setLoading] = useState(true);
+  // const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+    const timer = setTimeout(() => setLoading(false), 3000); // 2.5s splash
+    return () => clearTimeout(timer);
+  }, []);
+
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
   return (
-    <>
+    <> {loading ? <LoaderDinamic/> :
       <Routes>
         <Route path="/" element={<Intro />} />
 
@@ -52,18 +59,18 @@ function App() {
             <Route path="result" element={<ResultGame />} />
           </Route>
           <Route path="/home" element={<Home />} />
-          <Route path="/cup" element={<Loader/>} />
+          <Route path="/cup" element={<LoaderDinamic/>} />
           <Route path="/voc" element={<Dictionary />} />
           <Route path="/setting" element={<Setting />}>
           </Route>
           <Route path="/setting/game" element={<GameSetting />} />
           <Route path="/share" element={<h1>Share</h1>} />
-          <Route path="/change-password" element={<ChangeUserData userData="password"/>}/>
-          <Route path="/change-username" element={<ChangeUserData userData="username"/>}/>
-          <Route path="/notification-params" element={<NotificationParams/>}/>
+          <Route path="/setting/change-password" element={<ChangeUserData userData="password"/>}/>
+          <Route path="/setting/change-username" element={<ChangeUserData userData="username"/>}/>
+          <Route path="/setting/notification-params" element={<NotificationParams/>}/>
           <Route path="/setting/theme-switcher" element={<ThemeSwitcher/>}/>
         </Route>
-      </Routes>
+      </Routes>}
     </>
   );
 }

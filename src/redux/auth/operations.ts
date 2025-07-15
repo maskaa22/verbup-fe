@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import type { RegFormValues } from "../../components/RegisterForm/RegisterForm";
-import type { LogFormValues } from "../../components/signinFrom/SigninForm";
+import type { LogFormValues, RegFormValues } from "../../utils/formTypes";
+
 // import type { RootState } from "@reduxjs/toolkit/query";
 
 export const api = axios.create({

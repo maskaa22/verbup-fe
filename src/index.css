@@ -23,6 +23,7 @@
   --primary-2: #edb35c;
   --soft: #f0f0f0;
   --secondary: #a0a2a3;
+  --text-primary: #303131;
 }
 .scroll-area::-webkit-scrollbar {
   overflow-y: auto;

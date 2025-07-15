@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { selectGameSetting } from "../../redux/game/selectors";
 import type React from "react";
 import GameSettingType from "../gameSettingType/GameSettingType";
-import LogoIntro from "../logoIntro/LogoIntro";
 
 const GameOptions: React.FC = () => {
   const location = useLocation();
@@ -19,8 +18,8 @@ const GameOptions: React.FC = () => {
     <>
       {!hideSelect && (
         <>
+
         <div style={{marginBottom: "50px"}}>
-        <LogoIntro/>
         </div>
           <GameSettingType
             icon={"/icons.svg#icon-text"}
