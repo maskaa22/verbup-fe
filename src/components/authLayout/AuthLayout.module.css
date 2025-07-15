@@ -1,4 +1,4 @@
-.outerWrap{
+.outerWrap {
   /* padding-bottom: 20px; */
 }
 .wrap {
@@ -11,21 +11,13 @@
 .planets {
   height: 100vh;
   /* border: 1px solid red; */
-  background-image: 
-    url('/image/planets/planetThree.png'),
-    url('/image/planets/planetTwo.png'),
-    url('/image/planets/planetOne.png');
-    
-  background-position: 
-    top 37px right,
-    bottom 95px left,
-    bottom 75px center;
+  background-image: url("/image/planets/planetThree.png"),
+    url("/image/planets/planetTwo.png"), url("/image/planets/planetOne.png");
+
+  background-position: top 37px right, bottom 95px left, bottom 75px center;
 
   background-repeat: no-repeat;
-  background-size: 
-    178px 178px, 
-    140px 140px, 
-    59px 59px;;
+  background-size: 178px 178px, 140px 140px, 59px 59px;
 }
 .planet {
   border-radius: 100%;
@@ -78,4 +70,11 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(8px); /* for Safari */
   border-radius: 12px;
+}
+
+.bgGame {
+  background-image: url("/image/game/planet.png");
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: bottom 0 right 0;
 }

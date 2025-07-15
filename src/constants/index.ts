@@ -103,7 +103,6 @@ export const initialStateGame: GameState = {
   wrong: 0,
 };
 
-
 export const notifyInitialState: NotificationState = {
   notifications: {
     dailyTraining: false,
@@ -114,3 +113,18 @@ export const notifyInitialState: NotificationState = {
   },
   darkTheme: "light",
 };
+
+export const curves = [
+  { id: "icon-line-1", offsetX: 310, offsetY: -740 },
+  { id: "icon-line-2", offsetX: 0, offsetY: -670 },
+  { id: "icon-line-3", offsetX: 100, offsetY: -650 },
+  { id: "icon-line-4", offsetX: 200, offsetY: -620 },
+  { id: "icon-line-5", offsetX: 250, offsetY: -560 },
+  { id: "icon-line-6", offsetX: 0, offsetY: -500 },
+  { id: "icon-line-7", offsetX: 320, offsetY: -500 },
+  { id: "icon-line-8", offsetX: -15, offsetY: -300 },
+  { id: "icon-line-9", offsetX: 330, offsetY: -400 },
+  { id: "icon-line-10", offsetX: 150, offsetY: -350 },
+  { id: "icon-line-11", offsetX: 50, offsetY: -400 },
+  { id: "icon-line-12", offsetX: 250, offsetY: -310 },
+];

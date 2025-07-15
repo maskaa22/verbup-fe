@@ -9,7 +9,7 @@ export const questionTemplates: QuestionTemplates = {
     (verb) => `Find the correct V2: “${verb.base_form}”`,
     (verb) => `${verb.base_form} → ... → ${verb.past_participle}`,
     (verb) => `The Past Simple of  “${verb.base_form}” is`,
-    (verb) => `Match the verb “${verb.base_form}” with it's Past Simple form`,
+    (verb) => `Match the verb “${verb.base_form}” with it's Past Simple`,
     (verb) => `Change “${verb.base_form}” to it's Past Simple form`,
     (verb) => `Identify the Past Simple form of “${verb.base_form}”`,
   ],

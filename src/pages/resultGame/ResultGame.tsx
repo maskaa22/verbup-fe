@@ -1,5 +1,5 @@
 import c from "./ResultGame.module.css";
-import Star from "../../components/star/Star";
+// import Star from "../../components/star/Star";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
@@ -12,7 +12,7 @@ import { baseQuestion, resetCurrent } from "../../redux/game/slice";
 import { generateQuestions } from "../../redux/game/operations";
 import type { AppDispatch } from "../../redux/store";
 import { useState } from "react";
-import Feedback from "../../components/feedback/Feedback";
+// import Feedback from "../../components/feedback/Feedback";
 
 const ResultGame = () => {
   const navigation = useNavigate();
@@ -74,8 +74,8 @@ const ResultGame = () => {
             <p>56</p>
           </li> */}
         </ul>
-        <Star setRating={setRating} rating={rating} />
-        {rating > 0 && <Feedback />}
+        {/* <Star setRating={setRating} rating={rating} />
+        {rating > 0 && <Feedback />} */}
       </div>
       <div className={`${c.btnContainer} ${rating ? `${c.rating}` : ""}`}>
         <button onClick={home} className={c.btn}>

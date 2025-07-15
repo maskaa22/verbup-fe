@@ -1,6 +1,7 @@
 .rezult {
-  background-image: url("/image/game/bg-rezult.png");
   padding: 63px 0 23px;
+  position: relative;
+  height: 100vh;
 }
 .innerContainer {
   padding: 16px 32px;
@@ -50,8 +51,8 @@
 }
 .btnContainer {
   display: flex;
-  gap: 31px;
-  margin-top: 117px;
+  justify-content: space-between;
+  margin-top: 204px;
   max-width: 335px;
 }
 .rating {

@@ -17,14 +17,17 @@ const GameSettingType: React.FC<GameSettingTypeProps> = ({
   return (
     <div
       className={`${c.type} ${disabled ? c.disabled : ""}`}
-      onClick={() => {
-        navigate(`/game/${gameType}?count=${count}`);
-      }}
+      onClick={
+        !disabled
+          ? () => navigate(`/game/${gameType}?count=${count}`)
+          : undefined
+      }
     >
       <svg className={c.icon}>
         <use href={icon}></use>
       </svg>
-      <img src={path} className={c.img} />
+      {disabled}
+      <img src={path} className={`${c.img} ${disabled ? c.repair : ""}`} />
       <p className={c.text}>{text}</p>
       <div className={c.flex}>
         <p className={`${c.title} ${disabled ? c.disTitle : ""}`}>{title}</p>

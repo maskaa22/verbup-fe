@@ -8,12 +8,19 @@
     rgba(226, 187, 105, 0.8) 92.79%
   );
   border-radius: 30px;
-  margin-bottom: 38px;
+  margin-bottom: 48px;
   position: relative;
   cursor: pointer;
 }
 .disabled {
-  background: #dbdbdb;
+  backdrop-filter: blur(40px);
+  box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    47deg,
+    #eaeaea 22.32%,
+    #d1d1d2 55.54%,
+    #adadb1 93.47%
+  );
   cursor: none;
 }
 .type:last-child {
@@ -27,6 +34,9 @@
   position: absolute;
   top: -44px;
   right: 0;
+}
+.repair {
+  top: -28px;
 }
 .text {
   font-size: 14px;
