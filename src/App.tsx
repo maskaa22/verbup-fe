@@ -11,10 +11,10 @@ import RestrictedRoute from "./components/RestrictedRoute";
 import WordGame from "./components/wordGame/WordGame";
 import WriteGame from "./components/writeGame/WriteGame";
 import ResultGame from "./pages/resultGame/ResultGame";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { refreshUser } from "./redux/auth/operations";
-import type { AppDispatch } from "./redux/store";
+// import { refreshUser } from "./redux/auth/operations";
+// import type { AppDispatch } from "./redux/store";
 import GameSetting from "./pages/gameSetting/GameSetting";
 import Setting from "./pages/setting/Setting";
 import ChangeUserData from "./pages/changeUserData/ChangeUserData";
@@ -25,16 +25,16 @@ import LoaderDinamic from "./components/loaderDinamic/LoaderDinamic";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch<AppDispatch>();
+  // const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 3000); // 2.5s splash
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
   return (
     <> {loading ? <LoaderDinamic/> :
       <Routes>
