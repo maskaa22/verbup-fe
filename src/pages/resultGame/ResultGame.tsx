@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { baseQuestion, resetCurrent } from "../../redux/game/slice";
 import { generateQuestions } from "../../redux/game/operations";
 import type { AppDispatch } from "../../redux/store";
-import { useState } from "react";
+// import { useState } from "react";
 // import Feedback from "../../components/feedback/Feedback";
 
 const ResultGame = () => {
@@ -24,7 +24,7 @@ const ResultGame = () => {
   const count = Number(numQuest.split(" ")[0]);
   const dispatch: AppDispatch = useDispatch();
 
-  const [rating, setRating] = useState<number>(0);
+  // const [rating, setRating] = useState<number>(0);
 
   const resetSetting = () => {
     dispatch(baseQuestion());
@@ -77,7 +77,8 @@ const ResultGame = () => {
         {/* <Star setRating={setRating} rating={rating} />
         {rating > 0 && <Feedback />} */}
       </div>
-      <div className={`${c.btnContainer} ${rating ? `${c.rating}` : ""}`}>
+      {/* <div className={`${c.btnContainer} ${rating ? `${c.rating}` : ""}`}> */}
+      <div className={`${c.btnContainer}`}>
         <button onClick={home} className={c.btn}>
           На головну
         </button>

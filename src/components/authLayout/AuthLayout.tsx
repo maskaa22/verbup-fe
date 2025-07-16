@@ -1,11 +1,12 @@
 import { Outlet, useLocation } from "react-router-dom";
 import css from "./AuthLayout.module.css";
 import Logo from "../logo/Logo";
-import NavBar from "../navBar/NavBar";
+
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import LogoIntro from "../logoIntro/LogoIntro";
 import ExplosionLines from "../explosionLines/ExplosionLines";
+import NavBar from "../NavBar/NavBar";
 const AuthLayout = () => {
   const [glass, setGlass] = useState(false);
   const [planets, setPlantes] = useState(false);
