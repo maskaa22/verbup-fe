@@ -23,12 +23,12 @@ const GameSettingType: React.FC<GameSettingTypeProps> = ({
           : undefined
       }
     >
-      <svg className={c.icon}>
+      <svg className={`${c.icon} ${disabled ? c.disIcon : ""}`}>
         <use href={icon}></use>
       </svg>
       {disabled}
       <img src={path} className={`${c.img} ${disabled ? c.repair : ""}`} />
-      <p className={c.text}>{text}</p>
+      <p className={`${c.text} ${disabled ? c.disTitle : ""}`}>{text}</p>
       <div className={c.flex}>
         <p className={`${c.title} ${disabled ? c.disTitle : ""}`}>{title}</p>
         <svg className={c.icon}>
