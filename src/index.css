@@ -95,6 +95,15 @@ input {
   margin: 0 auto;
 }
 
+@media screen and (max-width: 391px){
+  .container{width: 100%;}
+
+}
+
+/* @media screen and (max-width: 329px){
+
+} */
+
 /* @media only screen and (min-width: 375px) {
 .container {
 max-width: 375px;

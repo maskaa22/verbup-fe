@@ -94,3 +94,15 @@ padding-bottom: 6px;
     box-shadow: -4px -4px 0 0 #fff;
     transform: rotate(22deg);
 }
+
+@media screen and (max-width: 391px){
+    .headline{font-size: 40px;}
+    .headline span:nth-child(2){font-size: 56px;}
+    .droopyHL{font-size: 56px;}
+}
+
+@media screen and (max-width: 329px){
+    .headline{font-size: 32px;}
+    .headline span:nth-child(2){font-size: 48px;}
+    .droopyHL{font-size: 56px;}
+}
