@@ -8,12 +8,12 @@ type Props = {
 };
 
 const layout = [
-  ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
-  ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-  ['z', 'x', 'c', 'v', 'b', 'n', 'm']
+  ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
+  ["a", "s", "d", "f", "g", "h", "j", "k", "l"],
+  ["z", "x", "c", "v", "b", "n", "m"],
 ];
 
-const Keyboard: React.FC<Props> = ({ onKeyPress, onBackspace, onEnter }) => {
+const Keyboard: React.FC<Props> = ({ onKeyPress, onBackspace }) => {
   return (
     <div className={c.keyboard}>
       {layout.map((row, rowIndex) => (
@@ -30,7 +30,7 @@ const Keyboard: React.FC<Props> = ({ onKeyPress, onBackspace, onEnter }) => {
           {rowIndex === 2 && (
             <>
               <button className={c.special} onClick={onBackspace}>
-                <img src="./image/game/delete-icon.svg"/>
+                <img src="./image/game/delete-icon.svg" />
               </button>
             </>
           )}

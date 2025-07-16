@@ -5,15 +5,22 @@ import Keyboard from "../keyboard/Keyboard";
 import { handleBackspace, handleKeyPress } from "../../utils/gameFunctions";
 import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
 import { useOutletContext } from "react-router-dom";
-import type { allGameType } from "../../utils/gameType";
+import type { AnswerStatus, cardGameType } from "../../utils/gameType";
+import { useCountWord } from "../../hooks/gameHooks";
 
 const WriteGame = () => {
   const { setCheckAnswerType, setShowCheckAnswer, current, setModalActive } =
-    useOutletContext<allGameType>();
+    useOutletContext<cardGameType>();
 
   const [text, setText] = useState("");
+  const [isChecked, setIsChecked] = useState(false);
 
   const imgWrite = "/image/game/car.png";
+  const count = useCountWord();
+    const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(
+      Array(count).fill("pending")
+    );
+console.log(isChecked);
 
   return (
     <>
@@ -22,6 +29,9 @@ const WriteGame = () => {
           current={current}
           img={imgWrite}
           question={"Which is the Past participle (V3) of “go”?"}
+
+        answerStatuses={answerStatuses}
+        count={count}
         />
         <div className={s.inputContainer}>
           <input type="text" value={text} readOnly className={s.gameInput} />
@@ -35,9 +45,15 @@ const WriteGame = () => {
 
       <BaseButtonGame
         word={text}
+
         setShowCheckAnswer={setShowCheckAnswer}
         setCheckAnswerType={setCheckAnswerType}
         setModalActive={setModalActive}
+        correctAnswer={'question.correctAnswer'}
+        answerStatuses={answerStatuses}
+        setAnswerStatuses={setAnswerStatuses}
+        current={current}
+        setIsChecked={setIsChecked}
       />
     </>
   );
