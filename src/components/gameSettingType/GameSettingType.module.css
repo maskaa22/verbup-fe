@@ -59,6 +59,9 @@
 .disTitle {
   color: var(--secondary);
 }
+.disIcon {
+  stroke: var(--secondary);
+}
 .btn {
   background-color: transparent;
   border: none;

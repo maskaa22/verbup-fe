@@ -44,9 +44,9 @@
 .btn {
   border-radius: 50%;
   width: 52px;
-height: 52px;
-border: none;
-background-color: var(--background-white-default);
+  height: 52px;
+  border: none;
+  background-color: var(--background-white-default);
 }
 
 .btn:active {
@@ -60,4 +60,17 @@ background-color: var(--background-white-default);
 .icon {
   width: 16px;
   height: 32px;
+}
+
+@media only screen and (min-width: 768px) {
+  .modal {
+    justify-content: center;
+  }
+  .check {
+    width: fit-content;
+    padding: 8px 40px 48px;
+  }
+  .info {
+    gap: 60px;
+  }
 }
