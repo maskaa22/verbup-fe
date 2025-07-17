@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import LogoIntro from "../logoIntro/LogoIntro";
 import ExplosionLines from "../explosionLines/ExplosionLines";
-import NavBar from "../NavBar/NavBar";
+import NavBar from "../navBar/NavBar";
+// import NavBar from "../NavBar/NavBar";
 const AuthLayout = () => {
   const [glass, setGlass] = useState(false);
   const [planets, setPlantes] = useState(false);

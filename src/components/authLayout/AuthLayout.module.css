@@ -1,5 +1,6 @@
 .outerWrap {
   /* padding-bottom: 20px; */
+    height: calc(var(--vh));
 }
 .wrap {
   /* margin-top: 19px; */

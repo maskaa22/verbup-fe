@@ -22,11 +22,16 @@ import NotificationParams from "./pages/notificationParams/NotificationParams";
 import ThemeSwitcher from "./pages/themeSwitcher/ThemeSwitcher";
 // import Loader from "./components/loader/Loader";
 import LoaderDinamic from "./components/loaderDinamic/LoaderDinamic";
+import { setVh } from "./utils/setVh";
 
 function App() {
   const [loading, setLoading] = useState(true);
   // const dispatch = useDispatch<AppDispatch>();
-
+ useEffect(() => {
+    setVh();
+    window.addEventListener('resize', setVh);
+    return () => window.removeEventListener('resize', setVh);
+  }, []);
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 3000); // 2.5s splash
     return () => clearTimeout(timer);
