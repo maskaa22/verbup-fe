@@ -45,7 +45,7 @@ const NavBar = () => {
   return (
     <div className={css.navBar}>
       <div className={css.navigation}>
-        <div>
+        <div className={css.background}>
           <ul>
             <li>
               <NavLink

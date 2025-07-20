@@ -46,7 +46,7 @@ const DictABCFilter = () => {
             onClick={() => letter === active ? setActive("") : setActive(letter)}
             key={idx}
           >
-            <div onClick={() => handleDispatch(letter)}>{letter}</div>
+            <div className={css.letter} onClick={() => handleDispatch(letter)}>{letter}</div>
           </SwiperSlide>
         ))}
       </Swiper>

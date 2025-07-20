@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.letter{
+  margin: 0 auto;
+}
+
 .li {
   display: flex;
   align-items: center;
@@ -23,5 +27,6 @@
 }
 
 .actv {
+  transform: translateX(-2px);
   font-size: 48px;
 }

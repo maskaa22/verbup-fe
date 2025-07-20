@@ -1,22 +1,24 @@
 import { useState } from "react";
 import type { Props } from "../../utils/dict/dictTypes";
-import { speakText } from "../../utils/voiseFunction";
 import css from "./DictItem.module.css";
 import clsx from "clsx";
+import { speakTextWithPauses } from "../../utils/dict/dictSound";
 
 const DictItem: React.FC<Props> = ({
   word: { base_form, past_simple, past_participle, uk },
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const wordList = `${base_form} ${past_simple} ${past_participle}`;
-  const handleSound = (word: string) => {speakText(word, true);
-setIsSpeaking(true);
-setTimeout(()=>{setIsSpeaking(false)}, 1500)
-  }
-  const handleToggle = () => setIsOpen(!isOpen)
-  return ( <div className={css.wordWrap}>
-    <div className={css.bsWrap}>
+  const handleSound = () => {
+    const words = [base_form, past_simple, past_participle];
+    setIsSpeaking(true);
+    speakTextWithPauses(words);
+    setTimeout(() => setIsSpeaking(false), 400 * words.length + 500);
+  };
+  const handleToggle = () => setIsOpen(!isOpen);
+  return (
+    <div className={css.wordWrap}>
+      <div className={css.bsWrap}>
         <div className={css.dotWrap}>
           <span></span>
           <div className={css.baseForm}>
@@ -24,7 +26,7 @@ setTimeout(()=>{setIsSpeaking(false)}, 1500)
             <p>{uk}</p>
           </div>
         </div>
-        <div onClick={() => handleSound(wordList)} className={css.soundBtn}>
+        <div onClick={() => handleSound()} className={css.soundBtn}>
           <svg className={clsx(css.sound, isSpeaking && css.speaking)}>
             <use href="./icons.svg#icon-sound"></use>
           </svg>
@@ -41,13 +43,14 @@ setTimeout(()=>{setIsSpeaking(false)}, 1500)
           </svg>
         </div>
       </div>
-      {isOpen && <div className={css.irrForm}>
-      <p>{past_simple}</p>
-      <p>{past_participle}</p>
-    </div>}
-      </div>
+      {isOpen && (
+        <div className={css.irrForm}>
+          <p>{past_simple}</p>
+          <p>{past_participle}</p>
+        </div>
+      )}
+    </div>
   );
 };
 
 export default DictItem;
-
