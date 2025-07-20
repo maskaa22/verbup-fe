@@ -1,16 +1,14 @@
 import { speakText } from "../voiseFunction";
 
-export const speakTextWithPauses = (words: string[]) => {
+export const speakWordsIndividually = (wordList: string[], soundEnabled = true, pauseMs = 500) => {
+  if(!soundEnabled) return;
   let index = 0;
 
   const speakNext = () => {
-    if (index < words.length) {
-      const utterance = speakText(words[index], true);
-      utterance.onend = () => {
-        index++;
-        setTimeout(speakNext, 400); // pause between words
-      };
-    }
+    if(index >= wordList.length) return;
+    speakText(wordList[index], soundEnabled);
+    index++;
+    setTimeout(speakNext, pauseMs);
   };
 
   speakNext();

@@ -2,7 +2,8 @@ import { useState } from "react";
 import type { Props } from "../../utils/dict/dictTypes";
 import css from "./DictItem.module.css";
 import clsx from "clsx";
-import { speakTextWithPauses } from "../../utils/dict/dictSound";
+import { speakWordsIndividually } from "../../utils/dict/dictSound";
+
 
 const DictItem: React.FC<Props> = ({
   word: { base_form, past_simple, past_participle, uk },
@@ -10,10 +11,11 @@ const DictItem: React.FC<Props> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const handleSound = () => {
-    const words = [base_form, past_simple, past_participle];
+    // const wordList = `${base_form} ${past_simple} ${past_participle}`;
+    const wordList = [base_form, past_simple, past_participle]
     setIsSpeaking(true);
-    speakTextWithPauses(words);
-    setTimeout(() => setIsSpeaking(false), 400 * words.length + 500);
+    speakWordsIndividually(wordList, true, 1500);
+    setTimeout(() => setIsSpeaking(false), 2500);
   };
   const handleToggle = () => setIsOpen(!isOpen);
   return (
