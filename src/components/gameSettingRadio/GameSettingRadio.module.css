@@ -3,7 +3,8 @@
   display: flex;
 }
 .disabled {
-  background-color: #eeeeee;
+  background-color: var(--soft);
+  opacity: 0.5;
   border-radius: 29px;
 }
 .inputWrap {
@@ -14,7 +15,7 @@
   text-align: center;
   height: 100%;
   width: 100%;
-  border: 1px solid var(--base-color-gray);
+  border: 1px solid var(--text-secondary);
   cursor: pointer;
   height: 56px;
   width: 105px;
@@ -43,5 +44,5 @@
 }
 
 .inputWrapChecked {
-  border: 2px solid var(--base-color-blue);
+  border: 2px solid var(--primary-1);
 }

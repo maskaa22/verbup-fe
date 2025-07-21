@@ -64,11 +64,11 @@ background: #efefef;
   }
   
   input:checked + .slider {
-    background-color: #0d9467;
+    background-color: var(--other-1);
   }
   
   input:hover + .slider {
-    box-shadow: 0 0 2px #f96d00;
+    box-shadow: 0 0 2px var(--other-3);
   }
   
   input:checked + .slider:before {

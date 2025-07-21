@@ -5,7 +5,7 @@
 .wrap h2{
     font-weight: 700;
     font-size: 30px;
-    color: var(--base-color-blue);
+    color: var(--primary-1);
     margin-bottom: 28px;
 }
 

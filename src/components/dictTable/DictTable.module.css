@@ -16,19 +16,5 @@
     gap: 16px;
     padding: 8px;
     scrollbar-gutter: stable;
-    /* scrollbar-color: var(--base-color-blue) #fff;
-  scrollbar-width: thin; */
 }
 
-
-.green{
-    color: green;
-}
-
-.yellow{
-    color: yellow;
-}
-
-.red{
-    color: red;
-}

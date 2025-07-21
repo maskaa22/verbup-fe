@@ -20,11 +20,11 @@ background-color: #fff;
 line-height: 1;
 }
 .headline span:nth-child(1){
-    color: #5E909E;
+    color: var(--primary-1);
 
 }
 .headline span:nth-child(2){
-    color: #edb35c;
+    color: var(--primary-2);
     font-size: 64px;
     position: absolute;
     top: 20px;

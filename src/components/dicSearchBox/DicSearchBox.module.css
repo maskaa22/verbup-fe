@@ -9,7 +9,7 @@
   z-index: 111;
 }
 .inputwrap input {
-  border: 1px solid #d9d9d9;
+  border: 1px solid var(--text-secondary);
   border-radius: 48px;
   padding: 8px 12px;
   width: 100%;

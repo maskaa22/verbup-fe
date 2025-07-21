@@ -17,7 +17,7 @@
     font-weight: 700;
 font-size: 48px;
 text-transform: capitalize;
-background-color: #fff;
+background-color: var(--background-white-default);
 color: var(--primary-1);
 line-height: 1;
 }
@@ -26,12 +26,12 @@ line-height: 1;
     background: transparent;
 }
 .realUp{
-    color: #edb35c;
+    color: var(--primary-2);
     font-size: 64px;
     position: absolute;
     right: 6px;
     top: 10px;
-    background-color: #fff;
+    background-color: var(--background-white-default);
     border-radius: 50%;
     padding-bottom: 6px;
 }
@@ -44,7 +44,7 @@ line-height: 1;
     bottom: 4px;
     left: -14px;
     border-top-right-radius: 50px;
-    box-shadow: 4px -4px 0 0 #fff;
+    box-shadow: 4px -4px 0 0 var(--background-white-default);
     transform: rotate(-26deg);
 }
 .realUp:after{
@@ -56,7 +56,7 @@ line-height: 1;
     bottom: 4px;
     right: -14px;
     border-top-left-radius: 50px;
-    box-shadow: -4px -4px 0 0 #fff;
+    box-shadow: -4px -4px 0 0 var(--background-white-default);
     transform: rotate(26deg);
 }
 .droopyHL{
@@ -81,7 +81,7 @@ padding-bottom: 6px;
     bottom: 12px;
     left: -12px;
     border-top-right-radius: 50px;
-    box-shadow: 4px -4px 0 0 #fff;
+    box-shadow: 4px -4px 0 0 var(--background-white-default);
     transform: rotate(-22deg);
 }
 .droopyHL:after{
@@ -93,7 +93,7 @@ padding-bottom: 6px;
     bottom: 12px;
     right: -12px;
     border-top-left-radius: 50px;
-    box-shadow: -4px -4px 0 0 #fff;
+    box-shadow: -4px -4px 0 0 var(--background-white-default);
     transform: rotate(22deg);
 }
 

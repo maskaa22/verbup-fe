@@ -5,7 +5,7 @@ import Logo from "../logo/Logo";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import ExplosionLines from "../explosionLines/ExplosionLines";
-import NavBar from "../NavBar/NavBar";
+import NavBar from "../navBar/NavBar";
 import LogoIntroNew from "../logoIntroNew/LogoIntroNew";
 const AuthLayout = () => {
   const [glass, setGlass] = useState(false);
