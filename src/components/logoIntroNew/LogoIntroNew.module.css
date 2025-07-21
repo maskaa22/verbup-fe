@@ -1,0 +1,110 @@
+.headlineWrap{
+    /* border: 1px solid red; */
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.25);
+    position: relative;
+    padding: 10px;
+    margin-bottom: 40px;
+    width: 100%;
+    background-color: #fff;
+   
+    /* background-color: wheat; */
+}
+
+.headline{
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    font-weight: 700;
+font-size: 48px;
+text-transform: capitalize;
+background-color: #fff;
+color: var(--primary-1);
+line-height: 1;
+}
+.secretUp{
+    color: transparent;
+    background: transparent;
+}
+.realUp{
+    color: #edb35c;
+    font-size: 64px;
+    position: absolute;
+    right: -1rem;
+    top: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding-bottom: 6px;
+}
+.realUp:before{
+    content: "";
+    width: 20px;
+    height: 22px;
+    background-color: transparent;
+    position: absolute;
+    bottom: 4px;
+    left: -14px;
+    border-top-right-radius: 50px;
+    box-shadow: 4px -4px 0 0 #fff;
+    transform: rotate(-26deg);
+}
+.realUp:after{
+    content: "";
+    width: 20px;
+    height: 22px;
+    background-color: transparent;
+    position: absolute;
+    bottom: 4px;
+    right: -14px;
+    border-top-left-radius: 50px;
+    box-shadow: -4px -4px 0 0 #fff;
+    transform: rotate(26deg);
+}
+.droopyHL{
+    color: transparent;
+    font-size: 64px;
+    position: absolute;
+        right: -1rem;
+    top: 10px;
+    background-color: transparent;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+padding-bottom: 6px;
+    z-index: -1;
+}
+
+.droopyHL:before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    position: absolute;
+    bottom: 12px;
+    left: -12px;
+    border-top-right-radius: 50px;
+    box-shadow: 4px -4px 0 0 #fff;
+    transform: rotate(-22deg);
+}
+.droopyHL:after{
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    position: absolute;
+    bottom: 12px;
+    right: -12px;
+    border-top-left-radius: 50px;
+    box-shadow: -4px -4px 0 0 #fff;
+    transform: rotate(22deg);
+}
+
+@media screen and (max-width: 391px){
+    .headline{font-size: 40px;}
+    .realUp{font-size: 56px;}
+    .droopyHL{font-size: 56px;}
+}
+
+@media screen and (max-width: 329px){
+    .headline{font-size: 32px;}
+    .realUp{font-size: 48px;}
+    .droopyHL{font-size: 56px;}
+}
