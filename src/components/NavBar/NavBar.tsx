@@ -2,11 +2,16 @@ import { useEffect, useState } from "react";
 import css from "./NavBar.module.css";
 import { NavLink, useLocation } from "react-router-dom";
 import clsx from "clsx";
+import { useScreenWidth } from "../../utils/useScreenWidth";
 
 const NavBar = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [noActive, setNoActive] = useState(true);
   const location = useLocation().pathname;
+  const screenWidth = useScreenWidth();
+console.log("Screen width:", screenWidth);
+console.log("Bubble width:", screenWidth / 5 - 2);
+  const navWidth = screenWidth <= 374 ? 64 : 72;
 
   //   if(isActive){setNoActive(false)}   this line is not allowed during render unless it's in useEffect() !!!
 
@@ -40,7 +45,7 @@ const NavBar = () => {
         setNoActive(true);
     }
   }, [location]);
-  const navWidth = 72;
+
 
   return (
     <div className={css.navBar}>
