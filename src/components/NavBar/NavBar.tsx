@@ -9,8 +9,6 @@ const NavBar = () => {
   const [noActive, setNoActive] = useState(true);
   const location = useLocation().pathname;
   const screenWidth = useScreenWidth();
-console.log("Screen width:", screenWidth);
-console.log("Bubble width:", screenWidth / 5 - 2);
   const navWidth = screenWidth <= 374 ? 64 : 72;
 
   //   if(isActive){setNoActive(false)}   this line is not allowed during render unless it's in useEffect() !!!

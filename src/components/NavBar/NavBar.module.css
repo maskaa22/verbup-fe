@@ -15,18 +15,19 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  background-color: #fff;
+  background-color: var(--background-white-default);
   box-shadow: 0 -4px 11px 0 rgba(0, 0, 0, 0.25);
   z-index: 10;
 }
 
+
 .navigation ul {
-    /* border: 1px solid green; */
   display: flex;
   justify-content: space-evenly;
   width: 375px;
-  background-color: #fff;
+  background-color: var(--background-white-default);
 }
+
 
 .navigation ul li {
   position: relative;
@@ -51,13 +52,12 @@
 
 
 .active {
-  background: linear-gradient(#6fa1ad, #e9ab55) !important;
+  background: linear-gradient(180deg, #5a8b96 11%, #9aa281 47%, #e2bb69 79%) !important;
   transform: translateY(-15px);
 }
 
 
 .navigation ul li a .icon {
-  /* border: 1px solid red; */
   position: relative;
   display: block;
   transition: 0.5s;
@@ -66,24 +66,24 @@
 
   padding: 10px;
   fill: transparent;
-  stroke: var(--third-color-gray);
+  stroke: var(--primary-1);
 }
 
 .navigation ul li a .iconone{
-  fill: var(--third-color-gray);
+  fill: var(--primary-1);
   stroke: transparent;
 }
 .active .icon{
   width: 55px !important;
   height: 55px !important;
-  stroke: #fff !important;
+  stroke: var(--background-white-default) !important;
 }
 
 .indicator {
   position: absolute;
   width: 85px;
   height: 70px;
-  background-color: #fff;
+  background-color: var(--background-white-default);
   bottom: 18px;
   border-radius: 50%;
   transition: 0.5s;
@@ -100,7 +100,7 @@
   height: 30px;
   background-color: transparent;
   border-bottom-right-radius: 50px;
-  box-shadow: 10px 1px 0 0 #fff;
+  box-shadow: 10px 1px 0 0 var(--background-white-default);
   transform: rotate(34deg);
 }
 .indicator::after {
@@ -112,7 +112,7 @@
   height: 30px;
   background-color: transparent;
   border-bottom-left-radius: 70px;
-  box-shadow: -1px 10px 0 0 #fff;
+  box-shadow: -1px 10px 0 0 var(--background-white-default);
   transform: rotate(-4deg);
 }
 .noActive {
@@ -132,3 +132,15 @@
 }
 
 
+@media screen and (max-width: 374px){
+  .background{
+    width: 100%;
+}
+
+.navigation ul {
+      width: 100%;
+      justify-content: space-evenly;
+}
+
+
+}

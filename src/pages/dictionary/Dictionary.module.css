@@ -5,16 +5,16 @@
   height: 85dvh;
 }
 
-/* .dicheadline {
+.dicheadline {
   font-family: var(--font-family-messiri);
   font-weight: 400;
   font-size: 32px;
   line-height: 140%;
   letter-spacing: -0.01em;
-  color: var(--base-color-blue);
+  color: var(--primary-1);
   text-transform: capitalize;
 }
-.markup ul {
+/* .markup ul {
   display: flex;
   justify-content: space-between;
 }

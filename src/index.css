@@ -27,6 +27,7 @@
   --secondary: #a0a2a3;
   --text-primary: #303131;
   	--text-secondary: #a0a2a3;
+    --text-button-defalt: #fff;
 }
 .scroll-area::-webkit-scrollbar {
   overflow-y: auto;
