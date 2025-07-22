@@ -1,7 +1,7 @@
 .title{
     font-weight: 600;
 font-size: 30px;
-    color: var(--base-color-blue);
+    color: var(--primary-1);
 }
 .wrap{
     display: flex;
@@ -40,7 +40,7 @@ font-size: 30px;
     background-color: #d9dad7;
 }
 .active{
-    border-color: #f96d00;
+    border-color: var(--other-3);
 }
 
 .switch {

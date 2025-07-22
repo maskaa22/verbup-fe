@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.letter{
+  margin: 0 auto;
+}
+
 .li {
   display: flex;
   align-items: center;
@@ -12,7 +16,7 @@
   font-weight: 400;
   font-size: 32px;
   line-height: 1;
-  color: var(--base-color-yellow);
+  color: var(--primary-2);
   transition: all 0.5s ease-in-out;
   cursor: pointer;
   margin: 0;
@@ -23,5 +27,6 @@
 }
 
 .actv {
+  transform: translateX(-2px);
   font-size: 48px;
 }

@@ -11,29 +11,31 @@
 }
 
 .headline{
+    position: relative;
     width: fit-content;
-    margin: 0 45% 0 auto;
-    font-weight: 400;
+    margin: 0 auto;
+    font-weight: 700;
 font-size: 48px;
 text-transform: capitalize;
-background-color: #fff;
+background-color: var(--background-white-default);
+color: var(--primary-1);
 line-height: 1;
 }
-.headline span:nth-child(1){
-    color: var(--primary-1);
-
+.secretUp{
+    color: transparent;
+    background: transparent;
 }
-.headline span:nth-child(2){
+.realUp{
     color: var(--primary-2);
     font-size: 64px;
     position: absolute;
-    top: 20px;
-    background-color: #fff;
+    right: 6px;
+    top: 10px;
+    background-color: var(--background-white-default);
     border-radius: 50%;
     padding-bottom: 6px;
-    margin-left: 13px;
 }
-.headline span:nth-child(2):before{
+.realUp:before{
     content: "";
     width: 20px;
     height: 22px;
@@ -42,10 +44,10 @@ line-height: 1;
     bottom: 4px;
     left: -14px;
     border-top-right-radius: 50px;
-    box-shadow: 4px -4px 0 0 #fff;
+    box-shadow: 4px -4px 0 0 var(--background-white-default);
     transform: rotate(-26deg);
 }
-.headline span:nth-child(2):after{
+.realUp:after{
     content: "";
     width: 20px;
     height: 22px;
@@ -54,18 +56,18 @@ line-height: 1;
     bottom: 4px;
     right: -14px;
     border-top-left-radius: 50px;
-    box-shadow: -4px -4px 0 0 #fff;
+    box-shadow: -4px -4px 0 0 var(--background-white-default);
     transform: rotate(26deg);
 }
 .droopyHL{
     color: transparent;
     font-size: 64px;
     position: absolute;
-    top: 20px;
+    right: 6px;
+    top: 10px;
     background-color: transparent;
     box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.25);
     border-radius: 50%;
-    margin-left: 13px;
 padding-bottom: 6px;
     z-index: -1;
 }
@@ -79,7 +81,7 @@ padding-bottom: 6px;
     bottom: 12px;
     left: -12px;
     border-top-right-radius: 50px;
-    box-shadow: 4px -4px 0 0 #fff;
+    box-shadow: 4px -4px 0 0 var(--background-white-default);
     transform: rotate(-22deg);
 }
 .droopyHL:after{
@@ -91,18 +93,18 @@ padding-bottom: 6px;
     bottom: 12px;
     right: -12px;
     border-top-left-radius: 50px;
-    box-shadow: -4px -4px 0 0 #fff;
+    box-shadow: -4px -4px 0 0 var(--background-white-default);
     transform: rotate(22deg);
 }
 
 @media screen and (max-width: 391px){
     .headline{font-size: 40px;}
-    .headline span:nth-child(2){font-size: 56px;}
+    .realUp{font-size: 56px;}
     .droopyHL{font-size: 56px;}
 }
 
 @media screen and (max-width: 329px){
     .headline{font-size: 32px;}
-    .headline span:nth-child(2){font-size: 48px;}
+    .realUp{font-size: 48px;}
     .droopyHL{font-size: 56px;}
 }

@@ -2,7 +2,7 @@
     font-weight: 600;
 font-size: 30px;
     margin-bottom: 20px;
-    color: var(--base-color-blue);
+    color: var(--primary-1);
 }
 .allnotifi{
     display: flex;

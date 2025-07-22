@@ -11,17 +11,17 @@
 .or hr {
   flex-grow: 1;
   border: none;
-  border-top: 1px solid var(--third-color-gray);
+  border-top: 1px solid var(--text-secondary);
   height: 0;
 }
 .or p {
-  color: var(--base-color-blue);
+  color: var(--primary-1);
   font-weight: 400;
   font-size: 14px;
   margin: 0 20px;
 }
 .wrap button {
-  border: 1px solid var(--third-color-gray);
+  border: 1px solid var(--text-secondary);
   border-radius: 48px;
   padding: 14px 50px;
   width: 310px;
@@ -29,7 +29,7 @@
   background-color: transparent;
   font-weight: 400;
   font-size: 16px;
-  color: var(--font-color-dark);
+  color: var(--text-primary);
   text-align: right;
 }
 
@@ -42,7 +42,7 @@
   top: 14px;
   width: 20px;
   height: 20px;
-  fill: var(--third-color-gray);
-  stroke: var(--third-color-gray);
-  color: var(--third-color-gray);
+  fill: var(--text-primary);
+  stroke: var(--text-primary);
+  color: var(--text-primary);
 }

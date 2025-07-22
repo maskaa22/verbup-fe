@@ -34,7 +34,7 @@
 .baseForm p:nth-child(2) {
   font-weight: 400;
   font-size: 12px;
-  color: var(--third-color-gray);
+  color: var(--text-secondary);
 }
 .dotWrap {
   display: flex;
@@ -48,7 +48,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: green;
+  background-color: var(--other-1);
 }
 .irrForm p {
   font-weight: 400;
@@ -60,7 +60,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: green;
+  background-color: var(--other-1);
   margin-right: 20px;
 }
 
@@ -70,21 +70,21 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: green;
+  background-color: var(--other-1);
 }
 .sound {
-  fill: var(--second-color-gray);
+  fill: var(--text-secondary);
   width: 24px;
   height: 24px;
   transition: fill 0.3s ease;
 }
 .speaking{
-  fill: var(--base-color-blue);
+  fill: var(--primary-1);
 }
 .arrow {
   width: 32px;
   height: 16px;
-  fill: var(--base-color-blue);
+  fill: var(--primary-1);
 }
 
 .soundBtn{

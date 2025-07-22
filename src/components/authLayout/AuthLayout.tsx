@@ -4,9 +4,9 @@ import Logo from "../logo/Logo";
 
 import { useEffect, useState } from "react";
 import clsx from "clsx";
-import LogoIntro from "../logoIntro/LogoIntro";
 import ExplosionLines from "../explosionLines/ExplosionLines";
-import NavBar from "../NavBar/NavBar";
+import LogoIntroNew from "../logoIntroNew/LogoIntroNew";
+import Menu from "../menu/Menu";
 const AuthLayout = () => {
   const [glass, setGlass] = useState(false);
   const [planets, setPlantes] = useState(false);
@@ -131,14 +131,14 @@ const AuthLayout = () => {
         bgGame && css.bgGame
       )}
     >
-      {logoIntro && <LogoIntro />}
+      {logoIntro && <LogoIntroNew />}
       {rezult && <ExplosionLines />}
 
       <div className={`${css.wrap} container`}>
         {logo && <Logo />}
         <div className={glass ? css.glass : undefined}>{<Outlet />}</div>
       </div>
-      {navigation && <NavBar />}
+      {navigation && <Menu/>}
     </div>
   );
 };

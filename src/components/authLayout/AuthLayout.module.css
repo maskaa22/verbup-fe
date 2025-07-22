@@ -1,16 +1,9 @@
-.outerWrap {
-  /* padding-bottom: 20px; */
-}
 .wrap {
-  /* margin-top: 19px; */
   position: relative;
-  /* min-height: 812px; */
-  /* height: auto; */
 }
 
 .planets {
   height: 100vh;
-  /* border: 1px solid red; */
   background-image: url("/image/planets/planetThree.png"),
     url("/image/planets/planetTwo.png"), url("/image/planets/planetOne.png");
 
@@ -26,26 +19,18 @@
   background: linear-gradient(180deg, #5a8b96 11%, #9aa281 47%, #e2bb69 79%);
 }
 .planet:nth-child(1) {
-  /* background: linear-gradient(
-    180deg,
-    #5a8b96 11%,
-    #9aa281 47%,
-    #e2bb69 79%
-  ); */
   width: 178px;
   height: 178px;
   top: 37px;
   right: -12px;
 }
 .planet:nth-child(2) {
-  /* background: linear-gradient(322deg, #6a9ba6 0%, #abae88 50.79%, #e4be6d 100%); */
   width: 140px;
   height: 140px;
   bottom: 95px;
   left: -22px;
 }
 .planet:nth-child(3) {
-  /* background: linear-gradient(208deg, #deaa5d 0%, #a39e7b 59.62%, #5e909e 100%); */
   width: 44px;
   height: 44px;
   bottom: 30px;
@@ -55,7 +40,6 @@
   z-index: -1;
   width: 100%;
   margin-top: 24px;
-  /* margin-bottom: 104px; */
   border-radius: 20px;
   padding: 30px 12px;
   box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
