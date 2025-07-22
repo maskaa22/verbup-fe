@@ -122,13 +122,15 @@ const AuthLayout = () => {
   }, [location]);
   // const showNavBar = pathname !== "/signin" && pathname !== "/signup";
   const bgGame = location.includes("/game/check-word");
+  const game = location.includes("/game");
   const rezult = location.includes("/game/result");
   return (
     <div
       className={clsx(
         css.outerWrap,
         planets ? css.planets : css.noPlanets,
-        bgGame && css.bgGame
+        bgGame && css.bgGame,
+        game && css.wrapper
       )}
     >
       {logoIntro && <LogoIntroNew />}
@@ -138,7 +140,7 @@ const AuthLayout = () => {
         {logo && <Logo />}
         <div className={glass ? css.glass : undefined}>{<Outlet />}</div>
       </div>
-      {navigation && <Menu/>}
+      {navigation && <Menu />}
     </div>
   );
 };

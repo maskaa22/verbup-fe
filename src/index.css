@@ -27,7 +27,6 @@
   --text-primary: #303131;
   --text-secondary: #a0a2a3;
   --text-button-defalt: #fff;
-
 }
 .scroll-area::-webkit-scrollbar {
   overflow-y: auto;
@@ -48,6 +47,7 @@ html,
 body {
   margin: 0;
   font-family: var(--font-family-messiri);
+  height: 100dvh;
 }
 h1,
 h2,
