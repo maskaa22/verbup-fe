@@ -6,10 +6,17 @@
     margin-bottom: 1rem;
     width: 100%;
     background-color: #fff;
-   
+   opacity: 0;
+  transform: translateY(-50px);
+  animation: slideDown 0.5s ease-in forwards;
     /* background-color: wheat; */
 }
-
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .headline{
     position: relative;
     width: fit-content;
