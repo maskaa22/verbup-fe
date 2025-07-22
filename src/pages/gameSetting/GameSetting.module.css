@@ -22,3 +22,16 @@
   color: var(--primary-1);
   margin-bottom: 32px;
 }
+
+@media screen and (max-height: 767px) {
+  .warning {
+    margin-bottom: 18px;
+    font-size: 12px;
+  }
+  .div .title {
+    font-size: 28px;
+  }
+  .variant {
+    font-size: 14px;
+  }
+}

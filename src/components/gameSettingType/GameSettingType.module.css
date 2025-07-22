@@ -26,7 +26,8 @@
 .type:last-child {
   margin-bottom: 0;
 }
-.iconContainer, .link {
+.iconContainer,
+.link {
   display: flex;
   align-items: center;
 }
@@ -76,4 +77,26 @@
 .btn {
   background-color: transparent;
   border: none;
+}
+
+@media screen and (max-height: 767px) {
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+  .img {
+    width: 110px;
+  }
+  .repair {
+    width: 90px;
+  }
+  .type {
+    margin-bottom: 38px;
+  }
+  .text {
+    font-size: 12px;
+  }
+  .title {
+    font-size: 22px;
+  }
 }
