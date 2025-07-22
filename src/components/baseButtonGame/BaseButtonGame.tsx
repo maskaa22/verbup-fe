@@ -12,13 +12,19 @@ const BaseButtonGame: React.FC<baseButtonType> = ({
   setAnswerStatuses,
   current,
   setIsChecked,
+  setVisibility,
 }) => {
   //логіка перевірки на правильність відповіді
   const handleCheckAnswer = () => {
-    if (!word) return;
+    if (!word) {
+      setVisibility(true);
+      return;
+    }
     if (word === correctAnswer) {
+      setVisibility(false);
       setCheckAnswerType(SUCCESS);
     } else {
+      setVisibility(false);
       setCheckAnswerType(ERROR);
     }
     const newStatuses = [...answerStatuses];

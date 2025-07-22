@@ -23,6 +23,7 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
   const [word, setWord] = useState<string>("");
   const [activeWord, setActiveWord] = useState<string | null>(null);
   const [isChecked, setIsChecked] = useState(false);
+  const [visibility, setVisibility] = useState(false);
 
   const count = useCountWord();
 
@@ -87,7 +88,10 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
         })}
       </ul>
 
+      {visibility && <p className={c.checkAnswer}>Обери правильну відповідь</p>}
+
       <BaseButtonGame
+        setVisibility={setVisibility}
         word={word}
         setShowCheckAnswer={setShowCheckAnswer}
         setCheckAnswerType={setCheckAnswerType}

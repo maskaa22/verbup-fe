@@ -18,6 +18,7 @@ export type baseButtonType = {
   setAnswerStatuses: React.Dispatch<React.SetStateAction<AnswerStatus[]>>;
   current: number;
   setIsChecked: (value: boolean) => void;
+  setVisibility: (value: boolean) => void;
 };
 
 export type progressBarProps = {
