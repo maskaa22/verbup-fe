@@ -16,8 +16,7 @@
   --third-color-gray: #7f8689;
   --font-color-dark: #3b3c3d;
   --fourth-color-gray: #9eaec5; */
-  
-  
+
   --background-white-default: #fcfafa;
   --other-1: #0d9467;
   --other-2: #fbbf24;
@@ -27,8 +26,8 @@
   --soft: #f0f0f0;
   --secondary: #a0a2a3;
   --text-primary: #303131;
-  	--text-secondary: #a0a2a3;
-    --text-button-defalt: #fff;
+  --text-secondary: #a0a2a3;
+  --text-button-defalt: #fff;
 }
 .scroll-area::-webkit-scrollbar {
   overflow-y: auto;
@@ -49,6 +48,7 @@ html,
 body {
   margin: 0;
   font-family: var(--font-family-messiri);
+  height: 100dvh;
 }
 h1,
 h2,
@@ -100,9 +100,10 @@ input {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 391px){
-  .container{width: 100%;}
-
+@media screen and (max-width: 391px) {
+  .container {
+    width: 100%;
+  }
 }
 
 /* @media screen and (max-width: 329px){

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { selectGameSetting } from "../../redux/game/selectors";
 import type React from "react";
 import GameSettingType from "../gameSettingType/GameSettingType";
+import c from "./GameOptions.module.css";
 
 const GameOptions: React.FC = () => {
   const location = useLocation();
@@ -18,9 +19,7 @@ const GameOptions: React.FC = () => {
     <>
       {!hideSelect && (
         <>
-
-        <div style={{marginBottom: "50px"}}>
-        </div>
+          <div className={c.innerContainer}>
           <GameSettingType
             icon={"/icons.svg#icon-text"}
             text={"Тестуйся граючи - неправильні дієслова стануть легкими"}
@@ -48,6 +47,7 @@ const GameOptions: React.FC = () => {
             gameType={"write-word"}
             disabled={true}
           />
+          </div>
         </>
       )}
     </>

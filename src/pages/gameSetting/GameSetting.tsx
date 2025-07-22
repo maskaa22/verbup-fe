@@ -41,7 +41,7 @@ const GameSetting = () => {
           needSpan={false}
           disabled={true}
         />
-        <p>Вибір режиму гри</p>
+        <p className={css.variant}>Вибір режиму гри</p>
         <GameSettingRadio
           name="verbForm"
           options={["Past Simple", "Past Participle", "Змішаний"]}

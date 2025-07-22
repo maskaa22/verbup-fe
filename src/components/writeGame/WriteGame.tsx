@@ -14,13 +14,14 @@ const WriteGame = () => {
 
   const [text, setText] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+  const [visibility, setVisibility] = useState(false);
 
   const imgWrite = "/image/game/car.png";
   const count = useCountWord();
-    const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(
-      Array(count).fill("pending")
-    );
-console.log(isChecked);
+  const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(
+    Array(count).fill("pending")
+  );
+  console.log(isChecked, visibility);
 
   return (
     <>
@@ -29,9 +30,8 @@ console.log(isChecked);
           current={current}
           img={imgWrite}
           question={"Which is the Past participle (V3) of “go”?"}
-
-        answerStatuses={answerStatuses}
-        count={count}
+          answerStatuses={answerStatuses}
+          count={count}
         />
         <div className={s.inputContainer}>
           <input type="text" value={text} readOnly className={s.gameInput} />
@@ -45,11 +45,11 @@ console.log(isChecked);
 
       <BaseButtonGame
         word={text}
-
+        setVisibility={setVisibility}
         setShowCheckAnswer={setShowCheckAnswer}
         setCheckAnswerType={setCheckAnswerType}
         setModalActive={setModalActive}
-        correctAnswer={'question.correctAnswer'}
+        correctAnswer={"question.correctAnswer"}
         answerStatuses={answerStatuses}
         setAnswerStatuses={setAnswerStatuses}
         current={current}
