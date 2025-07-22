@@ -26,9 +26,20 @@
 .type:last-child {
   margin-bottom: 0;
 }
+.iconContainer, .link {
+  display: flex;
+  align-items: center;
+}
+.iconDisabled {
+  display: none;
+}
 .icon {
   width: 36px;
   height: 36px;
+}
+.settings {
+  width: 24px;
+  height: 24px;
 }
 .img {
   position: absolute;
