@@ -122,7 +122,7 @@ const AuthLayout = () => {
   }, [location]);
   // const showNavBar = pathname !== "/signin" && pathname !== "/signup";
   const bgGame = location.includes("/game/check-word");
-  const game = location.includes("/game");
+  // const game = location.includes("/game");
   const rezult = location.includes("/game/result");
   return (
     <div
@@ -130,7 +130,7 @@ const AuthLayout = () => {
         css.outerWrap,
         planets ? css.planets : css.noPlanets,
         bgGame && css.bgGame,
-        game && css.wrapper
+        // game && css.wrapper
       )}
     >
       {logoIntro && <LogoIntroNew />}
