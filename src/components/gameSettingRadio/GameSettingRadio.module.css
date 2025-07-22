@@ -46,3 +46,11 @@
 .inputWrapChecked {
   border: 2px solid var(--primary-1);
 }
+@media screen and (max-height: 767px) {
+  .inputWrap {
+      height: 48px;
+  }
+  .form {
+    margin-bottom: 24px;
+  }
+}

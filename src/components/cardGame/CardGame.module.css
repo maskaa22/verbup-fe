@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
 }
 .btn {
   background: #ffffff;
@@ -31,4 +31,12 @@
 
 .wrong {
   border: 3px solid var(--other-3);
+}
+.checkAnswer {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  text-align: center;
+  color: var(--other-3);
+  margin-top: 24px;
 }

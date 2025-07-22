@@ -32,32 +32,34 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
         }
       >
         <div className={c.info}>
-          {type === SUCCESS ? (
-            <img src="/image/success.png" alt="Success" />
-          ) : (
-            <img src="/image/error.png" alt="Error" />
-          )}
-          <div>
-            <p
-              className={
-                type === SUCCESS
-                  ? `${c.title} ${c.success}`
-                  : `${c.title} ${c.error}`
-              }
-            >
-              {type === SUCCESS ? "Правильно" : "Нажаль не вірно"}
-            </p>
-            <p
-              className={
-                type === SUCCESS
-                  ? `${c.text} ${c.success}`
-                  : `${c.text} ${c.error}`
-              }
-            >
-              {type === SUCCESS
-                ? "Ти дуже наполегливий"
-                : "В наступний раз все вийде"}
-            </p>
+          <div  className={c.checkContainer}>
+            {type === SUCCESS ? (
+              <img src="/image/success.png" alt="Success" />
+            ) : (
+              <img src="/image/error.png" alt="Error" />
+            )}
+            <div>
+              <p
+                className={
+                  type === SUCCESS
+                    ? `${c.title} ${c.success}`
+                    : `${c.title} ${c.error}`
+                }
+              >
+                {type === SUCCESS ? "Правильно" : "Нажаль не вірно"}
+              </p>
+              <p
+                className={
+                  type === SUCCESS
+                    ? `${c.text} ${c.success}`
+                    : `${c.text} ${c.error}`
+                }
+              >
+                {type === SUCCESS
+                  ? "Ти дуже наполегливий"
+                  : "В наступний раз все вийде"}
+              </p>
+            </div>
           </div>
 
           <button

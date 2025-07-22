@@ -62,3 +62,14 @@
   background-repeat: no-repeat;
   background-position: bottom 0 right 0;
 }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100dvh;
+}
+@media screen and (max-height: 767px) {
+  .glass {
+    margin-top: 14px;
+  }
+}

@@ -93,8 +93,8 @@ export const verbFrom = ["(V2)", "(V3)", "(V2, V3)"];
 
 export const initialStateGame: GameState = {
   setting: {
-    level: "",
-    numQuest: "",
+    level: BEGGINER,
+    numQuest: "5 питань",
     verbForm: "",
   },
   items: [],
