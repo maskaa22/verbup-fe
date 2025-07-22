@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import css from "./NavBar.module.css";
+import css from "./Menu.module.css";
 import { NavLink, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { useScreenWidth } from "../../utils/useScreenWidth";
 
-const NavBar = () => {
+const Menu = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [noActive, setNoActive] = useState(true);
   const location = useLocation().pathname;
@@ -43,7 +43,6 @@ const NavBar = () => {
         setNoActive(true);
     }
   }, [location]);
-
 
   return (
     <div className={css.navBar}>
@@ -109,4 +108,4 @@ const NavBar = () => {
     </div>
   );
 };
-export default NavBar;
+export default Menu;

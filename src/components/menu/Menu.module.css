@@ -20,14 +20,12 @@
   z-index: 10;
 }
 
-
 .navigation ul {
   display: flex;
   justify-content: space-evenly;
   width: 375px;
   background-color: var(--background-white-default);
 }
-
 
 .navigation ul li {
   position: relative;
@@ -50,12 +48,10 @@
   transition: 0.5s;
 }
 
-
 .active {
   background: linear-gradient(180deg, #5a8b96 11%, #9aa281 47%, #e2bb69 79%) !important;
   transform: translateY(-15px);
 }
-
 
 .navigation ul li a .icon {
   position: relative;
@@ -120,7 +116,6 @@
   height: 10px;
 }
 
-
 .disabled {
   pointer-events: none;
   cursor: default;
@@ -131,7 +126,6 @@
   cursor: default;
 }
 
-
 @media screen and (max-width: 374px){
   .background{
     width: 100%;
@@ -141,6 +135,5 @@
       width: 100%;
       justify-content: space-evenly;
 }
-
 
 }
