@@ -27,6 +27,7 @@ text-transform: capitalize;
 background-color: var(--background-white-default);
 color: var(--primary-1);
 line-height: 1;
+
 }
 .secretUp{
     color: transparent;

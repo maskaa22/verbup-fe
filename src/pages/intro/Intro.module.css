@@ -119,17 +119,12 @@ padding-bottom: 6px;
     margin-top: 33px;
     margin-bottom: 46px;
       opacity: 0;
-  transform: translateX(-100px);
-  animation: flyFromLeft 1s ease-out forwards;
+  transform: scale(3) rotate(-30deg);
+  animation: scaleBounceRotate 2s ease-out forwards;
   animation-delay: 0.5s;
 }
 
-@keyframes flyFromLeft {
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+
 
 .link{
 border-radius: 48px;
@@ -159,5 +154,63 @@ margin-top: 48px;
     margin-right: 4px;
 }
 .signWrap a{
-color: var(--primary-1);
+color: var(--primary-1);}
+
+.link {
+opacity: 0;
+  transform: scale(2);
+  animation: scaleAndBounce 2s ease forwards;
+  animation-delay: 2s;
+}
+@keyframes flyFromLeft {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes scaleAndBounce {
+  0% {
+    opacity: 0;
+    transform: scale(2);
+  }
+
+  60%{
+    opacity: 1;
+    transform: scale(0.7);
+  }
+  80%{
+    opacity: 1;
+    transform:  scale(1.1);
+  }
+  90%{
+    opacity: 1;
+    transform: scale(1);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes scaleBounceRotate {
+  0% {
+    opacity: 0;
+    transform: scale(2);
+  }
+
+  60%{
+    opacity: 1;
+    transform: rotate(-10deg) scale(0.7);
+  }
+  80%{
+    opacity: 1;
+    transform: rotate(5deg) scale(1.2);
+  }
+  90%{
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
 }
