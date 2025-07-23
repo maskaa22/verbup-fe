@@ -97,7 +97,7 @@
   background-color: transparent;
   border-bottom-right-radius: 50px;
   box-shadow: 10px 1px 0 0 var(--background-white-default);
-  transform: rotate(34deg);
+  transform: rotate(38deg);
 }
 .indicator::after {
   content: " ";
@@ -128,12 +128,16 @@
 
 @media screen and (max-width: 374px){
   .background{
+    padding: 0 8px;
     width: 100%;
 }
 
 .navigation ul {
       width: 100%;
       justify-content: space-evenly;
+}
+.indicator{
+  width: 70px;
 }
 
 }
