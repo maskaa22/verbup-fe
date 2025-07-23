@@ -2,13 +2,12 @@ import { NavLink } from "react-router-dom";
 import css from "./Intro.module.css";
 import cuteAstro from "../../assets/cute astronaut sitting with flag.png"
 import LogoIntroNew from "../../components/logoIntroNew/LogoIntroNew";
-import VersionInfo from "../../components/versionInfo/VersionInfo";
+
 
 
 const Intro = () => {
   return <div>   
     <LogoIntroNew/>
-    <VersionInfo/>
   <div className={`${css.intro} container`}>
  
     {/* <div className={css.headlineWrap}>
