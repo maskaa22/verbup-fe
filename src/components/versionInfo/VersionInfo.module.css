@@ -1,0 +1,28 @@
+.marquee {
+    position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  background: var(--other-2);
+  margin-bottom: 1rem;
+z-index: -2;
+}
+.track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll-left 10s linear infinite;
+}
+.track span {
+  display: inline-block;
+  font-weight: 500;
+font-size: 12px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

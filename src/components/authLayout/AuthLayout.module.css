@@ -3,7 +3,7 @@
 }
 
 .planets {
-  height: 100vh;
+  height: 100dvh;
   background-image: url("/image/planets/planetThree.png"),
     url("/image/planets/planetTwo.png"), url("/image/planets/planetOne.png");
 

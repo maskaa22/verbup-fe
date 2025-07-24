@@ -4,6 +4,7 @@ import cuteAstro from "../../assets/cute astronaut sitting with flag.png"
 import LogoIntroNew from "../../components/logoIntroNew/LogoIntroNew";
 
 
+
 const Intro = () => {
   return <div>   
     <LogoIntroNew/>
