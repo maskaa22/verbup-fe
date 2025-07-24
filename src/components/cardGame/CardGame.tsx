@@ -31,7 +31,7 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
     Array(count).fill("pending")
   );
 
-  const imgWrite = `/image/game/${question.correctAnswer}.png`;
+  const imgWrite = `/image/game/${current.word}.png`;
 
   const handleWordClick = (wordName: string) => {
     setWord(wordName);
