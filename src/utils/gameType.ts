@@ -40,6 +40,7 @@ export type QuestionType = {
   question: string;
   correctAnswer: string;
   variants: BtnType[];
+  base_form: string;
 };
 export type CardGameProps = {
   question: QuestionType;
@@ -72,6 +73,7 @@ export type Question = {
   question: string;
   correctAnswer: string;
   variants: BtnType[];
+  base_form: string;
 };
 export type Verb = {
   base_form: string;
