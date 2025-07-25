@@ -9,7 +9,8 @@ const Menu = () => {
   const [noActive, setNoActive] = useState(true);
   const location = useLocation().pathname;
   const screenWidth = useScreenWidth();
-  const navWidth = screenWidth <= 374 ? 64 : 72;
+  const divider = screenWidth / 5 - 4
+  const navWidth = screenWidth <= 374 ? divider : 72;
 
   //   if(isActive){setNoActive(false)}   this line is not allowed during render unless it's in useEffect() !!!
 

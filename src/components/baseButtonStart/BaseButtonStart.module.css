@@ -12,3 +12,10 @@
   font-size: 20px;
   font-family: var(--font-family-messiri);
 }
+
+@media screen and (max-height: 660px){
+  .button{
+    height: 40px;
+    font-size: 16px;
+  }
+}

@@ -48,9 +48,24 @@
 }
 @media screen and (max-height: 767px) {
   .inputWrap {
-      height: 48px;
+      height: 3rem;
   }
   .form {
     margin-bottom: 24px;
+  }
+  .rset{
+    margin-bottom: 0.05rem;
+  }
+}
+
+@media screen and (max-height: 660px) {
+  .inputWrap {
+      padding: 16px 0;
+  }
+  .form {
+    margin-bottom: 2rem;
+  }
+  .label{
+    font-size: 0.7rem;
   }
 }
