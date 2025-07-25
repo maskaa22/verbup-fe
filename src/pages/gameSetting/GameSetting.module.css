@@ -34,4 +34,20 @@
   .variant {
     font-size: 14px;
   }
+  .form{
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media screen and (max-height: 660px) {
+  .warning {
+    margin-bottom: 4px;
+    font-size: 12px;
+  }
+  .div .title {
+    font-size: 18px;
+  }
+  .variant {
+    font-size: 14px;
+  }
 }
