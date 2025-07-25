@@ -45,5 +45,6 @@ export const generateQuestion = (
     question,
     correctAnswer,
     variants: variants.sort(() => Math.random() - 0.5),
+    base_form: verb.base_form,
   };
 };
