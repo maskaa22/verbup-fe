@@ -134,7 +134,7 @@ const AuthLayout = () => {
       )}
     >
       {logoIntro && <LogoIntroNew />}
-      {rezult && <ExplosionLines />}
+      {/* {rezult && <ExplosionLines />} */}
 
       <div className={`${css.wrap} container`}>
         {logo && <Logo />}
