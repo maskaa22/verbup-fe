@@ -13,6 +13,7 @@ import { generateQuestions } from "../../redux/game/operations";
 import type { AppDispatch } from "../../redux/store";
 // import { useState } from "react";
 // import Feedback from "../../components/feedback/Feedback";
+import Confetti from "../../components/confetti/Confetti";
 
 const ResultGame = () => {
   const navigation = useNavigate();
@@ -48,6 +49,7 @@ const ResultGame = () => {
 
   return (
     <div className={c.rezult}>
+      <Confetti />
       <div className={c.innerContainer}>
         <h3 className={c.title}>Тренування завершено</h3>
         <img src={"/image/game/planet-rezult.png"} className={c.img} />
