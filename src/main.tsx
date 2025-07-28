@@ -15,3 +15,13 @@ createRoot(document.getElementById("root")!).render(
     </BrowserRouter></Provider>
   </StrictMode>
 );
+
+// ✅ А це реєстрація service worker
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.ts") // або service-worker.ts (якщо з Webpack/Vite loader)
+      .then((reg) => console.log("✅ Service Worker зареєстровано", reg))
+      .catch((err) => console.error("❌ Помилка Service Worker:", err));
+  });
+}
