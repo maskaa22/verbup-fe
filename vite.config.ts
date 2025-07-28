@@ -6,8 +6,9 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', '/run.png', 'robots.txt'],
+      registerType: 'autoUpdate',   // автооновлення SW після змін
+      injectRegister: 'auto',       // 👉 автоматично вставляє реєстрацію SW у код
+      includeAssets: ['favicon.svg', 'run.png', 'robots.txt'],
       manifest: {
         name: 'VerbUp',
         short_name: 'VerbUp',
@@ -15,7 +16,7 @@ export default defineConfig({
         theme_color: '#5E909E',
         background_color: '#ffffff',
         display: 'standalone',
-        start_url: 'https://verbup-fe.vercel.app/',
+        start_url: '.',             // краще ставити відносний шлях
         icons: [
           {
             src: '/run.png',
@@ -30,8 +31,10 @@ export default defineConfig({
         ],
       },
       devOptions: {
-        enabled: true, // дозволяє працювати у dev-режимі
+        enabled: true,              // працює і в dev для тестування
       },
+      // 'filename' можна не задавати, тоді автоматично буде sw.js
+      // strategies: 'generateSW' за замовчуванням, можна залишити як є
     }),
   ],
 });
