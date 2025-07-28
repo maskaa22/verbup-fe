@@ -31,7 +31,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
         answerStatuses={answerStatuses}
       />
       <div className={s.imgContainer}>
-        <img src={img} />
+        <img src={img} width="150" height="150"/>
       </div>
 
       <p className={s.title}>{question}</p>
