@@ -8,7 +8,7 @@ const Confetti = () => {
     const retina = window.devicePixelRatio || 1;
     const PI = Math.PI;
     const sqrt = Math.sqrt;
-    const round = Math.round;
+    // const round = Math.round;
     const random = Math.random;
     const cos = Math.cos;
     const sin = Math.sin;
@@ -248,15 +248,15 @@ const Confetti = () => {
     const ribbonPaperDist = 8.0;
     const ribbonPaperThick = 8.0;
     const confettiPaperCount = 95;
-    const ribbonGradients = [
-      ["rgba(90, 139, 150, 0.0)", "rgba(226, 187, 105, 1)", "rgba(90, 139, 150, 0.7)"]
-    ];
-    const colors = [
-      ["#df0049", "#660671"],
-      ["#00e857", "#005291"],
-      ["#2bebbc", "#05798a"],
-      ["#ffd200", "#b06c00"]
-    ];
+    // const ribbonGradients = [
+    //   ["rgba(90, 139, 150, 0.0)", "rgba(226, 187, 105, 1)", "rgba(90, 139, 150, 0.7)"]
+    // ];
+    // const colors = [
+    //   ["#df0049", "#660671"],
+    //   ["#00e857", "#005291"],
+    //   ["#2bebbc", "#05798a"],
+    //   ["#ffd200", "#b06c00"]
+    // ];
     const ribbonColors = [
       "rgba(90, 139, 150, 1)",
       "rgba(154, 162, 129, 1)",

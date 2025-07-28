@@ -4,7 +4,7 @@ import Logo from "../logo/Logo";
 
 import { useEffect, useState } from "react";
 import clsx from "clsx";
-import ExplosionLines from "../explosionLines/ExplosionLines";
+
 import LogoIntroNew from "../logoIntroNew/LogoIntroNew";
 import Menu from "../menu/Menu";
 const AuthLayout = () => {
@@ -123,7 +123,7 @@ const AuthLayout = () => {
   // const showNavBar = pathname !== "/signin" && pathname !== "/signup";
   const bgGame = location.includes("/game/check-word");
   // const game = location.includes("/game");
-  const rezult = location.includes("/game/result");
+
   return (
     <div
       className={clsx(
@@ -134,7 +134,6 @@ const AuthLayout = () => {
       )}
     >
       {logoIntro && <LogoIntroNew />}
-      {/* {rezult && <ExplosionLines />} */}
 
       <div className={`${css.wrap} container`}>
         {logo && <Logo />}
