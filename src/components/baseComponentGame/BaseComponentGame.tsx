@@ -13,6 +13,8 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
 }) => {
   const navigate = useNavigate();
 
+  const word = question && question.match(/“(.+?)”/)?.[1];
+
   return (
     <>
       <div className={s.topContainer}>
@@ -31,10 +33,13 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
         answerStatuses={answerStatuses}
       />
       <div className={s.imgContainer}>
-        <img src={img} width="150" height="150"/>
+        <img src={img} className={s.img} />
       </div>
 
-      <p className={s.title}>{question}</p>
+      {/* <p className={s.title}>{question}</p> */}
+      <p className={s.title}>
+        Choose the correct past participle of <span>{word}</span>
+      </p>
     </>
   );
 };
