@@ -3,6 +3,7 @@
 }
 
 .wrap h2{
+    text-align: center;
     font-weight: 700;
     font-size: 30px;
     color: var(--primary-1);

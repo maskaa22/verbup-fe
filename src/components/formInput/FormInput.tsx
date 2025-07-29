@@ -9,11 +9,15 @@ interface Props {
 }
 
 const FormInput: React.FC<Props> = ({ name, type = 'text', placeholder = 'input', icon }) => {
-return <div className={css.inputWrap}>
+return <div>  
+  <label htmlFor="name">E - mail</label>
+<div className={css.inputWrap}>
+
           <Field className={css.input} id={name} type={type} name={name} placeholder={placeholder} />
           <svg className={css.icon}>
             <use href={`./icons.svg#${icon}`}></use>
           </svg>
+        </div>
         </div>
 }
 
