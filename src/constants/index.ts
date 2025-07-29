@@ -4,7 +4,7 @@ import type { NotificationState } from "../utils/notify/notifyTypes";
 export const SUCCESS = "success";
 export const ERROR = "error";
 
-export const BEGGINER = "Begginer";
+export const BEGGINER = "Beginer";
 export const INTERMEDIATE = "Intermediate";
 export const ADVANCED = "Advanced";
 
