@@ -22,6 +22,7 @@ import NotificationParams from "./pages/notificationParams/NotificationParams";
 import ThemeSwitcher from "./pages/themeSwitcher/ThemeSwitcher";
 // import Loader from "./components/loader/Loader";
 import LoaderDinamic from "./components/loaderDinamic/LoaderDinamic";
+import usePageTracking from "./utils/googleAnalize";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -35,42 +36,58 @@ function App() {
   // useEffect(() => {
   //   dispatch(refreshUser());
   // }, [dispatch]);
-  return (
-    <> {loading ? <LoaderDinamic/> :
-      <Routes>
-        <Route path="/" element={<Intro />} />
 
-        <Route element={<AuthLayout />}>
-          <Route
-            path="/signup"
-            element={
-              <RestrictedRoute component={<SignUp />} redirectTo="/home" />
-            }
-          />
-          <Route
-            path="/signin"
-            element={
-              <RestrictedRoute component={<SignIn />} redirectTo="/home" />
-            }
-          />
-          <Route path="/game" element={<Game />}>
-            <Route path="write-word" element={<WriteGame />} />
-            <Route path="check-word" element={<WordGame />} />
-            <Route path="result" element={<ResultGame />} />
+  usePageTracking();
+
+  return (
+    <>
+      {" "}
+      {loading ? (
+        <LoaderDinamic />
+      ) : (
+        <Routes>
+          <Route path="/" element={<Intro />} />
+
+          <Route element={<AuthLayout />}>
+            <Route
+              path="/signup"
+              element={
+                <RestrictedRoute component={<SignUp />} redirectTo="/home" />
+              }
+            />
+            <Route
+              path="/signin"
+              element={
+                <RestrictedRoute component={<SignIn />} redirectTo="/home" />
+              }
+            />
+            <Route path="/game" element={<Game />}>
+              <Route path="write-word" element={<WriteGame />} />
+              <Route path="check-word" element={<WordGame />} />
+              <Route path="result" element={<ResultGame />} />
+            </Route>
+            <Route path="/home" element={<Home />} />
+            <Route path="/cup" element={<LoaderDinamic />} />
+            <Route path="/voc" element={<Dictionary />} />
+            <Route path="/setting" element={<Setting />}></Route>
+            <Route path="/setting/game" element={<GameSetting />} />
+            <Route path="/share" element={<h1>Share</h1>} />
+            <Route
+              path="/setting/change-password"
+              element={<ChangeUserData userData="password" />}
+            />
+            <Route
+              path="/setting/change-username"
+              element={<ChangeUserData userData="username" />}
+            />
+            <Route
+              path="/setting/notification-params"
+              element={<NotificationParams />}
+            />
+            <Route path="/setting/theme-switcher" element={<ThemeSwitcher />} />
           </Route>
-          <Route path="/home" element={<Home />} />
-          <Route path="/cup" element={<LoaderDinamic/>} />
-          <Route path="/voc" element={<Dictionary />} />
-          <Route path="/setting" element={<Setting />}>
-          </Route>
-          <Route path="/setting/game" element={<GameSetting />} />
-          <Route path="/share" element={<h1>Share</h1>} />
-          <Route path="/setting/change-password" element={<ChangeUserData userData="password"/>}/>
-          <Route path="/setting/change-username" element={<ChangeUserData userData="username"/>}/>
-          <Route path="/setting/notification-params" element={<NotificationParams/>}/>
-          <Route path="/setting/theme-switcher" element={<ThemeSwitcher/>}/>
-        </Route>
-      </Routes>}
+        </Routes>
+      )}
     </>
   );
 }
