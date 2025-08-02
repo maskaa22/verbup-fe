@@ -27,9 +27,11 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
 
   const count = useCountWord();
 
-  const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(
-    Array(count).fill("pending")
-  );
+const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(() => {
+  const savedStatuses = localStorage.getItem("answerStatuses");
+  if (savedStatuses) return JSON.parse(savedStatuses);
+  return Array(count).fill("pending");
+});
 
   const imgWrite = `/image/game/${question.base_form}.png`;
 
@@ -44,6 +46,11 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
     setActiveWord(null);
     setIsChecked(false);
   }, [current]);
+
+  useEffect(() => {
+    localStorage.setItem("answerStatuses", JSON.stringify(answerStatuses));
+  }, [answerStatuses]);
+
 
   return (
     <>

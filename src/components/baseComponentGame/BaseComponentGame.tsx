@@ -13,7 +13,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
 }) => {
   const navigate = useNavigate();
 
-  const word = question && question.match(/“(.+?)”/)?.[1];
+  const word = question.match(/“(.+?)”/)?.[1];
 
   return (
     <>

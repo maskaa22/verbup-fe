@@ -18,6 +18,7 @@ const WordGame: React.FC = () => {
   useEffect(() => {
     if (questions.length === 0) return;
     if (questions.length > 0 && current >= questions.length) {
+      localStorage.removeItem("answerStatuses");
       navigate("/game/result");
     }
   }, [current, questions, navigate]);
