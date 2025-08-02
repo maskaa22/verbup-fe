@@ -3,6 +3,8 @@ import s from "./BaseComponentGame.module.css";
 import QuestionProgressBar from "../questionProgressBar/QuestionProgressBar";
 import type { baseComponentType } from "../../utils/gameType";
 import { useNavigate } from "react-router-dom";
+import { resetCurrent } from "../../redux/game/slice";
+import { useDispatch } from "react-redux";
 
 const BaseComponentGame: React.FC<baseComponentType> = ({
   current,
@@ -15,11 +17,19 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
 
   const word = question.match(/“(.+?)”/)?.[1];
 
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className={s.topContainer}>
         <button className={s.close} onClick={() => navigate("/game")}>
-          <svg className={s.icon}>
+          <svg
+            className={s.icon}
+            onClick={() => {
+              localStorage.removeItem("answerStatuses");
+              dispatch(resetCurrent());
+            }}
+          >
             <use href={"/icons.svg#icon-close"}></use>
           </svg>
         </button>
