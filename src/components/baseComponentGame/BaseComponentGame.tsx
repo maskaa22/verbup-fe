@@ -5,6 +5,7 @@ import type { baseComponentType, modalType } from "../../utils/gameType";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { resetCurrent } from "../../redux/game/slice";
 import { useDispatch } from "react-redux";
+import { ANSWER_STATUS, CORRECT, LAST_INDEX, WRONG } from "../../constants";
 
 const BaseComponentGame: React.FC<baseComponentType> = ({
   current,
@@ -18,18 +19,16 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // const word = question.match(/“(.+?)”/)?.[1];
-
   return (
     <>
       <div className={s.topContainer}>
         <button
           className={s.close}
           onClick={() => {
-            localStorage.removeItem("answerStatuses");
-            localStorage.removeItem("lastAnsweredIndex");
-            localStorage.removeItem("correct");
-            localStorage.removeItem("wrong");
+            localStorage.removeItem(ANSWER_STATUS);
+            localStorage.removeItem(LAST_INDEX);
+            localStorage.removeItem(CORRECT);
+            localStorage.removeItem(WRONG);
 
             setModalActive(false);
             dispatch(resetCurrent());
@@ -53,7 +52,6 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
         <img src={img} className={s.img} />
       </div>
 
-      {/* <p className={s.title}>{question}</p> */}
       <p className={s.title}>
         Choose the correct past participle of <span>{question}</span>
       </p>

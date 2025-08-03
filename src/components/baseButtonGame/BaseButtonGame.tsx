@@ -1,4 +1,4 @@
-import { ERROR, SUCCESS } from "../../constants";
+import { ERROR, ANSWER_STATUS, LAST_INDEX, SUCCESS } from "../../constants";
 import type { baseButtonType } from "../../utils/gameType";
 import s from "./BaseButtonGame.module.css";
 
@@ -31,12 +31,12 @@ const BaseButtonGame: React.FC<baseButtonType> = ({
     const isCorrect = word === correctAnswer;
     newStatuses[current] = isCorrect ? SUCCESS : ERROR;
 
-    localStorage.setItem("answerStatuses", JSON.stringify(newStatuses));
+    localStorage.setItem(ANSWER_STATUS, JSON.stringify(newStatuses));
 
     if (current + 1 < newStatuses.length) {
-      localStorage.setItem("lastAnsweredIndex", (current + 1).toString());
+      localStorage.setItem(LAST_INDEX, (current + 1).toString());
     } else {
-      localStorage.removeItem("lastAnsweredIndex");
+      localStorage.removeItem(LAST_INDEX);
     }
 
     setAnswerStatuses(newStatuses);

@@ -1,4 +1,4 @@
-import { ERROR, SUCCESS } from "../../constants";
+import { CORRECT, ERROR, LAST_INDEX, SUCCESS, WRONG } from "../../constants";
 import type { checkAnswerType } from "../../utils/gameType";
 import c from "./CheckAnswer.module.css";
 import { useDispatch } from "react-redux";
@@ -26,7 +26,7 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
     const updatedIndex = current + 1;
 
     dispatch(setCurrent(updatedIndex));
-    localStorage.setItem("lastAnsweredIndex", updatedIndex.toString());
+    localStorage.setItem(LAST_INDEX, updatedIndex.toString());
 
     setActive(false);
   };
@@ -34,7 +34,7 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
   useEffect(() => {
     if (!active) return;
 
-    const lastSaved = Number(localStorage.getItem("lastAnsweredIndex") || "-1");
+    const lastSaved = Number(localStorage.getItem(LAST_INDEX) || "-1");
 
     if (lastSaved === current) return;
 
@@ -45,10 +45,10 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
 
     dispatch(setCorrect(updatedCorrect));
     dispatch(setWrong(updatedWrong));
-    localStorage.setItem("correct", updatedCorrect.toString());
-    localStorage.setItem("wrong", updatedWrong.toString());
+    localStorage.setItem(CORRECT, updatedCorrect.toString());
+    localStorage.setItem(WRONG, updatedWrong.toString());
 
-    localStorage.setItem("lastAnsweredIndex", current.toString());
+    localStorage.setItem(LAST_INDEX, current.toString());
   }, [active, correct, current, dispatch, type, wrong]);
 
   return (
@@ -64,9 +64,9 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
         <div className={c.info}>
           <div className={c.checkContainer}>
             {type === SUCCESS ? (
-              <img src="/image/success.png" alt="Success" />
+              <img src="/image/success.png" alt={SUCCESS} />
             ) : (
-              <img src="/image/error.png" alt="Error" />
+              <img src="/image/error.png" alt={ERROR} />
             )}
             <div>
               <p
@@ -92,39 +92,7 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
             </div>
           </div>
 
-          <button
-            className={c.btn}
-            onClick={
-              () => handleNextQuestion()
-              //   {
-              //   //реалізований прогрес верхній питань
-              //   dispatch(setCurrent(current + 1));
-
-              //   if (type === SUCCESS) {
-              //     console.log(correct + 1);
-
-              //     dispatch(setCorrect(correct + 1));
-              //   } else {
-              //     dispatch(setWrong(wrong + 1));
-              //   }
-              //   localStorage.setItem(
-              //     "lastAnsweredIndex",
-              //     (current + 1).toString()
-              //   );
-              //   localStorage.setItem(
-              //     "correct",
-              //     (type === SUCCESS ? correct + 1 : correct).toString()
-              //   );
-              //   localStorage.setItem(
-              //     "wrong",
-              //     (type === ERROR ? wrong + 1 : wrong).toString()
-              //   );
-
-              //   //закриття модального вікна
-              //   setActive(false);
-              // }
-            }
-          >
+          <button className={c.btn} onClick={() => handleNextQuestion()}>
             <svg className={c.icon}>
               <use href={"/icons.svg#icon-next-question"}></use>
             </svg>
