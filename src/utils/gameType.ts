@@ -34,7 +34,7 @@ export type cardGameType = {
   current: number;
   setCheckAnswerType: React.Dispatch<React.SetStateAction<string>>;
   setShowCheckAnswer: React.Dispatch<React.SetStateAction<boolean>>;
-  setModalActive: modalType;
+  setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
 };
 export type BtnType = {
   name: string;
