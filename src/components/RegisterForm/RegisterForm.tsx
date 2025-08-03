@@ -24,7 +24,7 @@ const RegisterForm: React.FC = () => {
       <Form className={css.form}>
         <FormInput label="Ім'я" name="username" type="text" placeholder="Введіть ваше ім'я" icon="icon-user"/>
         <FormInput label="E - mail" name="email" type="email" placeholder="your@email.com" icon="icon-email"/>
-        <FormInputPassword isFor="reg"/>
+        <FormInputPassword isFor="reg" label="Пароль"/>
         <BaseButtonStart label="Зарееструватися"/>
       </Form>
     </Formik> ;

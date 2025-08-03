@@ -7,12 +7,10 @@ import { Link } from "react-router-dom";
 import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
 import FormInput from "../formInput/FormInput";
 import FormInputPassword from "../formInputPassword/FormInputPassword";
+import type { LogFormValues } from "../../utils/formTypes";
 
 
-export interface LogFormValues {
-email: string,
-password: string,
-}
+
 const SigninForm = () => {
 // const [visible, setVisible] = useState(false)
 
@@ -25,7 +23,7 @@ const SigninForm = () => {
     <Formik initialValues={{ email: "", password: "" }} onSubmit={handleSubmit}>
       <Form className={css.form}>
         <FormInput label={"Email"}  name={"email"} type={"email"} placeholder={"your@email.com"} icon={"icon-email"}/>
-        <FormInputPassword isFor="signin"/>
+        <FormInputPassword isFor="signin" label="Пароль"/>
         
         <Link className={css.forgotPassword} to="/">Забули пароль?</Link>
         <BaseButtonStart label="Увійти"/>

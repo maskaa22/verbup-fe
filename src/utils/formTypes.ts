@@ -21,3 +21,21 @@ type?: string
 placeholder?: string
 icon: string
 }
+
+export interface FromInputProps {
+  label: string
+  name: string
+  type?: string
+  placeholder?: string
+  icon: string
+}
+
+export interface InputPswProps {
+  isFor: string,
+  label: string
+}
+
+export interface LogFormValues {
+email: string,
+password: string,
+}

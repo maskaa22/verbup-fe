@@ -1,21 +1,5 @@
 .title{
     font-weight: 600;
 font-size: 30px;
-color: var(--base-color-blue)
-}
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-}
-
-.form > :last-child{
-    margin-top: 32px;
-}
-.form label {
-  color: var(--second-color-gray);
-  font-weight: 500;
-  font-size: 13px;
+color: var(--primary-1)
 }

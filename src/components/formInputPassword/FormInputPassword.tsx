@@ -3,12 +3,11 @@ import css from "./FormInputPassword.module.css";
 import { useField } from "formik";
 import ValidPassword from "../validPassword/ValidPassword";
 import clsx from "clsx";
+import type { InputPswProps } from "../../utils/formTypes";
 
-interface Props {
-  isFor: string
-}
 
-const FormInputPassword: React.FC<Props> = ({isFor}) => {
+
+const FormInputPassword: React.FC<InputPswProps> = ({isFor, label}) => {
   const [field] = useField("password");
   const [valid, setValid] = useState({
     a: false,
@@ -30,7 +29,7 @@ const FormInputPassword: React.FC<Props> = ({isFor}) => {
   return (
     <div>
       <label htmlFor="password" className={css.label}>
-        Пароль
+        {label}
       </label>
       <div className={css.inputWrap}>
       <input
