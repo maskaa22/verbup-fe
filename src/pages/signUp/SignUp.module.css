@@ -1,25 +1,25 @@
 .wrap{
     position: relative;
+
+}
+.title{
+            color: var(--primary-1);
+            text-align: center;
+        font-size: 30px;
+}
+.iconArrowBack{
+    width: 28px;
+    height: 28px;
+    stroke: var(--primary-1);
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-.glass{
-    margin-top: 24px;
-    margin-bottom: 104px;
-    border-radius: 20px;
-padding: 30px 12px;
-width: 335px;
-box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
-background: linear-gradient(141deg, rgba(232, 232, 232, 0.8) 0%, rgba(94, 144, 158, 0.8) 100%);
-}
-.instructions{
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 4px;
-}
+
 .instructions p{
+    margin: 0 auto;
     text-align: center;
-    max-width: 264px;
     color: var(--primary-1);
 }
 

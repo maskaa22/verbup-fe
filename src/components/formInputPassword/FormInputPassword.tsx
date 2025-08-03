@@ -4,7 +4,11 @@ import { useField } from "formik";
 import ValidPassword from "../validPassword/ValidPassword";
 import clsx from "clsx";
 
-const FormInputPassword = () => {
+interface Props {
+  isFor: string
+}
+
+const FormInputPassword: React.FC<Props> = ({isFor}) => {
   const [field] = useField("password");
   const [valid, setValid] = useState({
     a: false,
@@ -33,7 +37,7 @@ const FormInputPassword = () => {
         {...field}
         type={visible ? "text" : "password"}
         className={css.input}
-        placeholder=" "
+        placeholder="Мінімум 8 символів"
         autoComplete="off"
         required
       />
@@ -50,7 +54,7 @@ const FormInputPassword = () => {
         </svg>
       </span>
       </div>
-      <ValidPassword isValid={valid} />
+      {isFor === "reg" && <ValidPassword isValid={valid} />}
     </div>
   );
 };

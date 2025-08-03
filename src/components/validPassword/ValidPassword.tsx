@@ -10,7 +10,7 @@ interface Props {
 }
 const ValidPassword: React.FC<Props> = ({isValid: {a, A, num, sym}}) => {
 return <div className={css.wrap}>
-    <p>Пароль має містити:</p>
+    <p className={css.title}>Пароль має містити:</p>
  <ul className={css.list}>
     <li className={clsx(a ? css.valid : css.invalid)}>
        малу літеру

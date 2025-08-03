@@ -27,6 +27,7 @@ export const register = createAsyncThunk(
   async (credentials: RegFormValues, thunkApi) => {
     try {
       const { data } = await api.post("/auth/register", credentials);
+      console.log(data)
       setAuthHeader(data.accessToken);
       return data;
     } catch (error: unknown) {
