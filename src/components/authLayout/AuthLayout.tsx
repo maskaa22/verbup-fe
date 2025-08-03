@@ -18,7 +18,6 @@ const AuthLayout = () => {
   useEffect(() => {
     switch (true) {
       case location === "/setting/game":
-        console.log(location);
         setGlass(true);
         setPlantes(true);
         setNavigation(true);
