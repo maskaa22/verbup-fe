@@ -27,6 +27,9 @@ export type progressBarProps = {
   answerStatuses: string[];
 };
 
+export type modalType = {
+  setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
 export type cardGameType = {
   current: number;
   setCheckAnswerType: React.Dispatch<React.SetStateAction<string>>;

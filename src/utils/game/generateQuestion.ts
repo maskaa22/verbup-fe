@@ -1,5 +1,5 @@
 import type { Question, Verb } from "../gameType";
-import { questionTemplates } from "./questionTemplates";
+// import { questionTemplates } from "./questionTemplates";
 
 const generateFakeVariant = (word: string): string => {
   const variations = [
@@ -15,12 +15,16 @@ export const generateQuestion = (
   verb: Verb,
   mode: "v2" | "v3" = "v2"
 ): Question => {
-  const templates = questionTemplates[mode] || [];
-  const templateFn = templates[Math.floor(Math.random() * templates.length)];
+  //   const templates = questionTemplates[mode] || [];
+  //   const templateFn = templates[Math.floor(Math.random() * templates.length)];
+  // console.log(templateFn);
 
-  const question = templateFn
-    ? templateFn(verb)
-    : `What is the ${mode} of "${verb.base_form}"?`;
+  //   const question = templateFn
+  //     ? templateFn(verb)
+  //     // : `What is the ${mode} of "${verb.base_form}"?`;
+  //     : verb.base_form;
+
+  const question = mode === "v2" ? verb.base_form : verb.past_simple;
 
   const correctAnswer = mode === "v3" ? verb.past_participle : verb.past_simple;
 

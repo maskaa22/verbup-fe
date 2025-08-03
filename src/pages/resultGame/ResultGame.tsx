@@ -11,15 +11,22 @@ import { useDispatch } from "react-redux";
 import { baseQuestion, resetCurrent } from "../../redux/game/slice";
 import { generateQuestions } from "../../redux/game/operations";
 import type { AppDispatch } from "../../redux/store";
-// import { useState } from "react";
 // import Feedback from "../../components/feedback/Feedback";
 import Confetti from "../../components/confetti/Confetti";
+import { CORRECT, ANSWER_STATUS, LAST_INDEX, WRONG } from "../../constants";
 
 const ResultGame = () => {
   const navigation = useNavigate();
   const gameSetting = useSelector(selectGameSetting);
-  const correct = useSelector(selectCorrect);
-  const wrong = useSelector(selectWrong);
+
+  const correctRedux = useSelector(selectCorrect);
+  const wrongRedux = useSelector(selectWrong);
+
+  const correctLS = Number(localStorage.getItem(CORRECT)) || 0;
+  const wrongLS = Number(localStorage.getItem(WRONG)) || 0;
+
+  const correct = correctRedux ?? correctLS;
+  const wrong = wrongRedux ?? wrongLS;
 
   const numQuest = gameSetting.numQuest;
   const count = Number(numQuest.split(" ")[0]);
@@ -28,6 +35,11 @@ const ResultGame = () => {
   // const [rating, setRating] = useState<number>(0);
 
   const resetSetting = () => {
+    localStorage.removeItem(CORRECT);
+    localStorage.removeItem(WRONG);
+    localStorage.removeItem(LAST_INDEX);
+    localStorage.removeItem(ANSWER_STATUS);
+
     dispatch(baseQuestion());
     dispatch(resetCurrent());
   };

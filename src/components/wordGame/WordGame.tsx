@@ -5,6 +5,7 @@ import React, { useEffect } from "react";
 import type { currentAnswerAndQuestions } from "../../utils/gameType";
 import { useSelector } from "react-redux";
 import { selectCurrent } from "../../redux/game/selectors";
+import { ANSWER_STATUS, ERROR, SUCCESS } from "../../constants";
 
 const WordGame: React.FC = () => {
   const { questions } = useOutletContext<currentAnswerAndQuestions>();
@@ -17,7 +18,22 @@ const WordGame: React.FC = () => {
 
   useEffect(() => {
     if (questions.length === 0) return;
-    if (questions.length > 0 && current >= questions.length) {
+
+    const answerStatuses = JSON.parse(
+      localStorage.getItem(ANSWER_STATUS) || "[]"
+    );
+    const isLastQuestion = current === questions.length - 1;
+    const lastAnswered = answerStatuses[current];
+
+    // якщо поточне питання — останнє і вже на нього відповіли
+    if (
+      isLastQuestion &&
+      (lastAnswered === SUCCESS || lastAnswered === ERROR)
+    ) {
+      navigate("/game/result");
+    }
+
+    if (current >= questions.length) {
       navigate("/game/result");
     }
   }, [current, questions, navigate]);
