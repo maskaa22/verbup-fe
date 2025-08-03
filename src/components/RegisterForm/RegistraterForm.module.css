@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
   width: 100%;
 }
 .form label {
@@ -38,4 +37,8 @@
   color: var(--text-secondary);
   font-weight: 400;
   font-size: 12px;
+}
+
+@media screen and (max-height: 767px) {
+  
 }
