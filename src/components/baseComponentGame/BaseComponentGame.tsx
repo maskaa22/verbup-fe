@@ -18,7 +18,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const word = question.match(/“(.+?)”/)?.[1];
+  // const word = question.match(/“(.+?)”/)?.[1];
 
   return (
     <>
@@ -55,7 +55,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
 
       {/* <p className={s.title}>{question}</p> */}
       <p className={s.title}>
-        Choose the correct past participle of <span>{word}</span>
+        Choose the correct past participle of <span>{question}</span>
       </p>
     </>
   );

@@ -11,7 +11,7 @@ import type {
 } from "../../utils/gameType";
 import { speakText } from "../../utils/voiseFunction";
 import { useSelector } from "react-redux";
-import { selectCorrect, selectCurrent } from "../../redux/game/selectors";
+import { selectCurrent } from "../../redux/game/selectors";
 import { useCountWord } from "../../hooks/gameHooks";
 import { useDispatch } from "react-redux";
 import { setCurrent } from "../../redux/game/slice";
@@ -53,56 +53,35 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
   useEffect(() => {
     localStorage.setItem("answerStatuses", JSON.stringify(answerStatuses));
   }, [answerStatuses]);
-  
-  // useEffect(() => {
-  //   const savedStatuses = localStorage.getItem("answerStatuses");
-  //   if (savedStatuses) {
-  //     setAnswerStatuses(JSON.parse(savedStatuses));
-  //   }
-  // }, []);
-  // useEffect(() => {
-  //   const savedIndex = localStorage.getItem("lastAnsweredIndex");
-  //   if (savedIndex !== null) {
-  //     dispatch(setCurrent(Number(savedIndex)));
-  //   }
-  // }, [dispatch]);
-// Ініціалізація answerStatuses з localStorage — виконуємо один раз
-useEffect(() => {
-  const savedStatuses = localStorage.getItem("answerStatuses");
-  if (savedStatuses) {
-    setAnswerStatuses(JSON.parse(savedStatuses));
-  }
-}, []);
 
-  // const correct = useSelector(selectCorrect);
-  // console.log(correct)
-useEffect(() => {
-  if (answerStatuses.length === 0) return;
+  useEffect(() => {
+    const savedStatuses = localStorage.getItem("answerStatuses");
+    if (savedStatuses) {
+      setAnswerStatuses(JSON.parse(savedStatuses));
+    }
+  }, []);
 
-  const savedIndex = localStorage.getItem("lastAnsweredIndex");
-  const lastIndex = Number(savedIndex ?? 0);
+  useEffect(() => {
+    if (answerStatuses.length === 0) return;
 
-  let newIndex =
-    answerStatuses[lastIndex] !== "pending" && lastIndex + 1 < answerStatuses.length
-      ? lastIndex + 1
-      : lastIndex;
+    const savedIndex = localStorage.getItem("lastAnsweredIndex");
+    const lastIndex = Number(savedIndex ?? 0);
 
-  if (newIndex >= answerStatuses.length) {
-    return; // тут теж можна показати результат гри
-  }
+    const newIndex =
+      answerStatuses[lastIndex] !== "pending" &&
+      lastIndex + 1 < answerStatuses.length
+        ? lastIndex + 1
+        : lastIndex;
 
-  if (current !== newIndex) {
-    dispatch(setCurrent(newIndex));
-  }
-  // Залишаємо залежності пустими, щоб цей useEffect виконався тільки один раз при монтуванні
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
+    if (newIndex >= answerStatuses.length) {
+      return;
+    }
 
+    if (current !== newIndex) {
+      dispatch(setCurrent(newIndex));
+    }
 
-
-
-
-  
+  }, []);
 
   return (
     <>

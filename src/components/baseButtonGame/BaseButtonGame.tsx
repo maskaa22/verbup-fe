@@ -14,37 +14,36 @@ const BaseButtonGame: React.FC<baseButtonType> = ({
   setIsChecked,
   setVisibility,
 }) => {
+  const handleCheckAnswer = () => {
+    if (!word) {
+      setVisibility(true);
+      return;
+    }
+    setVisibility(false);
 
-const handleCheckAnswer = () => {
-  if (!word) {
-    setVisibility(true);
-    return;
-  }
-  setVisibility(false);
+    if (word === correctAnswer) {
+      setCheckAnswerType(SUCCESS);
+    } else {
+      setCheckAnswerType(ERROR);
+    }
 
-  if (word === correctAnswer) {
-    setCheckAnswerType(SUCCESS);
-  } else {
-    setCheckAnswerType(ERROR);
-  }
+    const newStatuses = [...answerStatuses];
+    const isCorrect = word === correctAnswer;
+    newStatuses[current] = isCorrect ? SUCCESS : ERROR;
 
-  const newStatuses = [...answerStatuses];
-  const isCorrect = word === correctAnswer;
-  newStatuses[current] = isCorrect ? SUCCESS : ERROR;
+    localStorage.setItem("answerStatuses", JSON.stringify(newStatuses));
 
-  localStorage.setItem("answerStatuses", JSON.stringify(newStatuses));
+    if (current + 1 < newStatuses.length) {
+      localStorage.setItem("lastAnsweredIndex", (current + 1).toString());
+    } else {
+      localStorage.removeItem("lastAnsweredIndex");
+    }
 
-  if (current + 1 < newStatuses.length) {
-    localStorage.setItem("lastAnsweredIndex", (current + 1).toString());
-  } else {
-    localStorage.removeItem("lastAnsweredIndex");
-  }
-
-  setAnswerStatuses(newStatuses);
-  setShowCheckAnswer(true);
-  setModalActive(true);
-  setIsChecked(true);
-};
+    setAnswerStatuses(newStatuses);
+    setShowCheckAnswer(true);
+    setModalActive(true);
+    setIsChecked(true);
+  };
 
   return (
     <div className={s.btnContainer}>
