@@ -18,8 +18,15 @@ import Confetti from "../../components/confetti/Confetti";
 const ResultGame = () => {
   const navigation = useNavigate();
   const gameSetting = useSelector(selectGameSetting);
-  const correct = useSelector(selectCorrect);
-  const wrong = useSelector(selectWrong);
+
+  const correctRedux = useSelector(selectCorrect);
+  const wrongRedux = useSelector(selectWrong);
+
+  const correctLS = Number(localStorage.getItem("correct")) || 0;
+  const wrongLS = Number(localStorage.getItem("wrong")) || 0;
+
+  const correct = correctRedux || correctLS;
+  const wrong = wrongRedux || wrongLS;
 
   const numQuest = gameSetting.numQuest;
   const count = Number(numQuest.split(" ")[0]);
@@ -28,6 +35,11 @@ const ResultGame = () => {
   // const [rating, setRating] = useState<number>(0);
 
   const resetSetting = () => {
+    localStorage.removeItem("correct");
+    localStorage.removeItem("wrong");
+    localStorage.removeItem("lastAnsweredIndex");
+    localStorage.removeItem("answerStatuses");
+
     dispatch(baseQuestion());
     dispatch(resetCurrent());
   };

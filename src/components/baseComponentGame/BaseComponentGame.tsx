@@ -1,8 +1,8 @@
 import React from "react";
 import s from "./BaseComponentGame.module.css";
 import QuestionProgressBar from "../questionProgressBar/QuestionProgressBar";
-import type { baseComponentType } from "../../utils/gameType";
-import { useNavigate } from "react-router-dom";
+import type { baseComponentType, modalType } from "../../utils/gameType";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { resetCurrent } from "../../redux/game/slice";
 import { useDispatch } from "react-redux";
 
@@ -13,23 +13,30 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
   answerStatuses,
   count,
 }) => {
+  const { setModalActive } = useOutletContext<modalType>();
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const word = question.match(/“(.+?)”/)?.[1];
-
-  const dispatch = useDispatch();
 
   return (
     <>
       <div className={s.topContainer}>
-        <button className={s.close} onClick={() => navigate("/game")}>
-          <svg
-            className={s.icon}
-            onClick={() => {
-              localStorage.removeItem("answerStatuses");
-              dispatch(resetCurrent());
-            }}
-          >
+        <button
+          className={s.close}
+          onClick={() => {
+            localStorage.removeItem("answerStatuses");
+            localStorage.removeItem("lastAnsweredIndex");
+            localStorage.removeItem("correct");
+            localStorage.removeItem("wrong");
+
+            setModalActive(false);
+            dispatch(resetCurrent());
+            navigate("/game");
+          }}
+        >
+          <svg className={s.icon}>
             <use href={"/icons.svg#icon-close"}></use>
           </svg>
         </button>

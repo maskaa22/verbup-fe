@@ -11,14 +11,17 @@ import type {
 } from "../../utils/gameType";
 import { speakText } from "../../utils/voiseFunction";
 import { useSelector } from "react-redux";
-import { selectCurrent } from "../../redux/game/selectors";
+import { selectCorrect, selectCurrent } from "../../redux/game/selectors";
 import { useCountWord } from "../../hooks/gameHooks";
+import { useDispatch } from "react-redux";
+import { setCurrent } from "../../redux/game/slice";
 
 const CardGame: React.FC<CardGameProps> = ({ question }) => {
   const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
     useOutletContext<cardGameType>();
 
   const current = useSelector(selectCurrent);
+  const dispatch = useDispatch();
 
   const [word, setWord] = useState<string>("");
   const [activeWord, setActiveWord] = useState<string | null>(null);
@@ -27,11 +30,11 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
 
   const count = useCountWord();
 
-const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(() => {
-  const savedStatuses = localStorage.getItem("answerStatuses");
-  if (savedStatuses) return JSON.parse(savedStatuses);
-  return Array(count).fill("pending");
-});
+  const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(() => {
+    const savedStatuses = localStorage.getItem("answerStatuses");
+    if (savedStatuses) return JSON.parse(savedStatuses);
+    return Array(count).fill("pending");
+  });
 
   const imgWrite = `/image/game/${question.base_form}.png`;
 
@@ -50,7 +53,56 @@ const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(() => {
   useEffect(() => {
     localStorage.setItem("answerStatuses", JSON.stringify(answerStatuses));
   }, [answerStatuses]);
+  
+  // useEffect(() => {
+  //   const savedStatuses = localStorage.getItem("answerStatuses");
+  //   if (savedStatuses) {
+  //     setAnswerStatuses(JSON.parse(savedStatuses));
+  //   }
+  // }, []);
+  // useEffect(() => {
+  //   const savedIndex = localStorage.getItem("lastAnsweredIndex");
+  //   if (savedIndex !== null) {
+  //     dispatch(setCurrent(Number(savedIndex)));
+  //   }
+  // }, [dispatch]);
+// Ініціалізація answerStatuses з localStorage — виконуємо один раз
+useEffect(() => {
+  const savedStatuses = localStorage.getItem("answerStatuses");
+  if (savedStatuses) {
+    setAnswerStatuses(JSON.parse(savedStatuses));
+  }
+}, []);
 
+  // const correct = useSelector(selectCorrect);
+  // console.log(correct)
+useEffect(() => {
+  if (answerStatuses.length === 0) return;
+
+  const savedIndex = localStorage.getItem("lastAnsweredIndex");
+  const lastIndex = Number(savedIndex ?? 0);
+
+  let newIndex =
+    answerStatuses[lastIndex] !== "pending" && lastIndex + 1 < answerStatuses.length
+      ? lastIndex + 1
+      : lastIndex;
+
+  if (newIndex >= answerStatuses.length) {
+    return; // тут теж можна показати результат гри
+  }
+
+  if (current !== newIndex) {
+    dispatch(setCurrent(newIndex));
+  }
+  // Залишаємо залежності пустими, щоб цей useEffect виконався тільки один раз при монтуванні
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
+
+
+
+
+
+  
 
   return (
     <>

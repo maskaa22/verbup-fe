@@ -10,6 +10,7 @@ import {
   selectWrong,
 } from "../../redux/game/selectors";
 import type React from "react";
+import { useEffect } from "react";
 
 const CheckAnswer: React.FC<checkAnswerType> = ({
   type,
@@ -20,6 +21,35 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
   const current = useSelector(selectCurrent);
   const correct = useSelector(selectCorrect);
   const wrong = useSelector(selectWrong);
+
+  const handleNextQuestion = () => {
+    const updatedIndex = current + 1;
+
+    dispatch(setCurrent(updatedIndex));
+    localStorage.setItem("lastAnsweredIndex", updatedIndex.toString());
+
+    setActive(false);
+  };
+
+  useEffect(() => {
+    if (!active) return;
+
+    const lastSaved = Number(localStorage.getItem("lastAnsweredIndex") || "-1");
+
+    if (lastSaved === current) return;
+
+    const isSuccess = type === SUCCESS;
+
+    const updatedCorrect = isSuccess ? correct + 1 : correct;
+    const updatedWrong = !isSuccess ? wrong + 1 : wrong;
+
+    dispatch(setCorrect(updatedCorrect));
+    dispatch(setWrong(updatedWrong));
+    localStorage.setItem("correct", updatedCorrect.toString());
+    localStorage.setItem("wrong", updatedWrong.toString());
+
+    localStorage.setItem("lastAnsweredIndex", current.toString());
+  }, [active, correct, current, dispatch, type, wrong]);
 
   return (
     <div
@@ -32,7 +62,7 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
         }
       >
         <div className={c.info}>
-          <div  className={c.checkContainer}>
+          <div className={c.checkContainer}>
             {type === SUCCESS ? (
               <img src="/image/success.png" alt="Success" />
             ) : (
@@ -64,19 +94,36 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
 
           <button
             className={c.btn}
-            onClick={() => {
-              //реалізований прогрес верхній питань
-              dispatch(setCurrent(current + 1));
+            onClick={
+              () => handleNextQuestion()
+              //   {
+              //   //реалізований прогрес верхній питань
+              //   dispatch(setCurrent(current + 1));
 
-              if (type === SUCCESS) {
-                dispatch(setCorrect(correct + 1));
-              } else {
-                dispatch(setWrong(wrong + 1));
-              }
+              //   if (type === SUCCESS) {
+              //     console.log(correct + 1);
 
-              //закриття модального вікна
-              setActive(false);
-            }}
+              //     dispatch(setCorrect(correct + 1));
+              //   } else {
+              //     dispatch(setWrong(wrong + 1));
+              //   }
+              //   localStorage.setItem(
+              //     "lastAnsweredIndex",
+              //     (current + 1).toString()
+              //   );
+              //   localStorage.setItem(
+              //     "correct",
+              //     (type === SUCCESS ? correct + 1 : correct).toString()
+              //   );
+              //   localStorage.setItem(
+              //     "wrong",
+              //     (type === ERROR ? wrong + 1 : wrong).toString()
+              //   );
+
+              //   //закриття модального вікна
+              //   setActive(false);
+              // }
+            }
           >
             <svg className={c.icon}>
               <use href={"/icons.svg#icon-next-question"}></use>
