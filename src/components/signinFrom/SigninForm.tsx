@@ -1,19 +1,18 @@
-import { Formik, Form, Field, type FormikHelpers } from "formik";
+import { Formik, Form, type FormikHelpers } from "formik";
 import css from "./SigninForm.module.css";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/operations";
 import type { AppDispatch } from "../../redux/store";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
+import FormInput from "../formInput/FormInput";
+import FormInputPassword from "../formInputPassword/FormInputPassword";
+import type { LogFormValues } from "../../utils/formTypes";
 
 
-export interface LogFormValues {
-email: string,
-password: string,
-}
+
 const SigninForm = () => {
-const [visible, setVisible] = useState(false)
+// const [visible, setVisible] = useState(false)
 
   const dispatch = useDispatch<AppDispatch>();
   const handleSubmit = (values: LogFormValues, actions: FormikHelpers<LogFormValues>): void => {
@@ -23,15 +22,9 @@ const [visible, setVisible] = useState(false)
   return (
     <Formik initialValues={{ email: "", password: "" }} onSubmit={handleSubmit}>
       <Form className={css.form}>
-        <div className={css.inputwrap}>
-        <Field type="email" name="email" className={css.input} placeholder="E-mail" autoComplete="off" />
-        {/* <label htmlFor="email" className={css.label}>Email</label> */}
-        </div>
-        <div className={css.inputwrap}>
-        <Field type={visible ? "text" : "password"} name="password" className={css.input} placeholder="Password" autoComplete="off"/>
-        {/* <label htmlFor="password" className={css.label}>Password</label> */}
-        <span className={css.eye} onClick={() => setVisible(!visible)} >{visible ? "hide" : "show"}</span>
-        </div>
+        <FormInput label={"Email"}  name={"email"} type={"email"} placeholder={"your@email.com"} icon={"icon-email"}/>
+        <FormInputPassword isFor="signin" label="Пароль"/>
+        
         <Link className={css.forgotPassword} to="/">Забули пароль?</Link>
         <BaseButtonStart label="Увійти"/>
       </Form>
@@ -50,3 +43,25 @@ export default SigninForm;
 //     "message": "Registration successful",
 //     "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE1LCJpYXQiOjE3NTAyMjc3NDYsImV4cCI6MTc1MDIyODY0Nn0.SmKvlxlAhey1E6WnnRt_2-p5__i2p7SSN_HQDWrLfqI"
 // }
+
+
+// <label htmlFor="password">Пароль</label>
+//         <div className={css.inputwrap}>
+//         <Field type={visible ? "text" : "password"} name="password" className={css.input} autoComplete="off"/>
+//         <span className={css.password}>
+//           <svg className={css.icon}>
+//                       <use href="./icons.svg#icon-password"></use>
+//                     </svg>
+//                     <svg className={css.icon}>
+//                       <use href="./icons.svg#icon-password-star"></use>
+//                     </svg>
+//           </span>
+          
+//         {/* <label htmlFor="password" className={css.label}>Password</label> */}
+//         <span className={css.eye} onClick={() => setVisible(!visible)} >
+//           <svg className={css.icon}>
+//                       <use href={`./icons.svg#${visible ? "icon-password-see" : "icon-password-see"}`}></use>
+//                     </svg>
+//           </span>
+//         </div>
+

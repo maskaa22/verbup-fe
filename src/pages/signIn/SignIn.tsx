@@ -1,33 +1,22 @@
-import { useDispatch } from "react-redux";
 import ExtraSignup from "../../components/extraSignup/ExtraSignup";
-import FormTemplate from "../../components/formForm/FormTemplate";
-import { arrOfNamesSignin } from "../../constants";
-// import SigninForm from "../../components/signinFrom/SigninForm";
-
 import css from "./SignIn.module.css";
-import { login } from "../../redux/auth/operations";
-import type { LogFormValues } from "../../utils/formTypes";
-import type { FormikHelpers } from "formik";
-import type { AppDispatch } from "../../redux/store";
+import SigninForm from "../../components/signinFrom/SigninForm";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
-  const dispatch = useDispatch<AppDispatch>()
-  const handleSubmit = (
-      values: LogFormValues,
-      actions: FormikHelpers<LogFormValues>
-    ): void => {
-      dispatch(login(values));
-      actions.resetForm();
-    };
-   const props = {
-      arrOfNames: arrOfNamesSignin,
-      onSubmit: handleSubmit,
-    };
   return (
     <div className={css.wrap}>
+      <Link to="/">
+                <svg className={css.iconArrowBack}>
+                        <use href="./icons.svg#icon-arrow-back"></use>
+                      </svg>
+                </Link>
       <h2>Вхід</h2>
-      {/* <SigninForm /> */}
-      <FormTemplate {...props}/>
+      <SigninForm />
+      <div className={css.orWrap}>
+        <span>Немає кабінету?</span>
+        <Link to="/signup">Зареєструватися</Link>
+      </div>
       <ExtraSignup />
     </div>
   );

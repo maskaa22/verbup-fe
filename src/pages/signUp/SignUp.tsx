@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import css from "./SignUp.module.css";
 import ExtraSignup from "../../components/extraSignup/ExtraSignup";
@@ -8,7 +8,12 @@ const SignUp = () => {
   return (
     <div className={css.wrap}>
         <div className={css.instructions}>
-          <p>Реєстрація</p>
+          <Link to="/">
+          <svg className={css.iconArrowBack}>
+                  <use href="./icons.svg#icon-arrow-back"></use>
+                </svg>
+          </Link>
+          <h2 className={css.title}>Реєстрація</h2>
           <p>Створи обліковий запис для вивчення неправильнич дієслів</p>
         </div>
         <RegisterForm />

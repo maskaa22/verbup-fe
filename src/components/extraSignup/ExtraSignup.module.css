@@ -6,7 +6,6 @@
 }
 .or {
   display: flex;
-  margin-top: 12px;
 }
 .or hr {
   flex-grow: 1;

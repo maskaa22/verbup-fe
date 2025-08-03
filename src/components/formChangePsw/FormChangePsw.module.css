@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.form > :last-child{
+    margin-top: 38px;
+}
+.form label {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 13px;
+}

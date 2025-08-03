@@ -1,9 +1,16 @@
-.form input{
+.input{
+    border: 1px solid var(--text-secondary);
+border-radius: 48px;
+padding: 12px 17px 12px 49px;
     width: 100%;
     background-color: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     outline: none;
+}
+
+.form label{
+    font-weight: 400;
+font-size: 13px;
+color: var(--text-primary);
 }
 .form .inputwrap:nth-child(1){
     margin-bottom: 28px;
@@ -11,11 +18,26 @@
 .inputwrap{
     position: relative;
 }
+.password{
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-40%);
+}
+.password svg{
+    width: 14px;
+    height: 16px;
+    fill: var(--text-secondary);
+}
 .eye{
 position: absolute;
 right: 8px;
 cursor: pointer;
 color: rgba(0, 0, 0, 0.4)
+}
+.eye svg{
+    width: 25px;
+    height: 25px;
 }
 .form input::placeholder{
     font-weight: 400;
@@ -23,10 +45,10 @@ color: rgba(0, 0, 0, 0.4)
 }
 .forgotPassword{
         font-weight: 400;
-    font-size: 12px;
-    color: var(--base-color-blue);
+    font-size: 14px;
+    color: var(--primary-1);
     display: block;
     text-align: end;
     margin-bottom: 16px;
-    margin-top: 16px;
+    margin-top: 4px;
 }
