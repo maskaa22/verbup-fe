@@ -1,4 +1,4 @@
-import { ERROR, SUCCESS } from "../../constants";
+import { CORRECT, ERROR, LAST_INDEX, SUCCESS, WRONG } from "../../constants";
 import type { checkAnswerType } from "../../utils/gameType";
 import c from "./CheckAnswer.module.css";
 import { useDispatch } from "react-redux";
@@ -10,6 +10,7 @@ import {
   selectWrong,
 } from "../../redux/game/selectors";
 import type React from "react";
+import { useEffect } from "react";
 
 const CheckAnswer: React.FC<checkAnswerType> = ({
   type,
@@ -20,6 +21,35 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
   const current = useSelector(selectCurrent);
   const correct = useSelector(selectCorrect);
   const wrong = useSelector(selectWrong);
+
+  const handleNextQuestion = () => {
+    const updatedIndex = current + 1;
+
+    dispatch(setCurrent(updatedIndex));
+    localStorage.setItem(LAST_INDEX, updatedIndex.toString());
+
+    setActive(false);
+  };
+
+  useEffect(() => {
+    if (!active) return;
+
+    const lastSaved = Number(localStorage.getItem(LAST_INDEX) || "-1");
+
+    if (lastSaved === current) return;
+
+    const isSuccess = type === SUCCESS;
+
+    const updatedCorrect = isSuccess ? correct + 1 : correct;
+    const updatedWrong = !isSuccess ? wrong + 1 : wrong;
+
+    dispatch(setCorrect(updatedCorrect));
+    dispatch(setWrong(updatedWrong));
+    localStorage.setItem(CORRECT, updatedCorrect.toString());
+    localStorage.setItem(WRONG, updatedWrong.toString());
+
+    localStorage.setItem(LAST_INDEX, current.toString());
+  }, [active, correct, current, dispatch, type, wrong]);
 
   return (
     <div
@@ -32,11 +62,11 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
         }
       >
         <div className={c.info}>
-          <div  className={c.checkContainer}>
+          <div className={c.checkContainer}>
             {type === SUCCESS ? (
-              <img src="/image/success.png" alt="Success" />
+              <img src="/image/success.png" alt={SUCCESS} />
             ) : (
-              <img src="/image/error.png" alt="Error" />
+              <img src="/image/error.png" alt={ERROR} />
             )}
             <div>
               <p
@@ -62,22 +92,7 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
             </div>
           </div>
 
-          <button
-            className={c.btn}
-            onClick={() => {
-              //реалізований прогрес верхній питань
-              dispatch(setCurrent(current + 1));
-
-              if (type === SUCCESS) {
-                dispatch(setCorrect(correct + 1));
-              } else {
-                dispatch(setWrong(wrong + 1));
-              }
-
-              //закриття модального вікна
-              setActive(false);
-            }}
-          >
+          <button className={c.btn} onClick={() => handleNextQuestion()}>
             <svg className={c.icon}>
               <use href={"/icons.svg#icon-next-question"}></use>
             </svg>

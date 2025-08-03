@@ -8,6 +8,11 @@ export const BEGGINER = "Beginer";
 export const INTERMEDIATE = "Intermediate";
 export const ADVANCED = "Advanced";
 
+export const CORRECT = "correct";
+export const WRONG = "wrong";
+export const LAST_INDEX = "lastAnsweredIndex";
+export const ANSWER_STATUS = "answerStatuses";
+
 export const arrOfNamesSignup = [
   {
     label: "Ім'я",

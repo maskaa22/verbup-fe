@@ -1,4 +1,4 @@
-import { ERROR, SUCCESS } from "../../constants";
+import { ERROR, ANSWER_STATUS, LAST_INDEX, SUCCESS } from "../../constants";
 import type { baseButtonType } from "../../utils/gameType";
 import s from "./BaseButtonGame.module.css";
 
@@ -14,22 +14,31 @@ const BaseButtonGame: React.FC<baseButtonType> = ({
   setIsChecked,
   setVisibility,
 }) => {
-  //логіка перевірки на правильність відповіді
   const handleCheckAnswer = () => {
     if (!word) {
       setVisibility(true);
       return;
     }
+    setVisibility(false);
+
     if (word === correctAnswer) {
-      setVisibility(false);
       setCheckAnswerType(SUCCESS);
     } else {
-      setVisibility(false);
       setCheckAnswerType(ERROR);
     }
+
     const newStatuses = [...answerStatuses];
     const isCorrect = word === correctAnswer;
     newStatuses[current] = isCorrect ? SUCCESS : ERROR;
+
+    localStorage.setItem(ANSWER_STATUS, JSON.stringify(newStatuses));
+
+    if (current + 1 < newStatuses.length) {
+      localStorage.setItem(LAST_INDEX, (current + 1).toString());
+    } else {
+      localStorage.removeItem(LAST_INDEX);
+    }
+
     setAnswerStatuses(newStatuses);
     setShowCheckAnswer(true);
     setModalActive(true);

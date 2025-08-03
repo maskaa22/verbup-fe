@@ -1,8 +1,11 @@
 import React from "react";
 import s from "./BaseComponentGame.module.css";
 import QuestionProgressBar from "../questionProgressBar/QuestionProgressBar";
-import type { baseComponentType } from "../../utils/gameType";
-import { useNavigate } from "react-router-dom";
+import type { baseComponentType, modalType } from "../../utils/gameType";
+import { useNavigate, useOutletContext } from "react-router-dom";
+import { resetCurrent } from "../../redux/game/slice";
+import { useDispatch } from "react-redux";
+import { ANSWER_STATUS, CORRECT, LAST_INDEX, WRONG } from "../../constants";
 
 const BaseComponentGame: React.FC<baseComponentType> = ({
   current,
@@ -11,14 +14,27 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
   answerStatuses,
   count,
 }) => {
-  const navigate = useNavigate();
+  const { setModalActive } = useOutletContext<modalType>();
 
-  const word = question && question.match(/“(.+?)”/)?.[1];
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <>
       <div className={s.topContainer}>
-        <button className={s.close} onClick={() => navigate("/game")}>
+        <button
+          className={s.close}
+          onClick={() => {
+            localStorage.removeItem(ANSWER_STATUS);
+            localStorage.removeItem(LAST_INDEX);
+            localStorage.removeItem(CORRECT);
+            localStorage.removeItem(WRONG);
+
+            setModalActive(false);
+            dispatch(resetCurrent());
+            navigate("/game");
+          }}
+        >
           <svg className={s.icon}>
             <use href={"/icons.svg#icon-close"}></use>
           </svg>
@@ -36,9 +52,8 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
         <img src={img} className={s.img} />
       </div>
 
-      {/* <p className={s.title}>{question}</p> */}
       <p className={s.title}>
-        Choose the correct past participle of <span>{word}</span>
+        Choose the correct past participle of <span>{question}</span>
       </p>
     </>
   );
