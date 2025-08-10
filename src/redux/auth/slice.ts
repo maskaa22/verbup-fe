@@ -25,7 +25,6 @@ const initialState: authState = {
     isError: false,
   } 
 
-//username: 'Mich', email: 'mrMitch@gmail.com', password: 'mrMitch@gmail.com'
 
 const authSlice = createSlice({
     name: "auth",
@@ -37,13 +36,13 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
       })
       .addCase(login.fulfilled, (state, action) => {
+        console.log(action.payload)
         state.token = action.payload.accessToken
         state.isLoggedIn = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.token = action.payload.accessToken
         state.isLoggedIn = true;
-        console.log(state.token)
       })
     },
 
