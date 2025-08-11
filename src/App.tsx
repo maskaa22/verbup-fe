@@ -47,7 +47,7 @@ function App() {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000); // 2.5s splash
+    const timer = setTimeout(() => setLoading(false) , 3000); // 2.5s splash
     return () => clearTimeout(timer);
   }, []);
 
@@ -103,6 +103,7 @@ function App() {
               element={<NotificationParams />}
             />
             <Route path="/setting/theme-switcher" element={<ThemeSwitcher />} />
+            <Route path="/loader" element={<LoaderDinamic/>}/>
           </Route>
         </Routes>
       )}

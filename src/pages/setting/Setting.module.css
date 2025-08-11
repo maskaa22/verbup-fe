@@ -1,5 +1,6 @@
 .wrap {
-  padding-bottom: 2.5rem;
+  padding-bottom: 4.5rem;
+  position: relative;
 }
 .wrap h2 {
   font-weight: 600;
@@ -59,10 +60,13 @@
   pointer-events: none;
 }
 
-.list li .reviewLink {
+.reviewLink {
+  display: block;
+  position: absolute;
+  bottom: 0;
   width: 100%;
   text-align: center;
-  height: 48px;
+  height: auto;
   cursor: pointer;
   border-radius: 48px;
   padding: 11px;
@@ -101,13 +105,24 @@
 }
 
 @media (max-height: 770px) {
+
   .wrap h2 {
     margin-bottom: 0;
   }
   .wrap h3 {
     margin-top: 0;
   }
-  .list li .reviewLink {
+
+}
+
+@media (max-height: 620px) {
+  .wrap{
+    padding-bottom: 2.5rem;
+  }
+  .reviewLink {
+    width: fit-content;
     margin-top: 0;
+    line-height: 1;
+    padding: 8px;
   }
 }
