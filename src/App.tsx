@@ -1,28 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-// import Game from "./pages/game/Game";
-// import SignUp from "./pages/signUp/SignUp";
-// import Intro from "./pages/intro/Intro";
-// import Dictionary from "./pages/dictionary/Dictionary";
-// import SignIn from "./pages/signIn/SignIn";
-// import Home from "./pages/home/Home";
-// import AuthLayout from "./components/authLayout/AuthLayout";
 import RestrictedRoute from "./components/RestrictedRoute";
-// import WordGame from "./components/wordGame/WordGame";
-// import WriteGame from "./components/writeGame/WriteGame";
-// import ResultGame from "./pages/resultGame/ResultGame";
 import { lazy, useEffect, useState } from "react";
-// import GameSetting from "./pages/gameSetting/GameSetting";
-// import Setting from "./pages/setting/Setting";
-// import ChangeUserData from "./pages/changeUserData/ChangeUserData";
-// import NotificationParams from "./pages/notificationParams/NotificationParams";
-// import ThemeSwitcher from "./pages/themeSwitcher/ThemeSwitcher";
-// import Loader from "./components/loader/Loader";
-// import LoaderDinamic from "./components/loaderDinamic/LoaderDinamic";
 import usePageTracking from "./utils/googleAnalize";
-import { useDispatch } from "react-redux";
-import type { AppDispatch } from "./redux/store";
-import { refreshUser } from "./redux/auth/operations";
+// import { useDispatch } from "react-redux";
+// import type { AppDispatch } from "./redux/store";
+// import { refreshUser } from "./redux/auth/operations";
 
 
 const Intro = lazy(() => import("./pages/intro/Intro"));
@@ -44,7 +27,7 @@ const LoaderDinamic = lazy(() => import("./components/loaderDinamic/LoaderDinami
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch<AppDispatch>();
+  // const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false) , 3000); // 2.5s splash
