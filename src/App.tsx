@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Game from "./pages/game/Game";
+// import Game from "./pages/game/Game";
 // import SignUp from "./pages/signUp/SignUp";
 // import Intro from "./pages/intro/Intro";
 // import Dictionary from "./pages/dictionary/Dictionary";
@@ -8,9 +8,9 @@ import Game from "./pages/game/Game";
 // import Home from "./pages/home/Home";
 // import AuthLayout from "./components/authLayout/AuthLayout";
 import RestrictedRoute from "./components/RestrictedRoute";
-import WordGame from "./components/wordGame/WordGame";
-import WriteGame from "./components/writeGame/WriteGame";
-import ResultGame from "./pages/resultGame/ResultGame";
+// import WordGame from "./components/wordGame/WordGame";
+// import WriteGame from "./components/writeGame/WriteGame";
+// import ResultGame from "./pages/resultGame/ResultGame";
 import { lazy, useEffect, useState } from "react";
 // import GameSetting from "./pages/gameSetting/GameSetting";
 // import Setting from "./pages/setting/Setting";
@@ -36,10 +36,10 @@ const ChangeUserData = lazy(() => import("./pages/changeUserData/ChangeUserData"
 const NotificationParams = lazy(() => import("./pages/notificationParams/NotificationParams"));
 const ThemeSwitcher = lazy(() => import("./pages/themeSwitcher/ThemeSwitcher"));
 const Dictionary = lazy(() => import("./pages/dictionary/Dictionary"));
-// const Game = lazy(() => import("./components/wordGame/WordGame"));
-// const WordGame = lazy(() => import("./pages/game/Game"));
-// const WriteGame = lazy(() => import("./components/writeGame/WriteGame"));
-// const ResultGame = lazy(() => import("./pages/resultGame/ResultGame"));
+const Game = lazy(() => import("./pages/game/Game"));
+const WordGame = lazy(() => import("./components/wordGame/WordGame"));
+const WriteGame = lazy(() => import("./components/writeGame/WriteGame"));
+const ResultGame = lazy(() => import("./pages/resultGame/ResultGame"));
 const LoaderDinamic = lazy(() => import("./components/loaderDinamic/LoaderDinamic"));
 
 function App() {
