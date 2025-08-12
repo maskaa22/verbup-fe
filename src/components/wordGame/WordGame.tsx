@@ -20,7 +20,7 @@ const WordGame: React.FC = () => {
     if (questions.length === 0) return;
 
     const answerStatuses = JSON.parse(
-      localStorage.getItem(ANSWER_STATUS) || "[]"
+      sessionStorage.getItem(ANSWER_STATUS) || "[]"
     );
     const isLastQuestion = current === questions.length - 1;
     const lastAnswered = answerStatuses[current];

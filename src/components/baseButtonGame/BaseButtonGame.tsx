@@ -31,12 +31,12 @@ const BaseButtonGame: React.FC<baseButtonType> = ({
     const isCorrect = word === correctAnswer;
     newStatuses[current] = isCorrect ? SUCCESS : ERROR;
 
-    localStorage.setItem(ANSWER_STATUS, JSON.stringify(newStatuses));
+    sessionStorage.setItem(ANSWER_STATUS, JSON.stringify(newStatuses));
 
     if (current + 1 < newStatuses.length) {
-      localStorage.setItem(LAST_INDEX, (current + 1).toString());
+      sessionStorage.setItem(LAST_INDEX, (current + 1).toString());
     } else {
-      localStorage.removeItem(LAST_INDEX);
+      sessionStorage.removeItem(LAST_INDEX);
     }
 
     setAnswerStatuses(newStatuses);

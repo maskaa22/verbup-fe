@@ -25,10 +25,10 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
         <button
           className={s.close}
           onClick={() => {
-            localStorage.removeItem(ANSWER_STATUS);
-            localStorage.removeItem(LAST_INDEX);
-            localStorage.removeItem(CORRECT);
-            localStorage.removeItem(WRONG);
+            sessionStorage.removeItem(ANSWER_STATUS);
+            sessionStorage.removeItem(LAST_INDEX);
+            sessionStorage.removeItem(CORRECT);
+            sessionStorage.removeItem(WRONG);
 
             setModalActive(false);
             dispatch(resetCurrent());
@@ -53,7 +53,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
       </div>
 
       <p className={s.title}>
-        Choose the correct past participle of <span>{question}</span>
+        Choose the correct past simple of <span>{question}</span>
       </p>
     </>
   );

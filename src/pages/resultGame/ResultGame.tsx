@@ -22,8 +22,8 @@ const ResultGame = () => {
   const correctRedux = useSelector(selectCorrect);
   const wrongRedux = useSelector(selectWrong);
 
-  const correctLS = Number(localStorage.getItem(CORRECT)) || 0;
-  const wrongLS = Number(localStorage.getItem(WRONG)) || 0;
+  const correctLS = Number(sessionStorage.getItem(CORRECT)) || 0;
+  const wrongLS = Number(sessionStorage.getItem(WRONG)) || 0;
 
   const correct = correctRedux ?? correctLS;
   const wrong = wrongRedux ?? wrongLS;
@@ -35,10 +35,10 @@ const ResultGame = () => {
   // const [rating, setRating] = useState<number>(0);
 
   const resetSetting = () => {
-    localStorage.removeItem(CORRECT);
-    localStorage.removeItem(WRONG);
-    localStorage.removeItem(LAST_INDEX);
-    localStorage.removeItem(ANSWER_STATUS);
+    sessionStorage.removeItem(CORRECT);
+    sessionStorage.removeItem(WRONG);
+    sessionStorage.removeItem(LAST_INDEX);
+    sessionStorage.removeItem(ANSWER_STATUS);
 
     dispatch(baseQuestion());
     dispatch(resetCurrent());
