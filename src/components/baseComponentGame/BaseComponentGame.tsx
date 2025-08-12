@@ -6,6 +6,8 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import { resetCurrent } from "../../redux/game/slice";
 import { useDispatch } from "react-redux";
 import { ANSWER_STATUS, CORRECT, LAST_INDEX, WRONG } from "../../constants";
+import { useSelector } from "react-redux";
+import { selectGameSetting } from "../../redux/game/selectors";
 
 const BaseComponentGame: React.FC<baseComponentType> = ({
   current,
@@ -18,6 +20,8 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const {verbForm} = useSelector(selectGameSetting);
 
   return (
     <>
@@ -53,7 +57,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
       </div>
 
       <p className={s.title}>
-        Choose the correct past simple of <span>{question}</span>
+        Choose the correct {verbForm.toLowerCase()} of <span>{question}</span>
       </p>
     </>
   );

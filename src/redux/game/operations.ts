@@ -16,11 +16,17 @@ export const generateQuestions = createAsyncThunk<
   try {
     const state = getState() as RootState;
     const { level, numQuest } = state.game.setting;
+    //  const {level, numQuest} = useSelector(selectGameSetting);
     
     const count = Number(numQuest.split(" ")[0]);
 
     const res = await fetch("/data/irr-verbs.filtered.json");
     const data: qestionDataOperation = await res.json();
+
+    // const mode = verbForm === 'Past Simple' ? 'v2' : 'v3';
+
+
+    
     
 
     let questions: Question[] = [];

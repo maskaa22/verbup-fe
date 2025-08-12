@@ -50,7 +50,7 @@ const GameSetting = () => {
             setFormData((prev) => ({ ...prev, verbForm: value }))
           }
           needSpan={true}
-          disabled={true}
+          disabled={false}
         />
         <p>Вибір кількості питань у грі</p>
         <GameSettingRadio
