@@ -25,7 +25,6 @@ const AuthLayout = () => {
         setLogoIntro(false);
         break;
       case location.includes("/home"):
-        console.log(location);
         setGlass(true);
         setPlantes(false);
         setNavigation(true);

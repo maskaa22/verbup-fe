@@ -1,13 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import type { LogFormValues, RegFormValues } from "../../utils/formTypes";
+import api from "../../api/axios";
 
-// import type { RootState } from "@reduxjs/toolkit/query";
 
-export const api = axios.create({
-  baseURL: "http://localhost:8000/api/v1",
-  withCredentials: true
-});
 export const setAuthHeader = (token: string): void => {
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
@@ -54,8 +49,6 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 });
 
 export const refreshUser = createAsyncThunk("auth/refresh", async (_, thunkApi) => {
-  // const reduxState = thunkApi.getState() as RootState;
-  //   setAuthHeader(reduxState.auth.token!);
   try {
     const { data } = await api.post("/auth/refresh");
       if(data) {

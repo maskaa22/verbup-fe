@@ -63,6 +63,7 @@ const Setting = () => {
           </svg>
         </li>
       </ul>
+          <a className={css.reviewLink} href="https://docs.google.com/forms/d/e/1FAIpQLScwMMvRlebP7YPz7VndPOlzF8iM5rofE2yxS7eisDtgCJJjtA/viewform?usp=sharing&ouid=106998076813103564666" target="_blank">Надіслати відгук</a>
 
       <Outlet />
     </div>

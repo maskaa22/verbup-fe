@@ -1,69 +1,128 @@
-.wrap{
-    padding-bottom: 2.5rem;
+.wrap {
+  padding-bottom: 4.5rem;
+  position: relative;
 }
 .wrap h2 {
-    font-weight: 600;
-font-size: 2rem;
-color: var(--primary-1);
-margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 2rem;
+  color: var(--primary-1);
+  margin-bottom: 1rem;
 }
-.wrap h3{
-    font-weight: 700;
-font-size: 1rem;
-margin-top: 3.5rem;
+.wrap h3 {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 3.5rem;
 }
-.list li svg{
-    width: 1rem;
-    height: 1rem;
-    transform: rotate(270deg);
-    fill: var(--text-primary);
-    opacity: 0.8;
+.list li svg {
+  width: 1rem;
+  height: 1rem;
+  transform: rotate(270deg);
+  fill: var(--text-primary);
+  opacity: 0.8;
 }
-.list li a{
-    font-weight: 400;
-font-size: 1rem;
-color: var(--text-primary);
+.list li a {
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--text-primary);
 }
-.list{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
-.list li{
-    display: flex;
-    justify-content: space-between;
-}
-
-.button{
-    border: none;
-background: transparent;
-outline: none;
-padding: 0;
-font-weight: 400;
-font-size: 1rem;
-color: var(--text-primary);
+.list li {
+  display: flex;
+  justify-content: space-between;
 }
 
-.disabled{
-    opacity: 0.5;
-    cursor: default;
-    pointer-events: none;
+.button {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 0;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
 }
 .disabled > * {
-    cursor: default;
-    pointer-events: none;
+  cursor: default;
+  pointer-events: none;
 }
 
-.disabled a{
-    cursor: default;
-    pointer-events: none;
+.disabled a {
+  cursor: default;
+  pointer-events: none;
+}
+
+.reviewLink {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: auto;
+  cursor: pointer;
+  border-radius: 48px;
+  padding: 11px;
+  background-color: var(--primary-1);
+  color: var(--text-button-defalt);
+  font-weight: 500;
+  font-size: 20px;
+  font-family: var(--font-family-messiri);
+  margin-top: 10px;
+  opacity: 0;
+  transform: scale(2);
+  animation: scaleAndBounce 2s ease forwards;
+}
+
+@keyframes scaleAndBounce {
+  0% {
+    opacity: 0;
+    transform: scale(2);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.7);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @media (max-height: 770px) {
+
   .wrap h2 {
     margin-bottom: 0;
   }
-  .wrap h3{
+  .wrap h3 {
     margin-top: 0;
+  }
+
+}
+
+@media (max-height: 620px) {
+  .wrap{
+    padding-bottom: 2.5rem;
+  }
+  .reviewLink {
+    width: fit-content;
+    margin-top: 0;
+    line-height: 1;
+    padding: 8px;
   }
 }

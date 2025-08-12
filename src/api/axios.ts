@@ -29,6 +29,7 @@ export const api = axios.create({
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
+    console.log("Interceptor caught an error:", error?.response?.status);
     const originalRequest = error.config
 
     // Prevent infinite loop
@@ -47,10 +48,11 @@ api.interceptors.response.use(
       isRefreshing = true
 
       try {
-        const res = await api.post('/auth/refresh', {
+        const res = await api.post('/auth/refresh', { 
         })
-
+console.log("token could be here")
         const newAccessToken = res.data.accessToken
+        console.log(newAccessToken)
         setAuthHeader(newAccessToken)
 
         processQueue(null, newAccessToken)
