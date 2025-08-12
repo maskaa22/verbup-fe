@@ -15,6 +15,7 @@ import { selectCurrent } from "../../redux/game/selectors";
 import { useCountWord } from "../../hooks/gameHooks";
 import { useDispatch } from "react-redux";
 import { setCurrent } from "../../redux/game/slice";
+import { ANSWER_STATUS, LAST_INDEX, PENDING } from "../../constants";
 
 const CardGame: React.FC<CardGameProps> = ({ question }) => {
   const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
@@ -31,9 +32,9 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
   const count = useCountWord();
 
   const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(() => {
-    const savedStatuses = localStorage.getItem("answerStatuses");
+    const savedStatuses = sessionStorage.getItem(ANSWER_STATUS);
     if (savedStatuses) return JSON.parse(savedStatuses);
-    return Array(count).fill("pending");
+    return Array(count).fill(PENDING);
   });
 
   const imgWrite = `/image/game/${question.base_form}.png`;
@@ -51,11 +52,11 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
   }, [current]);
 
   useEffect(() => {
-    localStorage.setItem("answerStatuses", JSON.stringify(answerStatuses));
+    sessionStorage.setItem(ANSWER_STATUS, JSON.stringify(answerStatuses));
   }, [answerStatuses]);
 
   useEffect(() => {
-    const savedStatuses = localStorage.getItem("answerStatuses");
+    const savedStatuses = sessionStorage.getItem(ANSWER_STATUS);
     if (savedStatuses) {
       setAnswerStatuses(JSON.parse(savedStatuses));
     }
@@ -64,11 +65,11 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
   useEffect(() => {
     if (answerStatuses.length === 0) return;
 
-    const savedIndex = localStorage.getItem("lastAnsweredIndex");
+    const savedIndex = sessionStorage.getItem(LAST_INDEX);
     const lastIndex = Number(savedIndex ?? 0);
 
     const newIndex =
-      answerStatuses[lastIndex] !== "pending" &&
+      answerStatuses[lastIndex] !== PENDING &&
       lastIndex + 1 < answerStatuses.length
         ? lastIndex + 1
         : lastIndex;

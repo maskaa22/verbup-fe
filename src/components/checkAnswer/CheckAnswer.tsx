@@ -26,7 +26,7 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
     const updatedIndex = current + 1;
 
     dispatch(setCurrent(updatedIndex));
-    localStorage.setItem(LAST_INDEX, updatedIndex.toString());
+    sessionStorage.setItem(LAST_INDEX, updatedIndex.toString());
 
     setActive(false);
   };
@@ -34,7 +34,7 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
   useEffect(() => {
     if (!active) return;
 
-    const lastSaved = Number(localStorage.getItem(LAST_INDEX) || "-1");
+    const lastSaved = Number(sessionStorage.getItem(LAST_INDEX) || "-1");
 
     if (lastSaved === current) return;
 
@@ -45,10 +45,10 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
 
     dispatch(setCorrect(updatedCorrect));
     dispatch(setWrong(updatedWrong));
-    localStorage.setItem(CORRECT, updatedCorrect.toString());
-    localStorage.setItem(WRONG, updatedWrong.toString());
+    sessionStorage.setItem(CORRECT, updatedCorrect.toString());
+    sessionStorage.setItem(WRONG, updatedWrong.toString());
 
-    localStorage.setItem(LAST_INDEX, current.toString());
+    sessionStorage.setItem(LAST_INDEX, current.toString());
   }, [active, correct, current, dispatch, type, wrong]);
 
   return (
@@ -76,7 +76,7 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
                     : `${c.title} ${c.error}`
                 }
               >
-                {type === SUCCESS ? "Правильно" : "Нажаль не вірно"}
+                {type === SUCCESS ? "Правильно" : "На жаль не вірно"}
               </p>
               <p
                 className={
