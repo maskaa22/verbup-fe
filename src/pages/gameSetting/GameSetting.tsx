@@ -6,13 +6,18 @@ import { useDispatch } from "react-redux";
 import { setSetting } from "../../redux/game/slice";
 import { ADVANCED, BEGGINER, INTERMEDIATE } from "../../constants";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectGameSetting } from "../../redux/game/selectors";
 
 const GameSetting = () => {
   const navigate = useNavigate();
+
+  const {level, numQuest, verbForm} = useSelector(selectGameSetting);
+
   const [formData, setFormData] = useState({
-    level: BEGGINER,
-    verbForm: "Past Simple",
-    numQuest: "5 питань",
+    level: level,
+    verbForm: verbForm,
+    numQuest: numQuest,
   });
 
   const dispatch = useDispatch();

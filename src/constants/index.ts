@@ -102,7 +102,7 @@ export const initialStateGame: GameState = {
   setting: {
     level: BEGGINER,
     numQuest: "5 питань",
-    verbForm: "",
+    verbForm: "Past Simple",
   },
   items: [],
   current: 0,
