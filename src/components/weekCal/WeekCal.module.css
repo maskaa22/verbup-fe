@@ -1,0 +1,16 @@
+.weekList{
+    display: flex;
+    width: 100%;
+}
+.weekList li{
+    border: 1px solid gray;
+    padding: 12px;
+    
+}
+
+.weekList li:first-child{
+    border-radius: 48px 0 0 48px;
+}
+.weekList li:last-child{
+    border-radius: 0 48px 48px 0;
+}

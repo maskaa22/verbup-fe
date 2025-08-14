@@ -25,11 +25,11 @@ const AuthLayout = () => {
         setLogoIntro(false);
         break;
       case location.includes("/home"):
-        setGlass(true);
+        setGlass(false);
         setPlantes(false);
         setNavigation(true);
-        setLogo(true);
-        setLogoIntro(false);
+        setLogo(false);
+        setLogoIntro(true);
         break;
       case location.includes("/signup"):
         setGlass(true);

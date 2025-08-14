@@ -1,0 +1,21 @@
+
+.item {
+  background-color: var(--background-white-default);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  flex-grow: 1;
+}
+.icon {
+  width: 21px;
+  height: 29px;
+}
+
+.text{
+    font-weight: 500;
+font-size: 12px;
+text-align: center;
+color: var(--text-secondary);
+}
