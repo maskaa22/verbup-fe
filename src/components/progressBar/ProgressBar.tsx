@@ -8,8 +8,8 @@ const ProgressBar = ({progress = 0.1}) => {
     const arcLength = (3/4) * circumference;
     const progressPrc = progress * 100;
     const progressLength = Math.round(arcLength * progressPrc / 100);
-    const offset = arcLength - progress * arcLength;
-    const dashOffset = (1 - progress) * arcLength;
+    // const offset = arcLength - progress * arcLength;
+    // const dashOffset = (1 - progress) * arcLength;
 
     return <div className={css.progressWrap}>
     <img className={css.astroHome} src="/image/cute-astronaut-home-page.png" alt="cute astronaut is reading his journal" />
@@ -36,8 +36,8 @@ const ProgressBar = ({progress = 0.1}) => {
         stroke="#5e909e"
         strokeWidth={strokeWidth}
         fill="none"
-        strokeDasharray={progressLength}
-        strokeDashoffset={0}
+        strokeDasharray={circumference}
+        strokeDashoffset={circumference - progressLength}
         strokeLinecap="round"
         transform="rotate(135 100 100)"
       />
