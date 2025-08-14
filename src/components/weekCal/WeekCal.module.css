@@ -1,11 +1,21 @@
 .weekList{
     display: flex;
+    flex: 1;
     width: 100%;
+    margin-bottom: 10px;
 }
 .weekList li{
-    border: 1px solid gray;
+    border: 1px solid var(--text-secondary);
     padding: 12px;
-    
+    flex-grow: 1;
+}
+
+.weekList li p{
+    font-weight: 500;
+font-size: 12px;
+line-height: 130%;
+text-align: center;
+color: var(--text-primary);
 }
 
 .weekList li:first-child{
@@ -13,4 +23,8 @@
 }
 .weekList li:last-child{
     border-radius: 0 48px 48px 0;
+}
+
+.weekList .todayWrap{
+    border: 2px solid var(--primary-1) ;
 }

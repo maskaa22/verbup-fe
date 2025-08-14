@@ -11,7 +11,7 @@ const ProgressBar = ({progress = 0.1}) => {
     const offset = arcLength - progress * arcLength;
     const dashOffset = (1 - progress) * arcLength;
 
-    return <>
+    return <div className={css.progressWrap}>
     <img className={css.astroHome} src="/image/cute-astronaut-home-page.png" alt="cute astronaut is reading his journal" />
      <svg width='200' height="200" viewBox="0 0 200 200">
         {/* Background arc */}
@@ -19,7 +19,7 @@ const ProgressBar = ({progress = 0.1}) => {
         cx="100"
         cy="100"
         r={radius}
-        stroke="#000"
+        stroke="#f0f0f0"
         strokeWidth={strokeWidth}
         fill="none"
         strokeDasharray={arcLength}
@@ -33,7 +33,7 @@ const ProgressBar = ({progress = 0.1}) => {
         cx="100"
         cy="100"
         r={radius}
-        stroke="#4caf50"
+        stroke="#5e909e"
         strokeWidth={strokeWidth}
         fill="none"
         strokeDasharray={progressLength}
@@ -54,7 +54,7 @@ const ProgressBar = ({progress = 0.1}) => {
         {Math.round(progress * 100)}%
       </text> */}
     </svg>
-    </>
+    </div>
 }
 
 export default ProgressBar

@@ -13,13 +13,14 @@ const Home = () => {
         <h3>User</h3>
         <p>Level</p>
       </div>
+      <WeekCal/>
       <ul className={css.list}>
         <ResultCards value={0} icon={"icon-yes"} text={"Вивчено"}/>
         <ResultCards value={0} icon={"icon-star"} text={"Бали"}/>
         <ResultCards value={0} icon={"icon-fire"} text={"Досягнення"}/>
       </ul>
       
-<WeekCal/>
+
     <StartLink/>
     </div>
     

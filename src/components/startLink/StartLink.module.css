@@ -11,3 +11,9 @@ background: var(--primary-1);
 color: var(--background-white-default);
 margin-top: 48px;
 }
+
+.gameConsole{
+    position: absolute;
+    right: 0;
+    bottom: 45px;
+}

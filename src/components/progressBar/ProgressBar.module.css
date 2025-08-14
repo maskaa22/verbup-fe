@@ -1,4 +1,12 @@
+.progressWrap{
+    position: relative;
+    text-align: center;
+}
 .astroHome{
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
     width: 100px;
+    z-index: 111;
 }

@@ -1,16 +1,17 @@
 
 .item {
   background-color: var(--background-white-default);
+  width: 90px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px;
+  padding: 4px;
   flex-grow: 1;
 }
 .icon {
-  width: 21px;
-  height: 29px;
+  width: 24px;
+  height: 24px;
 }
 
 .text{
