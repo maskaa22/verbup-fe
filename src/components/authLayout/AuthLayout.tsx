@@ -25,11 +25,11 @@ const AuthLayout = () => {
         setLogoIntro(false);
         break;
       case location.includes("/home"):
-        setGlass(true);
+        setGlass(false);
         setPlantes(false);
         setNavigation(true);
-        setLogo(true);
-        setLogoIntro(false);
+        setLogo(false);
+        setLogoIntro(true);
         break;
       case location.includes("/signup"):
         setGlass(true);
@@ -135,7 +135,7 @@ const AuthLayout = () => {
 
       <div className={`${css.wrap} container`}>
         {logo && <Logo />}
-        <div className={clsx(glass && css.glass)}>{<Outlet />}</div>
+        <div className={`${glass ? css.glass : css.noClass}`}>{<Outlet />}</div>
       </div>
       {navigation && <Menu />}
     </div>
