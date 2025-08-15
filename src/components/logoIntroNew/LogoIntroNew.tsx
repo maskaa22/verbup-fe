@@ -4,12 +4,12 @@ import css from "./LogoIntroNew.module.css"
 
 const LogoIntroNew = () => {
   const location = useLocation().pathname
-    return <div>
+    return <>
     <div className={css.headlineWrap}>
           <h1 className={css.headline}>let's verb <span className={css.secretUp}>upp</span> <span className={css.realUp}>up</span> <span className={css.droopyHL}>up</span> </h1>
         </div>
         {location !== "/home" && <VersionInfo/>}
-        </div>
+        </>
 }
 
 export default LogoIntroNew;

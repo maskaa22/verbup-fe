@@ -135,7 +135,7 @@ const AuthLayout = () => {
 
       <div className={`${css.wrap} container`}>
         {logo && <Logo />}
-        <div className={clsx(glass && css.glass)}>{<Outlet />}</div>
+        <div className={`${glass ? css.glass : css.noClass}`}>{<Outlet />}</div>
       </div>
       {navigation && <Menu />}
     </div>
