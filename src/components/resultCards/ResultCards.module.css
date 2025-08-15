@@ -20,3 +20,26 @@ font-size: 12px;
 text-align: center;
 color: var(--text-secondary);
 }
+
+@media (min-height: 1100px) {
+  .item{
+    width: 180px;
+    gap: 4px;
+  }
+  .item p{
+    font-size: 32px;
+  }
+  .icon{
+    width: 42px;
+    height: 42px;
+  }
+  .text{
+    font-size: 32px;
+  }
+}
+@media (max-height: 800px) {
+  .icon {
+  width: 16px;
+  height: 16px;
+}
+}

@@ -13,7 +13,7 @@ const ProgressBar = ({progress = 0.1}) => {
 
     return <div className={css.progressWrap}>
     <img className={css.astroHome} src="/image/cute-astronaut-home-page.png" alt="cute astronaut is reading his journal" />
-     <svg width='200' height="200" viewBox="0 0 200 200">
+     <svg className={css.progress} viewBox="0 0 200 200">
         {/* Background arc */}
       <circle
         cx="100"

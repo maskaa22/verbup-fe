@@ -28,3 +28,16 @@ color: var(--text-primary);
 .weekList .todayWrap{
     border: 2px solid var(--primary-1) ;
 }
+@media (min-height: 1100px) {
+    .weekList{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .weekList li p{
+        font-size: 32px;
+    }
+}
+@media (max-height: 800px) {
+    .weekList li{padding: 4px;}
+    
+}

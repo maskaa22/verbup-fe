@@ -2,6 +2,11 @@
     position: relative;
     text-align: center;
 }
+
+.progress{
+    width: 300px;
+    height: 300px;
+}
 .astroHome{
     position: absolute;
     left: 50%;
@@ -10,3 +15,36 @@
     width: 100px;
     z-index: 111;
 }
+
+@media (min-height: 1000px) {
+    .progress{
+        width: 400px;
+        height: 400px;
+    }
+
+    .astroHome{
+width: 150px;
+    }
+}
+@media (max-height: 800px) {
+    .progress{
+        width: 200px;
+        height: 200px;
+    }
+    
+}
+@media (max-height: 610px) {
+    .progressWrap{
+        height: fit-content;
+    }
+    .progress{
+        width: 300px;
+        height: 300px;
+    }
+    .astroHome{
+        width: 120px;
+    }
+}
+
+
+

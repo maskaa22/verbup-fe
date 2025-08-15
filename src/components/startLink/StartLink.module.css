@@ -20,3 +20,24 @@ margin-top: 48px;
     right: 0;
     bottom: 34px;
 }
+@media (min-height: 1100px) {
+    .link{
+        font-size: 48px;
+        padding: 12px;
+        margin-top: 60px;
+    }
+    .gameConsole{
+        width: 100px;
+        bottom: 50px;
+    }
+}
+
+@media (max-height: 800px) {
+    .link{
+        margin-top: 32px;
+        font-size: 16px;
+    }
+    .gameConsole{
+ width: 60px;
+    }
+}
