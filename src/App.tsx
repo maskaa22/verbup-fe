@@ -44,7 +44,7 @@ function App() {
     <>
       {" "}
       {loading ? (
-        <LoaderDinamic />
+        <LoaderDinamic/>
       ) : (
         <Routes>
           <Route path="/" element={<Intro />} />

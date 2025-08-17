@@ -1,4 +1,6 @@
-
+.wrap{
+  height: 100vh;
+}
 .pulseImage {
   animation: pulse 1.5s infinite;
   transform-origin: center;
