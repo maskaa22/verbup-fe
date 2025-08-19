@@ -5,7 +5,7 @@
   border: none;
   cursor: pointer;
   border-radius: 48px;
-  padding: 11px 79px;
+  padding: 11px;
   background-color: var(--primary-1);
   color: var(--text-button-defalt);
   font-weight: 500;
