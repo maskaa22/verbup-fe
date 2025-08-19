@@ -95,6 +95,7 @@ return <div className={css.wrap}>
      <DictItem word={verb}/>
       </li>
     ))}
+    <li className={css.bgi} key={"bgi"}></li>
 </ul>
 </div>
 };
