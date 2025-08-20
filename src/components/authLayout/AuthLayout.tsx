@@ -13,6 +13,7 @@ const AuthLayout = () => {
   const [navigation, setNavigation] = useState(false);
   const [logo, setLogo] = useState(true);
   const [logoIntro, setLogoIntro] = useState(false);
+  const [scroll, setScroll] = useState(false);
   const location = useLocation().pathname;
 
   useEffect(() => {
@@ -37,6 +38,7 @@ const AuthLayout = () => {
         setNavigation(false);
         setLogo(true);
         setLogoIntro(false);
+        setScroll(true);
         break;
       case location.includes("/signin"):
         setGlass(true);
@@ -116,6 +118,7 @@ const AuthLayout = () => {
         setNavigation(true);
         setLogo(true);
         setLogoIntro(false);
+        setScroll(false);
     }
   }, [location]);
   // const showNavBar = pathname !== "/signin" && pathname !== "/signup";
@@ -135,7 +138,7 @@ const AuthLayout = () => {
 
       <div className={`${css.wrap} container`}>
         {logo && <Logo />}
-        <div className={`${glass ? css.glass : css.noClass}`}>{<Outlet />}</div>
+        <div className={`${glass ? css.glass : css.noClass} ${scroll && css.scrollBar}`}>{<Outlet />}</div>
       </div>
       {navigation && <Menu />}
     </div>

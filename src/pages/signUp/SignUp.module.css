@@ -1,6 +1,6 @@
 .wrap{
     position: relative;
-
+height: 70dvh; 
 }
 .title{
             color: var(--primary-1);

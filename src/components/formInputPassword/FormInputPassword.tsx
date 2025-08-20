@@ -9,7 +9,6 @@ import type { InputPswProps } from "../../utils/formTypes";
 
 const FormInputPassword: React.FC<InputPswProps> = ({isFor, label}) => {
   const [field] = useField("password");
-  const [password, setPassword] = useState("")
   const [valid, setValid] = useState({
     a: false,
     A: false,
@@ -21,8 +20,6 @@ const FormInputPassword: React.FC<InputPswProps> = ({isFor, label}) => {
   useEffect(() => {
     
     const value = field.value;
-    setPassword(value)
-    console.log(password);
     setValid({
       a: /[a-z]/.test(value),
       A: /[A-Z]/.test(value),
