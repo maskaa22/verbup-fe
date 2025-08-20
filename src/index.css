@@ -23,20 +23,23 @@
   --text-secondary: #a0a2a3;
   --text-button-defalt: #fff;
 }
-.scroll-area::-webkit-scrollbar {
-  overflow-y: auto;
-  padding-right: 1rem;
-}
 ::-webkit-scrollbar {
-  width: 2px;
+  overflow-y: auto;
+    width: 4px;
+    border-radius: 4px;
 }
+
 ::-webkit-scrollbar-track {
-  background: var(--second-color-gray);
+  background: var(--background-soft);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--base-color-blue);
-  height: 46px;
+  background: var(--primary-1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+cursor: pointer;
 }
 html,
 body {

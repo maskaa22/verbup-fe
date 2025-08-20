@@ -35,36 +35,3 @@ export default RegisterForm;
 
 
 
-{/* <label htmlFor="name">Ім'я</label>
-        <div>
-          <Field type="text" name="username" placeholder="Введіть ваше ім'я" />
-          <svg className={s.icon}>
-            <use href="./icons.svg#icon-user"></use>
-          </svg>
-        </div>
-        <label htmlFor="email">Email</label>
-        <div>
-          <Field type="email" name="email" placeholder="your@email.com" />
-          <svg className={s.icon}>
-            <use href="./icons.svg#icon-email"></use>
-          </svg>
-        </div> */}
-
-
-  // const props = {
-  //   arrOfNames: arrOfNamesSignup,
-  //   onSubmit: handleSubmit,
-  // };
-
-
-  // <label htmlFor="password">Пароль</label>
-  //       <div>
-  //         <Field className={css.input}
-  //           type="password"
-  //           name="password"
-  //           placeholder="Мінімум 8 символів"
-  //         />
-  //         <svg className={css.icon}>
-  //           <use href="./icons.svg#icon-password"></use>
-  //         </svg>
-  //       </div>
