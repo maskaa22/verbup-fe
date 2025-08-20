@@ -3,6 +3,7 @@ import "./App.css";
 import RestrictedRoute from "./components/RestrictedRoute";
 import { lazy, useEffect, useState } from "react";
 import usePageTracking from "./utils/googleAnalize";
+import SpaceLoader from "./components/spaceLoader/SpaceLoader";
 // import { useDispatch } from "react-redux";
 // import type { AppDispatch } from "./redux/store";
 // import { refreshUser } from "./redux/auth/operations";
@@ -44,7 +45,7 @@ function App() {
     <>
       {" "}
       {loading ? (
-        <LoaderDinamic/>
+        <SpaceLoader/>
       ) : (
         <Routes>
           <Route path="/" element={<Intro />} />
@@ -86,8 +87,8 @@ function App() {
               element={<NotificationParams />}
             />
             <Route path="/setting/theme-switcher" element={<ThemeSwitcher />} />
-            <Route path="/loader" element={<LoaderDinamic/>}/>
           </Route>
+          <Route path="/loader" element={<SpaceLoader/>}/>
         </Routes>
       )}
     </>

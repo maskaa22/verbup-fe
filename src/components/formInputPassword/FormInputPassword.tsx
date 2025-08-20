@@ -18,6 +18,7 @@ const FormInputPassword: React.FC<InputPswProps> = ({isFor, label}) => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    
     const value = field.value;
     setValid({
       a: /[a-z]/.test(value),
