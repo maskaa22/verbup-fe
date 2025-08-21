@@ -17,6 +17,7 @@ const Game: React.FC = () => {
 
   const dispatch = useDispatch<AppDispatch>();
   const questions = useSelector(selectQueries);
+  
 
   useEffect(() => {
     dispatch(generateQuestions());

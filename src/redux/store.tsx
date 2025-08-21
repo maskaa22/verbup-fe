@@ -6,7 +6,7 @@ import notifyReducer from "./notify/slice"
 
 import {
   persistStore,
-  persistReducer,
+  // persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -14,21 +14,22 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import type { GameState } from "../utils/gameType";
+// import storage from "redux-persist/lib/storage";
+// import type { GameState } from "../utils/gameType";
 
-const persistConfig = {
-  key: "game",
-  version: 1,
-  storage,
-};
+// const persistConfig = {
+//   key: "game",
+//   version: 1,
+//   storage,
+// };
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
     dict: dictReducer,
     notify: notifyReducer,
-    game: persistReducer<GameState>(persistConfig, gameSlice),
+    // game: persistReducer<GameState>(persistConfig, gameSlice),
+      game: gameSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

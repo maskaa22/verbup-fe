@@ -15,22 +15,27 @@ export const generateQuestions = createAsyncThunk<
 >("game/generateQuestions", async (_, { getState, rejectWithValue }) => {
   try {
     const state = getState() as RootState;
-    const { level, numQuest } = state.game.setting;
-    
+    const { level, numQuest, verbForm } = state.game.setting;
+
     const count = Number(numQuest.split(" ")[0]);
 
     const res = await fetch("/data/irr-verbs.filtered.json");
     const data: qestionDataOperation = await res.json();
+
+    const mode = verbForm === 'Past Simple' ? 'v2' : 'v3';
+
+
+    
     
 
     let questions: Question[] = [];
     if (count > 0) {
       if (level === BEGGINER) {
-        questions = generateQuestionsList(data.easy, count);
+        questions = generateQuestionsList(data.easy, count, mode);
       } else if (level === INTERMEDIATE) {
-        questions = generateQuestionsList(data.medium, count);
+        questions = generateQuestionsList(data.medium, count,mode);
       } else if (level === ADVANCED) {
-        questions = generateQuestionsList(data.hard, count);
+        questions = generateQuestionsList(data.hard, count, mode);
       }
     }
 

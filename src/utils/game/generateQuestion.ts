@@ -23,10 +23,10 @@ export const generateQuestion = (
   //     ? templateFn(verb)
   //     // : `What is the ${mode} of "${verb.base_form}"?`;
   //     : verb.base_form;
+  
+  const question = verb.base_form;
 
-  const question = mode === "v2" ? verb.base_form : verb.past_simple;
-
-  const correctAnswer = mode === "v3" ? verb.past_participle : verb.past_simple;
+  const correctAnswer = mode === "v2" ? verb.past_simple : verb.past_participle;
 
   const rawForms = [
     verb.base_form,

@@ -26,6 +26,14 @@ const gameSlice = createSlice({
       state.correct = 0;
       state.wrong = 0;
     },
+    hydrateFromStorage(
+      state,
+      action: PayloadAction<{ current: number; correct: number; wrong: number }>
+    ) {
+      state.current = action.payload.current;
+      state.correct = action.payload.correct;
+      state.wrong = action.payload.wrong;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -45,5 +53,6 @@ export const {
   resetCurrent,
   setCorrect,
   setWrong,
+  hydrateFromStorage
 } = gameSlice.actions;
 export default gameSlice.reducer;
