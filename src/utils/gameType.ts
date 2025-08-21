@@ -103,6 +103,7 @@ export type RadioGroupProps = {
   selectedValue?: string;
   needSpan: boolean;
   disabled: boolean;
+  disabledOption?: (option: string) => boolean;
 };
 
 export interface GameState {

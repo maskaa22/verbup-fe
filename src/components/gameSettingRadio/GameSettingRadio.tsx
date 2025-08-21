@@ -10,14 +10,18 @@ const GameSettingRadio: React.FC<RadioGroupProps> = ({
   selectedValue,
   needSpan,
   disabled,
+  disabledOption
 }) => {
   return (
     <div className={!disabled ? `${css.rset}` : `${css.rset} ${css.disabled}`}>
-      {options.map((option, index) => (
+      {options.map((option, index) => {
+        const isOptionDisabled = disabled || (disabledOption ? disabledOption(option) : false);
+      return(
         <div
           className={clsx(
             css.inputWrap,
-            selectedValue === option && css.inputWrapChecked
+            selectedValue === option && css.inputWrapChecked,
+            isOptionDisabled && css.inputWrapDisabled
           )}
           key={index}
         >
@@ -33,10 +37,10 @@ const GameSettingRadio: React.FC<RadioGroupProps> = ({
             value={option}
             checked={selectedValue === option}
             onChange={() => onChange(option)}
-            disabled={disabled}
+            disabled={disabled || (disabledOption ? disabledOption(option) : false)}
           />
         </div>
-      ))}
+      )})}
     </div>
   );
 };

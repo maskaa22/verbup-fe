@@ -8,11 +8,16 @@ import { ADVANCED, BEGGINER, INTERMEDIATE } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectGameSetting } from "../../redux/game/selectors";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 const GameSetting = () => {
   const navigate = useNavigate();
 
   const {level, numQuest, verbForm} = useSelector(selectGameSetting);
+  const login = useSelector(selectIsLoggedIn);
+
+
+  
 
   const [formData, setFormData] = useState({
     level: level,
@@ -56,6 +61,7 @@ const GameSetting = () => {
           }
           needSpan={true}
           disabled={false}
+          disabledOption={(option) => option === "Змішаний" && !login}
         />
         <p>Вибір кількості питань у грі</p>
         <GameSettingRadio
