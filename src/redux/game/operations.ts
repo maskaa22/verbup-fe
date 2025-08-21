@@ -16,9 +16,7 @@ export const generateQuestions = createAsyncThunk<
   try {
     const state = getState() as RootState;
     const { level, numQuest, verbForm } = state.game.setting;
-    // console.log(verbForm);
-    
-    
+
     const count = Number(numQuest.split(" ")[0]);
 
     const res = await fetch("/data/irr-verbs.filtered.json");

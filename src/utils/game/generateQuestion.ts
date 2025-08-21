@@ -23,8 +23,6 @@ export const generateQuestion = (
   //     ? templateFn(verb)
   //     // : `What is the ${mode} of "${verb.base_form}"?`;
   //     : verb.base_form;
-
-  console.log(mode);
   
   const question = verb.base_form;
 
