@@ -3,9 +3,9 @@ import c from "./ResultGame.module.css";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
-  selectCorrect,
+  // selectCorrect,
   selectGameSetting,
-  selectWrong,
+  // selectWrong,
 } from "../../redux/game/selectors";
 import { useDispatch } from "react-redux";
 import { baseQuestion, resetCurrent } from "../../redux/game/slice";
@@ -19,8 +19,8 @@ const ResultGame = () => {
   const navigation = useNavigate();
   const gameSetting = useSelector(selectGameSetting);
 
-  const correctRedux = useSelector(selectCorrect);
-  const wrongRedux = useSelector(selectWrong);
+  // const correctRedux = useSelector(selectCorrect);
+  // const wrongRedux = useSelector(selectWrong);
 
   const correctLS = Number(sessionStorage.getItem(CORRECT)) || 0;
   const wrongLS = Number(sessionStorage.getItem(WRONG)) || 0;

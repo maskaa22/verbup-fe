@@ -6,7 +6,7 @@ import notifyReducer from "./notify/slice"
 
 import {
   persistStore,
-  persistReducer,
+  // persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -14,8 +14,8 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import type { GameState } from "../utils/gameType";
+// import storage from "redux-persist/lib/storage";
+// import type { GameState } from "../utils/gameType";
 
 // const persistConfig = {
 //   key: "game",
