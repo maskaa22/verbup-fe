@@ -1,6 +1,6 @@
 import { useState } from "react";
 import s from "./WriteGame.module.css";
-import BaseComponentGame from "../baseComponentGame/BaseComponentGame";
+// import BaseComponentGame from "../baseComponentGame/BaseComponentGame";
 import Keyboard from "../keyboard/Keyboard";
 import { handleBackspace, handleKeyPress } from "../../utils/gameFunctions";
 import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
@@ -16,7 +16,7 @@ const WriteGame = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [visibility, setVisibility] = useState(false);
 
-  const imgWrite = "/image/game/car.png";
+  // const imgWrite = "/image/game/car.png";
   const count = useCountWord();
   const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(
     Array(count).fill("pending")
@@ -26,13 +26,14 @@ const WriteGame = () => {
   return (
     <>
       <div className={s.boxModel}>
-        <BaseComponentGame
+        {/* <BaseComponentGame
           current={current}
           img={imgWrite}
           question={"Which is the Past participle (V3) of “go”?"}
           answerStatuses={answerStatuses}
           count={count}
-        />
+           translate={question.translate}
+        /> */}
         <div className={s.inputContainer}>
           <input type="text" value={text} readOnly className={s.gameInput} />
         </div>

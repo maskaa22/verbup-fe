@@ -5,7 +5,14 @@ import React, { useEffect } from "react";
 import type { currentAnswerAndQuestions } from "../../utils/gameType";
 import { useSelector } from "react-redux";
 import { selectCurrent } from "../../redux/game/selectors";
-import { ANSWER_STATUS, CORRECT, ERROR, LAST_INDEX, SUCCESS, WRONG } from "../../constants";
+import {
+  ANSWER_STATUS,
+  CORRECT,
+  ERROR,
+  LAST_INDEX,
+  SUCCESS,
+  WRONG,
+} from "../../constants";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
 import { hydrateFromStorage } from "../../redux/game/slice";
@@ -38,7 +45,6 @@ const WordGame: React.FC = () => {
     const isLastQuestion = current === questions.length - 1;
     const lastAnswered = answerStatuses[current];
 
-    // якщо поточне питання — останнє і вже на нього відповіли
     if (
       isLastQuestion &&
       (lastAnswered === SUCCESS || lastAnswered === ERROR)

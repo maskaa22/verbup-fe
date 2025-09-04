@@ -4,7 +4,7 @@ import css from "./GameSetting.module.css";
 import BaseButtonStart from "../../components/baseButtonStart/BaseButtonStart";
 import { useDispatch } from "react-redux";
 import { setSetting } from "../../redux/game/slice";
-import { ADVANCED, BEGGINER, INTERMEDIATE } from "../../constants";
+import { ADVANCED, BEGGINER, GAME_SETTING, INTERMEDIATE } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectGameSetting } from "../../redux/game/selectors";
@@ -29,6 +29,7 @@ const GameSetting = () => {
 
   const saveGameSetting = () => {
     dispatch(setSetting(formData));
+    sessionStorage.setItem(GAME_SETTING, JSON.stringify(formData));
     navigate("/game");
   };
 
