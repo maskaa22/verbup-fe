@@ -16,6 +16,7 @@ export const generateQuestions = createAsyncThunk<
   try {
     const state = getState() as RootState;
     const { level, numQuest, verbForm } = state.game.setting;
+    
 
     const count = Number(numQuest.split(" ")[0]);
 
@@ -23,10 +24,6 @@ export const generateQuestions = createAsyncThunk<
     const data: qestionDataOperation = await res.json();
 
     const mode = verbForm === 'Past Simple' ? 'v2' : 'v3';
-
-
-    
-    
 
     let questions: Question[] = [];
     if (count > 0) {

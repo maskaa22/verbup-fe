@@ -92,6 +92,7 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
         question={question.question}
         answerStatuses={answerStatuses}
         count={count}
+        translate={question.translate}
       />
 
       <ul className={c.buttonContainer}>

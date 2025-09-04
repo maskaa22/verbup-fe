@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { generateQuestions } from "./operations";
-import { initialStateGame } from "../../constants";
+import { GAME_SETTING, initialStateGame } from "../../constants";
 
 const gameSlice = createSlice({
   name: "game",
@@ -8,6 +8,7 @@ const gameSlice = createSlice({
   reducers: {
     setSetting(state, action: PayloadAction<typeof initialStateGame.setting>) {
       state.setting = action.payload;
+      sessionStorage.setItem(GAME_SETTING, JSON.stringify(action.payload));
     },
     baseQuestion(state) {
       state.items = [];
