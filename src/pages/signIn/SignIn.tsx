@@ -7,10 +7,10 @@ const SignIn = () => {
   return (
     <div className={css.wrap}>
       <Link to="/">
-                <svg className={css.iconArrowBack}>
-                        <use href="./icons.svg#icon-arrow-back"></use>
-                      </svg>
-                </Link>
+        <svg className={css.iconArrowBack}>
+          <use href="./icons.svg#icon-arrow-back"></use>
+        </svg>
+      </Link>
       <h2>Вхід</h2>
       <SigninForm />
       <div className={css.orWrap}>

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import type { LogFormValues, RegFormValues } from "../../utils/formTypes";
-import api from "../../api/axios";
+import {api} from "../../api/axios";
 
 
 export const setAuthHeader = (token: string): void => {
@@ -37,7 +37,13 @@ export const login = createAsyncThunk(
     try {
       const { data } = await api.post("/auth/login", credentials);
       setAuthHeader(data.accessToken);
-      return data;
+      const user = await api.get("/users")
+      const payload = {
+        token: data.accessToken,
+        username: user.data.username,
+        useremail: user.data.email
+      }
+      return payload;
     } catch (error: unknown) {
       return handleError(error, thunkApi.rejectWithValue);
     }
@@ -51,6 +57,7 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 export const refreshUser = createAsyncThunk("auth/refresh", async (_, thunkApi) => {
   try {
     const { data } = await api.post("/auth/refresh");
+    console.log(data)
       if(data) {
         setAuthHeader(data.accessToken)};
         return data;
