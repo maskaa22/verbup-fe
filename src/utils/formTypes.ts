@@ -39,3 +39,9 @@ export interface LogFormValues {
 email: string,
 password: string,
 }
+
+export interface UserPayload {
+  token: string,
+        username: string,
+        useremail: string
+}

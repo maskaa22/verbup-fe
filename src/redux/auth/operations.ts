@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import type { LogFormValues, RegFormValues } from "../../utils/formTypes";
+import { type LogFormValues, type RegFormValues, type UserPayload } from "../../utils/formTypes";
 import {api} from "../../api/axios";
 
 
@@ -31,9 +31,9 @@ export const register = createAsyncThunk(
   }
 );
 //mrCam@gmail.com
-export const login = createAsyncThunk(
+export const login = createAsyncThunk<UserPayload, LogFormValues>(
   "auth/login",
-  async (credentials: LogFormValues, thunkApi) => {
+  async (credentials, thunkApi) => {
     try {
       const { data } = await api.post("/auth/login", credentials);
       setAuthHeader(data.accessToken);

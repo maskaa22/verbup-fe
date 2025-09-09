@@ -3,6 +3,8 @@ import css from "./Menu.module.css";
 import { NavLink, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { useScreenWidth } from "../../utils/useScreenWidth";
+import { useSelector } from "react-redux";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 const Menu = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -11,6 +13,7 @@ const Menu = () => {
   const screenWidth = useScreenWidth();
   const divider = screenWidth / 5 - 4
   const navWidth = screenWidth <= 374 ? divider : 72;
+  const isLoggedIn = useSelector(selectIsLoggedIn)
 
   //   if(isActive){setNoActive(false)}   this line is not allowed during render unless it's in useEffect() !!!
 
@@ -92,10 +95,10 @@ const Menu = () => {
                 </svg>
               </NavLink>
             </li>
-            <li className={css.disabled}>
-              <NavLink className={css.disabled} to="#">
+            <li>
+              <NavLink className={({ isActive }) => clsx(isActive && css.active)} to="/home">
                 <svg className={css.icon}>
-                  <use href="/icons.svg#icon-home"></use>
+                  <use href={`/icons.svg#${isLoggedIn? "icon-user-loggedin" : "icon-home"}`}></use>
                 </svg>
               </NavLink>
             </li>
