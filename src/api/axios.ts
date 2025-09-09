@@ -21,7 +21,8 @@ const processQueue = (error: AxiosError | null, token: string | null = null) => 
 }
 
 export const api = axios.create({
-  baseURL: "http://localhost:8000/api/v1",
+  baseURL: import.meta.env.VITE_API_URL,
+  // baseURL: "https://verbup-60d2d030ff70.herokuapp.com/api/v1",
   withCredentials: true
 });
 
@@ -50,7 +51,7 @@ api.interceptors.response.use(
       try {
         const res = await api.post('/auth/refresh', { 
         })
-console.log("token could be here")
+console.log(res)
         const newAccessToken = res.data.accessToken
         console.log(newAccessToken)
         setAuthHeader(newAccessToken)
@@ -76,58 +77,3 @@ console.log("token could be here")
 
 export default api;
 
-// let isRefreshing = false;
-// let failedQueue: (() => void) [] = [];
-
-// const processQueue = () => {
-//     failedQueue.forEach(callback => callback());
-//     failedQueue = [];
-// }
-
-// export const api = axios.create({
-//   baseURL: "http://localhost:8000/api/v1",
-//   withCredentials: true
-// }); 
-
-
-
-// export const setupInterceptors = () => {
-//     api.interceptors.response.use(
-//         res => res,
-//         async err => {
-//             const originalRequest = err.config;
-
-//             if (err.response?.status === 401 && !originalRequest._retry) {
-//                 originalRequest._retry = true;
-
-//                 if(!isRefreshing){
-//                     isRefreshing = true;
-
-//                     try {
-//                         await api.post("/refresh");
-//                         isRefreshing = false;
-//                         processQueue()
-//                     } catch (refreshErr) {
-//                         isRefreshing = false;
-//                         return Promise.reject(refreshErr)
-//                     }
-//                 }
-//             }
-
-//             return Promise.reject(err);
-//         }
-//     )
-// }
-// export default api;
-// 
-// // REQUEST INTERCEPTOR — attach token
-// api.interceptors.request.use(
-//   (config) => {
-//     const token = localStorage.getItem('access_token')
-//     if (token && config.headers) {
-//       config.headers['Authorization'] = `Bearer ${token}`
-//     }
-//     return config
-//   },
-//   (error) => Promise.reject(error)
-// )

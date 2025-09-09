@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import type { LogFormValues, RegFormValues } from "../../utils/formTypes";
-import api from "../../api/axios";
+import { type LogFormValues, type RegFormValues, type UserPayload } from "../../utils/formTypes";
+import {api} from "../../api/axios";
 
 
 export const setAuthHeader = (token: string): void => {
@@ -22,24 +22,37 @@ export const register = createAsyncThunk(
   async (credentials: RegFormValues, thunkApi) => {
     try {
       const { data } = await api.post("/auth/register", credentials);
-      console.log(data)
       setAuthHeader(data.accessToken);
-      return data;
+      const user = await api.get("/users")
+      const payload = {
+        token: data.accessToken,
+        username: user.data.username,
+        useremail: user.data.email
+      }
+      return payload;
     } catch (error: unknown) {
-      return handleError(error, thunkApi.rejectWithValue);
+      // return handleError(error, thunkApi.rejectWithValue);
+      return thunkApi.rejectWithValue(error || "Registration failed")
     }
   }
 );
-//mrCam@gmail.com
-export const login = createAsyncThunk(
+
+export const login = createAsyncThunk<UserPayload, LogFormValues>(
   "auth/login",
-  async (credentials: LogFormValues, thunkApi) => {
+  async (credentials, thunkApi) => {
     try {
       const { data } = await api.post("/auth/login", credentials);
       setAuthHeader(data.accessToken);
-      return data;
+      const user = await api.get("/users")
+      const payload = {
+        token: data.accessToken,
+        username: user.data.username,
+        useremail: user.data.email
+      }
+      return payload;
     } catch (error: unknown) {
-      return handleError(error, thunkApi.rejectWithValue);
+      // return handleError(error, thunkApi.rejectWithValue);
+      return thunkApi.rejectWithValue(error || "Login failed")
     }
   }
 );
@@ -51,6 +64,7 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 export const refreshUser = createAsyncThunk("auth/refresh", async (_, thunkApi) => {
   try {
     const { data } = await api.post("/auth/refresh");
+    console.log(data)
       if(data) {
         setAuthHeader(data.accessToken)};
         return data;

@@ -4,9 +4,11 @@ import RestrictedRoute from "./components/RestrictedRoute";
 import { lazy, useEffect, useState } from "react";
 import usePageTracking from "./utils/googleAnalize";
 import SpaceLoader from "./components/spaceLoader/SpaceLoader";
-// import { useDispatch } from "react-redux";
-// import type { AppDispatch } from "./redux/store";
-// import { refreshUser } from "./redux/auth/operations";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "./redux/store";
+import { refreshUser } from "./redux/auth/operations";
+import { useSelector } from "react-redux";
+import { selectIsLoggedIn } from "./redux/auth/selectors";
 
 
 const Intro = lazy(() => import("./pages/intro/Intro"));
@@ -28,16 +30,22 @@ const LoaderDinamic = lazy(() => import("./components/loaderDinamic/LoaderDinami
 
 function App() {
   const [loading, setLoading] = useState(true);
-  // const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch<AppDispatch>();
+  const isLoggedin = useSelector(selectIsLoggedIn)
+  
+
+  // useEffect(() => {console.log(isLoggedin)}, [isLoggedin])
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false) , 3000); // 2.5s splash
     return () => clearTimeout(timer);
   }, []);
 
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    // if(loading) return;
+    if(isLoggedin){dispatch(refreshUser());}
+
+  }, [dispatch]);
 
   usePageTracking();
 
@@ -53,22 +61,18 @@ function App() {
           <Route element={<AuthLayout />}>
             <Route
               path="/signup"
-              element={
-                <RestrictedRoute component={<SignUp />} redirectTo="/home" />
-              }
+              element={<SignUp />}
             />
             <Route
               path="/signin"
-              element={
-                <RestrictedRoute component={<SignIn />} redirectTo="/home" />
-              }
+              element={<SignIn />}
             />
             <Route path="/game" element={<Game />}>
               <Route path="write-word" element={<WriteGame />} />
               <Route path="check-word" element={<WordGame />} />
               <Route path="result" element={<ResultGame />} />
             </Route>
-            <Route path="/home" element={<Home />} />
+            <Route path="/home" element={<RestrictedRoute component={<Home />} redirectTo="/signin" />} />
             <Route path="/cup" element={<LoaderDinamic />} />
             <Route path="/voc" element={<Dictionary />} />
             <Route path="/setting" element={<Setting />}></Route>

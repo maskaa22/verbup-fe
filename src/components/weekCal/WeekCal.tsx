@@ -16,7 +16,6 @@ const WeekCal = () => {
     }
 
     const currentDay = (i: number) => {
-        console.log(weekDates[i].getDate() === todayDate)
 return clsx(weekDates[i].getDate() === todayDate && css.todayWrap)
     }
     

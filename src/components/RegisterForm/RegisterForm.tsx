@@ -7,15 +7,21 @@ import type { RegFormValues } from "../../utils/formTypes";
 import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
 import FormInput from "../formInput/FormInput";
 import FormInputPassword from "../formInputPassword/FormInputPassword";
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const handleSubmit = (
+  const navigate = useNavigate()
+  const handleSubmit = async (
     values: RegFormValues,
     actions: FormikHelpers<RegFormValues>
-  ): void => {
-    dispatch(register(values));
+  ): Promise<void> => {
+   const res = await dispatch(register(values));
+   if(register.fulfilled.match(res)){
     actions.resetForm();
+    navigate('/home')
+   }
+    
   };
   return  <Formik
       initialValues={{ username: "", email: "", password: "" }}
