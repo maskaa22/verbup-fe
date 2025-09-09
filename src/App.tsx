@@ -61,22 +61,18 @@ function App() {
           <Route element={<AuthLayout />}>
             <Route
               path="/signup"
-              element={
-                <RestrictedRoute component={<SignUp />} redirectTo="/home" />
-              }
+              element={<SignUp />}
             />
             <Route
               path="/signin"
-              element={
-                <RestrictedRoute component={<SignIn />} redirectTo="/home" />
-              }
+              element={<SignIn />}
             />
             <Route path="/game" element={<Game />}>
               <Route path="write-word" element={<WriteGame />} />
               <Route path="check-word" element={<WordGame />} />
               <Route path="result" element={<ResultGame />} />
             </Route>
-            <Route path="/home" element={<Home />} />
+            <Route path="/home" element={<RestrictedRoute component={<Home />} redirectTo="/signin" />} />
             <Route path="/cup" element={<LoaderDinamic />} />
             <Route path="/voc" element={<Dictionary />} />
             <Route path="/setting" element={<Setting />}></Route>

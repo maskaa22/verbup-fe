@@ -3,7 +3,7 @@ import css from "./SigninForm.module.css";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/operations";
 import type { AppDispatch } from "../../redux/store";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
 import FormInput from "../formInput/FormInput";
 import FormInputPassword from "../formInputPassword/FormInputPassword";
@@ -13,11 +13,15 @@ import type { LogFormValues } from "../../utils/formTypes";
 
 const SigninForm = () => {
 // const [visible, setVisible] = useState(false)
-
+const navigate = useNavigate()
   const dispatch = useDispatch<AppDispatch>();
-  const handleSubmit = (values: LogFormValues, actions: FormikHelpers<LogFormValues>): void => {
-    dispatch(login(values));
+  const handleSubmit = async (values: LogFormValues, actions: FormikHelpers<LogFormValues>): void => {
+   const res = await dispatch(login(values));
+   if(login.fulfilled.match(res)){
     actions.resetForm();
+    navigate('/home');
+   }
+    
   };
   return (
     <Formik initialValues={{ email: "", password: "" }} onSubmit={handleSubmit}>

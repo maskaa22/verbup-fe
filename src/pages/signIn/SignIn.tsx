@@ -1,4 +1,4 @@
-import ExtraSignup from "../../components/extraSignup/ExtraSignup";
+// import ExtraSignup from "../../components/extraSignup/ExtraSignup";
 import css from "./SignIn.module.css";
 import SigninForm from "../../components/signinFrom/SigninForm";
 import { Link } from "react-router-dom";
@@ -17,7 +17,7 @@ const SignIn = () => {
         <span>Немає кабінету?</span>
         <Link to="/signup">Зареєструватися</Link>
       </div>
-      <ExtraSignup />
+      {/* <ExtraSignup /> */}
     </div>
   );
 };
