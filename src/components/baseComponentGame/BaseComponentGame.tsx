@@ -15,6 +15,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
   question,
   answerStatuses,
   count,
+  translate
 }) => {
   const { setModalActive } = useOutletContext<modalType>();
 
@@ -55,6 +56,8 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
       <div className={s.imgContainer}>
         <img src={img} className={s.img} />
       </div>
+
+      <p className={s.translate}>{translate}</p>
 
       <p className={s.title}>
         Choose the correct {verbForm.toLowerCase()} of <span>{question}</span>

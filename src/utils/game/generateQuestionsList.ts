@@ -6,6 +6,7 @@ export const generateQuestionsList = (
   count: number,
   mode: "v2" | "v3" = "v2"
 ) => {
+
   const shuffled = [...verbsArray].sort(() => 0.5 - Math.random());
   const selected = shuffled.slice(0, count);
 

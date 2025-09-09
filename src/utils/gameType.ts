@@ -4,6 +4,7 @@ export type baseComponentType = {
   question: string;
   answerStatuses: AnswerStatus[];
   count: number;
+  translate: string
 };
 
 export type AnswerStatus = "success" | "error" | "pending";
@@ -44,6 +45,7 @@ export type QuestionType = {
   correctAnswer: string;
   variants: BtnType[];
   base_form: string;
+  translate: string
 };
 export type CardGameProps = {
   question: QuestionType;
@@ -77,12 +79,14 @@ export type Question = {
   correctAnswer: string;
   variants: BtnType[];
   base_form: string;
+  translate: string;
 };
 export type Verb = {
   base_form: string;
   past_simple: string;
   past_participle: string;
   fake: string;
+  uk: string
 };
 export type TemplateFn = (verb: Verb) => string;
 export type QuestionTemplates = {

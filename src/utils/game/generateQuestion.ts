@@ -32,7 +32,7 @@ export const generateQuestion = (
     verb.base_form,
     verb.past_simple,
     verb.past_participle,
-    verb.fake,
+    verb.fake
   ];
 
   const uniqueForms = new Set<string>();
@@ -50,5 +50,6 @@ export const generateQuestion = (
     correctAnswer,
     variants: variants.sort(() => Math.random() - 0.5),
     base_form: verb.base_form,
+    translate: verb.uk
   };
 };

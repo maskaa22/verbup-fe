@@ -16,6 +16,7 @@ import { useCountWord } from "../../hooks/gameHooks";
 import { useDispatch } from "react-redux";
 import { setCurrent } from "../../redux/game/slice";
 import { ANSWER_STATUS, LAST_INDEX, PENDING } from "../../constants";
+import { useMobileOS } from "../../hooks/useMobileOS";
 
 const CardGame: React.FC<CardGameProps> = ({ question }) => {
   const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
@@ -23,6 +24,8 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
 
   const current = useSelector(selectCurrent);
   const dispatch = useDispatch();
+
+  const iOS = useMobileOS();
 
   const [word, setWord] = useState<string>("");
   const [activeWord, setActiveWord] = useState<string | null>(null);
@@ -42,6 +45,7 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
   const handleWordClick = (wordName: string) => {
     setWord(wordName);
     setActiveWord(wordName);
+    if(iOS === "iOS") return;
     speakText(wordName, true); // озвучування вибраної відповіді
   };
 
@@ -92,6 +96,7 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
         question={question.question}
         answerStatuses={answerStatuses}
         count={count}
+        translate={question.translate}
       />
 
       <ul className={c.buttonContainer}>

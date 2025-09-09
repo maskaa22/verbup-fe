@@ -1,3 +1,4 @@
+import { loadSettingFromStorage } from "../utils/game/loadSettingFromStorage";
 import type { GameState } from "../utils/gameType";
 import type { NotificationState } from "../utils/notify/notifyTypes";
 
@@ -14,6 +15,8 @@ export const CORRECT = "correct";
 export const WRONG = "wrong";
 export const LAST_INDEX = "lastAnsweredIndex";
 export const ANSWER_STATUS = "answerStatuses";
+
+export const GAME_SETTING= "gameSetting";
 
 export const arrOfNamesSignup = [
   {
@@ -99,11 +102,7 @@ export const arrOfNamesUser = [
 export const verbFrom = ["(V2)", "(V3)", "(V2, V3)"];
 
 export const initialStateGame: GameState = {
-  setting: {
-    level: BEGGINER,
-    numQuest: "5 питань",
-    verbForm: "Past Simple",
-  },
+  setting: loadSettingFromStorage(),
   items: [],
   current: 0,
   correct: 0,
