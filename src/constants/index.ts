@@ -1,3 +1,4 @@
+import type { authState } from "../utils/formTypes";
 import { loadSettingFromStorage } from "../utils/game/loadSettingFromStorage";
 import type { GameState } from "../utils/gameType";
 import type { NotificationState } from "../utils/notify/notifyTypes";
@@ -134,3 +135,15 @@ export const curves = [
   { id: "icon-line-11", offsetX: 50, offsetY: -400 },
   { id: "icon-line-12", offsetX: 250, offsetY: -310 },
 ];
+
+export const initialStateAuth: authState = {
+  user: {
+    name: null,
+    email: null,
+  },
+  token: null,
+  isLoggedIn: false,
+  isLoading: false,
+  isRefreshing: false,
+  isError: false,
+};

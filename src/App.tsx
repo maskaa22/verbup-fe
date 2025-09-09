@@ -34,7 +34,7 @@ function App() {
   const isLoggedin = useSelector(selectIsLoggedIn)
   
 
-  useEffect(() => {console.log(isLoggedin)}, [isLoggedin])
+  // useEffect(() => {console.log(isLoggedin)}, [isLoggedin])
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false) , 3000); // 2.5s splash

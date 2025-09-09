@@ -45,3 +45,15 @@ export interface UserPayload {
         username: string,
         useremail: string
 }
+
+export interface authState {
+  user: {
+    name: string | null;
+    email: string | null;
+  };
+  token: string | null;
+  isLoggedIn: boolean;
+  isLoading: boolean;
+  isRefreshing: boolean;
+  isError: boolean;
+}

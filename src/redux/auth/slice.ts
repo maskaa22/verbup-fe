@@ -1,33 +1,14 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { login, refreshUser, register } from "./operations";
+import { initialStateAuth } from "../../constants";
 
-interface authState {
-  user: {
-    name: string | null;
-    email: string | null;
-  };
-  token: string | null;
-  isLoggedIn: boolean;
-  isLoading: boolean;
-  isRefreshing: boolean;
-  isError: boolean;
-}
 
-const initialState: authState = {
-  user: {
-    name: null,
-    email: null,
-  },
-  token: null,
-  isLoggedIn: false,
-  isLoading: false,
-  isRefreshing: false,
-  isError: false,
-};
+
+
 
 const authSlice = createSlice({
   name: "auth",
-  initialState: initialState,
+  initialState: initialStateAuth,
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -45,7 +26,6 @@ const authSlice = createSlice({
         state.user.name = action.payload.username;
         state.user.email = action.payload.useremail
         state.isLoggedIn = true;
-        console.log(action.payload)
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.isLoading = false;
