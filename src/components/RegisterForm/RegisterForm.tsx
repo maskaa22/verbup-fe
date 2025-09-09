@@ -15,7 +15,7 @@ const RegisterForm: React.FC = () => {
   const handleSubmit = async (
     values: RegFormValues,
     actions: FormikHelpers<RegFormValues>
-  ): void => {
+  ): Promise<void> => {
    const res = await dispatch(register(values));
    if(register.fulfilled.match(res)){
     actions.resetForm();

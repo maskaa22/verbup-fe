@@ -22,15 +22,21 @@ export const register = createAsyncThunk(
   async (credentials: RegFormValues, thunkApi) => {
     try {
       const { data } = await api.post("/auth/register", credentials);
-      console.log(data)
       setAuthHeader(data.accessToken);
-      return data;
+      const user = await api.get("/users")
+      const payload = {
+        token: data.accessToken,
+        username: user.data.username,
+        useremail: user.data.email
+      }
+      return payload;
     } catch (error: unknown) {
-      return handleError(error, thunkApi.rejectWithValue);
+      // return handleError(error, thunkApi.rejectWithValue);
+      return thunkApi.rejectWithValue(error || "Registration failed")
     }
   }
 );
-//mrCam@gmail.com
+
 export const login = createAsyncThunk<UserPayload, LogFormValues>(
   "auth/login",
   async (credentials, thunkApi) => {
@@ -45,7 +51,8 @@ export const login = createAsyncThunk<UserPayload, LogFormValues>(
       }
       return payload;
     } catch (error: unknown) {
-      return handleError(error, thunkApi.rejectWithValue);
+      // return handleError(error, thunkApi.rejectWithValue);
+      return thunkApi.rejectWithValue(error || "Login failed")
     }
   }
 );

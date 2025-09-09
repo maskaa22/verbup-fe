@@ -15,7 +15,7 @@ const SigninForm = () => {
 // const [visible, setVisible] = useState(false)
 const navigate = useNavigate()
   const dispatch = useDispatch<AppDispatch>();
-  const handleSubmit = async (values: LogFormValues, actions: FormikHelpers<LogFormValues>): void => {
+  const handleSubmit = async (values: LogFormValues, actions: FormikHelpers<LogFormValues>): Promise<void> => {
    const res = await dispatch(login(values));
    if(login.fulfilled.match(res)){
     actions.resetForm();
