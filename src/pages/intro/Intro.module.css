@@ -235,3 +235,9 @@ height: 200px;
   margin-top: 4px;
 }
 }
+
+@media screen and (max-width: 391px) {
+  .link{
+    width: 100%;
+  }
+}

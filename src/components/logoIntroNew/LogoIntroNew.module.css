@@ -68,6 +68,7 @@ line-height: 1;
     transform: rotate(26deg);
 }
 .droopyHL{
+    /* text-transform: capitalize; */
     color: transparent;
     font-size: 64px;
     position: absolute;
@@ -111,8 +112,8 @@ padding-bottom: 6px;
     .droopyHL{font-size: 56px;}
 }
 
-@media screen and (max-width: 329px){
+/* @media screen and (max-width: 329px){
     .headline{font-size: 32px;}
     .realUp{font-size: 48px;}
     .droopyHL{font-size: 56px;}
-}
+} */
