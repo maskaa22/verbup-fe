@@ -9,6 +9,8 @@ import FormInput from "../formInput/FormInput";
 import FormInputPassword from "../formInputPassword/FormInputPassword";
 import type { LogFormValues } from "../../utils/formTypes";
 import * as Yup from "yup";
+import { useSelector } from "react-redux";
+import { selectIsError } from "../../redux/auth/selectors";
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string()
@@ -20,16 +22,22 @@ const SigninForm = () => {
   // const [visible, setVisible] = useState(false)
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
+  const error = useSelector(selectIsError)
+
   const handleSubmit = async (
     values: LogFormValues,
     actions: FormikHelpers<LogFormValues>
   ): Promise<void> => {
     const res = await dispatch(login(values));
+    
+    console.log(res)
     if (login.fulfilled.match(res)) {
-      actions.resetForm();
+      
       navigate("/home");
     }
+    actions.resetForm();
   };
+
   return (
     <Formik initialValues={{ email: "", password: "" }} onSubmit={handleSubmit} validationSchema={SignInSchema}>
       <Form className={css.form}>
@@ -40,7 +48,7 @@ const SigninForm = () => {
           placeholder={"your@email.com"}
           icon={"icon-email"}
         />
-        <FormInputPassword isFor="signin" label="Пароль" />
+        <FormInputPassword isFor="signin" label="Пароль" placeholder={error? 'натисніть “Забули пароль”' : ""} />
 
         <Link className={css.forgotPassword} to="/">
           Забули пароль?

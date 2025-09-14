@@ -4,6 +4,7 @@ import {api} from "../../api/axios";
 
 
 export const setAuthHeader = (token: string): void => {
+  // console.log("Bearer", token)
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
@@ -22,6 +23,7 @@ export const register = createAsyncThunk(
   async (credentials: RegFormValues, thunkApi) => {
     try {
       const { data } = await api.post("/auth/register", credentials);
+      console.log(data)
       setAuthHeader(data.accessToken);
       const user = await api.get("/users")
       const payload = {
@@ -42,6 +44,7 @@ export const login = createAsyncThunk<UserPayload, LogFormValues>(
   async (credentials, thunkApi) => {
     try {
       const { data } = await api.post("/auth/login", credentials);
+            // console.log(data)
       setAuthHeader(data.accessToken);
       const user = await api.get("/users")
       const payload = {
@@ -64,7 +67,7 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 export const refreshUser = createAsyncThunk("auth/refresh", async (_, thunkApi) => {
   try {
     const { data } = await api.post("/auth/refresh");
-    console.log(data)
+    // console.log(data)
       if(data) {
         setAuthHeader(data.accessToken)};
         return data;

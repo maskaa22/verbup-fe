@@ -44,7 +44,9 @@ const authSlice = createSlice({
       ).addMatcher(
         isAnyOf(register.rejected, login.rejected),
         (state) => {
+          // console.log("action.payload:", action.payload.status)
           state.isLoading = false;
+          state.isError = true;
         }
       );
   },
