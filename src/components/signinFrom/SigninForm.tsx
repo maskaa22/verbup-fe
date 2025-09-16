@@ -48,7 +48,7 @@ const SigninForm = () => {
           placeholder={"your@email.com"}
           icon={"icon-email"}
         />
-        <FormInputPassword isFor="signin" label="Пароль" placeholder={error? 'натисніть “Забули пароль”' : ""} />
+        <FormInputPassword isFor="signin" label="Пароль" placeholder={error? 'натисніть “Забули пароль”' : "***********"} />
 
         <Link className={css.forgotPassword} to="/">
           Забули пароль?
