@@ -25,9 +25,9 @@ const FromChangePsw = () => {
       onSubmit={handleSubmit}
     >
       <Form className={css.form}>
-        <FormInputPassword isFor="signin" label="Поточний пароль" />
-        <FormInputPassword isFor="signup" label="Новий пароль" />
-        <FormInputPassword isFor="signin" label="Підтвердити новий пароль" />
+        <FormInputPassword isFor="signin" label="Поточний пароль" placeholder="***********" />
+        <FormInputPassword isFor="signup" label="Новий пароль" placeholder="***********" />
+        <FormInputPassword isFor="signin" label="Підтвердити новий пароль" placeholder="***********" />
       <BaseButtonStart label="Далі"/>
       </Form>
     </Formik>
