@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { type LogFormValues, type RegFormValues, type UserPayload } from "../../utils/formTypes";
+import { type LogFormValues, type RegFormValues } from "../../utils/formTypes";
 import {api} from "../../api/axios";
 
 
@@ -25,34 +25,35 @@ export const register = createAsyncThunk(
       const { data } = await api.post("/auth/register", credentials);
       console.log(data)
       setAuthHeader(data.accessToken);
-      const user = await api.get("/users")
-      const payload = {
-        token: data.accessToken,
-        username: user.data.username,
-        useremail: user.data.email
-      }
-      return payload;
+      // const user = await api.get("/users")
+      // const payload = {
+      //   token: data.accessToken,
+      //   username: user.data.username,
+      //   useremail: user.data.email
+      // }
+      // return payload;
+      return data;
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
       return thunkApi.rejectWithValue(error || "Registration failed")
     }
   }
 );
-
-export const login = createAsyncThunk<UserPayload, LogFormValues>(
+//createAsyncThunk<UserPayload, LogFormValues>
+export const login = createAsyncThunk(
   "auth/login",
-  async (credentials, thunkApi) => {
+  async (credentials: LogFormValues, thunkApi) => {
     try {
       const { data } = await api.post("/auth/login", credentials);
             // console.log(data)
       setAuthHeader(data.accessToken);
-      const user = await api.get("/users")
-      const payload = {
-        token: data.accessToken,
-        username: user.data.username,
-        useremail: user.data.email
-      }
-      return payload;
+      // const user = await api.get("/users")
+      // const payload = {
+      //   token: data.accessToken,
+      //   username: user.data.username,
+      //   useremail: user.data.email
+      // }
+      return data;
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
       return thunkApi.rejectWithValue(error || "Login failed")
@@ -75,3 +76,5 @@ export const refreshUser = createAsyncThunk("auth/refresh", async (_, thunkApi) 
     return handleError(error,  thunkApi.rejectWithValue);
   }
 });
+
+

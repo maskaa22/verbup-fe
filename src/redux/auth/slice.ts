@@ -14,17 +14,19 @@ const authSlice = createSlice({
     builder
       .addCase(register.fulfilled, (state, action) => {
         state.isLoading = false;
-        // state.token = action.payload.accessToken;
-        state.token = action.payload.token;
-        state.user.name = action.payload.username;
-        state.user.email = action.payload.useremail
+        state.token = action.payload.accessToken;
+        // state.token = action.payload.token;
+        // state.user.name = action.payload.username;
+        // state.user.email = action.payload.useremail
         state.isLoggedIn = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.token = action.payload.token;
-        state.user.name = action.payload.username;
-        state.user.email = action.payload.useremail
+        console.log(action.payload)
+        state.token = action.payload.accessToken;
+        // state.token = action.payload.token;
+        // state.user.name = action.payload.username;
+        // state.user.email = action.payload.useremail
         state.isLoggedIn = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
