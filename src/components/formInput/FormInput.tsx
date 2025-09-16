@@ -1,4 +1,4 @@
-import { Field } from "formik";
+import { ErrorMessage, Field } from "formik";
 import css from "./FormInput.module.css"
 import type { FromInputProps } from "../../utils/formTypes";
 
@@ -13,6 +13,7 @@ return <div>
           <svg className={css.icon}>
             <use href={`./icons.svg#${icon}`}></use>
           </svg>
+          <ErrorMessage name={name} component="span" />
         </div>
         </div>
 }

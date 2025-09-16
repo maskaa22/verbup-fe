@@ -8,10 +8,13 @@ import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
 import FormInput from "../formInput/FormInput";
 import FormInputPassword from "../formInputPassword/FormInputPassword";
 import { useNavigate } from "react-router-dom";
+// import { selectIsError } from "../../redux/auth/selectors";
+// import { useSelector } from "react-redux";
 
 const RegisterForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate()
+  // const error = useSelector(selectIsError)
   const handleSubmit = async (
     values: RegFormValues,
     actions: FormikHelpers<RegFormValues>
@@ -30,7 +33,7 @@ const RegisterForm: React.FC = () => {
       <Form className={css.form}>
         <FormInput label="Ім'я" name="username" type="text" placeholder="Введіть ваше ім'я" icon="icon-user"/>
         <FormInput label="E - mail" name="email" type="email" placeholder="your@email.com" icon="icon-email"/>
-        <FormInputPassword isFor="reg" label="Пароль"/>
+        <FormInputPassword isFor="reg" label="Пароль" placeholder="Мінімум 8 символів"/>
         <BaseButtonStart label="Зарееструватися"/>
       </Form>
     </Formik> ;

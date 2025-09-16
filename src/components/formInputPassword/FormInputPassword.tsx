@@ -4,10 +4,13 @@ import { useField } from "formik";
 import ValidPassword from "../validPassword/ValidPassword";
 import clsx from "clsx";
 import type { InputPswProps } from "../../utils/formTypes";
+import { useSelector } from "react-redux";
+import { selectIsError } from "../../redux/auth/selectors";
 
 
 
-const FormInputPassword: React.FC<InputPswProps> = ({isFor, label}) => {
+const FormInputPassword: React.FC<InputPswProps> = ({isFor, label, placeholder}) => {
+  const error = useSelector(selectIsError)
   const [field] = useField("password");
   const [valid, setValid] = useState({
     a: false,
@@ -36,8 +39,8 @@ const FormInputPassword: React.FC<InputPswProps> = ({isFor, label}) => {
       <input
         {...field}
         type={visible ? "text" : "password"}
-        className={css.input}
-        placeholder="Мінімум 8 символів"
+        className={`${css.input} ${error && css.errorClass}`}
+        placeholder={placeholder || "Мінімум 8 символів"}
         autoComplete="off"
         required
       />

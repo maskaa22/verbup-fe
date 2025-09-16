@@ -32,7 +32,8 @@ export interface FromInputProps {
 
 export interface InputPswProps {
   isFor: string,
-  label: string
+  label: string,
+  placeholder: string
 }
 
 export interface LogFormValues {
