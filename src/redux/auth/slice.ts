@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { login, refreshUser, register } from "./operations";
+import api, { login, refreshUser, register } from "./operations";
 import { initialStateAuth } from "../../constants";
 
 
@@ -9,7 +9,16 @@ import { initialStateAuth } from "../../constants";
 const authSlice = createSlice({
   name: "auth",
   initialState: initialStateAuth,
-  reducers: {},
+  reducers: {
+
+    setTokenFromLocal: () => {
+      const token = localStorage.getItem("token");
+      if(token){
+          api.defaults.headers.common.Authorization = `Bearer ${token}`;
+    
+      }
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, (state, action) => {
@@ -55,3 +64,5 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+
+export const { setTokenFromLocal} = authSlice.actions

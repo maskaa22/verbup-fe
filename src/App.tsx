@@ -4,6 +4,9 @@ import RestrictedRoute from "./components/RestrictedRoute";
 import { lazy, useEffect, useState } from "react";
 import usePageTracking from "./utils/googleAnalize";
 import SpaceLoader from "./components/spaceLoader/SpaceLoader";
+import { setTokenFromLocal } from "./redux/auth/slice";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "./redux/store";
 // import { useDispatch } from "react-redux";
 // import type { AppDispatch } from "./redux/store";
 // import { refreshUser } from "./redux/auth/operations";
@@ -30,16 +33,18 @@ const LoaderDinamic = lazy(() => import("./components/loaderDinamic/LoaderDinami
 
 function App() {
   const [loading, setLoading] = useState(true);
-  // const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch<AppDispatch>();
   // const isLoggedin = useSelector(selectIsLoggedIn)
   
 
   // useEffect(() => {console.log(isLoggedin)}, [isLoggedin])
 
   useEffect(() => {
+dispatch(setTokenFromLocal())
     const timer = setTimeout(() => setLoading(false) , 3000); // 2.5s splash
     return () => clearTimeout(timer);
   }, []);
+
 
   // useEffect(() => {
   //   // if(loading) return;

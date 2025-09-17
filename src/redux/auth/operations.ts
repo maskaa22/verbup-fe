@@ -8,6 +8,16 @@ export const setAuthHeader = (token: string): void => {
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
+// export const setTokenFromLocal = () => {
+//   const token = localStorage.getItem("token");
+//   if(token){
+//       api.defaults.headers.common.Authorization = `Bearer ${token}`;
+
+//   }
+// }
+
+export default api;
+
 const handleError = (
   error: unknown,
   rejectWithValue: (value: string) => unknown
