@@ -25,4 +25,5 @@ export interface InitialState {
   allWords: myVerbs | null;
   word: string;
   letter: string;
+  isLoading: boolean
 }

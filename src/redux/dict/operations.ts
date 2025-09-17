@@ -13,3 +13,12 @@ try {
 }
 });
 
+export const getWords = createAsyncThunk("data/words", async (_, thunkApi) => {
+  try {
+    const res = await api.get("/irr-words/en/list");
+    console.log(res.data)
+    return res.data
+  } catch (error) {
+    return thunkApi.rejectWithValue(error || "Login failed");
+  }
+})
