@@ -19,6 +19,7 @@ import { hydrateFromStorage } from "../../redux/game/slice";
 
 const WordGame: React.FC = () => {
   const { questions } = useOutletContext<currentAnswerAndQuestions>();
+// console.log(questions);
 
   const current = useSelector(selectCurrent);
 

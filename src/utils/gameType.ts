@@ -4,7 +4,7 @@ export type baseComponentType = {
   question: string;
   answerStatuses: AnswerStatus[];
   count: number;
-  translate: string
+  translate: string;
 };
 
 export type AnswerStatus = "success" | "error" | "pending";
@@ -30,7 +30,7 @@ export type progressBarProps = {
 
 export type modalType = {
   setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
-}
+};
 export type cardGameType = {
   current: number;
   setCheckAnswerType: React.Dispatch<React.SetStateAction<string>>;
@@ -45,7 +45,7 @@ export type QuestionType = {
   correctAnswer: string;
   variants: BtnType[];
   base_form: string;
-  translate: string
+  translate: string;
 };
 export type CardGameProps = {
   question: QuestionType;
@@ -86,7 +86,7 @@ export type Verb = {
   past_simple: string;
   past_participle: string;
   fake: string;
-  uk: string
+  uk: string;
 };
 export type TemplateFn = (verb: Verb) => string;
 export type QuestionTemplates = {
@@ -109,6 +109,12 @@ export type RadioGroupProps = {
   disabled: boolean;
   disabledOption?: (option: string) => boolean;
 };
+
+export interface questionsLogin {
+  level: string;
+  numQuest: string;
+  verbForm: string;
+}
 
 export interface GameState {
   setting: {

@@ -4,10 +4,11 @@ import CheckAnswer from "../../components/checkAnswer/CheckAnswer.js";
 import { Outlet } from "react-router-dom";
 import GameOptions from "../../components/gameOptions/GameOptions.js";
 import { useDispatch } from "react-redux";
-import { generateQuestions } from "../../redux/game/operations.js";
+import { generateQuestions, getWords } from "../../redux/game/operations.js";
 import { useSelector } from "react-redux";
-import { selectQueries } from "../../redux/game/selectors.js";
+import { selectGameSetting, selectQueries } from "../../redux/game/selectors.js";
 import type { AppDispatch } from "../../redux/store.js";
+import { selectIsLoggedIn } from "../../redux/auth/selectors.js";
 
 const Game: React.FC = () => {
   const [checkAnswerType, setCheckAnswerType] = useState("");
@@ -17,10 +18,16 @@ const Game: React.FC = () => {
 
   const dispatch = useDispatch<AppDispatch>();
   const questions = useSelector(selectQueries);
+  const login = useSelector(selectIsLoggedIn);
+  const setting = useSelector(selectGameSetting);
+
+  // console.log(login);
+  
   
 
   useEffect(() => {
-    dispatch(generateQuestions());
+    // dispatch(generateQuestions());
+    dispatch(getWords(setting))
   }, [dispatch]);
 
   return (

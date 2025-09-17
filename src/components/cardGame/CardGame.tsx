@@ -66,6 +66,9 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
     }
   }, []);
 
+  console.log(question);
+  
+
   useEffect(() => {
     if (answerStatuses.length === 0) return;
 
