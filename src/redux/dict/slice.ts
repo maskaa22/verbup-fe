@@ -1,16 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchWords, getWords } from "./operations";
-import type { InitialState } from "../../utils/dict/dictTypes";
+import { dictInitState } from "../../constants";
 
-const initialState: InitialState = {
-  allWords: null,
-  word: "",
-  letter: "",
-  isLoading: false
-};
+
 const dictSlice = createSlice({
   name: "dict",
-  initialState: initialState,
+  initialState: dictInitState,
   reducers: {
     setWord(state, action) {
       state.word = action.payload;
