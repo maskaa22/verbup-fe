@@ -30,7 +30,6 @@ const SigninForm = () => {
   ): Promise<void> => {
     const res = await dispatch(login(values));
     
-    console.log(res)
     if (login.fulfilled.match(res)) {
       
       navigate("/home");

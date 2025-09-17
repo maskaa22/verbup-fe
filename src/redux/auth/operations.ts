@@ -1,29 +1,27 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { type LogFormValues, type RegFormValues } from "../../utils/formTypes";
-import {api} from "../../api/axios";
-
-
+import { api } from "../../api/axios";
+import { type RootState } from "../store";
 export const setAuthHeader = (token: string): void => {
-  // console.log("Bearer", token)
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
-const handleError = (
-  error: unknown,
-  rejectWithValue: (value: string) => unknown
-) => {
-  if (error instanceof Error) {
-    return rejectWithValue(error.message);
-  }
-  return rejectWithValue("Something went wrong");
-};
+// const handleError = (
+//   error: unknown,
+//   rejectWithValue: (value: string) => unknown
+// ) => {
+//   if (error instanceof Error) {
+//     return rejectWithValue(error.message);
+//   }
+//   return rejectWithValue("Something went wrong");
+// };
 
 export const register = createAsyncThunk(
   "auth/register",
   async (credentials: RegFormValues, thunkApi) => {
     try {
       const { data } = await api.post("/auth/register", credentials);
-      console.log(data)
+      console.log(data);
       setAuthHeader(data.accessToken);
       // const user = await api.get("/users")
       // const payload = {
@@ -35,7 +33,7 @@ export const register = createAsyncThunk(
       return data;
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
-      return thunkApi.rejectWithValue(error || "Registration failed")
+      return thunkApi.rejectWithValue(error || "Registration failed");
     }
   }
 );
@@ -45,7 +43,7 @@ export const login = createAsyncThunk(
   async (credentials: LogFormValues, thunkApi) => {
     try {
       const { data } = await api.post("/auth/login", credentials);
-            // console.log(data)
+      // console.log(data)
       setAuthHeader(data.accessToken);
       // const user = await api.get("/users")
       // const payload = {
@@ -56,25 +54,34 @@ export const login = createAsyncThunk(
       return data;
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
-      return thunkApi.rejectWithValue(error || "Login failed")
+      return thunkApi.rejectWithValue(error || "Login failed");
     }
   }
 );
 
-export const logout = createAsyncThunk("auth/logout", async () => {
-  
-});
+export const logout = createAsyncThunk("auth/logout", async () => {});
 
-export const refreshUser = createAsyncThunk("auth/refresh", async (_, thunkApi) => {
-  try {
-    const { data } = await api.post("/auth/refresh");
-    // console.log(data)
-      if(data) {
-        setAuthHeader(data.accessToken)};
-        return data;
-  } catch (error: unknown) {
-    return handleError(error,  thunkApi.rejectWithValue);
+export const refreshUser = createAsyncThunk<void, void, {state: RootState}>(
+  "auth/refresh",
+  async (_, thunkApi) => {
+    const {auth} = thunkApi.getState();
+    if(auth.token){
+      setAuthHeader(auth.token);
+    }
+    
+    // try {
+    //   const { data } = await api.post("/auth/refresh");
+    //   // console.log(data)
+    //     if(data) {
+    //       setAuthHeader(data.accessToken)};
+    //       return data;
+    // } catch (error: unknown) {
+    //   return handleError(error,  thunkApi.rejectWithValue);
+    // }
+  },{
+    condition: (_, thunkApi) => {
+    const reduxState = thunkApi.getState();
+    return reduxState.auth.token !== null;
+    }
   }
-});
-
-
+);

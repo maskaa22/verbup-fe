@@ -29,14 +29,13 @@ const authSlice = createSlice({
         // state.user.email = action.payload.useremail
         state.isLoggedIn = true;
       })
-      .addCase(refreshUser.fulfilled, (state, action) => {
+      .addCase(refreshUser.fulfilled, (state) => {
         state.isLoading = false;
-        state.token = action.payload.accessToken;
+        // state.token = action.payload.accessToken;
         state.isLoggedIn = true;
-      }).addCase(refreshUser.rejected, (state, action) => {
+      }).addCase(refreshUser.rejected, (state) => {
         state.isLoading = false;
         state.isLoggedIn = false;
-        console.log("rejected", action.payload)
       })
       .addMatcher(
         isAnyOf(register.pending, login.pending, refreshUser.pending),

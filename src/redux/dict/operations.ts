@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import api from "../../api/axios";
 // import { api } from "../../api/axios";
 
 export const fetchWords = createAsyncThunk("data/fetchWords", async () => {
@@ -11,3 +12,4 @@ try {
     console.log(error)
 }
 });
+
