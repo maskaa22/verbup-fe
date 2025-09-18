@@ -44,7 +44,7 @@ export type QuestionType = {
   question: string;
   correctAnswer: string;
   variants: BtnType[];
-  base_form: string;
+  basic: string;
   translate: string;
 };
 export type CardGameProps = {
@@ -78,13 +78,13 @@ export type Question = {
   question: string;
   correctAnswer: string;
   variants: BtnType[];
-  base_form: string;
+  basic: string;
   translate: string;
 };
 export type Verb = {
-  base_form: string;
-  past_simple: string;
-  past_participle: string;
+  basic: string;
+  pastSimple: string;
+  pastParticiple: string;
   fake: string;
   uk: string;
 };

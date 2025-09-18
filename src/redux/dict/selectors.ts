@@ -8,10 +8,10 @@ export const selectwordFilter = (state: RootState) => state.dict.word;
 export const visibleWordsStore = createSelector([selectletterFilter, selectallWordsStore, selectwordFilter], (letterFilter, allWordsStore, wordFilter) => {
     const filteredWords = allWordsStore?.easy;
     if(wordFilter !== ""){
-return filteredWords?.filter(word => word.base_form.startsWith(wordFilter.toLowerCase()) || word.past_simple.startsWith(wordFilter.toLocaleLowerCase()) || word.past_participle.startsWith(wordFilter.toLocaleLowerCase()))
+return filteredWords?.filter(word => word.basic.startsWith(wordFilter.toLowerCase()) || word.pastSimple.startsWith(wordFilter.toLocaleLowerCase()) || word.pastParticiple.startsWith(wordFilter.toLocaleLowerCase()))
     }
     if(letterFilter !== ""){
-return filteredWords?.filter(word => word.base_form[0] === letterFilter)
+return filteredWords?.filter(word => word.basic[0] === letterFilter)
 }
 
 return allWordsStore?.easy;

@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { generateQuestions, getWords } from "./operations";
+import { generateQuestions} from "./operations";
 import { GAME_SETTING, initialStateGame } from "../../constants";
 
 const gameSlice = createSlice({
@@ -44,9 +44,9 @@ const gameSlice = createSlice({
       .addCase(generateQuestions.pending, (state) => {
         state.items = [];
       })
-      .addCase(getWords.fulfilled, (state, action) => {
-        state.items = action.payload;
-      })
+      // .addCase(getWords.fulfilled, (state, action) => {
+      //   state.items = action.payload;
+      // })
   },
 });
 

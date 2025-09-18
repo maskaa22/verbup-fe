@@ -1,1441 +1,1441 @@
 {
   "easy": [
     {
-      "base_form": "become",
-      "past_simple": "became",
-      "past_participle": "become",
+      "basic": "become",
+      "pastSimple": "became",
+      "pastParticiple": "become",
       "uk": "ставати",
       "fake": "becomed"
     },
     {
-      "base_form": "begin",
-      "past_simple": "began",
-      "past_participle": "begun",
+      "basic": "begin",
+      "pastSimple": "began",
+      "pastParticiple": "begun",
       "uk": "починати",
       "fake": "begined"
     },
     {
-      "base_form": "break",
-      "past_simple": "broke",
-      "past_participle": "broken",
+      "basic": "break",
+      "pastSimple": "broke",
+      "pastParticiple": "broken",
       "uk": "ламати",
       "fake": "breaked"
     },
     {
-      "base_form": "bring",
-      "past_simple": "brought",
-      "past_participle": "brought",
+      "basic": "bring",
+      "pastSimple": "brought",
+      "pastParticiple": "brought",
       "uk": "приносити",
       "fake": "bringed"
     },
     {
-      "base_form": "build",
-      "past_simple": "built",
-      "past_participle": "built",
+      "basic": "build",
+      "pastSimple": "built",
+      "pastParticiple": "built",
       "uk": "будувати",
       "fake": "builded"
     },
     {
-      "base_form": "buy",
-      "past_simple": "bought",
-      "past_participle": "bought",
+      "basic": "buy",
+      "pastSimple": "bought",
+      "pastParticiple": "bought",
       "uk": "купувати",
       "fake": "buied"
     },
     {
-      "base_form": "catch",
-      "past_simple": "caught",
-      "past_participle": "caught",
+      "basic": "catch",
+      "pastSimple": "caught",
+      "pastParticiple": "caught",
       "uk": "ловити",
       "fake": "catched"
     },
     {
-      "base_form": "choose",
-      "past_simple": "chose",
-      "past_participle": "chosen",
+      "basic": "choose",
+      "pastSimple": "chose",
+      "pastParticiple": "chosen",
       "uk": "вибирати",
       "fake": "choosed"
     },
     {
-      "base_form": "come",
-      "past_simple": "came",
-      "past_participle": "come",
+      "basic": "come",
+      "pastSimple": "came",
+      "pastParticiple": "come",
       "uk": "приходити",
       "fake": "comed"
     },
     {
-      "base_form": "cost",
-      "past_simple": "cost",
-      "past_participle": "cost",
+      "basic": "cost",
+      "pastSimple": "cost",
+      "pastParticiple": "cost",
       "uk": "коштувати",
       "fake": "costed"
     },
     {
-      "base_form": "cut",
-      "past_simple": "cut",
-      "past_participle": "cut",
+      "basic": "cut",
+      "pastSimple": "cut",
+      "pastParticiple": "cut",
       "uk": "різати",
       "fake": "cuted"
     },
     {
-      "base_form": "do",
-      "past_simple": "did",
-      "past_participle": "done",
+      "basic": "do",
+      "pastSimple": "did",
+      "pastParticiple": "done",
       "uk": "робити",
       "fake": "doed"
     },
     {
-      "base_form": "drink",
-      "past_simple": "drank",
-      "past_participle": "drunk",
+      "basic": "drink",
+      "pastSimple": "drank",
+      "pastParticiple": "drunk",
       "uk": "пити",
       "fake": "drinked"
     },
     {
-      "base_form": "drive",
-      "past_simple": "drove",
-      "past_participle": "driven",
+      "basic": "drive",
+      "pastSimple": "drove",
+      "pastParticiple": "driven",
       "uk": "водити",
       "fake": "drived"
     },
     {
-      "base_form": "eat",
-      "past_simple": "ate",
-      "past_participle": "eaten",
+      "basic": "eat",
+      "pastSimple": "ate",
+      "pastParticiple": "eaten",
       "uk": "їсти",
       "fake": "eated"
     },
     {
-      "base_form": "fall",
-      "past_simple": "fell",
-      "past_participle": "fallen",
+      "basic": "fall",
+      "pastSimple": "fell",
+      "pastParticiple": "fallen",
       "uk": "падати",
       "fake": "falled"
     },
     {
-      "base_form": "feel",
-      "past_simple": "felt",
-      "past_participle": "felt",
+      "basic": "feel",
+      "pastSimple": "felt",
+      "pastParticiple": "felt",
       "uk": "відчувати",
       "fake": "feeled"
     },
     {
-      "base_form": "find",
-      "past_simple": "found",
-      "past_participle": "found",
+      "basic": "find",
+      "pastSimple": "found",
+      "pastParticiple": "found",
       "uk": "знаходити",
       "fake": "finded"
     },
     {
-      "base_form": "fly",
-      "past_simple": "flew",
-      "past_participle": "flown",
+      "basic": "fly",
+      "pastSimple": "flew",
+      "pastParticiple": "flown",
       "uk": "літати",
       "fake": "flied"
     },
     {
-      "base_form": "forget",
-      "past_simple": "forgot",
-      "past_participle": "forgotten",
+      "basic": "forget",
+      "pastSimple": "forgot",
+      "pastParticiple": "forgotten",
       "uk": "забувати",
       "fake": "forgeted"
     },
     {
-      "base_form": "get",
-      "past_simple": "got",
-      "past_participle": "got",
+      "basic": "get",
+      "pastSimple": "got",
+      "pastParticiple": "got",
       "uk": "отримувати",
       "fake": "geted"
     },
     {
-      "base_form": "give",
-      "past_simple": "gave",
-      "past_participle": "given",
+      "basic": "give",
+      "pastSimple": "gave",
+      "pastParticiple": "given",
       "uk": "давати",
       "fake": "gived"
     },
     {
-      "base_form": "go",
-      "past_simple": "went",
-      "past_participle": "gone",
+      "basic": "go",
+      "pastSimple": "went",
+      "pastParticiple": "gone",
       "uk": "іти",
       "fake": "goed"
     },
     {
-      "base_form": "grow",
-      "past_simple": "grew",
-      "past_participle": "grown",
+      "basic": "grow",
+      "pastSimple": "grew",
+      "pastParticiple": "grown",
       "uk": "рости",
       "fake": "growed"
     },
     {
-      "base_form": "have",
-      "past_simple": "had",
-      "past_participle": "had",
+      "basic": "have",
+      "pastSimple": "had",
+      "pastParticiple": "had",
       "uk": "мати",
       "fake": "haved"
     },
     {
-      "base_form": "hear",
-      "past_simple": "heard",
-      "past_participle": "heard",
+      "basic": "hear",
+      "pastSimple": "heard",
+      "pastParticiple": "heard",
       "uk": "чути",
       "fake": "heared"
     },
     {
-      "base_form": "hit",
-      "past_simple": "hit",
-      "past_participle": "hit",
+      "basic": "hit",
+      "pastSimple": "hit",
+      "pastParticiple": "hit",
       "uk": "вдаряти",
       "fake": "hited"
     },
     {
-      "base_form": "keep",
-      "past_simple": "kept",
-      "past_participle": "kept",
+      "basic": "keep",
+      "pastSimple": "kept",
+      "pastParticiple": "kept",
       "uk": "тримати",
       "fake": "keeped"
     },
     {
-      "base_form": "know",
-      "past_simple": "knew",
-      "past_participle": "known",
+      "basic": "know",
+      "pastSimple": "knew",
+      "pastParticiple": "known",
       "uk": "знати",
       "fake": "knowed"
     },
     {
-      "base_form": "learn",
-      "past_simple": "learnt",
-      "past_participle": "learnt",
+      "basic": "learn",
+      "pastSimple": "learnt",
+      "pastParticiple": "learnt",
       "uk": "вчитися",
       "fake": "learned"
     },
     {
-      "base_form": "leave",
-      "past_simple": "left",
-      "past_participle": "left",
+      "basic": "leave",
+      "pastSimple": "left",
+      "pastParticiple": "left",
       "uk": "залишати",
       "fake": "leaved"
     },
     {
-      "base_form": "lend",
-      "past_simple": "lent",
-      "past_participle": "lent",
+      "basic": "lend",
+      "pastSimple": "lent",
+      "pastParticiple": "lent",
       "uk": "позичати",
       "fake": "lended"
     },
     {
-      "base_form": "let",
-      "past_simple": "let",
-      "past_participle": "let",
+      "basic": "let",
+      "pastSimple": "let",
+      "pastParticiple": "let",
       "uk": "дозволяти",
       "fake": "leted"
     },
     {
-      "base_form": "lose",
-      "past_simple": "lost",
-      "past_participle": "lost",
+      "basic": "lose",
+      "pastSimple": "lost",
+      "pastParticiple": "lost",
       "uk": "губити",
       "fake": "losed"
     },
     {
-      "base_form": "make",
-      "past_simple": "made",
-      "past_participle": "made",
+      "basic": "make",
+      "pastSimple": "made",
+      "pastParticiple": "made",
       "uk": "робити (створювати)",
       "fake": "maked"
     },
     {
-      "base_form": "meet",
-      "past_simple": "met",
-      "past_participle": "met",
+      "basic": "meet",
+      "pastSimple": "met",
+      "pastParticiple": "met",
       "uk": "зустрічати",
       "fake": "meeted"
     },
     {
-      "base_form": "pay",
-      "past_simple": "paid",
-      "past_participle": "paid",
+      "basic": "pay",
+      "pastSimple": "paid",
+      "pastParticiple": "paid",
       "uk": "платити",
       "fake": "paied"
     },
     {
-      "base_form": "put",
-      "past_simple": "put",
-      "past_participle": "put",
+      "basic": "put",
+      "pastSimple": "put",
+      "pastParticiple": "put",
       "uk": "класти",
       "fake": "puted"
     },
     {
-      "base_form": "read",
-      "past_simple": "read",
-      "past_participle": "read",
+      "basic": "read",
+      "pastSimple": "read",
+      "pastParticiple": "read",
       "uk": "читати",
       "fake": "readed"
     },
     {
-      "base_form": "ring",
-      "past_simple": "rang",
-      "past_participle": "rung",
+      "basic": "ring",
+      "pastSimple": "rang",
+      "pastParticiple": "rung",
       "uk": "дзвонити",
       "fake": "ringed"
     },
     {
-      "base_form": "run",
-      "past_simple": "ran",
-      "past_participle": "run",
+      "basic": "run",
+      "pastSimple": "ran",
+      "pastParticiple": "run",
       "uk": "бігати",
       "fake": "runed"
     },
     {
-      "base_form": "say",
-      "past_simple": "said",
-      "past_participle": "said",
+      "basic": "say",
+      "pastSimple": "said",
+      "pastParticiple": "said",
       "uk": "казати",
       "fake": "saied"
     },
     {
-      "base_form": "see",
-      "past_simple": "saw",
-      "past_participle": "seen",
+      "basic": "see",
+      "pastSimple": "saw",
+      "pastParticiple": "seen",
       "uk": "бачити",
       "fake": "seed"
     },
     {
-      "base_form": "sell",
-      "past_simple": "sold",
-      "past_participle": "sold",
+      "basic": "sell",
+      "pastSimple": "sold",
+      "pastParticiple": "sold",
       "uk": "продавати",
       "fake": "selled"
     },
     {
-      "base_form": "send",
-      "past_simple": "sent",
-      "past_participle": "sent",
+      "basic": "send",
+      "pastSimple": "sent",
+      "pastParticiple": "sent",
       "uk": "відправляти",
       "fake": "sended"
     },
     {
-      "base_form": "shut",
-      "past_simple": "shut",
-      "past_participle": "shut",
+      "basic": "shut",
+      "pastSimple": "shut",
+      "pastParticiple": "shut",
       "uk": "зачиняти",
       "fake": "shuted"
     },
     {
-      "base_form": "sing",
-      "past_simple": "sang",
-      "past_participle": "sung",
+      "basic": "sing",
+      "pastSimple": "sang",
+      "pastParticiple": "sung",
       "uk": "співати",
       "fake": "singed"
     },
     {
-      "base_form": "sit",
-      "past_simple": "sat",
-      "past_participle": "sat",
+      "basic": "sit",
+      "pastSimple": "sat",
+      "pastParticiple": "sat",
       "uk": "сидіти",
       "fake": "sited"
     },
     {
-      "base_form": "sleep",
-      "past_simple": "slept",
-      "past_participle": "slept",
+      "basic": "sleep",
+      "pastSimple": "slept",
+      "pastParticiple": "slept",
       "uk": "спати",
       "fake": "sleeped"
     },
     {
-      "base_form": "speak",
-      "past_simple": "spoke",
-      "past_participle": "spoken",
+      "basic": "speak",
+      "pastSimple": "spoke",
+      "pastParticiple": "spoken",
       "uk": "говорити",
       "fake": "speaked"
     },
     {
-      "base_form": "spend",
-      "past_simple": "spent",
-      "past_participle": "spent",
+      "basic": "spend",
+      "pastSimple": "spent",
+      "pastParticiple": "spent",
       "uk": "витрачати",
       "fake": "spended"
     },
     {
-      "base_form": "stand",
-      "past_simple": "stood",
-      "past_participle": "stood",
+      "basic": "stand",
+      "pastSimple": "stood",
+      "pastParticiple": "stood",
       "uk": "стояти",
       "fake": "standed"
     },
     {
-      "base_form": "steal",
-      "past_simple": "stole",
-      "past_participle": "stolen",
+      "basic": "steal",
+      "pastSimple": "stole",
+      "pastParticiple": "stolen",
       "uk": "красти",
       "fake": "stealed"
     },
     {
-      "base_form": "swim",
-      "past_simple": "swam",
-      "past_participle": "swum",
+      "basic": "swim",
+      "pastSimple": "swam",
+      "pastParticiple": "swum",
       "uk": "плавати",
       "fake": "swimed"
     },
     {
-      "base_form": "take",
-      "past_simple": "took",
-      "past_participle": "taken",
+      "basic": "take",
+      "pastSimple": "took",
+      "pastParticiple": "taken",
       "uk": "брати",
       "fake": "taked"
     },
     {
-      "base_form": "teach",
-      "past_simple": "taught",
-      "past_participle": "taught",
+      "basic": "teach",
+      "pastSimple": "taught",
+      "pastParticiple": "taught",
       "uk": "викладати",
       "fake": "teached"
     },
     {
-      "base_form": "tell",
-      "past_simple": "told",
-      "past_participle": "told",
+      "basic": "tell",
+      "pastSimple": "told",
+      "pastParticiple": "told",
       "uk": "розповідати",
       "fake": "telled"
     },
     {
-      "base_form": "think",
-      "past_simple": "thought",
-      "past_participle": "thought",
+      "basic": "think",
+      "pastSimple": "thought",
+      "pastParticiple": "thought",
       "uk": "думати",
       "fake": "thinked"
     },
     {
-      "base_form": "throw",
-      "past_simple": "threw",
-      "past_participle": "thrown",
+      "basic": "throw",
+      "pastSimple": "threw",
+      "pastParticiple": "thrown",
       "uk": "кидати",
       "fake": "throwed"
     },
     {
-      "base_form": "understand",
-      "past_simple": "understood",
-      "past_participle": "understood",
+      "basic": "understand",
+      "pastSimple": "understood",
+      "pastParticiple": "understood",
       "uk": "розуміти",
       "fake": "understanded"
     },
     {
-      "base_form": "wake",
-      "past_simple": "woke",
-      "past_participle": "woken",
+      "basic": "wake",
+      "pastSimple": "woke",
+      "pastParticiple": "woken",
       "uk": "прокидатися",
       "fake": "waked"
     },
     {
-      "base_form": "wear",
-      "past_simple": "wore",
-      "past_participle": "worn",
+      "basic": "wear",
+      "pastSimple": "wore",
+      "pastParticiple": "worn",
       "uk": "носити",
       "fake": "weared"
     },
     {
-      "base_form": "win",
-      "past_simple": "won",
-      "past_participle": "won",
+      "basic": "win",
+      "pastSimple": "won",
+      "pastParticiple": "won",
       "uk": "вигравати",
       "fake": "wined"
     },
     {
-      "base_form": "write",
-      "past_simple": "wrote",
-      "past_participle": "written",
+      "basic": "write",
+      "pastSimple": "wrote",
+      "pastParticiple": "written",
       "uk": "писати",
       "fake": "writed"
     }
   ],
   "medium": [
     {
-      "base_form": "arise",
-      "past_simple": "arose",
-      "past_participle": "arisen",
+      "basic": "arise",
+      "pastSimple": "arose",
+      "pastParticiple": "arisen",
       "uk": "виникати",
       "fake": "arised"
     },
     {
-      "base_form": "awake",
-      "past_simple": "awoke",
-      "past_participle": "awoken",
+      "basic": "awake",
+      "pastSimple": "awoke",
+      "pastParticiple": "awoken",
       "uk": "прокидатися",
       "fake": "awaked"
     },
     {
-      "base_form": "be",
-      "past_simple": "was/were",
-      "past_participle": "been",
+      "basic": "be",
+      "pastSimple": "was/were",
+      "pastParticiple": "been",
       "uk": "бути",
       "fake": "bed"
     },
     {
-      "base_form": "bear",
-      "past_simple": "bore",
-      "past_participle": "borne",
+      "basic": "bear",
+      "pastSimple": "bore",
+      "pastParticiple": "borne",
       "uk": "нести",
       "fake": "beared"
     },
     {
-      "base_form": "beat",
-      "past_simple": "beat",
-      "past_participle": "beaten",
+      "basic": "beat",
+      "pastSimple": "beat",
+      "pastParticiple": "beaten",
       "uk": "бити",
       "fake": "beated"
     },
     {
-      "base_form": "bend",
-      "past_simple": "bent",
-      "past_participle": "bent",
+      "basic": "bend",
+      "pastSimple": "bent",
+      "pastParticiple": "bent",
       "uk": "гнути",
       "fake": "bended"
     },
     {
-      "base_form": "bet",
-      "past_simple": "bet",
-      "past_participle": "bet",
+      "basic": "bet",
+      "pastSimple": "bet",
+      "pastParticiple": "bet",
       "uk": "ставити (парі)",
       "fake": "beted"
     },
     {
-      "base_form": "bind",
-      "past_simple": "bound",
-      "past_participle": "bound",
+      "basic": "bind",
+      "pastSimple": "bound",
+      "pastParticiple": "bound",
       "uk": "зв'язувати",
       "fake": "binded"
     },
     {
-      "base_form": "bite",
-      "past_simple": "bit",
-      "past_participle": "bitten",
+      "basic": "bite",
+      "pastSimple": "bit",
+      "pastParticiple": "bitten",
       "uk": "кусати",
       "fake": "bited"
     },
     {
-      "base_form": "bleed",
-      "past_simple": "bled",
-      "past_participle": "bled",
+      "basic": "bleed",
+      "pastSimple": "bled",
+      "pastParticiple": "bled",
       "uk": "кровоточити",
       "fake": "bleeded"
     },
     {
-      "base_form": "blow",
-      "past_simple": "blew",
-      "past_participle": "blown",
+      "basic": "blow",
+      "pastSimple": "blew",
+      "pastParticiple": "blown",
       "uk": "дути",
       "fake": "blowed"
     },
     {
-      "base_form": "breed",
-      "past_simple": "bred",
-      "past_participle": "bred",
+      "basic": "breed",
+      "pastSimple": "bred",
+      "pastParticiple": "bred",
       "uk": "розводити",
       "fake": "breeded"
     },
     {
-      "base_form": "broadcast",
-      "past_simple": "broadcast",
-      "past_participle": "broadcast",
+      "basic": "broadcast",
+      "pastSimple": "broadcast",
+      "pastParticiple": "broadcast",
       "uk": "транслювати",
       "fake": "broadcasted"
     },
     {
-      "base_form": "burn",
-      "past_simple": "burnt",
-      "past_participle": "burnt",
+      "basic": "burn",
+      "pastSimple": "burnt",
+      "pastParticiple": "burnt",
       "uk": "горіти",
       "fake": "burned"
     },
     {
-      "base_form": "burst",
-      "past_simple": "burst",
-      "past_participle": "burst",
+      "basic": "burst",
+      "pastSimple": "burst",
+      "pastParticiple": "burst",
       "uk": "вибухати",
       "fake": "bursten"
     },
     {
-      "base_form": "can",
-      "past_simple": "could",
-      "past_participle": "been able",
+      "basic": "can",
+      "pastSimple": "could",
+      "pastParticiple": "been able",
       "uk": "могти",
       "fake": "couded"
     },
     {
-      "base_form": "cling",
-      "past_simple": "clung",
-      "past_participle": "clung",
+      "basic": "cling",
+      "pastSimple": "clung",
+      "pastParticiple": "clung",
       "uk": "чіплятися",
       "fake": "clinged"
     },
     {
-      "base_form": "creep",
-      "past_simple": "crept",
-      "past_participle": "crept",
+      "basic": "creep",
+      "pastSimple": "crept",
+      "pastParticiple": "crept",
       "uk": "повзти",
       "fake": "creeped"
     },
     {
-      "base_form": "deal",
-      "past_simple": "dealt",
-      "past_participle": "dealt",
+      "basic": "deal",
+      "pastSimple": "dealt",
+      "pastParticiple": "dealt",
       "uk": "мати справу",
       "fake": "dealed"
     },
     {
-      "base_form": "dig",
-      "past_simple": "dug",
-      "past_participle": "dug",
+      "basic": "dig",
+      "pastSimple": "dug",
+      "pastParticiple": "dug",
       "uk": "копати",
       "fake": "diged"
     },
     {
-      "base_form": "draw",
-      "past_simple": "drew",
-      "past_participle": "drawn",
+      "basic": "draw",
+      "pastSimple": "drew",
+      "pastParticiple": "drawn",
       "uk": "малювати",
       "fake": "drawed"
     },
     {
-      "base_form": "dream",
-      "past_simple": "dreamt",
-      "past_participle": "dreamt",
+      "basic": "dream",
+      "pastSimple": "dreamt",
+      "pastParticiple": "dreamt",
       "uk": "мріяти",
       "fake": "dreamed"
     },
     {
-      "base_form": "feed",
-      "past_simple": "fed",
-      "past_participle": "fed",
+      "basic": "feed",
+      "pastSimple": "fed",
+      "pastParticiple": "fed",
       "uk": "годувати",
       "fake": "feeded"
     },
     {
-      "base_form": "fight",
-      "past_simple": "fought",
-      "past_participle": "fought",
+      "basic": "fight",
+      "pastSimple": "fought",
+      "pastParticiple": "fought",
       "uk": "боротися",
       "fake": "fighted"
     },
     {
-      "base_form": "forbid",
-      "past_simple": "forbade",
-      "past_participle": "forbidden",
+      "basic": "forbid",
+      "pastSimple": "forbade",
+      "pastParticiple": "forbidden",
       "uk": "забороняти",
       "fake": "forbided"
     },
     {
-      "base_form": "forgive",
-      "past_simple": "forgave",
-      "past_participle": "forgiven",
+      "basic": "forgive",
+      "pastSimple": "forgave",
+      "pastParticiple": "forgiven",
       "uk": "прощати",
       "fake": "forgived"
     },
     {
-      "base_form": "freeze",
-      "past_simple": "froze",
-      "past_participle": "frozen",
+      "basic": "freeze",
+      "pastSimple": "froze",
+      "pastParticiple": "frozen",
       "uk": "замерзати",
       "fake": "freezed"
     },
     {
-      "base_form": "grind",
-      "past_simple": "ground",
-      "past_participle": "ground",
+      "basic": "grind",
+      "pastSimple": "ground",
+      "pastParticiple": "ground",
       "uk": "молоти",
       "fake": "grinded"
     },
     {
-      "base_form": "hang",
-      "past_simple": "hung",
-      "past_participle": "hung",
+      "basic": "hang",
+      "pastSimple": "hung",
+      "pastParticiple": "hung",
       "uk": "вішати",
       "fake": "hanged"
     },
     {
-      "base_form": "hide",
-      "past_simple": "hid",
-      "past_participle": "hidden",
+      "basic": "hide",
+      "pastSimple": "hid",
+      "pastParticiple": "hidden",
       "uk": "ховати",
       "fake": "hided"
     },
     {
-      "base_form": "hold",
-      "past_simple": "held",
-      "past_participle": "held",
+      "basic": "hold",
+      "pastSimple": "held",
+      "pastParticiple": "held",
       "uk": "тримати",
       "fake": "holded"
     },
     {
-      "base_form": "hurt",
-      "past_simple": "hurt",
-      "past_participle": "hurt",
+      "basic": "hurt",
+      "pastSimple": "hurt",
+      "pastParticiple": "hurt",
       "uk": "боліти, завдавати болю",
       "fake": "hurted"
     },
     {
-      "base_form": "kneel",
-      "past_simple": "knelt",
-      "past_participle": "knelt",
+      "basic": "kneel",
+      "pastSimple": "knelt",
+      "pastParticiple": "knelt",
       "uk": "стати на коліна",
       "fake": "kneeled"
     },
     {
-      "base_form": "lay",
-      "past_simple": "laid",
-      "past_participle": "laid",
+      "basic": "lay",
+      "pastSimple": "laid",
+      "pastParticiple": "laid",
       "uk": "класти",
       "fake": "laied"
     },
     {
-      "base_form": "lead",
-      "past_simple": "led",
-      "past_participle": "led",
+      "basic": "lead",
+      "pastSimple": "led",
+      "pastParticiple": "led",
       "uk": "вести",
       "fake": "leaded"
     },
     {
-      "base_form": "lean",
-      "past_simple": "leant",
-      "past_participle": "leant",
+      "basic": "lean",
+      "pastSimple": "leant",
+      "pastParticiple": "leant",
       "uk": "нахилятися",
       "fake": "leaned"
     },
     {
-      "base_form": "lent",
-      "past_simple": "lent",
-      "past_participle": "lent",
+      "basic": "lent",
+      "pastSimple": "lent",
+      "pastParticiple": "lent",
       "uk": "позичати",
       "fake": "lented"
     },
     {
-      "base_form": "lie (in bed)",
-      "past_simple": "lay",
-      "past_participle": "lain",
+      "basic": "lie (in bed)",
+      "pastSimple": "lay",
+      "pastParticiple": "lain",
       "uk": "лежати (в ліжку)",
       "fake": "lied"
     },
     {
-      "base_form": "lie (to not tell the truth)",
-      "past_simple": "lied",
-      "past_participle": "lied",
+      "basic": "lie (to not tell the truth)",
+      "pastSimple": "lied",
+      "pastParticiple": "lied",
       "uk": "брехати",
       "fake": "lie"
     },
     {
-      "base_form": "light",
-      "past_simple": "lit",
-      "past_participle": "lit",
+      "basic": "light",
+      "pastSimple": "lit",
+      "pastParticiple": "lit",
       "uk": "запалювати",
       "fake": "lighted"
     },
     {
-      "base_form": "mean",
-      "past_simple": "meant",
-      "past_participle": "meant",
+      "basic": "mean",
+      "pastSimple": "meant",
+      "pastParticiple": "meant",
       "uk": "означати",
       "fake": "meaned"
     },
     {
-      "base_form": "mow",
-      "past_simple": "mowed",
-      "past_participle": "mown",
+      "basic": "mow",
+      "pastSimple": "mowed",
+      "pastParticiple": "mown",
       "uk": "косити",
       "fake": "mowed"
     },
     {
-      "base_form": "overtake",
-      "past_simple": "overtook",
-      "past_participle": "overtaken",
+      "basic": "overtake",
+      "pastSimple": "overtook",
+      "pastParticiple": "overtaken",
       "uk": "обганяти",
       "fake": "overtakeed"
     },
     {
-      "base_form": "ride",
-      "past_simple": "rode",
-      "past_participle": "ridden",
+      "basic": "ride",
+      "pastSimple": "rode",
+      "pastParticiple": "ridden",
       "uk": "їхати верхи",
       "fake": "rided"
     },
     {
-      "base_form": "rise",
-      "past_simple": "rose",
-      "past_participle": "risen",
+      "basic": "rise",
+      "pastSimple": "rose",
+      "pastParticiple": "risen",
       "uk": "підніматися",
       "fake": "rised"
     },
     {
-      "base_form": "saw",
-      "past_simple": "sawed",
-      "past_participle": "sawn",
+      "basic": "saw",
+      "pastSimple": "sawed",
+      "pastParticiple": "sawn",
       "uk": "пиляти",
       "fake": "sawen"
     },
     {
-      "base_form": "set",
-      "past_simple": "set",
-      "past_participle": "set",
+      "basic": "set",
+      "pastSimple": "set",
+      "pastParticiple": "set",
       "uk": "встановлювати",
       "fake": "seted"
     },
     {
-      "base_form": "sew",
-      "past_simple": "sewed",
-      "past_participle": "sewn",
+      "basic": "sew",
+      "pastSimple": "sewed",
+      "pastParticiple": "sewn",
       "uk": "шити",
       "fake": "sewen"
     },
     {
-      "base_form": "shake",
-      "past_simple": "shook",
-      "past_participle": "shaken",
+      "basic": "shake",
+      "pastSimple": "shook",
+      "pastParticiple": "shaken",
       "uk": "трясти",
       "fake": "shaked"
     },
     {
-      "base_form": "shed",
-      "past_simple": "shed",
-      "past_participle": "shed",
+      "basic": "shed",
+      "pastSimple": "shed",
+      "pastParticiple": "shed",
       "uk": "скидати",
       "fake": "sheded"
     },
     {
-      "base_form": "shine",
-      "past_simple": "shone",
-      "past_participle": "shone",
+      "basic": "shine",
+      "pastSimple": "shone",
+      "pastParticiple": "shone",
       "uk": "сяяти",
       "fake": "shined"
     },
     {
-      "base_form": "shoot",
-      "past_simple": "shot",
-      "past_participle": "shot",
+      "basic": "shoot",
+      "pastSimple": "shot",
+      "pastParticiple": "shot",
       "uk": "стріляти",
       "fake": "shooted"
     },
     {
-      "base_form": "show",
-      "past_simple": "showed",
-      "past_participle": "shown",
+      "basic": "show",
+      "pastSimple": "showed",
+      "pastParticiple": "shown",
       "uk": "показувати",
       "fake": "showed"
     },
     {
-      "base_form": "shrink",
-      "past_simple": "shrank",
-      "past_participle": "shrunk",
+      "basic": "shrink",
+      "pastSimple": "shrank",
+      "pastParticiple": "shrunk",
       "uk": "зменшуватися",
       "fake": "shrinked"
     },
     {
-      "base_form": "sink",
-      "past_simple": "sank",
-      "past_participle": "sunk",
+      "basic": "sink",
+      "pastSimple": "sank",
+      "pastParticiple": "sunk",
       "uk": "тонути",
       "fake": "sanked"
     },
     {
-      "base_form": "slide",
-      "past_simple": "slid",
-      "past_participle": "slid",
+      "basic": "slide",
+      "pastSimple": "slid",
+      "pastParticiple": "slid",
       "uk": "ковзати",
       "fake": "slided"
     },
     {
-      "base_form": "smell",
-      "past_simple": "smelt",
-      "past_participle": "smelt",
+      "basic": "smell",
+      "pastSimple": "smelt",
+      "pastParticiple": "smelt",
       "uk": "нюхати",
       "fake": "smelled"
     },
     {
-      "base_form": "sow",
-      "past_simple": "sowed",
-      "past_participle": "sown",
+      "basic": "sow",
+      "pastSimple": "sowed",
+      "pastParticiple": "sown",
       "uk": "сіяти",
       "fake": "sowe"
     },
     {
-      "base_form": "spell",
-      "past_simple": "spelt",
-      "past_participle": "spelt",
+      "basic": "spell",
+      "pastSimple": "spelt",
+      "pastParticiple": "spelt",
       "uk": "вимовляти по літерах",
       "fake": "spelled"
     },
     {
-      "base_form": "spill",
-      "past_simple": "spilt",
-      "past_participle": "spilt",
+      "basic": "spill",
+      "pastSimple": "spilt",
+      "pastParticiple": "spilt",
       "uk": "розливати",
       "fake": "spilled"
     },
     {
-      "base_form": "spit",
-      "past_simple": "spat",
-      "past_participle": "spat",
+      "basic": "spit",
+      "pastSimple": "spat",
+      "pastParticiple": "spat",
       "uk": "плювати",
       "fake": "spited"
     },
     {
-      "base_form": "spread",
-      "past_simple": "spread",
-      "past_participle": "spread",
+      "basic": "spread",
+      "pastSimple": "spread",
+      "pastParticiple": "spread",
       "uk": "поширювати",
       "fake": "spreaded"
     },
     {
-      "base_form": "stick",
-      "past_simple": "stuck",
-      "past_participle": "stuck",
+      "basic": "stick",
+      "pastSimple": "stuck",
+      "pastParticiple": "stuck",
       "uk": "клеїти",
       "fake": "sticked"
     },
     {
-      "base_form": "sting",
-      "past_simple": "stung",
-      "past_participle": "stung",
+      "basic": "sting",
+      "pastSimple": "stung",
+      "pastParticiple": "stung",
       "uk": "жалити",
       "fake": "stinged"
     },
     {
-      "base_form": "stink",
-      "past_simple": "stank",
-      "past_participle": "stunk",
+      "basic": "stink",
+      "pastSimple": "stank",
+      "pastParticiple": "stunk",
       "uk": "смердіти",
       "fake": "stinked"
     },
     {
-      "base_form": "strike",
-      "past_simple": "struck",
-      "past_participle": "struck",
+      "basic": "strike",
+      "pastSimple": "struck",
+      "pastParticiple": "struck",
       "uk": "вдаряти",
       "fake": "strikeed"
     },
     {
-      "base_form": "swear",
-      "past_simple": "swore",
-      "past_participle": "sworn",
+      "basic": "swear",
+      "pastSimple": "swore",
+      "pastParticiple": "sworn",
       "uk": "присягати",
       "fake": "sweared"
     },
     {
-      "base_form": "sweep",
-      "past_simple": "swept",
-      "past_participle": "swept",
+      "basic": "sweep",
+      "pastSimple": "swept",
+      "pastParticiple": "swept",
       "uk": "підмітати",
       "fake": "sweeped"
     },
     {
-      "base_form": "swell",
-      "past_simple": "swelled",
-      "past_participle": "swollen",
+      "basic": "swell",
+      "pastSimple": "swelled",
+      "pastParticiple": "swollen",
       "uk": "набухати",
       "fake": "swelle"
     },
     {
-      "base_form": "swing",
-      "past_simple": "swung",
-      "past_participle": "swung",
+      "basic": "swing",
+      "pastSimple": "swung",
+      "pastParticiple": "swung",
       "uk": "гойдатися",
       "fake": "swinged"
     },
     {
-      "base_form": "tear",
-      "past_simple": "tore",
-      "past_participle": "torn",
+      "basic": "tear",
+      "pastSimple": "tore",
+      "pastParticiple": "torn",
       "uk": "рвати",
       "fake": "teared"
     },
     {
-      "base_form": "weep",
-      "past_simple": "wept",
-      "past_participle": "wept",
+      "basic": "weep",
+      "pastSimple": "wept",
+      "pastParticiple": "wept",
       "uk": "плакати",
       "fake": "weeped"
     },
     {
-      "base_form": "wind",
-      "past_simple": "wound",
-      "past_participle": "wound",
+      "basic": "wind",
+      "pastSimple": "wound",
+      "pastParticiple": "wound",
       "uk": "намотувати",
       "fake": "winded"
     }
   ],
   "hard": [
     {
-      "base_form": "speed",
-      "past_simple": "sped",
-      "past_participle": "sped",
+      "basic": "speed",
+      "pastSimple": "sped",
+      "pastParticiple": "sped",
       "uk": "прискорюватися",
       "fake": "speeded"
     },
     {
-      "base_form": "bid",
-      "past_simple": "bade",
-      "past_participle": "bidden",
+      "basic": "bid",
+      "pastSimple": "bade",
+      "pastParticiple": "bidden",
       "uk": "пропонувати ціну",
       "fake": "bided"
     },
     {
-      "base_form": "wed",
-      "past_simple": "wed",
-      "past_participle": "wed",
+      "basic": "wed",
+      "pastSimple": "wed",
+      "pastParticiple": "wed",
       "uk": "одружитися",
       "fake": "weded"
     },
     {
-      "base_form": "spring",
-      "past_simple": "sprang",
-      "past_participle": "sprung",
+      "basic": "spring",
+      "pastSimple": "sprang",
+      "pastParticiple": "sprung",
       "uk": "стрибати",
       "fake": "springed"
     },
     {
-      "base_form": "string",
-      "past_simple": "strung",
-      "past_participle": "strung",
+      "basic": "string",
+      "pastSimple": "strung",
+      "pastParticiple": "strung",
       "uk": "натягувати",
       "fake": "stringed"
     },
     {
-      "base_form": "fit",
-      "past_simple": "fit",
-      "past_participle": "fit",
+      "basic": "fit",
+      "pastSimple": "fit",
+      "pastParticiple": "fit",
       "uk": "підходити",
       "fake": "fitted"
     },
     {
-      "base_form": "cast",
-      "past_simple": "cast",
-      "past_participle": "cast",
+      "basic": "cast",
+      "pastSimple": "cast",
+      "pastParticiple": "cast",
       "uk": "кидати",
       "fake": "casted"
     },
     {
-      "base_form": "seek",
-      "past_simple": "sought",
-      "past_participle": "sought",
+      "basic": "seek",
+      "pastSimple": "sought",
+      "pastParticiple": "sought",
       "uk": "шукати",
       "fake": "seeked"
     },
     {
-      "base_form": "wet",
-      "past_simple": "wet",
-      "past_participle": "wet",
+      "basic": "wet",
+      "pastSimple": "wet",
+      "pastParticiple": "wet",
       "uk": "мочити",
       "fake": "wetted"
     },
     {
-      "base_form": "split",
-      "past_simple": "split",
-      "past_participle": "split",
+      "basic": "split",
+      "pastSimple": "split",
+      "pastParticiple": "split",
       "uk": "розколювати",
       "fake": "splited"
     },
     {
-      "base_form": "strip",
-      "past_simple": "stripped",
-      "past_participle": "stripped",
+      "basic": "strip",
+      "pastSimple": "stripped",
+      "pastParticiple": "stripped",
       "uk": "роздягати",
       "fake": "striped"
     },
     {
-      "base_form": "shoe",
-      "past_simple": "shod",
-      "past_participle": "shod",
+      "basic": "shoe",
+      "pastSimple": "shod",
+      "pastParticiple": "shod",
       "uk": "взувати",
       "fake": "shoed"
     },
     {
-      "base_form": "prove",
-      "past_simple": "proved",
-      "past_participle": "proven",
+      "basic": "prove",
+      "pastSimple": "proved",
+      "pastParticiple": "proven",
       "uk": "доводити",
       "fake": "praved"
     },
     {
-      "base_form": "lie (not truth)",
-      "past_simple": "lied",
-      "past_participle": "lied",
+      "basic": "lie (not truth)",
+      "pastSimple": "lied",
+      "pastParticiple": "lied",
       "uk": "брехати",
       "fake": "lee"
     },
     {
-      "base_form": "spin",
-      "past_simple": "span",
-      "past_participle": "spun",
+      "basic": "spin",
+      "pastSimple": "span",
+      "pastParticiple": "spun",
       "uk": "крутити",
       "fake": "spined"
     },
     {
-      "base_form": "mistake",
-      "past_simple": "mistook",
-      "past_participle": "mistaken",
+      "basic": "mistake",
+      "pastSimple": "mistook",
+      "pastParticiple": "mistaken",
       "uk": "помилятися",
       "fake": "mistakeed"
     },
     {
-      "base_form": "quit",
-      "past_simple": "quit",
-      "past_participle": "quit",
+      "basic": "quit",
+      "pastSimple": "quit",
+      "pastParticiple": "quit",
       "uk": "кидати",
       "fake": "quited"
     },
     {
-      "base_form": "dive",
-      "past_simple": "dived",
-      "past_participle": "dived",
+      "basic": "dive",
+      "pastSimple": "dived",
+      "pastParticiple": "dived",
       "uk": "пірнати",
       "fake": "deved"
     },
     {
-      "base_form": "rid",
-      "past_simple": "rid",
-      "past_participle": "rid",
+      "basic": "rid",
+      "pastSimple": "rid",
+      "pastParticiple": "rid",
       "uk": "позбавлятися",
       "fake": "rided"
     },
     {
-      "base_form": "zinc",
-      "past_simple": "zincked",
-      "past_participle": "zincked",
+      "basic": "zinc",
+      "pastSimple": "zincked",
+      "pastParticiple": "zincked",
       "uk": "оцинковувати",
       "fake": "zincced"
     },
     {
-      "base_form": "undertake",
-      "past_simple": "undertook",
-      "past_participle": "undertaken",
+      "basic": "undertake",
+      "pastSimple": "undertook",
+      "pastParticiple": "undertaken",
       "uk": "братися (за щось)",
       "fake": "undertaked"
     },
     {
-      "base_form": "upset",
-      "past_simple": "upset",
-      "past_participle": "upset",
+      "basic": "upset",
+      "pastSimple": "upset",
+      "pastParticiple": "upset",
       "uk": "засмучувати",
       "fake": "upseted"
     },
     {
-      "base_form": "knit",
-      "past_simple": "knit",
-      "past_participle": "knit",
+      "basic": "knit",
+      "pastSimple": "knit",
+      "pastParticiple": "knit",
       "uk": "в'язати",
       "fake": "knited"
     },
     {
-      "base_form": "leap",
-      "past_simple": "leapt",
-      "past_participle": "leapt",
+      "basic": "leap",
+      "pastSimple": "leapt",
+      "pastParticiple": "leapt",
       "uk": "стрибати",
       "fake": "leaped"
     },
     {
-      "base_form": "withdraw",
-      "past_simple": "withdrew",
-      "past_participle": "withdrawn",
+      "basic": "withdraw",
+      "pastSimple": "withdrew",
+      "pastParticiple": "withdrawn",
       "uk": "відкликати",
       "fake": "withdrawed"
     },
     {
-      "base_form": "sweat",
-      "past_simple": "sweat",
-      "past_participle": "sweat",
+      "basic": "sweat",
+      "pastSimple": "sweat",
+      "pastParticiple": "sweat",
       "uk": "потіти",
       "fake": "sweated"
     },
     {
-      "base_form": "bust",
-      "past_simple": "bust",
-      "past_participle": "bust",
+      "basic": "bust",
+      "pastSimple": "bust",
+      "pastParticiple": "bust",
       "uk": "розбивати",
       "fake": "busted"
     },
     {
-      "base_form": "strive",
-      "past_simple": "strove",
-      "past_participle": "striven",
+      "basic": "strive",
+      "pastSimple": "strove",
+      "pastParticiple": "striven",
       "uk": "прагнути",
       "fake": "striveed"
     },
     {
-      "base_form": "abide",
-      "past_simple": "abided",
-      "past_participle": "abided",
+      "basic": "abide",
+      "pastSimple": "abided",
+      "pastParticiple": "abided",
       "uk": "дотримуватися",
       "fake": "abeded"
     },
     {
-      "base_form": "thrust",
-      "past_simple": "thrust",
-      "past_participle": "thrust",
+      "basic": "thrust",
+      "pastSimple": "thrust",
+      "pastParticiple": "thrust",
       "uk": "штовхати",
       "fake": "thrusted"
     },
     {
-      "base_form": "melt",
-      "past_simple": "melted",
-      "past_participle": "molten",
+      "basic": "melt",
+      "pastSimple": "melted",
+      "pastParticiple": "molten",
       "uk": "танути",
       "fake": "malted"
     },
     {
-      "base_form": "shear",
-      "past_simple": "shore",
-      "past_participle": "shorn",
+      "basic": "shear",
+      "pastSimple": "shore",
+      "pastParticiple": "shorn",
       "uk": "стригти",
       "fake": "sheared"
     },
     {
-      "base_form": "behold",
-      "past_simple": "beheld",
-      "past_participle": "beheld",
+      "basic": "behold",
+      "pastSimple": "beheld",
+      "pastParticiple": "beheld",
       "uk": "споглядати",
       "fake": "beholded"
     },
     {
-      "base_form": "undergo",
-      "past_simple": "underwent",
-      "past_participle": "undergone",
+      "basic": "undergo",
+      "pastSimple": "underwent",
+      "pastParticiple": "undergone",
       "uk": "зазнавати",
       "fake": "undergoes"
     },
     {
-      "base_form": "shave",
-      "past_simple": "shaved",
-      "past_participle": "shaven",
+      "basic": "shave",
+      "pastSimple": "shaved",
+      "pastParticiple": "shaven",
       "uk": "голити",
       "fake": "sheved"
     },
     {
-      "base_form": "sneak",
-      "past_simple": "snuck",
-      "past_participle": "snuck",
+      "basic": "sneak",
+      "pastSimple": "snuck",
+      "pastParticiple": "snuck",
       "uk": "крастися",
       "fake": "sneaked"
     },
     {
-      "base_form": "dwell",
-      "past_simple": "dwelt",
-      "past_participle": "dwelt",
+      "basic": "dwell",
+      "pastSimple": "dwelt",
+      "pastParticiple": "dwelt",
       "uk": "проживати",
       "fake": "dwelled"
     },
     {
-      "base_form": "weave",
-      "past_simple": "wove",
-      "past_participle": "woven",
+      "basic": "weave",
+      "pastSimple": "wove",
+      "pastParticiple": "woven",
       "uk": "плести",
       "fake": "weaved"
     },
     {
-      "base_form": "thrive",
-      "past_simple": "throve",
-      "past_participle": "thriven",
+      "basic": "thrive",
+      "pastSimple": "throve",
+      "pastParticiple": "thriven",
       "uk": "процвітати",
       "fake": "thrived"
     },
     {
-      "base_form": "withstand",
-      "past_simple": "withstood",
-      "past_participle": "withstood",
+      "basic": "withstand",
+      "pastSimple": "withstood",
+      "pastParticiple": "withstood",
       "uk": "витримувати",
       "fake": "withstanded"
     },
     {
-      "base_form": "flee",
-      "past_simple": "fled",
-      "past_participle": "fled",
+      "basic": "flee",
+      "pastSimple": "fled",
+      "pastParticiple": "fled",
       "uk": "тікати",
       "fake": "fleed"
     },
     {
-      "base_form": "sling",
-      "past_simple": "slung",
-      "past_participle": "slung",
+      "basic": "sling",
+      "pastSimple": "slung",
+      "pastParticiple": "slung",
       "uk": "кидати",
       "fake": "slinged"
     },
     {
-      "base_form": "tread",
-      "past_simple": "trod",
-      "past_participle": "trodden",
+      "basic": "tread",
+      "pastSimple": "trod",
+      "pastParticiple": "trodden",
       "uk": "ступати",
       "fake": "treaded"
     },
     {
-      "base_form": "preset",
-      "past_simple": "preset",
-      "past_participle": "preset",
+      "basic": "preset",
+      "pastSimple": "preset",
+      "pastParticiple": "preset",
       "uk": "попередньо встановлювати",
       "fake": "preseted"
     },
     {
-      "base_form": "stride",
-      "past_simple": "strode",
-      "past_participle": "stridden",
+      "basic": "stride",
+      "pastSimple": "strode",
+      "pastParticiple": "stridden",
       "uk": "крокувати",
       "fake": "strided"
     },
     {
-      "base_form": "slit",
-      "past_simple": "slit",
-      "past_participle": "slit",
+      "basic": "slit",
+      "pastSimple": "slit",
+      "pastParticiple": "slit",
       "uk": "розрізати",
       "fake": "slited"
     },
     {
-      "base_form": "spoil",
-      "past_simple": "spoilt",
-      "past_participle": "spoilt",
+      "basic": "spoil",
+      "pastSimple": "spoilt",
+      "pastParticiple": "spoilt",
       "uk": "псувати",
       "fake": "spoiled"
     },
     {
-      "base_form": "withhold",
-      "past_simple": "withheld",
-      "past_participle": "withheld",
+      "basic": "withhold",
+      "pastSimple": "withheld",
+      "pastParticiple": "withheld",
       "uk": "утримувати",
       "fake": "withholded"
     },
     {
-      "base_form": "inlay",
-      "past_simple": "inlaid",
-      "past_participle": "inlaid",
+      "basic": "inlay",
+      "pastSimple": "inlaid",
+      "pastParticiple": "inlaid",
       "uk": "інкрустувати",
       "fake": "inlayed"
     },
     {
-      "base_form": "slay",
-      "past_simple": "slew",
-      "past_participle": "slain",
+      "basic": "slay",
+      "pastSimple": "slew",
+      "pastParticiple": "slain",
       "uk": "вбивати",
       "fake": "slayed"
     },
     {
-      "base_form": "fling",
-      "past_simple": "flung",
-      "past_participle": "flung",
+      "basic": "fling",
+      "pastSimple": "flung",
+      "pastParticiple": "flung",
       "uk": "кидати",
       "fake": "flinged"
     },
     {
-      "base_form": "mislead",
-      "past_simple": "misled",
-      "past_participle": "tomisled",
+      "basic": "mislead",
+      "pastSimple": "misled",
+      "pastParticiple": "tomisled",
       "uk": "вводити в оману",
       "fake": "misleaded"
     },
     {
-      "base_form": "foresee",
-      "past_simple": "foresaw",
-      "past_participle": "foreseen",
+      "basic": "foresee",
+      "pastSimple": "foresaw",
+      "pastParticiple": "foreseen",
       "uk": "передбачати",
       "fake": "foreseed"
     },
     {
-      "base_form": "sunburn",
-      "past_simple": "sunburnt",
-      "past_participle": "sunburnt",
+      "basic": "sunburn",
+      "pastSimple": "sunburnt",
+      "pastParticiple": "sunburnt",
       "uk": "обгоріти на сонці",
       "fake": "sunburned"
     },
     {
-      "base_form": "sublet",
-      "past_simple": "sublet",
-      "past_participle": "sublet",
+      "basic": "sublet",
+      "pastSimple": "sublet",
+      "pastParticiple": "sublet",
       "uk": "здавати в суборенду",
       "fake": "subleted"
     },
     {
-      "base_form": "rive",
-      "past_simple": "rived",
-      "past_participle": "riven",
+      "basic": "rive",
+      "pastSimple": "rived",
+      "pastParticiple": "riven",
       "uk": "розколювати",
       "fake": "reved"
     },
     {
-      "base_form": "forsake",
-      "past_simple": "forsook",
-      "past_participle": "forsaken",
+      "basic": "forsake",
+      "pastSimple": "forsook",
+      "pastParticiple": "forsaken",
       "uk": "покидати",
       "fake": "forsaked"
     },
     {
-      "base_form": "misunderstand",
-      "past_simple": "misunderstood",
-      "past_participle": "misunderstood",
+      "basic": "misunderstand",
+      "pastSimple": "misunderstood",
+      "pastParticiple": "misunderstood",
       "uk": "неправильно зрозуміти",
       "fake": "misunderstanded"
     },
     {
-      "base_form": "clothe",
-      "past_simple": "clad",
-      "past_participle": "clad",
+      "basic": "clothe",
+      "pastSimple": "clad",
+      "pastParticiple": "clad",
       "uk": "одягати",
       "fake": "clothed"
     },
     {
-      "base_form": "vex",
-      "past_simple": "vexed",
-      "past_participle": "vexed",
+      "basic": "vex",
+      "pastSimple": "vexed",
+      "pastParticiple": "vexed",
       "uk": "дратувати",
       "fake": "vaxed"
     },
     {
-      "base_form": "frostbite",
-      "past_simple": "frostbit",
-      "past_participle": "frostbitten",
+      "basic": "frostbite",
+      "pastSimple": "frostbit",
+      "pastParticiple": "frostbitten",
       "uk": "відморожувати",
       "fake": "frostbiteed"
     },
     {
-      "base_form": "alight",
-      "past_simple": "alit",
-      "past_participle": "alighted",
+      "basic": "alight",
+      "pastSimple": "alit",
+      "pastParticiple": "alighted",
       "uk": "спускатися",
       "fake": "alighted"
     },
     {
-      "base_form": "slink",
-      "past_simple": "slunk",
-      "past_participle": "slunk",
+      "basic": "slink",
+      "pastSimple": "slunk",
+      "pastParticiple": "slunk",
       "uk": "нишпорити",
       "fake": "slinked"
     },
     {
-      "base_form": "wring",
-      "past_simple": "wrung",
-      "past_participle": "wrung",
+      "basic": "wring",
+      "pastSimple": "wrung",
+      "pastParticiple": "wrung",
       "uk": "викручувати",
       "fake": "wringed"
     },
     {
-      "base_form": "wend",
-      "past_simple": "went",
-      "past_participle": "went",
+      "basic": "wend",
+      "pastSimple": "went",
+      "pastParticiple": "went",
       "uk": "йти",
       "fake": "wended"
     },
     {
-      "base_form": "overhear",
-      "past_simple": "overheard",
-      "past_participle": "overheard",
+      "basic": "overhear",
+      "pastSimple": "overheard",
+      "pastParticiple": "overheard",
       "uk": "підслуховувати",
       "fake": "overheared"
     },
     {
-      "base_form": "overdraw",
-      "past_simple": "overdrew",
-      "past_participle": "overdrawn",
+      "basic": "overdraw",
+      "pastSimple": "overdrew",
+      "pastParticiple": "overdrawn",
       "uk": "перевищувати ліміт",
       "fake": "overdrawed"
     },
     {
-      "base_form": "handwrite",
-      "past_simple": "handwrote",
-      "past_participle": "handwritten",
+      "basic": "handwrite",
+      "pastSimple": "handwrote",
+      "pastParticiple": "handwritten",
       "uk": "писати від руки",
       "fake": "handwrited"
     }

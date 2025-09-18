@@ -38,7 +38,7 @@
   display: flex;
   justify-content: center;
   gap: 11px;
-  margin-top: 20px;
+  margin-top: .5rem;
 }
 .item {
   background-color: var(--background-white-default);

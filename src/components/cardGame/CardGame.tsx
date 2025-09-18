@@ -17,6 +17,7 @@ import { useDispatch } from "react-redux";
 import { setCurrent } from "../../redux/game/slice";
 import { ANSWER_STATUS, LAST_INDEX, PENDING } from "../../constants";
 import { useMobileOS } from "../../hooks/useMobileOS";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 const CardGame: React.FC<CardGameProps> = ({ question }) => {
   const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
@@ -32,6 +33,8 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
   const [isChecked, setIsChecked] = useState(false);
   const [visibility, setVisibility] = useState(false);
 
+   const isLogin = useSelector(selectIsLoggedIn);
+
   const count = useCountWord();
 
   const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(() => {
@@ -40,7 +43,7 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
     return Array(count).fill(PENDING);
   });
 
-  const imgWrite = `/image/game/${question.base_form}.png`;
+  const imgWrite = `/image/game/${question.basic}.png`;
 
   const handleWordClick = (wordName: string) => {
     setWord(wordName);
@@ -66,8 +69,7 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
     }
   }, []);
 
-  console.log(question);
-  
+
 
   useEffect(() => {
     if (answerStatuses.length === 0) return;
@@ -96,7 +98,7 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
       <BaseComponentGame
         current={current}
         img={imgWrite}
-        question={question.question}
+        question={isLogin? question.basic : question.question}
         answerStatuses={answerStatuses}
         count={count}
         translate={question.translate}

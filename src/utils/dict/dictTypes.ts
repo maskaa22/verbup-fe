@@ -1,16 +1,16 @@
 export interface Props {
   word: {
-    base_form: string;
-    past_simple: string;
-    past_participle: string;
+    basic: string;
+    pastSimple: string;
+    pastParticiple: string;
     uk: string;
   };
 }
 
 interface Verb {
-  base_form: string;
-  past_simple: string;
-  past_participle: string;
+  basic: string;
+  pastSimple: string;
+  pastParticiple: string;
   uk: string;
   fake: string;
 }

@@ -6,13 +6,13 @@ import { speakWordsIndividually } from "../../utils/dict/dictSound";
 
 
 const DictItem: React.FC<Props> = ({
-  word: { base_form, past_simple, past_participle, uk },
+  word: { basic, pastSimple, pastParticiple, uk },
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const handleSound = () => {
-    // const wordList = `${base_form} ${past_simple} ${past_participle}`;
-    const wordList = [base_form, past_simple, past_participle]
+    // const wordList = `${basic} ${pastSimple} ${pastParticiple}`;
+    const wordList = [basic, pastSimple, pastParticiple]
     setIsSpeaking(true);
     speakWordsIndividually(wordList, true, 1500);
     setTimeout(() => setIsSpeaking(false), 2500);
@@ -24,7 +24,7 @@ const DictItem: React.FC<Props> = ({
         <div className={css.dotWrap}>
           <span></span>
           <div className={css.baseForm}>
-            <p>{base_form}</p>
+            <p>{basic}</p>
             <p>{uk}</p>
           </div>
         </div>
@@ -47,8 +47,8 @@ const DictItem: React.FC<Props> = ({
       </div>
       {isOpen && (
         <div className={css.irrForm}>
-          <p>{past_simple}</p>
-          <p>{past_participle}</p>
+          <p>{pastSimple}</p>
+          <p>{pastParticiple}</p>
         </div>
       )}
     </div>

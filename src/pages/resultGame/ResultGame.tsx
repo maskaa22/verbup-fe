@@ -14,6 +14,10 @@ import type { AppDispatch } from "../../redux/store";
 // import Feedback from "../../components/feedback/Feedback";
 import Confetti from "../../components/confetti/Confetti";
 import { CORRECT, ANSWER_STATUS, LAST_INDEX, WRONG } from "../../constants";
+import { useState } from "react";
+import Star from "../../components/star/Star";
+import Feedback from "../../components/feedback/Feedback";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 const ResultGame = () => {
   const navigation = useNavigate();
@@ -28,12 +32,13 @@ const ResultGame = () => {
   // const correct = correctRedux ?? correctLS;
   // const wrong = wrongRedux ?? wrongLS;
 
-
   const numQuest = gameSetting.numQuest;
   const count = Number(numQuest.split(" ")[0]);
   const dispatch: AppDispatch = useDispatch();
 
-  // const [rating, setRating] = useState<number>(0);
+  const isLogin = useSelector(selectIsLoggedIn);
+
+  const [rating, setRating] = useState<number>(0);
 
   const resetSetting = () => {
     sessionStorage.removeItem(CORRECT);
@@ -47,7 +52,7 @@ const ResultGame = () => {
 
   const home = () => {
     resetSetting();
-    navigation("/");
+    navigation(isLogin ? "/home" : "/");
   };
 
   const next = async () => {
@@ -64,10 +69,14 @@ const ResultGame = () => {
     <div className={c.rezult}>
       <Confetti />
       <div className={c.innerContainer}>
-        <h3 className={c.title}>Тренування завершено</h3>
+        <h3 className={c.title}>
+          {!isLogin ? "Твій прогрес не зберігається" : "Тренування завершено"}
+        </h3>
         <img src={"/image/game/planet-rezult.png"} className={c.img} />
         <p className={c.text}>
-          Супер! Твої дієслова прокачались на новий рівень
+          {correctLS === 0
+            ? "Наступний раз - вийде!"
+            : "Супер! Твої дієслова прокачались на новий рівень"}
         </p>
         <ul className={c.list}>
           <li className={c.item}>
@@ -82,24 +91,26 @@ const ResultGame = () => {
             </svg>
             <p>{wrongLS}</p>
           </li>
-          {/* <li className={c.item}>
+          <li className={c.item}>
             <svg className={c.icon}>
               <use href={"/icons.svg#icon-star"}></use>
             </svg>
             <p>56</p>
-          </li> */}
+          </li>
         </ul>
-        {/* <Star setRating={setRating} rating={rating} />
-        {rating > 0 && <Feedback />} */}
+        <Star setRating={setRating} rating={rating} />
+        {rating > 0 && <Feedback />}
       </div>
-      {/* <div className={`${c.btnContainer} ${rating ? `${c.rating}` : ""}`}> */}
-      <div className={`${c.btnContainer}`}>
-        <button onClick={home} className={c.btn}>
-          На головну
-        </button>
-        <button onClick={next} className={c.btn}>
-          Грати далі
-        </button>
+      <div className={`${c.btnContainer} ${rating ? `${c.rating}` : ""}`}>
+        <div className={`${c.btnContainer}`}>
+          <button onClick={home} className={c.btn}>
+            На головну
+          </button>
+
+          <button onClick={next} className={c.btn}>
+            Грати далі
+          </button>
+        </div>
       </div>
     </div>
   );
