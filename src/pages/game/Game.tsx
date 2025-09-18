@@ -27,7 +27,6 @@ const Game: React.FC = () => {
 
   useEffect(() => {
     dispatch(generateQuestions());
-    // dispatch(getWords(setting))
   }, [dispatch]);
 
   return (

@@ -24,6 +24,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
 
   const {verbForm} = useSelector(selectGameSetting);
 
+
   return (
     <>
       <div className={s.topContainer}>

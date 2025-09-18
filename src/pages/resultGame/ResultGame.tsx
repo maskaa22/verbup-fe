@@ -99,7 +99,7 @@ const ResultGame = () => {
           </li>
         </ul>
         <Star setRating={setRating} rating={rating} />
-        {rating > 0 && <Feedback />}
+        {rating > 0 && <Feedback rating={rating}/>}
       </div>
       <div className={`${c.btnContainer} ${rating ? `${c.rating}` : ""}`}>
         <div className={`${c.btnContainer}`}>

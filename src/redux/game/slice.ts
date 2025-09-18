@@ -44,9 +44,7 @@ const gameSlice = createSlice({
       .addCase(generateQuestions.pending, (state) => {
         state.items = [];
       })
-      // .addCase(getWords.fulfilled, (state, action) => {
-      //   state.items = action.payload;
-      // })
+
   },
 });
 

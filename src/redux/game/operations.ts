@@ -3,7 +3,11 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ADVANCED, BEGGINER, INTERMEDIATE } from "../../constants";
 import type { RootState } from "../store";
 import { generateQuestionsList } from "../../utils/game/generateQuestionsList";
-import type { qestionDataOperation, Question, Verb} from "../../utils/gameType";
+import type {
+  qestionDataOperation,
+  Question,
+  Verb,
+} from "../../utils/gameType";
 import api from "../../api/axios";
 
 export const getAuthHeader = (): string | undefined => {
@@ -95,7 +99,6 @@ export const getAuthHeader = (): string | undefined => {
 
 //     const {level, numQuest, verbForm} = setting;
 
-   
 //     const count = Number(numQuest.split(" ")[0]);
 
 //     const { data } = await api.get("/games/words", {
@@ -109,7 +112,6 @@ export const getAuthHeader = (): string | undefined => {
 //     });
 
 //     // console.log(data.data.words);
-    
 
 //     return data.data.words;
 //   } catch (error: unknown) {
@@ -117,15 +119,6 @@ export const getAuthHeader = (): string | undefined => {
 //     return rejectWithValue(err.message);
 //   }
 // });
-
-
-
-
-
-
-
-
-
 
 // export const generateQuestions = createAsyncThunk<
 //   Question[],
@@ -176,15 +169,12 @@ export const getAuthHeader = (): string | undefined => {
 //   }
 // });
 
-
-
 interface QuestionSettings {
   level: string;
   numQuest: string;
   verbForm: string;
   gameType: "test" | "input";
 }
-
 
 // 🔹 утиліта для генерації фейкових варіантів
 const generateFakeVariant = (word: string): string => {
@@ -225,8 +215,7 @@ function buildVariants(localVerb: Verb): { name: string }[] {
 //   { state: RootState; rejectValue: string }
 // >("games/words", async (_, { getState, rejectWithValue }) => {
 //   try {
-    
-    
+
 //     let token = "";
 //     const raw = localStorage.getItem("persist:user");
 //     if (raw) {
@@ -243,13 +232,12 @@ function buildVariants(localVerb: Verb): { name: string }[] {
 //     console.log(level);
 //     const count = Number(numQuest.split(" ")[0]);
 
-
 //     const gameType = 'test';
 // console.log(gameType);
 
 //     // 🔹 завантажуємо локальний файл для довідки (і переклади, і fake)
 //     const res = await fetch("/data/irr-verbs.filtered.json");
-    
+
 //     const data: qestionDataOperation = await res.json();
 //     console.log(data);
 //     const allVerbs: Verb[] = [
@@ -276,7 +264,6 @@ function buildVariants(localVerb: Verb): { name: string }[] {
 //       });
 
 //       console.log(backend.data.word);
-      
 
 //       return backend.data.words.map((word: any) => {
 //         // знайти слово в локальному файлі
@@ -341,8 +328,7 @@ function buildVariants(localVerb: Verb): { name: string }[] {
 //   }
 // });
 
-
-function getTokenFromStorage(): string | null {
+export function getTokenFromStorage(): string | null {
   const raw = localStorage.getItem("persist:user");
   if (!raw) return null;
 
@@ -368,48 +354,33 @@ export const generateQuestions = createAsyncThunk<
   try {
     const state = getState() as RootState;
     const { level, numQuest, verbForm } = state.game.setting;
-    const { selectIsLoggedIn } = state.auth.isLoggedIn;
+    const isLogin = state.auth.isLoggedIn;
     const count = Number(numQuest.split(" ")[0]);
 
-//     
+    //
 
-const token = getTokenFromStorage();
+    const token = getTokenFromStorage();
     console.log("TOKEN:", token);
-    
 
     // 🔹 якщо користувач НЕ залогінений → локальний режим
-    if (!selectIsLoggedIn) {
-      console.log(111);
-      
+    if (!isLogin) {
       const res = await fetch("/data/irr-verbs.filtered.json");
       const data: qestionDataOperation = await res.json();
 
       const mode = verbForm === "Past Simple" ? "v2" : "v3";
 
-      // if (level === BEGGINER) {
-      //   return generateQuestionsList(data.easy, count, mode);
-      // } else if (level === INTERMEDIATE) {
-      //   return generateQuestionsList(data.medium, count, mode);
-      // } else if (level === ADVANCED) {
-      //   return generateQuestionsList(data.hard, count, mode);
-      // }
-      // return [];
-
-      console.log(data);
-      
-
-          let questions: Question[] = [];
-    if (count > 0) {
-      if (level === BEGGINER) {
-        questions = generateQuestionsList(data.easy, count, mode);
-      } else if (level === INTERMEDIATE) {
-        questions = generateQuestionsList(data.medium, count, mode);
-      } else if (level === ADVANCED) {
-        questions = generateQuestionsList(data.hard, count, mode);
+      let questions: Question[] = [];
+      if (count > 0) {
+        if (level === BEGGINER) {
+          questions = generateQuestionsList(data.easy, count, mode);
+        } else if (level === INTERMEDIATE) {
+          questions = generateQuestionsList(data.medium, count, mode);
+        } else if (level === ADVANCED) {
+          questions = generateQuestionsList(data.hard, count, mode);
+        }
       }
-    }
 
-    return questions;
+      return questions;
     }
 
     // 🔹 якщо залогінений → дані з бекенду
@@ -429,22 +400,26 @@ const token = getTokenFromStorage();
       },
     });
 
-    const backendWords: { basic: string; correctAnswer: string }[] =
+    const backendWords: { basic: string; correctAnswer: string; id: number }[] =
       data.data.words;
 
     // 🔹 локальний словник (для перекладів і форм)
     const resLocal = await fetch("/data/irr-verbs.filtered.json");
     const localData: qestionDataOperation = await resLocal.json();
-    const allLocal = [...localData.easy, ...localData.medium, ...localData.hard];
+    const allLocal = [
+      ...localData.easy,
+      ...localData.medium,
+      ...localData.hard,
+    ];
 
     // 🔹 збагачуємо бекенд-слова локальними даними
     const enriched: Question[] = backendWords.map((word) => {
       const localVerb = allLocal.find((lv) => lv.basic === word.basic);
 
       const correctAnswer =
-          verbForm === "Past Simple"
-            ? localVerb?.pastSimple
-            : localVerb?.pastParticiple;
+        verbForm === "Past Simple"
+          ? localVerb?.pastSimple
+          : localVerb?.pastParticiple;
 
       if (!localVerb) {
         // fallback якщо нема у локальному словнику
@@ -463,6 +438,7 @@ const token = getTokenFromStorage();
         variants: buildVariants(localVerb),
         basic: localVerb.basic,
         translate: localVerb.uk,
+        id: word.id,
       };
     });
 

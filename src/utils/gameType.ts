@@ -80,6 +80,7 @@ export type Question = {
   variants: BtnType[];
   basic: string;
   translate: string;
+  id?: number;
 };
 export type Verb = {
   basic: string;
