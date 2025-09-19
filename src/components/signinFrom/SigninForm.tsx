@@ -16,7 +16,7 @@ const SignInSchema = Yup.object().shape({
   email: Yup.string()
     .email("This is not a valid email address")
     .required("Please enter your email"),
-    password: Yup.string().min(4).max(60).required("Please enter your password")
+    password: Yup.string().min(8).max(60).required("Please enter your password")
 });
 const SigninForm = () => {
   // const [visible, setVisible] = useState(false)
@@ -30,7 +30,6 @@ const SigninForm = () => {
   ): Promise<void> => {
     const res = await dispatch(login(values));
     
-    console.log(res)
     if (login.fulfilled.match(res)) {
       
       navigate("/home");

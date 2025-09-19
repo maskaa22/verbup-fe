@@ -1,15 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchWords } from "./operations";
-import type { InitialState } from "../../utils/dict/dictTypes";
+import { fetchWords, getWords } from "./operations";
+import { dictInitState } from "../../constants";
 
-const initialState: InitialState = {
-  allWords: null,
-  word: "",
-  letter: "",
-};
+
 const dictSlice = createSlice({
   name: "dict",
-  initialState: initialState,
+  initialState: dictInitState,
   reducers: {
     setWord(state, action) {
       state.word = action.payload;
@@ -21,6 +17,12 @@ const dictSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchWords.fulfilled, (state, action) => {
       state.allWords = action.payload;
+    }).addCase(getWords.pending, (state) => {
+state.isLoading = true;
+    }).addCase(getWords.fulfilled, (state) => {
+state.isLoading = false;
+    }).addCase(getWords.rejected, (state) => {
+state.isLoading = false;
     });
   },
 });

@@ -4,11 +4,10 @@ import RestrictedRoute from "./components/RestrictedRoute";
 import { lazy, useEffect, useState } from "react";
 import usePageTracking from "./utils/googleAnalize";
 import SpaceLoader from "./components/spaceLoader/SpaceLoader";
-// import { useDispatch } from "react-redux";
-// import type { AppDispatch } from "./redux/store";
-// import { refreshUser } from "./redux/auth/operations";
-// import { useSelector } from "react-redux";
-// import { selectIsLoggedIn } from "./redux/auth/selectors";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "./redux/store";
+import { refreshUser } from "./redux/auth/operations";
+
 
 
 const Intro = lazy(() => import("./pages/intro/Intro"));
@@ -30,8 +29,7 @@ const LoaderDinamic = lazy(() => import("./components/loaderDinamic/LoaderDinami
 
 function App() {
   const [loading, setLoading] = useState(true);
-  // const dispatch = useDispatch<AppDispatch>();
-  // const isLoggedin = useSelector(selectIsLoggedIn)
+  const dispatch = useDispatch<AppDispatch>();
   
 
   // useEffect(() => {console.log(isLoggedin)}, [isLoggedin])
@@ -41,11 +39,9 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // useEffect(() => {
-  //   // if(loading) return;
-  //   if(isLoggedin){dispatch(refreshUser());}
-
-  // }, [dispatch]);
+  useEffect(() => {
+dispatch(refreshUser())
+  }, [dispatch]);
 
   usePageTracking();
 

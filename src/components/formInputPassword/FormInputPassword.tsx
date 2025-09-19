@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import css from "./FormInputPassword.module.css";
-import { useField } from "formik";
+import { ErrorMessage, useField } from "formik";
 import ValidPassword from "../validPassword/ValidPassword";
 import clsx from "clsx";
 import type { InputPswProps } from "../../utils/formTypes";
@@ -44,6 +44,7 @@ const FormInputPassword: React.FC<InputPswProps> = ({isFor, label, placeholder})
         autoComplete="off"
         required
       />
+      <ErrorMessage name="password" component="span" />
       <svg className={css.icon}>
         <use href="./icons.svg#icon-password"></use>
       </svg>

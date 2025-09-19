@@ -1,3 +1,4 @@
+import type { InitialState } from "../utils/dict/dictTypes";
 import type { authState } from "../utils/formTypes";
 import { loadSettingFromStorage } from "../utils/game/loadSettingFromStorage";
 import type { GameState } from "../utils/gameType";
@@ -146,4 +147,11 @@ export const initialStateAuth: authState = {
   isLoading: false,
   isRefreshing: false,
   isError: false,
+};
+
+export const dictInitState: InitialState = {
+  allWords: null,
+  word: "",
+  letter: "",
+  isLoading: false
 };
