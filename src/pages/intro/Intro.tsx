@@ -16,7 +16,7 @@ const Intro = () => {
           Що спільного в go, went і gone?{" "}
           <span> VerbUp знає відповідь — і ти скоро теж. </span>
         </p>
-        <NavLink className={css.link} to="/setting/game">
+        <NavLink className={css.link} to="/game">
           Почати
         </NavLink>
         <div className={css.signWrap}>

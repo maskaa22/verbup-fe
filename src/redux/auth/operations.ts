@@ -37,22 +37,23 @@ export const register = createAsyncThunk(
   }
 );
 
-export const login = createAsyncThunk<UserPayload, LogFormValues>(
+export const login = createAsyncThunk(
   "auth/login",
-  async (credentials, thunkApi) => {
+  async (credentials: LogFormValues, thunkApi) => {
     try {
       const { data } = await api.post("/auth/login", credentials);
+      // console.log(data)
       setAuthHeader(data.accessToken);
-      const user = await api.get("/users")
-      const payload = {
-        token: data.accessToken,
-        username: user.data.username,
-        useremail: user.data.email
-      }
-      return payload;
+      // const user = await api.get("/users")
+      // const payload = {
+      //   token: data.accessToken,
+      //   username: user.data.username,
+      //   useremail: user.data.email
+      // }
+      return data;
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
-      return thunkApi.rejectWithValue(error || "Login failed")
+      return thunkApi.rejectWithValue(error || "Login failed");
     }
   }
 );

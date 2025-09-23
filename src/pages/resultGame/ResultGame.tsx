@@ -91,12 +91,12 @@ const ResultGame = () => {
             </svg>
             <p>{wrongLS}</p>
           </li>
-          <li className={c.item}>
+          {/* <li className={c.item}>
             <svg className={c.icon}>
               <use href={"/icons.svg#icon-star"}></use>
             </svg>
             <p>56</p>
-          </li>
+          </li> */}
         </ul>
         <Star setRating={setRating} rating={rating} />
         {rating > 0 && <Feedback rating={rating}/>}

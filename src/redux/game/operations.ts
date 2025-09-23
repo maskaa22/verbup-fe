@@ -345,6 +345,7 @@ export function getTokenFromStorage(): string | null {
 
 export const generateQuestions = createAsyncThunk<
   Question[],
+  void,
   // questionsLogin,
   {
     state: RootState;
