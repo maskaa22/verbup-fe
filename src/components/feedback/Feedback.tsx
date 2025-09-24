@@ -4,7 +4,11 @@ import { useState } from "react";
 import api from "../../api/axios";
 import { getTokenFromStorage } from "../../redux/game/operations";
 
-const Feedback: React.FC = ({ rating }) => {
+type FeedbackProps = {
+  rating: number;
+};
+
+const Feedback: React.FC<FeedbackProps> = ({ rating }) => {
   const [comment, setComment] = useState<string>("");
 
   const message = async () => {

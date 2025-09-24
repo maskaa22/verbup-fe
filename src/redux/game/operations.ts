@@ -81,100 +81,12 @@ export const getAuthHeader = (): string | undefined => {
 // //   }
 // // });
 
-// export const getWords = createAsyncThunk("games/words", async (setting:questionsLogin, { rejectWithValue }) => {
-//   try {
-//     let token = "";
-//     const raw = localStorage.getItem("persist:user");
-//     if (raw) {
-//       const parsed = JSON.parse(raw);
-
-//       let newToken = parsed.token;
-
-//       if (typeof newToken === "string") {
-//         newToken = newToken.replace(/^"|"$/g, "");
-//       }
-
-//       token = newToken;
-//     }
-
-//     const {level, numQuest, verbForm} = setting;
-
-//     const count = Number(numQuest.split(" ")[0]);
-
-//     const { data } = await api.get("/games/words", {
-//       headers: token ? { Authorization: `Bearer ${token}` } : undefined,
-//       params: {
-//         level: (level === 'Beginer' && "easy") || (level === 'Intermediate' && 'medium') || (level === 'Advanced' && 'hard'),
-//         count,
-//         lang: "en",
-//         irrWordType: (verbForm === 'Past Simple' && "ps") || (verbForm === 'Past Participle' && 'pp') || (verbForm === 'Змішаний' && 'mixed'),
-//       },
-//     });
-
-//     // console.log(data.data.words);
-
-//     return data.data.words;
-//   } catch (error: unknown) {
-//     const err = error as Error;
-//     return rejectWithValue(err.message);
-//   }
-// });
-
-// export const generateQuestions = createAsyncThunk<
-//   Question[],
-//   void,
-//   { state: RootState; rejectValue: string }
-// >("game/fetchQuestions", async (_, { getState, rejectWithValue }) => {
-//   try {
-//     const state = getState();
-//     const { level, numQuest, verbForm } = state.game.setting;
-//     const isLoggedIn = state.auth.isLoggedIn;
-
-//     const count = Number(numQuest.split(" ")[0]);
-
-//     if (!isLoggedIn) {
-//       // локальні питання
-//       const res = await fetch("/data/irr-verbs.filtered.json");
-//       const data: qestionDataOperation = await res.json();
-//       const mode = verbForm === "Past Simple" ? "v2" : "v3";
-
-//       if (level === BEGGINER) return generateQuestionsList(data.easy, count, mode);
-//       if (level === INTERMEDIATE) return generateQuestionsList(data.medium, count, mode);
-//       if (level === ADVANCED) return generateQuestionsList(data.hard, count, mode);
-//       return [];
-//     }
-
-//     // бекенд
-//     const token = getAuthHeader();
-//     const { data } = await api.get("/games/words", {
-//       headers: token ? { Authorization: token } : undefined,
-//       params: {
-//         level:
-//           (level === "Beginer" && "easy") ||
-//           (level === "Intermediate" && "medium") ||
-//           (level === "Advanced" && "hard"),
-//         count,
-//         lang: "en",
-//         irrWordType:
-//           (verbForm === "Past Simple" && "ps") ||
-//           (verbForm === "Past Participle" && "pp") ||
-//           (verbForm === "Змішаний" && "mixed"),
-//       },
-//     });
-
-//     return data.data.words;
-//   } catch (error: unknown) {
-//     const err = error as Error;
-//     return rejectWithValue(err.message);
-//   }
-// });
-
-interface QuestionSettings {
-  level: string;
-  numQuest: string;
-  verbForm: string;
-  gameType: "test" | "input";
-}
+// interface QuestionSettings {
+//   level: string;
+//   numQuest: string;
+//   verbForm: string;
+//   gameType: "test" | "input";
+// }
 
 // 🔹 утиліта для генерації фейкових варіантів
 const generateFakeVariant = (word: string): string => {
@@ -419,8 +331,8 @@ export const generateQuestions = createAsyncThunk<
 
       const correctAnswer =
         verbForm === "Past Simple"
-          ? localVerb?.pastSimple
-          : localVerb?.pastParticiple;
+          ? localVerb?.pastSimple || word.correctAnswer
+          : localVerb?.pastParticiple || word.correctAnswer;
 
       if (!localVerb) {
         // fallback якщо нема у локальному словнику
