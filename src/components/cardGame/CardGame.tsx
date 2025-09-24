@@ -93,7 +93,7 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
 
   }, []);
 
-  console.log(question);
+
 
   return (
     <>

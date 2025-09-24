@@ -1,6 +1,6 @@
 import c from "./ResultGame.module.css";
 // import Star from "../../components/star/Star";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
   // selectCorrect,
@@ -14,10 +14,12 @@ import type { AppDispatch } from "../../redux/store";
 // import Feedback from "../../components/feedback/Feedback";
 import Confetti from "../../components/confetti/Confetti";
 import { CORRECT, ANSWER_STATUS, LAST_INDEX, WRONG } from "../../constants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Star from "../../components/star/Star";
 import Feedback from "../../components/feedback/Feedback";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import type { currentAnswerAndQuestions } from "../../utils/gameType";
+import api from "../../api/axios";
 
 const ResultGame = () => {
   const navigation = useNavigate();
@@ -37,8 +39,37 @@ const ResultGame = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const isLogin = useSelector(selectIsLoggedIn);
+  const { questions } = useOutletContext<currentAnswerAndQuestions>();
 
   const [rating, setRating] = useState<number>(0);
+
+
+   useEffect(() => {
+    if (!isLogin) return;
+
+    const sendProgress = async () => {
+      try {
+        console.log(questions);
+        const words = questions.map((q) => ({
+          wordId: q.id, 
+          type:
+            (gameSetting.verbForm === "Past Simple" && "ps") ||
+            (gameSetting.verbForm === "Past Participle" && "pp"),
+          status: q.correctAnswer ? "studied" : "mistake", 
+        }));
+
+        console.log(words);
+        
+
+        await api.post("/progress", { words });
+        console.log("Прогрес відправлено:", words);
+      } catch (error) {
+        console.error("Помилка збереження прогресу:", error);
+      }
+    };
+
+    sendProgress();
+  }, [isLogin, questions, gameSetting]);
 
   const resetSetting = () => {
     sessionStorage.removeItem(CORRECT);
@@ -64,6 +95,7 @@ const ResultGame = () => {
       console.error("Помилка при генерації питань:", error);
     }
   };
+  
 
   return (
     <div className={c.rezult}>

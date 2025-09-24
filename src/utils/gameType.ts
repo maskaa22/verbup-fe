@@ -46,6 +46,7 @@ export type QuestionType = {
   variants: BtnType[];
   basic: string;
   translate: string;
+  id?: number;
 };
 export type CardGameProps = {
   question: QuestionType;
