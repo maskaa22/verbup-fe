@@ -3,6 +3,7 @@ import c from "./ResultGame.module.css";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
+
   // selectCorrect,
   selectGameSetting,
   // selectWrong,
@@ -44,32 +45,32 @@ const ResultGame = () => {
   const [rating, setRating] = useState<number>(0);
 
 
-   useEffect(() => {
-    if (!isLogin) return;
+  const answerStatuses = JSON.parse(sessionStorage.getItem(ANSWER_STATUS) || "[]");
 
-    const sendProgress = async () => {
-      try {
-        console.log(questions);
-        const words = questions.map((q) => ({
-          wordId: q.id, 
-          type:
-            (gameSetting.verbForm === "Past Simple" && "ps") ||
-            (gameSetting.verbForm === "Past Participle" && "pp"),
-          status: q.correctAnswer ? "studied" : "mistake", 
-        }));
+useEffect(() => {
+  if (!isLogin) return;
 
-        console.log(words);
-        
+  const sendProgress = async () => {
+    try {
+      const words = questions.map((q, idx) => ({
+        wordId: q.id,
+        type:
+          (gameSetting.verbForm === "Past Simple" && "ps") ||
+          (gameSetting.verbForm === "Past Participle" && "pp"),
+        status: answerStatuses[idx] === "success" ? "studied" : "mistake",
+      }));
 
-        await api.post("/progress", { words });
-        console.log("Прогрес відправлено:", words);
-      } catch (error) {
-        console.error("Помилка збереження прогресу:", error);
-      }
-    };
+      console.log("Готові дані:", words);
 
-    sendProgress();
-  }, [isLogin, questions, gameSetting]);
+      await api.post("/progress", { words });
+      console.log("Прогрес відправлено:", words);
+    } catch (error) {
+      console.error("Помилка збереження прогресу:", error);
+    }
+  };
+
+  sendProgress();
+}, [isLogin, questions, gameSetting, answerStatuses]);
 
   const resetSetting = () => {
     sessionStorage.removeItem(CORRECT);
