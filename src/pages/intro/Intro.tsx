@@ -19,14 +19,14 @@ const Intro = () => {
         <NavLink className={css.link} to="/setting/game">
           Почати
         </NavLink>
-        <div className={css.signWrap}>
+        {/* <div className={css.signWrap}>
       <div>
         <span>Вже є акаунт?</span>
         <NavLink to="/signin"> Увійти</NavLink>
       </div>
       <span>або</span>
       <NavLink to="/signup">Зареєструватись</NavLink>
-    </div>
+    </div> */}
       </div>
     </>
   );

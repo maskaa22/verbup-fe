@@ -10,16 +10,31 @@ import FormInputPassword from "../formInputPassword/FormInputPassword";
 import { useNavigate } from "react-router-dom";
 // import { selectIsError } from "../../redux/auth/selectors";
 // import { useSelector } from "react-redux";
+import * as Yup from 'yup';
+
+const RegisterSchema = Yup.object().shape({
+  username: Yup.string().required("Please enter your nick-name"),
+  email: Yup.string()
+      .email("This is not a valid email address")
+      .required("Please enter your email"),
+      password: Yup.string().min(8, 'Password must be 8 characters long')
+    .matches(/[0-9]/, 'Password requires a number')
+    .matches(/[a-z]/, 'Password requires a lowercase letter')
+    .matches(/[A-Z]/, 'Password requires an uppercase letter')
+    .matches(/[^\w]/, 'Password requires a symbol').required("Please enter your password")
+})
 
 const RegisterForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate()
   // const error = useSelector(selectIsError)
+  
   const handleSubmit = async (
     values: RegFormValues,
     actions: FormikHelpers<RegFormValues>
   ): Promise<void> => {
    const res = await dispatch(register(values));
+   console.log("submit: ", res)
    if(register.fulfilled.match(res)){
     actions.resetForm();
     navigate('/home')
@@ -29,6 +44,7 @@ const RegisterForm: React.FC = () => {
   return  <Formik
       initialValues={{ username: "", email: "", password: "" }}
       onSubmit={handleSubmit}
+      validationSchema={RegisterSchema}
     >
       <Form className={css.form}>
         <FormInput label="Ім'я" name="username" type="text" placeholder="Введіть ваше ім'я" icon="icon-user"/>

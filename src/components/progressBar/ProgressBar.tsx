@@ -1,11 +1,11 @@
 import css from "./ProgressBar.module.css"
 
-const ProgressBar = ({progress = 0.1}) => {
+const ProgressBar = ({progress = 0.01}) => {
     const radius = 80;
     const strokeWidth = 30;
     const circumference = 2 * Math.PI * radius;
 
-    const arcLength = (3/4) * circumference;
+    const arcLength = (1/4) * circumference;
     const progressPrc = progress * 100;
     const progressLength = Math.round(arcLength * progressPrc / 100);
     // const offset = arcLength - progress * arcLength;
