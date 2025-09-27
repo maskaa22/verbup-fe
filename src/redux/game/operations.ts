@@ -296,7 +296,6 @@ export const generateQuestions = createAsyncThunk<
       return questions;
     }
 
-    // 🔹 якщо залогінений → дані з бекенду
     const { data } = await api.get("/games/words", {
       headers: { Authorization: `Bearer ${token}` },
       params: {
