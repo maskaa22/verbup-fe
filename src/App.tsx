@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import RestrictedRoute from "./components/RestrictedRoute";
+// import RestrictedRoute from "./components/RestrictedRoute";
 import { lazy, useEffect, useState } from "react";
 import usePageTracking from "./utils/googleAnalize";
 import SpaceLoader from "./components/spaceLoader/SpaceLoader";
@@ -11,9 +11,9 @@ import { refreshUser } from "./redux/auth/operations";
 
 
 const Intro = lazy(() => import("./pages/intro/Intro"));
-const SignIn = lazy(() => import("./pages/signIn/SignIn"));
-const SignUp = lazy(() => import("./pages/signUp/SignUp"));
-const Home = lazy(() => import("./pages/home/Home"));
+// const SignIn = lazy(() => import("./pages/signIn/SignIn"));
+// const SignUp = lazy(() => import("./pages/signUp/SignUp"));
+// const Home = lazy(() => import("./pages/home/Home"));
 const AuthLayout = lazy(() => import("./components/authLayout/AuthLayout"));
 const GameSetting = lazy(() => import("./pages/gameSetting/GameSetting"));
 const Setting = lazy(() => import("./pages/setting/Setting"));
@@ -55,20 +55,20 @@ dispatch(refreshUser())
           <Route path="/" element={<Intro />} />
 
           <Route element={<AuthLayout />}>
-            <Route
+            {/* <Route
               path="/signup"
               element={<SignUp />}
-            />
-            <Route
+            /> */}
+            {/* <Route
               path="/signin"
               element={<SignIn />}
-            />
+            /> */}
             <Route path="/game" element={<Game />}>
               <Route path="write-word" element={<WriteGame />} />
               <Route path="check-word" element={<WordGame />} />
               <Route path="result" element={<ResultGame />} />
             </Route>
-            <Route path="/home" element={<RestrictedRoute component={<Home />} redirectTo="/signin" />} />
+            {/* <Route path="/home" element={<RestrictedRoute component={<Home />} redirectTo="/signin" />} /> */}
             <Route path="/cup" element={<LoaderDinamic />} />
             <Route path="/voc" element={<Dictionary />} />
             <Route path="/setting" element={<Setting />}></Route>

@@ -9,7 +9,7 @@ const ExtraSignup = ( ) => {
         <div>
         <button >Продовжити з Google</button>
         <svg className={css.icon}>
-            <use href="./icons.svg#icon-google"></use>
+            <use href="/icons.svg#icon-google"></use>
           </svg>
         </div>
         {/* <div>
