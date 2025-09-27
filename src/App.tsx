@@ -4,9 +4,9 @@ import "./App.css";
 import { lazy, useEffect, useState } from "react";
 import usePageTracking from "./utils/googleAnalize";
 import SpaceLoader from "./components/spaceLoader/SpaceLoader";
-import { useDispatch } from "react-redux";
-import type { AppDispatch } from "./redux/store";
-import { refreshUser } from "./redux/auth/operations";
+// import { useDispatch } from "react-redux";
+// import type { AppDispatch } from "./redux/store";
+// import { refreshUser } from "./redux/auth/operations";
 
 
 
@@ -29,7 +29,7 @@ const LoaderDinamic = lazy(() => import("./components/loaderDinamic/LoaderDinami
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch<AppDispatch>();
+  // const dispatch = useDispatch<AppDispatch>();
   
 
   // useEffect(() => {console.log(isLoggedin)}, [isLoggedin])
@@ -39,9 +39,9 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-dispatch(refreshUser())
-  }, [dispatch]);
+//   useEffect(() => {
+// dispatch(refreshUser())
+//   }, [dispatch]);
 
   usePageTracking();
 
