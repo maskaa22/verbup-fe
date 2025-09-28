@@ -21,7 +21,6 @@ export const register = createAsyncThunk(
   async (credentials: RegFormValues, thunkApi) => {
     try {
       const { data } = await api.post("/auth/register", credentials);
-      console.log(data);
       setAuthHeader(data.accessToken);
       // const user = await api.get("/users")
       // const payload = {
@@ -43,7 +42,6 @@ export const login = createAsyncThunk(
   async (credentials: LogFormValues, thunkApi) => {
     try {
       const { data } = await api.post("/auth/login", credentials);
-      // console.log(data)
       setAuthHeader(data.accessToken);
       // const user = await api.get("/users")
       // const payload = {

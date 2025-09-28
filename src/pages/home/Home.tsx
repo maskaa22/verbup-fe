@@ -7,6 +7,7 @@ import css from "./Home.module.css";
 
 const Home = () => {
   return <div className={css.homeWrap}>
+    <p>Не дивись сюди, це ще не дороблено...</p>
     <ProgressBar/>
     <div className={css.card}>
       <div className={css.userInfo}>
