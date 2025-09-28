@@ -213,7 +213,7 @@ color: var(--primary-1);}
   }
 }
 
-@media screen and (max-height: 767px) {
+@media screen and (max-height: 811px) {
   .signWrap{
     margin: 12px auto;
 }
@@ -222,7 +222,7 @@ color: var(--primary-1);}
 }
 }
 
-@media screen and (max-height: 680px) {
+@media screen and (max-height: 711px) {
   .image{
 margin: 4px auto;
 width: 200px;

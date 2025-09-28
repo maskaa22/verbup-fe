@@ -95,20 +95,20 @@ const Menu = () => {
                 </svg>
               </NavLink>
             </li>
-            {/* <li>
+            <li>
               <NavLink className={({ isActive }) => clsx(isActive && css.active)} to="/home">
                 <svg className={css.icon}>
                   <use href={`/icons.svg#${isLoggedIn? "icon-user-loggedin" : "icon-home"}`}></use>
                 </svg>
               </NavLink>
-            </li> */}
-            <li className={css.disabled}>
+            </li>
+            {/* <li className={css.disabled}>
               <NavLink className={css.disabled} to="#">
                 <svg className={css.icon}>
                   <use href={`/icons.svg#${isLoggedIn? "icon-user-loggedin" : "icon-home"}`}></use>
                 </svg>
               </NavLink>
-            </li>
+            </li> */}
           </ul>
           <span
             className={clsx(css.indicator, noActive && css.noActive)}
