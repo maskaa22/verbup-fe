@@ -20,6 +20,7 @@ const BaseButtonGame: React.FC<baseButtonType> = ({
       return;
     }
     setVisibility(false);
+console.log(word);
 
     if (word === correctAnswer) {
       setCheckAnswerType(SUCCESS);

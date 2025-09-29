@@ -4,6 +4,9 @@
   align-items: center;
   padding: 12px 0;
 }
+.writeWord {
+  padding: 0 0 12px 0;
+}
 .close {
   width: 42px;
   height: 42px;

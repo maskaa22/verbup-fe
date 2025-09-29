@@ -45,7 +45,7 @@ const GameOptions: React.FC = () => {
             path={"/image/repair.png"}
             count={count}
             gameType={"write-word"}
-            disabled={true}
+            disabled={false}
           />
           </div>
         </>
