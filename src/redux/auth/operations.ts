@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { type LogFormValues, type RegFormValues } from "../../utils/formTypes";
 import { api } from "../../api/axios";
-import { type RootState } from "../store";
 export const setAuthHeader = (token: string): void => {
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
@@ -59,27 +58,27 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk("auth/logout", async () => {});
 
-export const refreshUser = createAsyncThunk<void, void, {state: RootState}>(
+export const refreshUser = createAsyncThunk(
   "auth/refresh",
-  async (_, thunkApi) => {
-    const {auth} = thunkApi.getState();
-    if(auth.token){
-      setAuthHeader(auth.token);
+  async () => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setAuthHeader(token);
     }
-    
+
+    // Optional: actually hit refresh endpoint
     // try {
     //   const { data } = await api.post("/auth/refresh");
-    //   // console.log(data)
-    //     if(data) {
-    //       setAuthHeader(data.accessToken)};
-    //       return data;
+    //   setAuthHeader(data.accessToken);
+    //   return data;
     // } catch (error: unknown) {
-    //   return handleError(error,  thunkApi.rejectWithValue);
+    //   return thunkApi.rejectWithValue("Refresh failed");
     // }
-  },{
-    condition: (_, thunkApi) => {
-    const reduxState = thunkApi.getState();
-    return reduxState.auth.token !== null;
-    }
+  },
+  {
+    condition: () => {
+      // Don’t run if no token in storage
+      return localStorage.getItem("token") !== null;
+    },
   }
 );
