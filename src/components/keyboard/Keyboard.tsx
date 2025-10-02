@@ -1,5 +1,6 @@
 import React from "react";
 import c from "./Keyboard.module.css";
+import del from '../../../public/image/game/delete-icon.svg';
 
 type Props = {
   onKeyPress: (value: string) => void;
@@ -30,7 +31,7 @@ const Keyboard: React.FC<Props> = ({ onKeyPress, onBackspace }) => {
           {rowIndex === 2 && (
             <>
               <button className={c.special} onClick={onBackspace}>
-                <img src="./image/game/delete-icon.svg" />
+                <img src={del} alt="del"/>
               </button>
             </>
           )}

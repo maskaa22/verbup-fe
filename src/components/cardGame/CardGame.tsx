@@ -19,7 +19,7 @@ import { ANSWER_STATUS, LAST_INDEX, PENDING } from "../../constants";
 import { useMobileOS } from "../../hooks/useMobileOS";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
-const CardGame: React.FC<CardGameProps> = ({ question }) => {
+const CardGame: React.FC<CardGameProps> = ({ question, answerStatusesWrite}) => {
   const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
     useOutletContext<cardGameType>();
 
@@ -92,13 +92,15 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
 
   const location = useLocation();
 
+
+
   return (
     <>
       <BaseComponentGame
         current={current}
         img={imgWrite}
         question={isLogin ? question.basic : question.question}
-        answerStatuses={answerStatuses}
+        answerStatuses={answerStatusesWrite ? answerStatusesWrite : answerStatuses}
         count={count}
         translate={question.translate}
       />

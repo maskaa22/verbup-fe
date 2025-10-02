@@ -24,7 +24,7 @@ const WriteGame = () => {
   const [visibility, setVisibility] = useState(false);
 
   const { questions } = useOutletContext<currentAnswerAndQuestions>();
-console.log(questions);
+
 
   const current = useSelector(selectCurrent);
 
@@ -77,11 +77,12 @@ useEffect(() => {
       navigate("/game/result");
     }
   }, [current, questions, navigate]);
+console.log(answerStatuses);
 
   return (
     <>
       <div className={s.boxModel}>
-        {question && <CardGame question={question} />}
+        {question && <CardGame question={question} answerStatusesWrite={answerStatuses}/>}
         {/* <BaseComponentGame
           current={current}
           img={imgWrite}
@@ -111,6 +112,7 @@ useEffect(() => {
         setAnswerStatuses={setAnswerStatuses}
         current={current}
         setIsChecked={setIsChecked}
+        setText={setText}
       />
     </>
   );
