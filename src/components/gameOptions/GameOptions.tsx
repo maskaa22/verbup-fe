@@ -42,7 +42,7 @@ const GameOptions: React.FC = () => {
             icon={"/icons.svg#icon-tense"}
             text={"Впиши правильне дієслово - склади речення без помилок"}
             title={"VerbTense"}
-            path={"/image/repair.png"}
+            path={"/image/text.png"}
             count={count}
             gameType={"write-word"}
             disabled={false}
