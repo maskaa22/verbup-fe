@@ -19,20 +19,23 @@ import {
   CORRECT,
   ERROR,
   LAST_INDEX,
+  PENDING,
   SUCCESS,
   WRONG,
 } from "../../constants";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
 import { hydrateFromStorage } from "../../redux/game/slice";
+import { speakText } from "../../utils/voiseFunction";
 
 const WriteGame = () => {
   const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
     useOutletContext<cardGameType>();
 
   const [text, setText] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
+  // const [isChecked, setIsChecked] = useState(false);
   const [visibility, setVisibility] = useState(false);
+  const [voice, setVoice] = useState(false);
 
   const { questions } = useOutletContext<currentAnswerAndQuestions>();
 
@@ -44,16 +47,13 @@ const WriteGame = () => {
   const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(() => {
     const savedStatuses = sessionStorage.getItem(ANSWER_STATUS);
     if (savedStatuses) return JSON.parse(savedStatuses);
-    return Array(count).fill("pending");
+    return Array(count).fill(PENDING);
   });
 
   useEffect(() => {
     sessionStorage.setItem(ANSWER_STATUS, JSON.stringify(answerStatuses));
   }, [answerStatuses]);
 
-  // console.log(isChecked, visibility);
-
-  // const imgWrite = `/image/game/${question.basic}.png`;
 
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
@@ -87,6 +87,11 @@ const WriteGame = () => {
     }
   }, [current, questions, navigate]);
 
+  const voiceFunction = () => {
+    setVoice(true);
+    speakText(text)
+  };
+
   return (
     <>
       <div className={s.boxModel}>
@@ -95,7 +100,18 @@ const WriteGame = () => {
         )}
 
         <div className={s.inputContainer}>
-          <input type="text" value={text} readOnly className={s.gameInput} />
+          <input
+            type="text"
+            value={text}
+            readOnly
+            className={`${s.gameInput} ${visibility && s.borderInput}`}
+          />
+          <svg
+            className={`${s.voice} ${voice && s.speaking}`}
+            onClick={voiceFunction}
+          >
+            <use href="/icons.svg#icon-sound"></use>
+          </svg>
         </div>
       </div>
 
@@ -115,8 +131,9 @@ const WriteGame = () => {
           answerStatuses={answerStatuses}
           setAnswerStatuses={setAnswerStatuses}
           current={current}
-          setIsChecked={setIsChecked}
+          // setIsChecked={setIsChecked}
           setText={setText}
+          setVoice={setVoice}
         />
       )}
     </>

@@ -9,7 +9,7 @@
   max-width: 400px;
   margin: auto;
   user-select: none;
-  margin-top: 32px;
+  margin-top: 1.5rem;
 }
 
 .keyboardRow {
@@ -23,7 +23,7 @@
   /* padding: 4px 7px; */
   font-size: 18px;
   border: none;
-  background: #e5e1dc;
+  background: var(--background-soft);
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   /* flex: 1; */
@@ -41,4 +41,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-height: 700px) {
+  .keyboard {
+    margin-top: 0;
+  }
 }

@@ -13,7 +13,8 @@ const BaseButtonGame: React.FC<baseButtonType> = ({
   current,
   setIsChecked,
   setVisibility,
-  setText
+  setText,
+  setVoice
 }) => {
   const handleCheckAnswer = () => {
     if (!word) {
@@ -44,8 +45,9 @@ const BaseButtonGame: React.FC<baseButtonType> = ({
     setAnswerStatuses(newStatuses);
     setShowCheckAnswer(true);
     setModalActive(true);
-    setIsChecked(true);
-    setText('')
+    setIsChecked?.(true);
+    setText?.('');
+    setVoice?.(false)
   };
 
   return (

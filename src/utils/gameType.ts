@@ -1,3 +1,5 @@
+export type AnswerStatus = "success" | "error" | "pending";
+
 export type baseComponentType = {
   current: number;
   img: string;
@@ -6,8 +8,6 @@ export type baseComponentType = {
   count: number;
   translate: string;
 };
-
-export type AnswerStatus = "success" | "error" | "pending";
 
 export type baseButtonType = {
   word: string;
@@ -18,8 +18,10 @@ export type baseButtonType = {
   answerStatuses: AnswerStatus[];
   setAnswerStatuses: React.Dispatch<React.SetStateAction<AnswerStatus[]>>;
   current: number;
-  setIsChecked: (value: boolean) => void;
+  setIsChecked?: (value: boolean) => void;
   setVisibility: (value: boolean) => void;
+  setText?: React.Dispatch<React.SetStateAction<string>>;
+  setVoice?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type progressBarProps = {
@@ -50,6 +52,7 @@ export type QuestionType = {
 };
 export type CardGameProps = {
   question: QuestionType;
+answerStatusesWrite?: AnswerStatus[];
 };
 
 export type allGameType = {

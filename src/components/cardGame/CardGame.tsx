@@ -19,7 +19,10 @@ import { ANSWER_STATUS, LAST_INDEX, PENDING } from "../../constants";
 import { useMobileOS } from "../../hooks/useMobileOS";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
-const CardGame: React.FC<CardGameProps> = ({ question, answerStatusesWrite}) => {
+const CardGame: React.FC<CardGameProps> = ({
+  question,
+  answerStatusesWrite,
+}) => {
   const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
     useOutletContext<cardGameType>();
 
@@ -92,15 +95,15 @@ const CardGame: React.FC<CardGameProps> = ({ question, answerStatusesWrite}) => 
 
   const location = useLocation();
 
-
-
   return (
     <>
       <BaseComponentGame
         current={current}
         img={imgWrite}
         question={isLogin ? question.basic : question.question}
-        answerStatuses={answerStatusesWrite ? answerStatusesWrite : answerStatuses}
+        answerStatuses={
+          answerStatusesWrite ? answerStatusesWrite : answerStatuses
+        }
         count={count}
         translate={question.translate}
       />
@@ -140,7 +143,9 @@ const CardGame: React.FC<CardGameProps> = ({ question, answerStatusesWrite}) => 
         </ul>
       )}
 
-      {location.pathname === "/game/check-word" && visibility && <p className={c.checkAnswer}>Обери правильну відповідь</p>}
+      {location.pathname === "/game/check-word" && visibility && (
+        <p className={c.checkAnswer}>Обери правильну відповідь</p>
+      )}
 
       {location.pathname === "/game/check-word" && (
         <BaseButtonGame
