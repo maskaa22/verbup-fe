@@ -6,6 +6,12 @@
 .progress{
     width: 300px;
     height: 300px;
+    transform: rotate(90deg);
+}
+.progressTrWrap{
+    position: relative;
+    border: 2px dashed green;
+    height: 200px;
 }
 .astroHome{
     position: absolute;

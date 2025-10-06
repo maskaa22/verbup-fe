@@ -1,0 +1,5 @@
+.progress{
+    width: 200px;
+    height: 200px;
+    transform: rotate(80deg);
+}
