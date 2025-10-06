@@ -2,7 +2,7 @@ import React from "react";
 import s from "./BaseComponentGame.module.css";
 import QuestionProgressBar from "../questionProgressBar/QuestionProgressBar";
 import type { baseComponentType, modalType } from "../../utils/gameType";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import { resetCurrent } from "../../redux/game/slice";
 import { useDispatch } from "react-redux";
 import { ANSWER_STATUS, CORRECT, LAST_INDEX, WRONG } from "../../constants";
@@ -24,9 +24,11 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
 
   const {verbForm} = useSelector(selectGameSetting);
 
+  const location = useLocation();
+  
   return (
     <>
-      <div className={s.topContainer}>
+      <div className={`${s.topContainer} ${location.pathname === '/game/write-word' ? s.writeWord : ''}`}>
         <button
           className={s.close}
           onClick={() => {

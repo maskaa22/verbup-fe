@@ -25,7 +25,7 @@
   color: var(--primary-1);
 }
 .img {
-  margin: 10px auto;
+  margin: 0 auto;
 }
 .text {
   font-weight: 400;
@@ -38,7 +38,7 @@
   display: flex;
   justify-content: center;
   gap: 11px;
-  margin-top: 20px;
+  margin-top: .5rem;
 }
 .item {
   background-color: var(--background-white-default);

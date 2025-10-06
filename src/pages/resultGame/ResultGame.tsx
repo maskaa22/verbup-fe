@@ -1,8 +1,9 @@
 import c from "./ResultGame.module.css";
 // import Star from "../../components/star/Star";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
+
   // selectCorrect,
   selectGameSetting,
   // selectWrong,
@@ -14,6 +15,12 @@ import type { AppDispatch } from "../../redux/store";
 // import Feedback from "../../components/feedback/Feedback";
 import Confetti from "../../components/confetti/Confetti";
 import { CORRECT, ANSWER_STATUS, LAST_INDEX, WRONG } from "../../constants";
+import { useEffect, useState } from "react";
+import Star from "../../components/star/Star";
+import Feedback from "../../components/feedback/Feedback";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import type { currentAnswerAndQuestions } from "../../utils/gameType";
+import api from "../../api/axios";
 
 const ResultGame = () => {
   const navigation = useNavigate();
@@ -28,12 +35,42 @@ const ResultGame = () => {
   // const correct = correctRedux ?? correctLS;
   // const wrong = wrongRedux ?? wrongLS;
 
-
   const numQuest = gameSetting.numQuest;
   const count = Number(numQuest.split(" ")[0]);
   const dispatch: AppDispatch = useDispatch();
 
-  // const [rating, setRating] = useState<number>(0);
+  const isLogin = useSelector(selectIsLoggedIn);
+  const { questions } = useOutletContext<currentAnswerAndQuestions>();
+
+  const [rating, setRating] = useState<number>(0);
+
+
+  const answerStatuses = JSON.parse(sessionStorage.getItem(ANSWER_STATUS) || "[]");
+
+useEffect(() => {
+  if (!isLogin) return;
+
+  const sendProgress = async () => {
+    try {
+      const words = questions.map((q, idx) => ({
+        wordId: q.id,
+        type:
+          (gameSetting.verbForm === "Past Simple" && "ps") ||
+          (gameSetting.verbForm === "Past Participle" && "pp"),
+        status: answerStatuses[idx] === "success" ? "studied" : "mistake",
+      }));
+
+      console.log("Готові дані:", words);
+
+      await api.post("/progress", { words });
+      console.log("Прогрес відправлено:", words);
+    } catch (error) {
+      console.error("Помилка збереження прогресу:", error);
+    }
+  };
+
+  sendProgress();
+}, [isLogin, questions, gameSetting, answerStatuses]);
 
   const resetSetting = () => {
     sessionStorage.removeItem(CORRECT);
@@ -47,7 +84,7 @@ const ResultGame = () => {
 
   const home = () => {
     resetSetting();
-    navigation("/");
+    navigation(isLogin ? "/home" : "/");
   };
 
   const next = async () => {
@@ -59,15 +96,20 @@ const ResultGame = () => {
       console.error("Помилка при генерації питань:", error);
     }
   };
+  
 
   return (
     <div className={c.rezult}>
       <Confetti />
       <div className={c.innerContainer}>
-        <h3 className={c.title}>Тренування завершено</h3>
+        <h3 className={c.title}>
+          {!isLogin ? "Твій прогрес не зберігається" : "Тренування завершено"}
+        </h3>
         <img src={"/image/game/planet-rezult.png"} className={c.img} />
         <p className={c.text}>
-          Супер! Твої дієслова прокачались на новий рівень
+          {correctLS === 0
+            ? "Наступний раз - вийде!"
+            : "Супер! Твої дієслова прокачались на новий рівень"}
         </p>
         <ul className={c.list}>
           <li className={c.item}>
@@ -89,17 +131,19 @@ const ResultGame = () => {
             <p>56</p>
           </li> */}
         </ul>
-        {/* <Star setRating={setRating} rating={rating} />
-        {rating > 0 && <Feedback />} */}
+        <Star setRating={setRating} rating={rating} />
+        {rating > 0 && <Feedback rating={rating}/>}
       </div>
-      {/* <div className={`${c.btnContainer} ${rating ? `${c.rating}` : ""}`}> */}
-      <div className={`${c.btnContainer}`}>
-        <button onClick={home} className={c.btn}>
-          На головну
-        </button>
-        <button onClick={next} className={c.btn}>
-          Грати далі
-        </button>
+      <div className={`${c.btnContainer} ${rating ? `${c.rating}` : ""}`}>
+        <div className={`${c.btnContainer}`}>
+          <button onClick={home} className={c.btn}>
+            На головну
+          </button>
+
+          <button onClick={next} className={c.btn}>
+            Грати далі
+          </button>
+        </div>
       </div>
     </div>
   );

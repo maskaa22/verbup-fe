@@ -1,6 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { type LogFormValues, type RegFormValues } from "../../utils/formTypes";
-import { api } from "../../api/axios";
+import { type LogFormValues, type RegFormValues, 
+  // type UserPayload 
+} from "../../utils/formTypes";
+import {api} from "../../api/axios";
+
+
 export const setAuthHeader = (token: string): void => {
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
@@ -35,12 +39,13 @@ export const register = createAsyncThunk(
     }
   }
 );
-//createAsyncThunk<UserPayload, LogFormValues>
+
 export const login = createAsyncThunk(
   "auth/login",
   async (credentials: LogFormValues, thunkApi) => {
     try {
       const { data } = await api.post("/auth/login", credentials);
+      // console.log(data)
       setAuthHeader(data.accessToken);
       // const user = await api.get("/users")
       // const payload = {

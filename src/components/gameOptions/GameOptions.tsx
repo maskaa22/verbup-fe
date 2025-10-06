@@ -22,7 +22,7 @@ const GameOptions: React.FC = () => {
           <div className={c.innerContainer}>
           <GameSettingType
             icon={"/icons.svg#icon-text"}
-            text={"Тестуйся граючи - неправильні дієслова стануть легкими"}
+            text={"Тестуй граючись - неправильні дієслова стануть легкими"}
             title={"VerbTest"}
             path={"/image/text.png"}
             count={count}
@@ -42,10 +42,10 @@ const GameOptions: React.FC = () => {
             icon={"/icons.svg#icon-tense"}
             text={"Впиши правильне дієслово - склади речення без помилок"}
             title={"VerbTense"}
-            path={"/image/repair.png"}
+            path={"/image/text.png"}
             count={count}
             gameType={"write-word"}
-            disabled={true}
+            disabled={false}
           />
           </div>
         </>

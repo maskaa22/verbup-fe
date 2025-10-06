@@ -72,7 +72,7 @@ const visibleVerbs = useSelector(visibleWordsStore);
 //   }
 // }, [letterFilter])
 
-//ref={(el) => {(wordRefs.current[verb.base_form] = el)}}
+//ref={(el) => {(wordRefs.current[verb.basic] = el)}}
 
 if(!visibleVerbs){
     return <div className={css.noWordsWrap}>

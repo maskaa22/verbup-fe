@@ -63,6 +63,13 @@ const AuthLayout = () => {
         setLogo(false);
         setLogoIntro(false);
         break;
+      case location.includes("/game/write-word"):
+        setGlass(false);
+        setPlantes(false);
+        setNavigation(false);
+        setLogo(false);
+        setLogoIntro(false);
+        break;
       case location.includes("/game/result"):
         setGlass(false);
         setPlantes(false);
