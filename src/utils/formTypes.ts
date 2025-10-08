@@ -47,10 +47,24 @@ export interface UserPayload {
         useremail: string
 }
 
+export interface progressWord {
+                id: number,
+                status: string,
+                word: {
+                  id: number,
+                    basic: string
+                }
+}
+export interface userProgress {
+  progressPs: progressWord[],
+  progressPp: progressWord[]
+}
+
 export interface authState {
   user: {
     name: string | null;
     email: string | null;
+    progress: userProgress | null;
   };
   token: string | null;
   isLoggedIn: boolean;

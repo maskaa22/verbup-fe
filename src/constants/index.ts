@@ -141,6 +141,7 @@ export const initialStateAuth: authState = {
   user: {
     name: null,
     email: null,
+    progress: null
   },
   token: null,
   isLoggedIn: false,

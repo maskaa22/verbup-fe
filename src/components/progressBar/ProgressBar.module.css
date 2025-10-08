@@ -10,7 +10,7 @@
 }
 .progressTrWrap{
     position: relative;
-    border: 2px dashed green;
+    /* border: 2px dashed green; */
     height: 200px;
 }
 .astroHome{

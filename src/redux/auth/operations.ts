@@ -53,7 +53,10 @@ export const login = createAsyncThunk(
       //   username: user.data.username,
       //   useremail: user.data.email
       // }
-      return data;
+        const res = await api.get('/progress');
+        console.log(res)
+        
+      return {accessToken: data.accessToken, userProgress: res.data.data};
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
       return thunkApi.rejectWithValue(error || "Login failed");
@@ -87,3 +90,4 @@ export const refreshUser = createAsyncThunk(
     },
   }
 );
+

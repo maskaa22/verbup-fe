@@ -47,8 +47,8 @@ const DictItem: React.FC<Props> = ({
       </div>
       {isOpen && (
         <div className={css.irrForm}>
-          <p onClick={() => speakWordsIndividually([past_simple], true, 1500)}>{pastSimple}</p>
-          <p onClick={() => speakWordsIndividually([past_participle], true, 1500)}>{pastParticiple}</p>
+          <p onClick={() => speakWordsIndividually([pastSimple], true, 1500)}>{pastSimple}</p>
+          <p onClick={() => speakWordsIndividually([pastParticiple], true, 1500)}>{pastParticiple}</p>
         </div>
       )}
     </div>
