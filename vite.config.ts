@@ -37,4 +37,5 @@ export default defineConfig({
       // strategies: 'generateSW' за замовчуванням, можна залишити як є
     }),
   ],
+  publicDir: 'public'
 });
