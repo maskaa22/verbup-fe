@@ -35,8 +35,8 @@ const GameOptions: React.FC = () => {
             title={"VerbSpell"}
             path={"/image/repair.png"}
             count={count}
-            gameType={"spell-word"}
-            disabled={true}
+            gameType={"write-word"}
+            disabled={false}
           />
           <GameSettingType
             icon={"/icons.svg#icon-tense"}
@@ -44,8 +44,8 @@ const GameOptions: React.FC = () => {
             title={"VerbTense"}
             path={"/image/text.png"}
             count={count}
-            gameType={"write-word"}
-            disabled={false}
+            gameType={"spell-word"}
+            disabled={true}
           />
           </div>
         </>

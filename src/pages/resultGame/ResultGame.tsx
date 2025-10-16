@@ -1,6 +1,6 @@
 import c from "./ResultGame.module.css";
 // import Star from "../../components/star/Star";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
 
@@ -43,7 +43,6 @@ const ResultGame = () => {
   const { questions } = useOutletContext<currentAnswerAndQuestions>();
 
   const [rating, setRating] = useState<number>(0);
-
 
   const answerStatuses = JSON.parse(sessionStorage.getItem(ANSWER_STATUS) || "[]");
 
@@ -88,15 +87,16 @@ useEffect(() => {
   };
 
   const next = async () => {
-    try {
-      resetSetting();
-      await dispatch(generateQuestions()).unwrap();
-      navigation(`/game/check-word?count=${count}`);
-    } catch (error) {
-      console.error("Помилка при генерації питань:", error);
-    }
-  };
-  
+  try {
+    resetSetting();
+    await dispatch(generateQuestions()).unwrap();
+
+    const lastGame = sessionStorage.getItem("CURRENT_GAME") || "/game/check-word";
+    navigation(`${lastGame}?count=${count}`);
+  } catch (error) {
+    console.error("Помилка при генерації питань:", error);
+  }
+};  
 
   return (
     <div className={c.rezult}>

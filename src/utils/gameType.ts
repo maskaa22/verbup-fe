@@ -52,7 +52,7 @@ export type QuestionType = {
 };
 export type CardGameProps = {
   question: QuestionType;
-answerStatusesWrite?: AnswerStatus[];
+  answerStatusesWrite?: AnswerStatus[];
 };
 
 export type allGameType = {
@@ -67,6 +67,7 @@ export type checkAnswerType = {
   type: string;
   active: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
+  questions?: Question[];
 };
 
 export type gameOptions = {

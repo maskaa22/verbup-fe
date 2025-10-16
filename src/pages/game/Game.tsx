@@ -21,7 +21,7 @@ const Game: React.FC = () => {
   // const login = useSelector(selectIsLoggedIn);
   // const setting = useSelector(selectGameSetting);
 
-  // console.log(login);
+
   
   
 
@@ -50,6 +50,7 @@ const Game: React.FC = () => {
           type={checkAnswerType}
           active={modalActive}
           setActive={setModalActive}
+          questions={questions}
         />
       )}
     </div>

@@ -1,4 +1,4 @@
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import c from "./WordGame.module.css";
 import CardGame from "../cardGame/CardGame";
 import React, { useEffect } from "react";
@@ -8,6 +8,7 @@ import { selectCurrent } from "../../redux/game/selectors";
 import {
   ANSWER_STATUS,
   CORRECT,
+  CURRENT_GAME,
   ERROR,
   LAST_INDEX,
   SUCCESS,
@@ -25,6 +26,7 @@ const WordGame: React.FC = () => {
   const question = questions[current];
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -56,6 +58,10 @@ const WordGame: React.FC = () => {
       navigate("/game/result");
     }
   }, [current, questions, navigate]);
+
+  useEffect(() => {
+    sessionStorage.setItem(CURRENT_GAME, location.pathname);
+  }, [location.pathname]);
 
   return (
     <div className={c.gameContainer}>

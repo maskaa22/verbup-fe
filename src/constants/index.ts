@@ -20,6 +20,8 @@ export const ANSWER_STATUS = "answerStatuses";
 
 export const GAME_SETTING= "gameSetting";
 
+export const CURRENT_GAME = "currentGame";
+
 export const arrOfNamesSignup = [
   {
     label: "Ім'я",

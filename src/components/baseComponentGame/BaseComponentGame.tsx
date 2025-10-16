@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import s from "./BaseComponentGame.module.css";
 import QuestionProgressBar from "../questionProgressBar/QuestionProgressBar";
 import type { baseComponentType, modalType } from "../../utils/gameType";
@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { ANSWER_STATUS, CORRECT, LAST_INDEX, WRONG } from "../../constants";
 import { useSelector } from "react-redux";
 import { selectGameSetting } from "../../redux/game/selectors";
+import { speakText } from "../../utils/voiseFunction";
 
 const BaseComponentGame: React.FC<baseComponentType> = ({
   current,
@@ -19,13 +20,23 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
 }) => {
   const { setModalActive } = useOutletContext<modalType>();
 
+
+    const [voice, setVoice] = useState(false);
+
+
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const {verbForm} = useSelector(selectGameSetting);
 
   const location = useLocation();
-  
+
+    const voiceFunction = () => {
+    setVoice(true);
+    speakText(question)
+  };
+
   return (
     <>
       <div className={`${s.topContainer} ${location.pathname === '/game/write-word' ? s.writeWord : ''}`}>
@@ -62,7 +73,14 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
       <p className={s.translate}>{translate}</p>
 
       <p className={s.title}>
-        Choose the correct {verbForm.toLowerCase()} of <span>{question}</span>
+        Choose the correct {verbForm.toLowerCase()} of <span className={s.word}>{question} {
+          location.pathname === "/game/write-word" &&   <svg
+            className={`${s.voice} ${voice && s.speaking}`}
+            onClick={voiceFunction}
+          >
+            <use href="/icons.svg#icon-sound"></use>
+          </svg>
+          }</span>
       </p>
     </>
   );

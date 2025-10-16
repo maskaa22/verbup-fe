@@ -46,16 +46,3 @@
   border: 3px solid var(--other-3);
   padding: 13.5px 0;
 }
-.voice {
-  fill: white;
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  transition: fill 0.3s ease;
-  cursor: pointer;
-}
-.speaking {
-  fill: var(--primary-1);
-}

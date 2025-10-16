@@ -4,7 +4,7 @@ import s from "./WriteGame.module.css";
 import Keyboard from "../keyboard/Keyboard";
 import { handleBackspace, handleKeyPress } from "../../utils/gameFunctions";
 import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import type {
   AnswerStatus,
   cardGameType,
@@ -17,6 +17,7 @@ import CardGame from "../cardGame/CardGame";
 import {
   ANSWER_STATUS,
   CORRECT,
+  CURRENT_GAME,
   ERROR,
   LAST_INDEX,
   PENDING,
@@ -26,7 +27,6 @@ import {
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
 import { hydrateFromStorage } from "../../redux/game/slice";
-import { speakText } from "../../utils/voiseFunction";
 
 const WriteGame = () => {
   const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
@@ -35,7 +35,6 @@ const WriteGame = () => {
   const [text, setText] = useState("");
   // const [isChecked, setIsChecked] = useState(false);
   const [visibility, setVisibility] = useState(false);
-  const [voice, setVoice] = useState(false);
 
   const { questions } = useOutletContext<currentAnswerAndQuestions>();
 
@@ -57,6 +56,7 @@ const WriteGame = () => {
 
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const correct = Number(sessionStorage.getItem(CORRECT)) || 0;
@@ -87,10 +87,9 @@ const WriteGame = () => {
     }
   }, [current, questions, navigate]);
 
-  const voiceFunction = () => {
-    setVoice(true);
-    speakText(text)
-  };
+  useEffect(() => {
+    sessionStorage.setItem(CURRENT_GAME, location.pathname);
+  }, [location.pathname]);
 
   return (
     <>
@@ -106,12 +105,7 @@ const WriteGame = () => {
             readOnly
             className={`${s.gameInput} ${visibility && s.borderInput}`}
           />
-          <svg
-            className={`${s.voice} ${voice && s.speaking}`}
-            onClick={voiceFunction}
-          >
-            <use href="/icons.svg#icon-sound"></use>
-          </svg>
+
         </div>
       </div>
 
@@ -133,7 +127,6 @@ const WriteGame = () => {
           current={current}
           // setIsChecked={setIsChecked}
           setText={setText}
-          setVoice={setVoice}
         />
       )}
     </>

@@ -16,6 +16,7 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
   type,
   active,
   setActive,
+  questions,
 }) => {
   const dispatch = useDispatch();
   const current = useSelector(selectCurrent);
@@ -87,7 +88,11 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
               >
                 {type === SUCCESS
                   ? "Ти дуже наполегливий"
-                  : "В наступний раз все вийде"}
+                  : location.pathname === "/game/check-word"
+                  ? "В наступний раз все вийде"
+                  : questions && questions[current]
+                  ? `Правильна відповідь - "${questions[current].correctAnswer}"`
+                  : ""}
               </p>
             </div>
           </div>
