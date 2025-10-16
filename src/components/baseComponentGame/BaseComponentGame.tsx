@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import s from "./BaseComponentGame.module.css";
 import QuestionProgressBar from "../questionProgressBar/QuestionProgressBar";
 import type { baseComponentType, modalType } from "../../utils/gameType";
@@ -16,30 +16,31 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
   question,
   answerStatuses,
   count,
-  translate
+  translate,
 }) => {
   const { setModalActive } = useOutletContext<modalType>();
 
-
-    const [voice, setVoice] = useState(false);
-
-
+  const [voice, setVoice] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const {verbForm} = useSelector(selectGameSetting);
+  const { verbForm } = useSelector(selectGameSetting);
 
   const location = useLocation();
 
-    const voiceFunction = () => {
+  const voiceFunction = () => {
     setVoice(true);
-    speakText(question)
+    speakText(question);
   };
 
   return (
     <>
-      <div className={`${s.topContainer} ${location.pathname === '/game/write-word' ? s.writeWord : ''}`}>
+      <div
+        className={`${s.topContainer} ${
+          location.pathname === "/game/write-word" ? s.writeWord : ""
+        }`}
+      >
         <button
           className={s.close}
           onClick={() => {
@@ -73,14 +74,18 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
       <p className={s.translate}>{translate}</p>
 
       <p className={s.title}>
-        Choose the correct {verbForm.toLowerCase()} of <span className={s.word}>{question} {
-          location.pathname === "/game/write-word" &&   <svg
-            className={`${s.voice} ${voice && s.speaking}`}
-            onClick={voiceFunction}
-          >
-            <use href="/icons.svg#icon-sound"></use>
-          </svg>
-          }</span>
+        Choose the correct {verbForm.toLowerCase()} of{" "}
+        <span className={s.word}>
+          {question}{" "}
+          {location.pathname === "/game/write-word" && (
+            <svg
+              className={`${s.voice} ${voice && s.speaking}`}
+              onClick={voiceFunction}
+            >
+              <use href="/icons.svg#icon-sound"></use>
+            </svg>
+          )}
+        </span>
       </p>
     </>
   );

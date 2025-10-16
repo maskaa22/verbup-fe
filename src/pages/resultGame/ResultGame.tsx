@@ -1,9 +1,8 @@
 import c from "./ResultGame.module.css";
 // import Star from "../../components/star/Star";
-import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { useSelector } from "react-redux";
 import {
-
   // selectCorrect,
   selectGameSetting,
   // selectWrong,
@@ -44,32 +43,34 @@ const ResultGame = () => {
 
   const [rating, setRating] = useState<number>(0);
 
-  const answerStatuses = JSON.parse(sessionStorage.getItem(ANSWER_STATUS) || "[]");
+  const answerStatuses = JSON.parse(
+    sessionStorage.getItem(ANSWER_STATUS) || "[]"
+  );
 
-useEffect(() => {
-  if (!isLogin) return;
+  useEffect(() => {
+    if (!isLogin) return;
 
-  const sendProgress = async () => {
-    try {
-      const words = questions.map((q, idx) => ({
-        wordId: q.id,
-        type:
-          (gameSetting.verbForm === "Past Simple" && "ps") ||
-          (gameSetting.verbForm === "Past Participle" && "pp"),
-        status: answerStatuses[idx] === "success" ? "studied" : "mistake",
-      }));
+    const sendProgress = async () => {
+      try {
+        const words = questions.map((q, idx) => ({
+          wordId: q.id,
+          type:
+            (gameSetting.verbForm === "Past Simple" && "ps") ||
+            (gameSetting.verbForm === "Past Participle" && "pp"),
+          status: answerStatuses[idx] === "success" ? "studied" : "mistake",
+        }));
 
-      console.log("Готові дані:", words);
+        console.log("Готові дані:", words);
 
-      await api.post("/progress", { words });
-      console.log("Прогрес відправлено:", words);
-    } catch (error) {
-      console.error("Помилка збереження прогресу:", error);
-    }
-  };
+        await api.post("/progress", { words });
+        console.log("Прогрес відправлено:", words);
+      } catch (error) {
+        console.error("Помилка збереження прогресу:", error);
+      }
+    };
 
-  sendProgress();
-}, [isLogin, questions, gameSetting, answerStatuses]);
+    sendProgress();
+  }, [isLogin, questions, gameSetting, answerStatuses]);
 
   const resetSetting = () => {
     sessionStorage.removeItem(CORRECT);
@@ -87,29 +88,34 @@ useEffect(() => {
   };
 
   const next = async () => {
-  try {
-    resetSetting();
-    await dispatch(generateQuestions()).unwrap();
+    try {
+      resetSetting();
+      await dispatch(generateQuestions()).unwrap();
 
-    const lastGame = sessionStorage.getItem("CURRENT_GAME") || "/game/check-word";
-    navigation(`${lastGame}?count=${count}`);
-  } catch (error) {
-    console.error("Помилка при генерації питань:", error);
-  }
-};  
+      const lastGame =
+        sessionStorage.getItem("CURRENT_GAME") || "/game/check-word";
+      navigation(`${lastGame}?count=${count}`);
+    } catch (error) {
+      console.error("Помилка при генерації питань:", error);
+    }
+  };
 
   return (
     <div className={c.rezult}>
       <Confetti />
       <div className={c.innerContainer}>
-        <h3 className={c.title}>
-          {!isLogin ? "Твій прогрес не зберігається" : "Тренування завершено"}
-        </h3>
+        <h3 className={c.title}>Тренування завершено</h3>
         <img src={"/image/game/planet-rezult.png"} className={c.img} />
-        <p className={c.text}>
-          {correctLS === 0
+        <p className={`${c.text} ${!isLogin && c.strongText}`}>
+          {/* {correctLS === 0 
             ? "Наступний раз - вийде!"
-            : "Супер! Твої дієслова прокачались на новий рівень"}
+            : "Супер! Твої дієслова прокачались на новий рівень"} */}
+          {correctLS === 0 && isLogin && "Наступний раз - вийде!"}
+          {!isLogin &&
+            "Увага! Якщо ти не зареєстрований, твій прогрес не зберігається!"}
+            {
+              correctLS !== 0 && isLogin && "Супер! Твої дієслова прокачались на новий рівень"
+            }
         </p>
         <ul className={c.list}>
           <li className={c.item}>
@@ -132,7 +138,7 @@ useEffect(() => {
           </li> */}
         </ul>
         <Star setRating={setRating} rating={rating} />
-        {rating > 0 && <Feedback rating={rating}/>}
+        {rating > 0 && <Feedback rating={rating} />}
       </div>
       <div className={`${c.btnContainer} ${rating ? `${c.rating}` : ""}`}>
         <div className={`${c.btnContainer}`}>
