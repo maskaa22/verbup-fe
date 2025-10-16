@@ -5,7 +5,7 @@ import type { baseComponentType, modalType } from "../../utils/gameType";
 import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import { resetCurrent } from "../../redux/game/slice";
 import { useDispatch } from "react-redux";
-import { ANSWER_STATUS, CORRECT, LAST_INDEX, WRONG } from "../../constants";
+import { ANSWER_STATUS, CORRECT, LAST_INDEX, MOTIVATION_SHOW, WRONG } from "../../constants";
 import { useSelector } from "react-redux";
 import { selectGameSetting } from "../../redux/game/selectors";
 import { speakText } from "../../utils/voiseFunction";
@@ -48,6 +48,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
             sessionStorage.removeItem(LAST_INDEX);
             sessionStorage.removeItem(CORRECT);
             sessionStorage.removeItem(WRONG);
+            sessionStorage.removeItem(MOTIVATION_SHOW);
 
             setModalActive(false);
             dispatch(resetCurrent());

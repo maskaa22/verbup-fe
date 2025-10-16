@@ -1,7 +1,7 @@
 import type { InitialState } from "../utils/dict/dictTypes";
 import type { authState } from "../utils/formTypes";
 import { loadSettingFromStorage } from "../utils/game/loadSettingFromStorage";
-import type { GameState } from "../utils/gameType";
+import type { GameState, MotivationItem } from "../utils/gameType";
 import type { NotificationState } from "../utils/notify/notifyTypes";
 
 export const SUCCESS = "success";
@@ -19,8 +19,40 @@ export const LAST_INDEX = "lastAnsweredIndex";
 export const ANSWER_STATUS = "answerStatuses";
 
 export const GAME_SETTING= "gameSetting";
-
 export const CURRENT_GAME = "currentGame";
+
+export const  MOTIVATION_SHOW = "motivation_shown";
+
+export const motivationData: MotivationItem[] = [
+  {
+    message: "Ти вже пройшов(-ла) більше, ніж половину — не зупиняйся!",
+    image: "/image/motivation/astronavt-1.png",
+  },
+  {
+    message: "Останній ривок — і ти побачиш результат своєї роботи!",
+    image: "/image/motivation/astronavt-2.png",
+  },
+  {
+    message: "Кожен запуск - це крок до зірок! Продовжуй тренування!",
+    image: "/image/motivation/astronavt-3.png",
+  },
+  {
+    message: "Ти вже на орбіті знань! Не зупиняйся!",
+    image: "/image/motivation/astronavt-4.png",
+  },
+  {
+    message: "Ти вже в серці місії - попереду тільки зорі!",
+    image: "/image/motivation/astronavt-5.png",
+  },
+  {
+    message: "Ще трохи і ти підкориш галактику неправильних дієслів!",
+    image: "/image/motivation/astronavt-6.png",
+  },
+  {
+    message: "Середина шляху - саме час увімкнути турборежим!",
+    image: "/image/motivation/astronavt-7.png",
+  },
+];
 
 export const arrOfNamesSignup = [
   {

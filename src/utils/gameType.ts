@@ -53,6 +53,7 @@ export type QuestionType = {
 export type CardGameProps = {
   question: QuestionType;
   answerStatusesWrite?: AnswerStatus[];
+  setShowMotivation: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type allGameType = {
@@ -148,3 +149,8 @@ export type StarProps = {
   setRating: React.Dispatch<React.SetStateAction<number>>;
   rating: number;
 };
+
+export interface MotivationItem {
+  message: string;
+  image: string; // шлях до картинки
+}

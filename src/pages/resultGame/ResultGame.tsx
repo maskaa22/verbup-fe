@@ -13,7 +13,7 @@ import { generateQuestions } from "../../redux/game/operations";
 import type { AppDispatch } from "../../redux/store";
 // import Feedback from "../../components/feedback/Feedback";
 import Confetti from "../../components/confetti/Confetti";
-import { CORRECT, ANSWER_STATUS, LAST_INDEX, WRONG } from "../../constants";
+import { CORRECT, ANSWER_STATUS, LAST_INDEX, WRONG, MOTIVATION_SHOW } from "../../constants";
 import { useEffect, useState } from "react";
 import Star from "../../components/star/Star";
 import Feedback from "../../components/feedback/Feedback";
@@ -77,6 +77,7 @@ const ResultGame = () => {
     sessionStorage.removeItem(WRONG);
     sessionStorage.removeItem(LAST_INDEX);
     sessionStorage.removeItem(ANSWER_STATUS);
+    sessionStorage.removeItem(MOTIVATION_SHOW);
 
     dispatch(baseQuestion());
     dispatch(resetCurrent());

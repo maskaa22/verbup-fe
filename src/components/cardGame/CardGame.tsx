@@ -15,13 +15,20 @@ import { selectCurrent } from "../../redux/game/selectors";
 import { useCountWord } from "../../hooks/gameHooks";
 import { useDispatch } from "react-redux";
 import { setCurrent } from "../../redux/game/slice";
-import { ANSWER_STATUS, LAST_INDEX, PENDING } from "../../constants";
+import {
+  ANSWER_STATUS,
+  LAST_INDEX,
+  MOTIVATION_SHOW,
+  PENDING,
+} from "../../constants";
 import { useMobileOS } from "../../hooks/useMobileOS";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
+
 
 const CardGame: React.FC<CardGameProps> = ({
   question,
   answerStatusesWrite,
+  setShowMotivation
 }) => {
   const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
     useOutletContext<cardGameType>();
@@ -35,6 +42,7 @@ const CardGame: React.FC<CardGameProps> = ({
   const [activeWord, setActiveWord] = useState<string | null>(null);
   const [isChecked, setIsChecked] = useState(false);
   const [visibility, setVisibility] = useState(false);
+
 
   const isLogin = useSelector(selectIsLoggedIn);
 
@@ -94,6 +102,18 @@ const CardGame: React.FC<CardGameProps> = ({
   }, []);
 
   const location = useLocation();
+
+  useEffect(() => {
+    const half = Math.floor(count / 2);
+
+    // якщо ще не показували — показуємо
+    const wasShown = sessionStorage.getItem(MOTIVATION_SHOW);
+
+    if (current === half && !wasShown) {
+      setShowMotivation(true);
+      sessionStorage.setItem(MOTIVATION_SHOW, "true");
+    }
+  }, [current, count, setShowMotivation]);
 
   return (
     <>
@@ -161,6 +181,17 @@ const CardGame: React.FC<CardGameProps> = ({
           setIsChecked={setIsChecked}
         />
       )}
+      {/* {showMotivation && (
+        <MotivationModal
+          message="Ти вже на півдорозі! 🔥 Продовжуй, у тебе чудово виходить!"
+          onClose={() => setShowMotivation(false)}
+        />
+      )} */}
+
+
+      {/* {showMotivation && (
+        <MotivationModal onClose={() => setShowMotivation(false)} />
+      )} */}
     </>
   );
 };

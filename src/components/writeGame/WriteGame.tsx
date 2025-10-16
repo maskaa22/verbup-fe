@@ -27,6 +27,7 @@ import {
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
 import { hydrateFromStorage } from "../../redux/game/slice";
+import MotivationModal from "../motivationModal/MotivationModal";
 
 const WriteGame = () => {
   const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
@@ -35,6 +36,7 @@ const WriteGame = () => {
   const [text, setText] = useState("");
   // const [isChecked, setIsChecked] = useState(false);
   const [visibility, setVisibility] = useState(false);
+  const [showMotivation, setShowMotivation] = useState(false);
 
   const { questions } = useOutletContext<currentAnswerAndQuestions>();
 
@@ -52,7 +54,6 @@ const WriteGame = () => {
   useEffect(() => {
     sessionStorage.setItem(ANSWER_STATUS, JSON.stringify(answerStatuses));
   }, [answerStatuses]);
-
 
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
@@ -95,7 +96,11 @@ const WriteGame = () => {
     <>
       <div className={s.boxModel}>
         {question && (
-          <CardGame question={question} answerStatusesWrite={answerStatuses} />
+          <CardGame
+            question={question}
+            answerStatusesWrite={answerStatuses}
+            setShowMotivation={setShowMotivation}
+          />
         )}
 
         <div className={s.inputContainer}>
@@ -105,7 +110,6 @@ const WriteGame = () => {
             readOnly
             className={`${s.gameInput} ${visibility && s.borderInput}`}
           />
-
         </div>
       </div>
 
@@ -128,6 +132,10 @@ const WriteGame = () => {
           // setIsChecked={setIsChecked}
           setText={setText}
         />
+      )}
+
+      {showMotivation && (
+        <MotivationModal onClose={() => setShowMotivation(false)} />
       )}
     </>
   );
