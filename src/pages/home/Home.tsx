@@ -10,7 +10,9 @@ import { selectProgress } from "../../redux/auth/selectors";
 
 const Home = () => {
   const progress = useSelector(selectProgress)
-  const ps = progress?.progressPs.length
+  const ps = progress?.progressPs.length || 0
+  const pp = progress?.progressPp.length || 0
+  const totalProgress = ps + pp;
   useEffect(() => {
     const sendProgress = async () => {
       try {
@@ -34,7 +36,7 @@ const Home = () => {
         </div>
         <WeekCal />
         <ul className={css.list}>
-          <ResultCards value={ps || 0} icon={"icon-yes"} text={"Вивчено"} />
+          <ResultCards value={totalProgress} icon={"icon-yes"} text={"Вивчено"} />
           <ResultCards value={0} icon={"icon-star"} text={"Бали"} />
           <ResultCards value={0} icon={"icon-fire"} text={"Досягнення"} />
         </ul>

@@ -2,8 +2,13 @@ import { NavLink } from "react-router-dom";
 import css from "./Intro.module.css";
 import cuteAstro from "../../assets/cute astronaut sitting with flag.png";
 import LogoIntroNew from "../../components/logoIntroNew/LogoIntroNew";
+import { sendGtagEvent } from "../../lib/gtag";
 
 const Intro = () => {
+  const handleClick = () => {
+    console.log("gtag")
+    sendGtagEvent('click', 'navigation', 'continue')
+  }
   return (
     <>
       <LogoIntroNew />
@@ -16,7 +21,7 @@ const Intro = () => {
           Що спільного в go, went і gone?{" "}
           <span> VerbUp знає відповідь — і ти скоро теж. </span>
         </p>
-        <NavLink className={css.link} to="/game">
+        <NavLink className={css.link} to="/game" onClick={handleClick}>
           Почати
         </NavLink>
         <div className={css.signWrap}>
