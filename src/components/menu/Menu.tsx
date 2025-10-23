@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { useScreenWidth } from "../../utils/useScreenWidth";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import { sendGtagEvent } from "../../utils/googleAnalize";
 
 const Menu = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -14,6 +15,10 @@ const Menu = () => {
   const divider = screenWidth / 5 - 4
   const navWidth = screenWidth <= 374 ? divider : 72;
   const isLoggedIn = useSelector(selectIsLoggedIn)
+
+    const handleClick = (goto: string) => {
+        sendGtagEvent('click', `nav-menu-${goto}`, 'continue')
+      }
 
   //   if(isActive){setNoActive(false)}   this line is not allowed during render unless it's in useEffect() !!!
 
@@ -57,6 +62,7 @@ const Menu = () => {
               <NavLink
                 className={({ isActive }) => clsx(isActive && css.active)}
                 to="/game"
+                onClick={() => handleClick('game')}
               >
                 <svg className={css.icon}>
                   <use href="/icons.svg#icon-game"></use>
@@ -64,7 +70,7 @@ const Menu = () => {
               </NavLink>
             </li>
             <li className={css.disabled}>
-              <NavLink className={css.disabled} to="#">
+              <NavLink className={css.disabled} to="#" onClick={() => handleClick('achive')}>
                 <svg className={clsx(css.icon, css.iconone)}>
                   <use href="/icons.svg#icon-achievements"></use>
                 </svg>
@@ -74,6 +80,7 @@ const Menu = () => {
               <NavLink
                 className={({ isActive }) => clsx(isActive && css.active)}
                 to="/voc"
+                onClick={() => handleClick('voc')}
               >
                 <svg className={css.icon}>
                   <use href="/icons.svg#icon-vocabulary"></use>
@@ -89,6 +96,7 @@ const Menu = () => {
                   )
                 }
                 to="/setting"
+                onClick={() => handleClick('settings')}
               >
                 <svg className={clsx(css.icon)}>
                   <use href="/icons.svg#icon-setting"></use>
@@ -103,7 +111,7 @@ const Menu = () => {
               </NavLink>
             </li> */}
             <li className={css.disabled}>
-              <NavLink className={css.disabled} to="#">
+              <NavLink className={css.disabled} to="#" onClick={() => handleClick('home')}>
                 <svg className={css.icon}>
                   <use href={`/icons.svg#${isLoggedIn? "icon-user-loggedin" : "icon-home"}`}></use>
                 </svg>

@@ -2,14 +2,18 @@
 import { Link, Outlet } from "react-router-dom";
 import css from "./Setting.module.css";
 import clsx from "clsx";
+import { sendGtagEvent } from "../../utils/googleAnalize";
 
 const Setting = () => {
+  const handleClick = () => {
+    sendGtagEvent("click", "send feedback", "continue");
+  };
   return (
     <div className={css.wrap}>
       <h2>Налаштування</h2>
 
       <h3 className={css.disabled}>Профіль</h3>
-      <ul className={clsx(css.list, css.disabled) }>
+      <ul className={clsx(css.list, css.disabled)}>
         <li>
           <Link to={"#"}>Змінити Імя</Link>
           <svg>
@@ -63,7 +67,14 @@ const Setting = () => {
           </svg>
         </li>
       </ul>
-          <a className={css.reviewLink} href="https://docs.google.com/forms/d/e/1FAIpQLScwMMvRlebP7YPz7VndPOlzF8iM5rofE2yxS7eisDtgCJJjtA/viewform?usp=sharing&ouid=106998076813103564666" target="_blank">Надіслати відгук</a>
+      <a
+        className={css.reviewLink}
+        href="https://docs.google.com/forms/d/e/1FAIpQLScwMMvRlebP7YPz7VndPOlzF8iM5rofE2yxS7eisDtgCJJjtA/viewform?usp=sharing&ouid=106998076813103564666"
+        target="_blank"
+        onClick={handleClick}
+      >
+        Надіслати відгук
+      </a>
 
       <Outlet />
     </div>
