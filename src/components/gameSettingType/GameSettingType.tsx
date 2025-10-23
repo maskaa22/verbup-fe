@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import c from "./GameSettingType.module.css";
 import type React from "react";
 import type { GameSettingTypeProps } from "../../utils/gameType";
+import { sendGtagEvent } from "../../utils/googleAnalize";
 
 const GameSettingType: React.FC<GameSettingTypeProps> = ({
   icon,
@@ -14,6 +15,9 @@ const GameSettingType: React.FC<GameSettingTypeProps> = ({
 }) => {
   const navigate = useNavigate();
 
+  const handleClick = (action: string) => {
+      sendGtagEvent('click', `game-settings: ${action}`, 'continue')
+    }
   return (
     <div className={`${c.type} ${disabled ? c.disabled : ""}`}>
       <svg className={`${c.icon} ${disabled ? c.disIcon : ""}`}>
@@ -29,7 +33,8 @@ const GameSettingType: React.FC<GameSettingTypeProps> = ({
             className={c.icon}
             onClick={
               !disabled
-                ? () => navigate(`/game/${gameType}?count=${count}`)
+                ? () => {handleClick('play')
+                  navigate(`/game/${gameType}?count=${count}`)}
                 : undefined
             }
           >
@@ -38,7 +43,7 @@ const GameSettingType: React.FC<GameSettingTypeProps> = ({
           <svg className={c.icon}>
             <use href={"/icons.svg#icon-line"}></use>
           </svg>
-          <NavLink className={c.link} to="/setting/game">
+          <NavLink className={c.link} to="/setting/game" onClick={() => handleClick('choose-new')} >
             <svg className={c.settings}>
               <use href={"/icons.svg#icon-settings-check"}></use>
             </svg>

@@ -20,4 +20,18 @@ const usePageTracking = () => {
   }, [location.pathname]);
 };
 
+
+export const sendGtagEvent = (action: string, category: string, label?: string, value?: number) => {
+    if(typeof window.gtag === "function"){
+        window.gtag("event", action, {
+            event_category: category,
+            event_label: label,
+            value
+        })
+    }else{
+        console.warn('gtag is not avaliable yet')
+    }
+}
+
+
 export default usePageTracking;
