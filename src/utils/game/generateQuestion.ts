@@ -13,7 +13,7 @@ const generateFakeVariant = (word: string): string => {
 
 export const generateQuestion = (
   verb: Verb,
-  mode: "v2" | "v3" = "v2"
+  mode: "v2" | "v3" | "Змішаний" = "v2"
 ): Question => {
   //   const templates = questionTemplates[mode] || [];
   //   const templateFn = templates[Math.floor(Math.random() * templates.length)];

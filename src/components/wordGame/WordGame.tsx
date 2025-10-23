@@ -68,7 +68,9 @@ const WordGame: React.FC = () => {
 
   return (
     <div className={c.gameContainer}>
-      {question && <CardGame question={question} setShowMotivation={setShowMotivation}/>}
+      {question && (
+        <CardGame question={question} setShowMotivation={setShowMotivation} />
+      )}
 
       {showMotivation && (
         <MotivationModal onClose={() => setShowMotivation(false)} />

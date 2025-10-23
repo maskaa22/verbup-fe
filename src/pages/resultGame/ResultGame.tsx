@@ -13,13 +13,20 @@ import { generateQuestions } from "../../redux/game/operations";
 import type { AppDispatch } from "../../redux/store";
 // import Feedback from "../../components/feedback/Feedback";
 import Confetti from "../../components/confetti/Confetti";
-import { CORRECT, ANSWER_STATUS, LAST_INDEX, WRONG, MOTIVATION_SHOW } from "../../constants";
+import {
+  CORRECT,
+  ANSWER_STATUS,
+  LAST_INDEX,
+  WRONG,
+  MOTIVATION_SHOW,
+  CURRENT_GAME,
+} from "../../constants";
 import { useEffect, useState } from "react";
 import Star from "../../components/star/Star";
 import Feedback from "../../components/feedback/Feedback";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import type { currentAnswerAndQuestions } from "../../utils/gameType";
-import api from "../../api/axios";
+import { sendProgress } from "../../redux/progress/operations";
 
 const ResultGame = () => {
   const navigation = useNavigate();
@@ -47,30 +54,35 @@ const ResultGame = () => {
     sessionStorage.getItem(ANSWER_STATUS) || "[]"
   );
 
+  // useEffect(() => {
+  //   if (!isLogin) return;
+
+  //   const sendProgress = async () => {
+  //     try {
+  //       const words = questions.map((q, idx) => ({
+  //         wordId: q.id,
+  //         type:
+  //           (gameSetting.verbForm === SIMPLE && PS) ||
+  //           (gameSetting.verbForm === PARTICIPLE && PP),
+  //         correct: answerStatuses[idx] === SUCCESS ? true : false,
+  //       }));
+
+  //       console.log("Готові дані:", words);
+
+  //       await api.post("/progress", { words });
+  //       console.log("Прогрес відправлено:", words);
+  //     } catch (error) {
+  //       console.error("Помилка збереження прогресу:", error);
+  //     }
+  //   };
+
+  //   sendProgress();
+  // }, [isLogin, questions, gameSetting, answerStatuses]);
+
   useEffect(() => {
     if (!isLogin) return;
-
-    const sendProgress = async () => {
-      try {
-        const words = questions.map((q, idx) => ({
-          wordId: q.id,
-          type:
-            (gameSetting.verbForm === "Past Simple" && "ps") ||
-            (gameSetting.verbForm === "Past Participle" && "pp"),
-          status: answerStatuses[idx] === "success" ? "studied" : "mistake",
-        }));
-
-        console.log("Готові дані:", words);
-
-        await api.post("/progress", { words });
-        console.log("Прогрес відправлено:", words);
-      } catch (error) {
-        console.error("Помилка збереження прогресу:", error);
-      }
-    };
-
-    sendProgress();
-  }, [isLogin, questions, gameSetting, answerStatuses]);
+    dispatch(sendProgress({ questions, gameSetting, answerStatuses }));
+  }, [isLogin, questions, gameSetting, answerStatuses, dispatch]);
 
   const resetSetting = () => {
     sessionStorage.removeItem(CORRECT);
@@ -94,7 +106,7 @@ const ResultGame = () => {
       await dispatch(generateQuestions()).unwrap();
 
       const lastGame =
-        sessionStorage.getItem("CURRENT_GAME") || "/game/check-word";
+        sessionStorage.getItem(CURRENT_GAME) || "/game/check-word";
       navigation(`${lastGame}?count=${count}`);
     } catch (error) {
       console.error("Помилка при генерації питань:", error);
@@ -114,9 +126,9 @@ const ResultGame = () => {
           {correctLS === 0 && isLogin && "Наступний раз - вийде!"}
           {!isLogin &&
             "Увага! Якщо ти не зареєстрований, твій прогрес не зберігається!"}
-            {
-              correctLS !== 0 && isLogin && "Супер! Твої дієслова прокачались на новий рівень"
-            }
+          {correctLS !== 0 &&
+            isLogin &&
+            "Супер! Твої дієслова прокачались на новий рівень"}
         </p>
         <ul className={c.list}>
           <li className={c.item}>

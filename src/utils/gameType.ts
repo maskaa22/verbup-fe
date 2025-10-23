@@ -1,3 +1,5 @@
+import type { PARTICIPLE, PP, PS, SIMPLE } from "../constants";
+
 export type AnswerStatus = "success" | "error" | "pending";
 
 export type baseComponentType = {
@@ -7,6 +9,7 @@ export type baseComponentType = {
   answerStatuses: AnswerStatus[];
   count: number;
   translate: string;
+  typePast: string;
 };
 
 export type baseButtonType = {
@@ -49,6 +52,7 @@ export type QuestionType = {
   basic: string;
   translate: string;
   id?: number;
+  typePast: string;
 };
 export type CardGameProps = {
   question: QuestionType;
@@ -153,4 +157,17 @@ export type StarProps = {
 export interface MotivationItem {
   message: string;
   image: string; // шлях до картинки
+}
+export interface ProgressWord {
+  wordId: string | number;
+  type: typeof PS | typeof PP | "Змішаний";
+  correct: boolean;
+}
+export interface GameSetting {
+  verbForm: typeof SIMPLE | typeof PARTICIPLE | "Змішаний" | string;
+}
+export interface SendProgressArgs {
+  questions: Question[];
+  gameSetting: GameSetting;
+  answerStatuses: AnswerStatus[];
 }

@@ -18,10 +18,15 @@ export const WRONG = "wrong";
 export const LAST_INDEX = "lastAnsweredIndex";
 export const ANSWER_STATUS = "answerStatuses";
 
-export const GAME_SETTING= "gameSetting";
+export const GAME_SETTING = "gameSetting";
 export const CURRENT_GAME = "currentGame";
 
-export const  MOTIVATION_SHOW = "motivation_shown";
+export const MOTIVATION_SHOW = "motivation_shown";
+
+export const PS = "ps";
+export const PP = "pp";
+export const SIMPLE = "Past Simple";
+export const PARTICIPLE = "Past Participle";
 
 export const motivationData: MotivationItem[] = [
   {
@@ -175,7 +180,7 @@ export const initialStateAuth: authState = {
   user: {
     name: null,
     email: null,
-    progress: null
+    progress: null,
   },
   token: null,
   isLoggedIn: false,
@@ -188,5 +193,5 @@ export const dictInitState: InitialState = {
   allWords: null,
   word: "",
   letter: "",
-  isLoading: false
+  isLoading: false,
 };
