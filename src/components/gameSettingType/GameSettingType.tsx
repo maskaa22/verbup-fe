@@ -15,8 +15,8 @@ const GameSettingType: React.FC<GameSettingTypeProps> = ({
 }) => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-      sendGtagEvent('click', 'game-settings', 'continue')
+  const handleClick = (action: string) => {
+      sendGtagEvent('click', `game-settings: ${action}`, 'continue')
     }
   return (
     <div className={`${c.type} ${disabled ? c.disabled : ""}`}>
@@ -33,7 +33,8 @@ const GameSettingType: React.FC<GameSettingTypeProps> = ({
             className={c.icon}
             onClick={
               !disabled
-                ? () => navigate(`/game/${gameType}?count=${count}`)
+                ? () => {handleClick('play')
+                  navigate(`/game/${gameType}?count=${count}`)}
                 : undefined
             }
           >
@@ -42,7 +43,7 @@ const GameSettingType: React.FC<GameSettingTypeProps> = ({
           <svg className={c.icon}>
             <use href={"/icons.svg#icon-line"}></use>
           </svg>
-          <NavLink className={c.link} to="/setting/game" onClick={handleClick} >
+          <NavLink className={c.link} to="/setting/game" onClick={() => handleClick('choose-new')} >
             <svg className={c.settings}>
               <use href={"/icons.svg#icon-settings-check"}></use>
             </svg>
