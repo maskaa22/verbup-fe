@@ -13,7 +13,14 @@ import { generateQuestions } from "../../redux/game/operations";
 import type { AppDispatch } from "../../redux/store";
 // import Feedback from "../../components/feedback/Feedback";
 import Confetti from "../../components/confetti/Confetti";
-import { CORRECT, ANSWER_STATUS, LAST_INDEX, WRONG, MOTIVATION_SHOW, CURRENT_GAME } from "../../constants";
+import {
+  CORRECT,
+  ANSWER_STATUS,
+  LAST_INDEX,
+  WRONG,
+  MOTIVATION_SHOW,
+  CURRENT_GAME,
+} from "../../constants";
 import { useEffect, useState } from "react";
 import Star from "../../components/star/Star";
 import Feedback from "../../components/feedback/Feedback";
@@ -73,9 +80,9 @@ const ResultGame = () => {
   // }, [isLogin, questions, gameSetting, answerStatuses]);
 
   useEffect(() => {
-  if (!isLogin) return;
-  dispatch(sendProgress({ questions, gameSetting, answerStatuses }));
-}, [isLogin, questions, gameSetting, answerStatuses, dispatch]);
+    if (!isLogin) return;
+    dispatch(sendProgress({ questions, gameSetting, answerStatuses }));
+  }, [isLogin, questions, gameSetting, answerStatuses, dispatch]);
 
   const resetSetting = () => {
     sessionStorage.removeItem(CORRECT);
@@ -119,9 +126,9 @@ const ResultGame = () => {
           {correctLS === 0 && isLogin && "Наступний раз - вийде!"}
           {!isLogin &&
             "Увага! Якщо ти не зареєстрований, твій прогрес не зберігається!"}
-            {
-              correctLS !== 0 && isLogin && "Супер! Твої дієслова прокачались на новий рівень"
-            }
+          {correctLS !== 0 &&
+            isLogin &&
+            "Супер! Твої дієслова прокачались на новий рівень"}
         </p>
         <ul className={c.list}>
           <li className={c.item}>

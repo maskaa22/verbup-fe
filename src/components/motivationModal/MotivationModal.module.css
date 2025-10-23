@@ -19,23 +19,26 @@
   max-width: 400px;
   animation: pop 0.3s ease;
   z-index: 2;
-position: relative;
-
+  position: relative;
 }
 .textWrapper {
   backdrop-filter: blur(40px);
-box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
-background: linear-gradient(180deg, rgba(232, 232, 232, 0.5) 0%, rgba(94, 144, 158, 0.5) 100%);
-border-radius: 20px;
-padding: 41px 38px;
-width: 335px;
-height: 275px;
+  box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    180deg,
+    rgba(232, 232, 232, 0.5) 0%,
+    rgba(94, 144, 158, 0.5) 100%
+  );
+  border-radius: 20px;
+  padding: 41px 38px;
+  width: 335px;
+  height: 275px;
 
-font-weight: 500;
-font-size: 24px;
-line-height: 130%;
-text-align: center;
-color: var(--primary-1);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  text-align: center;
+  color: var(--primary-1);
 }
 .text {
   font-size: 22px;
@@ -45,8 +48,8 @@ color: var(--primary-1);
 .imgWrapper {
   position: absolute;
   top: 50%;
-    left: 25%;
-    cursor: pointer;
+  left: 25%;
+  cursor: pointer;
 }
 .btn {
   padding: 10px 25px;
@@ -64,11 +67,40 @@ color: var(--primary-1);
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes pop {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.next {
+  position: absolute;
+  top: 110%;
+  width: fit-content;
+  padding: 0 80px;
+  left: 20%;
+
+  border-radius: 48px;
+  padding: 16px 80px;
+  background: #5e909e;
+  color: white;
+  border: none;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 80%;
+  text-align: center;
+  font-family: var(--font-family-messiri);
 }

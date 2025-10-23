@@ -17,16 +17,17 @@ const MotivationModal: React.FC<MotivationModalProps> = ({ onClose }) => {
   }, []);
 
   if (!item) return null;
-  
 
   return (
     <div className={c.overlay}>
-        <ExplosionLines />
+      <ExplosionLines />
       <div className={c.modal}>
         <p className={c.textWrapper}>{item.message}</p>
-        <img src={item.image} alt="motivation" className={c.imgWrapper} onClick={onClose}/>
+        <img src={item.image} alt="motivation" className={c.imgWrapper} />
 
-        {/* <button onClick={onClose}>Закрити</button> */}
+        <button onClick={onClose} className={c.next}>
+          Закрити
+        </button>
       </div>
     </div>
   );

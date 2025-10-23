@@ -1,6 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { ADVANCED, BEGGINER, INTERMEDIATE, PARTICIPLE, PP, PS, SIMPLE } from "../../constants";
+import {
+  ADVANCED,
+  BEGGINER,
+  INTERMEDIATE,
+  PARTICIPLE,
+  PP,
+  PS,
+  SIMPLE,
+} from "../../constants";
 import type { RootState } from "../store";
 import { generateQuestionsList } from "../../utils/game/generateQuestionsList";
 import type {
@@ -270,8 +278,6 @@ export const generateQuestions = createAsyncThunk<
     const isLogin = state.auth.isLoggedIn;
     const count = Number(numQuest.split(" ")[0]);
 
-    //
-
     const token = getTokenFromStorage();
     console.log("TOKEN:", token);
 
@@ -312,8 +318,12 @@ export const generateQuestions = createAsyncThunk<
       },
     });
 
-    const backendWords: { basic: string; correctAnswer: string; id: number, type: string }[] =
-      data.data.words;
+    const backendWords: {
+      basic: string;
+      correctAnswer: string;
+      id: number;
+      type: string;
+    }[] = data.data.words;
 
     // 🔹 локальний словник (для перекладів і форм)
     const resLocal = await fetch("/data/irr-verbs.filtered.json");
@@ -351,7 +361,7 @@ export const generateQuestions = createAsyncThunk<
         basic: localVerb.basic,
         translate: localVerb.uk,
         id: word.id,
-        typePast: word.type
+        typePast: word.type,
       };
     });
 

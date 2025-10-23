@@ -24,11 +24,10 @@ import {
 import { useMobileOS } from "../../hooks/useMobileOS";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
-
 const CardGame: React.FC<CardGameProps> = ({
   question,
   answerStatusesWrite,
-  setShowMotivation
+  setShowMotivation,
 }) => {
   const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
     useOutletContext<cardGameType>();
@@ -42,7 +41,6 @@ const CardGame: React.FC<CardGameProps> = ({
   const [activeWord, setActiveWord] = useState<string | null>(null);
   const [isChecked, setIsChecked] = useState(false);
   const [visibility, setVisibility] = useState(false);
-
 
   const isLogin = useSelector(selectIsLoggedIn);
 
@@ -109,7 +107,7 @@ const CardGame: React.FC<CardGameProps> = ({
     // якщо ще не показували — показуємо
     const wasShown = sessionStorage.getItem(MOTIVATION_SHOW);
 
-    if (current === half && !wasShown) {
+    if (count >= 10 && current === half && !wasShown) {
       setShowMotivation(true);
       sessionStorage.setItem(MOTIVATION_SHOW, "true");
     }
@@ -182,17 +180,6 @@ const CardGame: React.FC<CardGameProps> = ({
           setIsChecked={setIsChecked}
         />
       )}
-      {/* {showMotivation && (
-        <MotivationModal
-          message="Ти вже на півдорозі! 🔥 Продовжуй, у тебе чудово виходить!"
-          onClose={() => setShowMotivation(false)}
-        />
-      )} */}
-
-
-      {/* {showMotivation && (
-        <MotivationModal onClose={() => setShowMotivation(false)} />
-      )} */}
     </>
   );
 };

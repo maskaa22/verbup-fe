@@ -1,8 +1,11 @@
-import { createAsyncThunk} from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../api/axios";
 import { PARTICIPLE, PP, PS, SIMPLE, SUCCESS } from "../../constants";
-import type { ProgressWord, Question, SendProgressArgs } from "../../utils/gameType";
-
+import type {
+  ProgressWord,
+  Question,
+  SendProgressArgs,
+} from "../../utils/gameType";
 
 export const sendProgress = createAsyncThunk<ProgressWord[], SendProgressArgs>(
   "progress/sendProgress",
@@ -21,7 +24,7 @@ export const sendProgress = createAsyncThunk<ProgressWord[], SendProgressArgs>(
 
       console.log("Готові дані:", words);
       return data;
-    } catch (err ) {
+    } catch (err) {
       if (err instanceof Error) {
         return rejectWithValue(err.message);
       }

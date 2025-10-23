@@ -9,7 +9,7 @@ export type baseComponentType = {
   answerStatuses: AnswerStatus[];
   count: number;
   translate: string;
-  typePast: string
+  typePast: string;
 };
 
 export type baseButtonType = {
@@ -52,7 +52,7 @@ export type QuestionType = {
   basic: string;
   translate: string;
   id?: number;
-  typePast: string
+  typePast: string;
 };
 export type CardGameProps = {
   question: QuestionType;
