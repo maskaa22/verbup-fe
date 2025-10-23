@@ -126,6 +126,7 @@ const CardGame: React.FC<CardGameProps> = ({
         }
         count={count}
         translate={question.translate}
+        typePast={question.typePast}
       />
 
       {location.pathname === "/game/check-word" && (

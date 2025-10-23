@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { ADVANCED, BEGGINER, INTERMEDIATE } from "../../constants";
+import { ADVANCED, BEGGINER, INTERMEDIATE, PARTICIPLE, PP, PS, SIMPLE } from "../../constants";
 import type { RootState } from "../store";
 import { generateQuestionsList } from "../../utils/game/generateQuestionsList";
 import type {
@@ -280,7 +280,7 @@ export const generateQuestions = createAsyncThunk<
       const res = await fetch("/data/irr-verbs.filtered.json");
       const data: qestionDataOperation = await res.json();
 
-      const mode = verbForm === "Past Simple" ? "v2" : "v3";
+      const mode = verbForm === SIMPLE ? "v2" : PARTICIPLE ? "v3" : "Змішаний";
 
       let questions: Question[] = [];
       if (count > 0) {
@@ -300,19 +300,19 @@ export const generateQuestions = createAsyncThunk<
       headers: { Authorization: `Bearer ${token}` },
       params: {
         level:
-          (level === "Beginer" && "easy") ||
-          (level === "Intermediate" && "medium") ||
-          (level === "Advanced" && "hard"),
+          (level === BEGGINER && "easy") ||
+          (level === INTERMEDIATE && "medium") ||
+          (level === ADVANCED && "hard"),
         count,
         lang: "en",
         irrWordType:
-          (verbForm === "Past Simple" && "ps") ||
-          (verbForm === "Past Participle" && "pp") ||
+          (verbForm === SIMPLE && PS) ||
+          (verbForm === PARTICIPLE && PP) ||
           (verbForm === "Змішаний" && "mixed"),
       },
     });
 
-    const backendWords: { basic: string; correctAnswer: string; id: number }[] =
+    const backendWords: { basic: string; correctAnswer: string; id: number, type: string }[] =
       data.data.words;
 
     // 🔹 локальний словник (для перекладів і форм)
@@ -329,7 +329,7 @@ export const generateQuestions = createAsyncThunk<
       const localVerb = allLocal.find((lv) => lv.basic === word.basic);
 
       const correctAnswer =
-        verbForm === "Past Simple"
+        verbForm === SIMPLE
           ? localVerb?.pastSimple || word.correctAnswer
           : localVerb?.pastParticiple || word.correctAnswer;
 
@@ -351,6 +351,7 @@ export const generateQuestions = createAsyncThunk<
         basic: localVerb.basic,
         translate: localVerb.uk,
         id: word.id,
+        typePast: word.type
       };
     });
 

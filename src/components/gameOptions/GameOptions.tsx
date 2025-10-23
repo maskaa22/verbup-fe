@@ -33,7 +33,7 @@ const GameOptions: React.FC = () => {
             icon={"/icons.svg#icon-spell"}
             text={"Літера за літерою - зберіть правильне дієслово"}
             title={"VerbSpell"}
-            path={"/image/repair.png"}
+            path={"/image/spell.png"}
             count={count}
             gameType={"write-word"}
             disabled={false}
@@ -42,7 +42,7 @@ const GameOptions: React.FC = () => {
             icon={"/icons.svg#icon-tense"}
             text={"Впиши правильне дієслово - склади речення без помилок"}
             title={"VerbTense"}
-            path={"/image/text.png"}
+            path={"/image/repair.png"}
             count={count}
             gameType={"spell-word"}
             disabled={true}

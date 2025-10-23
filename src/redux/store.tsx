@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./auth/slice";
 import dictReducer from "./dict/slice";
 import gameSlice from "./game/slice";
+import progressReducer from "./progress/slice";
 import notifyReducer from "./notify/slice"
 
 import {
@@ -39,6 +40,7 @@ export const store = configureStore({
     notify: notifyReducer,
     // game: persistReducer<GameState>(persistConfig, gameSlice),
       game: gameSlice,
+      progress: progressReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

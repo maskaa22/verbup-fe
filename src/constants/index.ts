@@ -23,6 +23,11 @@ export const CURRENT_GAME = "currentGame";
 
 export const  MOTIVATION_SHOW = "motivation_shown";
 
+export const PS = "ps";
+export const PP = "pp";
+export const SIMPLE = "Past Simple";
+export const PARTICIPLE = "Past Participle";
+
 export const motivationData: MotivationItem[] = [
   {
     message: "Ти вже пройшов(-ла) більше, ніж половину — не зупиняйся!",
