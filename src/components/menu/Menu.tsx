@@ -104,14 +104,14 @@ const Menu = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className={({ isActive }) => clsx(isActive && css.active)} to="/home">
+              <NavLink className={({ isActive }) => clsx(isActive && css.active)} to="/home" onClick={() => handleClick('home')}>
                 <svg className={css.icon}>
                   <use href={`/icons.svg#${isLoggedIn? "icon-user-loggedin" : "icon-home"}`}></use>
                 </svg>
               </NavLink>
-            </li> */}
-            <li className={css.disabled}>
-              <NavLink className={css.disabled} to="#" onClick={() => handleClick('home')}>
+            </li>
+            {/* <li className={css.disabled}>
+              <NavLink className={css.disabled} to="#" >
                 <svg className={css.icon}>
                   <use href={`/icons.svg#${isLoggedIn? "icon-user-loggedin" : "icon-home"}`}></use>
                 </svg>
