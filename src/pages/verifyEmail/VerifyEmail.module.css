@@ -1,0 +1,40 @@
+.textWrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 20px;
+padding: 60px 20px 40px;
+width: 335px;
+height: 240px;
+backdrop-filter: blur(40px);
+box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
+background: linear-gradient(180deg, rgba(232, 232, 232, 0.5) 0%, rgba(94, 144, 158, 0.5) 100%);
+}
+
+.textWrap h3{
+font-weight: 500;
+font-size: 24px;
+text-align: center;
+color: var(--primary-1);
+}
+
+.textWrap p{
+font-weight: 400;
+font-size: 16px;
+text-align: center;
+color: var(--primary-1);
+}
+
+.textWrap .link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+font-weight: 500;
+font-size: 20px;
+text-align: center;
+color: var(--text-button-defalt);
+border-radius: 48px;
+width: 100%;
+padding: 11px;
+background: var(--primary-1);
+}

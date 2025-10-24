@@ -9,8 +9,8 @@ import type { AppDispatch } from "./redux/store";
 import { refreshUser } from "./redux/auth/operations";
 
 
-
 const Intro = lazy(() => import("./pages/intro/Intro"));
+const VerifyEmail = lazy(() => import("./pages/verifyEmail/VerifyEmail"));
 const SignIn = lazy(() => import("./pages/signIn/SignIn"));
 const SignUp = lazy(() => import("./pages/signUp/SignUp"));
 const Home = lazy(() => import("./pages/home/Home"));
@@ -53,7 +53,7 @@ dispatch(refreshUser())
       ) : (
         <Routes>
           <Route path="/" element={<Intro />} />
-
+<Route path="/verify-email" element={<VerifyEmail/>}/>
           <Route element={<AuthLayout />}>
             <Route
               path="/signup"

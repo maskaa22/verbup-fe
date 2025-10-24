@@ -25,6 +25,7 @@ export const register = createAsyncThunk(
     try {
       const { data } = await api.post("/auth/register", credentials);
       setAuthHeader(data.accessToken);
+      console.log(data)
       // const user = await api.get("/users")
       // const payload = {
       //   token: data.accessToken,
@@ -39,6 +40,15 @@ export const register = createAsyncThunk(
     }
   }
 );
+
+export const verify = createAsyncThunk(
+  "auth/verify", 
+  async (token: string) => {
+    console.log(token)
+  const res = await api.get(`/auth/verify-email?token=${token}`);
+  console.log(res);
+  return res;
+});
 
 export const login = createAsyncThunk(
   "auth/login",

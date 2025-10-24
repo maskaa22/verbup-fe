@@ -37,7 +37,7 @@ const RegisterForm: React.FC = () => {
    console.log("submit: ", res)
    if(register.fulfilled.match(res)){
     actions.resetForm();
-    navigate('/home')
+    navigate('/verify')
    }
     
   };
