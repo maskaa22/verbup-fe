@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '../../redux/store';
 import { verify } from '../../redux/auth/operations';
+import Logo from '../../components/logo/Logo';
 
 const VerifyEmail = () => {
     const [searchParams] = useSearchParams();
@@ -22,7 +23,12 @@ if(!token) return;
     if (token) verifyEmail();
   }, [token]);
   return (
-    <div className={css.wrap}>{
+    <div className={`${css.wrap} container`}>
+      <div className={css.logoWrap}>
+              <Logo/>
+
+      </div>
+      {
         token? <div className={css.textWrap}>
             <h3>Дякую за реєстрацію</h3>
             <p>Тепер твій прогрес буде зберігатись</p>
