@@ -13,22 +13,31 @@
     url("/public/Star-11-min.png"),
     url("/public/Star-11-min.png"), 
     url("/public/Star-8-min.png"),
-    url("/public/Star-2-min.png"), 
-    url("/public/Star-8-min.png"),
-    url("/public/Star-8-min.png");
+    url("/public/Star-11-min.png"), 
+    url("/public/Star-2-min.png"),
+    url("/public/Star-11-min.png");
   background-position: 
   bottom left,
-  top 70px left 200px, 
+   top 4.375rem left 12.5rem,
+  top 5.3125rem left 18.75rem,
+  top 9.375rem left 3.125rem,
+  top 7.5rem left 12.5rem,
+  top 9.375rem left 17.5rem,
+  bottom 8.125rem left 1.875rem,
+  bottom 7.5rem left 18.75rem,
+  bottom 2.5rem left 18.75rem,
+  bottom 1.25rem left 12.5rem;
+  /* top 70px left 200px, 
   top 85px left 300px,
   top 150px left 50px, 
   top 120px left 200px, 
   top 150px left 280px, 
-  bottom 100px left 100px,
-  bottom 100px left 100px,
-  bottom 100px left 100px,
-  bottom 140px left 70px;
+  bottom 130px left 30px,
+  bottom 120px left 300px,
+  bottom 40px left 300px,
+  bottom 20px left 200px; */
   background-repeat: no-repeat;
-  background-size:  170px 170px, /* for satellite */
+  background-size:  190px 190px, /* for satellite */
   auto, auto, auto, auto, auto, auto, auto, auto, auto;
 }
 .logoWrap {
