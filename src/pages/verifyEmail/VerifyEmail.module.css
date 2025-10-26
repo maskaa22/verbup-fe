@@ -6,16 +6,16 @@
   height: 100vh;
   position: relative;
   background-image: 
-  url("/public/satellite\ in\ orbit-min.png"), 
-  url("/public/Star-8-min.png"), 
-  url("/public/Star-2-min.png"),
-    url("/public/Star-8-min.png"), 
-    url("/public/Star-11-min.png"),
-    url("/public/Star-11-min.png"), 
-    url("/public/Star-8-min.png"),
-    url("/public/Star-11-min.png"), 
-    url("/public/Star-2-min.png"),
-    url("/public/Star-11-min.png");
+  url("/satellite\ in\ orbit-min.png"), 
+  url("/Star-8-min.png"), 
+  url("/Star-2-min.png"),
+    url("/Star-8-min.png"), 
+    url("/Star-11-min.png"),
+    url("/Star-11-min.png"), 
+    url("/Star-8-min.png"),
+    url("/Star-11-min.png"), 
+    url("/Star-2-min.png"),
+    url("/Star-11-min.png");
   background-position: 
   bottom left,
    top 4.375rem left 12.5rem,

@@ -34,10 +34,9 @@ const RegisterForm: React.FC = () => {
     actions: FormikHelpers<RegFormValues>
   ): Promise<void> => {
    const res = await dispatch(register(values));
-   console.log("submit: ", res)
    if(register.fulfilled.match(res)){
     actions.resetForm();
-    navigate('/verify')
+    navigate('/verify-email')
    }
     
   };

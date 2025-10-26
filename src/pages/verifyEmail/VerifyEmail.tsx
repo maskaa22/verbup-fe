@@ -1,6 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom';
 import css from './VerifyEmail.module.css'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '../../redux/store';
 import { verify } from '../../redux/auth/operations';
@@ -8,7 +8,7 @@ import Logo from '../../components/logo/Logo';
 
 const VerifyEmail = () => {
     const [searchParams] = useSearchParams();
-  const [status, setStatus] = useState("Verifying...");
+  // const [status, setStatus] = useState("Verifying...");
   const dispatch = useDispatch<AppDispatch>()
   
   const token = searchParams.get("token");
