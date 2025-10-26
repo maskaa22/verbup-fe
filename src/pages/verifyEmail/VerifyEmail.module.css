@@ -5,15 +5,31 @@
   justify-content: center;
   height: 100vh;
   position: relative;
-  background-image: url("/public/Star-8-min.png"),
-    url("/public/Star-2-min.png"), url("/public/Star-8-min.png"),
-    url("/public/Star-11-min.png"), url("/public/Star-11-min.png"),
-    url("/public/Star-8-min.png"), url("/public/Star-2-min.png"),
-    url("/public/Star-8-min.png"), url("/public/Star-8-min.png");
-  background-position: top 70px left 200px, top 85px left 300px,
-    top 140px left 200px, bottom 120px left 131px, bottom 100px left 100px,
-    bottom 140px left 70px;
+  background-image: 
+  url("/public/satellite\ in\ orbit-min.png"), 
+  url("/public/Star-8-min.png"), 
+  url("/public/Star-2-min.png"),
+    url("/public/Star-8-min.png"), 
+    url("/public/Star-11-min.png"),
+    url("/public/Star-11-min.png"), 
+    url("/public/Star-8-min.png"),
+    url("/public/Star-2-min.png"), 
+    url("/public/Star-8-min.png"),
+    url("/public/Star-8-min.png");
+  background-position: 
+  bottom left,
+  top 70px left 200px, 
+  top 85px left 300px,
+  top 150px left 50px, 
+  top 120px left 200px, 
+  top 150px left 280px, 
+  bottom 100px left 100px,
+  bottom 100px left 100px,
+  bottom 100px left 100px,
+  bottom 140px left 70px;
   background-repeat: no-repeat;
+  background-size:  170px 170px, /* for satellite */
+  auto, auto, auto, auto, auto, auto, auto, auto, auto;
 }
 .logoWrap {
   position: absolute;
@@ -26,8 +42,8 @@
   justify-content: space-between;
   border-radius: 20px;
   padding: 60px 20px 40px;
-  width: 335px;
-  height: 240px;
+  width: 100%;
+  height: auto;
   backdrop-filter: blur(40px);
   box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
   background: linear-gradient(
