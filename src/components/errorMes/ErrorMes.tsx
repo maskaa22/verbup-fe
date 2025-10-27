@@ -1,47 +1,58 @@
-import { useEffect, useState } from "react";
-import css from "./ErrorMes.module.css"
-import { createPortal } from 'react-dom'
+// import { useEffect, useState } from "react";
+import css from "./ErrorMes.module.css";
+import { createPortal } from "react-dom";
 
 type PrankModalProps = {
-  open: boolean;
+  message: string;
   onClose?: () => void;
 };
-const ErrorMes: React.FC<PrankModalProps> = ({open, onClose}) => {
-    const [count, setCount] = useState<number>(10);
-     const [visible, setVisible] = useState<boolean>(open);
-     useEffect(() => {
-    setVisible(open);
-  }, [open]);
+const ErrorMes: React.FC<PrankModalProps> = ({ message, onClose }) => {
+  // const [count, setCount] = useState<number>(10);
+  // const [visible, setVisible] = useState<boolean>(false);
+  // useEffect(() => {
+  //   if (message) setVisible(true);
+  // }, [open]);
 
-  useEffect(() => {
-    if (!visible) return;
+  // useEffect(() => {
+  //   if (!visible) return;
 
-    // Prevent background scroll while prank is visible
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+  //   // Prevent background scroll while prank is visible
+  //   const prevOverflow = document.body.style.overflow;
+  //   document.body.style.overflow = "hidden";
 
-    // Countdown logic
-    const interval = setInterval(() => {
-      setCount((c) => c - 1);
-    }, 1000);
-    return () => {
-      clearInterval(interval);
-      document.body.style.overflow = prevOverflow;
-    };
-  }, [visible]);
+  //   // Countdown logic
+  //   const interval = setInterval(() => {
+  //     setCount((c) => c - 1);
+  //   }, 1000);
+  //   return () => {
+  //     clearInterval(interval);
+  //     document.body.style.overflow = prevOverflow;
+  //   };
+  // }, [visible]);
 
-  useEffect(() => {
-    if (count <= 0 && visible) {
-      setVisible(false);
-      onClose?.();
-    }
-  }, [count, visible, onClose]);
+  // useEffect(() => {
+  //   console.log(visible)
+  //   if (count <= 0 && visible) {
+  //     setVisible(false);
+  //     onClose?.();
+  //   }
+  // }, [count, visible, onClose]);
+
 
   return createPortal(
-    <div className={css.errorMess}>
-    <p>{`Була допущена помилка!Приготуйтесь Програма знищення буде запущена через ${count} секунд.`}</p>
-      </div>, document.body
-  )
-}
+    <div>
+      <div className={css.backdrop}></div>
+      <div className={css.errorMess}>
+        <button onClick={() => onClose?.()} className={css.button}>X</button>
+        {message === "wrongPassword" ? (
+          <h3>Ви ввели невірні данні, спробуйте ще раз</h3>
+        ) : (
+          <h3>Ця пошта вже використовується, спробуйте іншу</h3>
+        )}
+      </div>
+    </div>,
+    document.body
+  );
+};
 
-export default ErrorMes
+export default ErrorMes;

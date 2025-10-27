@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 // import { selectIsError } from "../../redux/auth/selectors";
 // import { useSelector } from "react-redux";
 import * as Yup from 'yup';
+import { useState } from "react";
+import ErrorMes from "../errorMes/ErrorMes";
 
 const RegisterSchema = Yup.object().shape({
   username: Yup.string().required("Please enter your nick-name"),
@@ -25,6 +27,7 @@ const RegisterSchema = Yup.object().shape({
 })
 
 const RegisterForm: React.FC = () => {
+  const [emailInUse, setEmailInUse] = useState(false)
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate()
   // const error = useSelector(selectIsError)
@@ -37,6 +40,8 @@ const RegisterForm: React.FC = () => {
    if(register.fulfilled.match(res)){
     actions.resetForm();
     navigate('/verify-email')
+   }else{
+    setEmailInUse(true)
    }
     
   };
@@ -50,6 +55,12 @@ const RegisterForm: React.FC = () => {
         <FormInput label="E - mail" name="email" type="email" placeholder="your@email.com" icon="icon-email"/>
         <FormInputPassword isFor="reg" label="Пароль" placeholder="Мінімум 8 символів"/>
         <BaseButtonStart label="Зарееструватися"/>
+        {emailInUse && (
+          <ErrorMes
+            message={"wrongPassword"}
+            onClose={() => setEmailInUse(false)}
+          />
+        )}
       </Form>
     </Formik> ;
 };

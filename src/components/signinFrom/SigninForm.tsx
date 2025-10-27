@@ -65,7 +65,7 @@ const SigninForm = () => {
         <BaseButtonStart label="Увійти" />
         {wrongPassword && (
           <ErrorMes
-            open={wrongPassword}
+            message={"wrongPassword"}
             onClose={() => setWrongPassword(false)}
           />
         )}
