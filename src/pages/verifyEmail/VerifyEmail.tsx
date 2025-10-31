@@ -8,7 +8,6 @@ import Logo from '../../components/logo/Logo';
 
 const VerifyEmail = () => {
     const [searchParams] = useSearchParams();
-  // const [status, setStatus] = useState("Verifying...");
   const dispatch = useDispatch<AppDispatch>()
   
   const token = searchParams.get("token");

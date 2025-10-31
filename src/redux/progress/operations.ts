@@ -22,8 +22,9 @@ export const sendProgress = createAsyncThunk<ProgressWord[], SendProgressArgs>(
 
       const { data } = await api.post("/progress", { words });
 
-      console.log("Готові дані:", words);
-      return data;
+      // console.log("Готові дані:", words);
+      console.log("data in post progress", data.data)
+      return data.data;
     } catch (err) {
       if (err instanceof Error) {
         return rejectWithValue(err.message);
@@ -32,3 +33,14 @@ export const sendProgress = createAsyncThunk<ProgressWord[], SendProgressArgs>(
     }
   }
 );
+
+
+export const getProgress = createAsyncThunk("progress/getProgress", async (_, thunkApi) => {
+try {
+    const res = await api.get('/progress');
+    console.log("get.progress res", res.data)
+    return res.data
+} catch (error) {
+  return thunkApi.rejectWithValue(error || "Progress could not be fetched")
+}
+})

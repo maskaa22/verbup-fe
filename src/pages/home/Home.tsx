@@ -1,29 +1,27 @@
+
 import { useEffect } from "react";
-import api from "../../api/axios";
 import ProgressBar from "../../components/progressBar/ProgressBar";
 import ResultCards from "../../components/resultCards/ResultCards";
 import StartLink from "../../components/startLink/StartLink";
 import WeekCal from "../../components/weekCal/WeekCal";
 import css from "./Home.module.css";
-import { useSelector } from "react-redux";
-import { selectProgress } from "../../redux/auth/selectors";
+// import { useSelector } from "react-redux";
+// import { selectProgress } from "../../redux/progress/selectors";
+import { useDispatch } from "react-redux";
+import { getProgress } from "../../redux/progress/operations";
+import type { AppDispatch } from "../../redux/store";
+
 
 const Home = () => {
-  const progress = useSelector(selectProgress)
-  const ps = progress?.progressPs.length || 0
-  const pp = progress?.progressPp.length || 0
-  const totalProgress = ps + pp;
+  // const progress = useSelector(selectProgress)
+  // useEffect(() => console.log(progress), [progress])
+  const dispatch = useDispatch<AppDispatch>()
+  // const progress = useSelector(selectProgress)
+  // const ps = progress?.progressPs.length || 0
+  // const pp = progress?.progressPp.length || 0
+  // const totalProgress = ps + pp;
   useEffect(() => {
-    const sendProgress = async () => {
-      try {
-        const result = await api.get("/progress");
-        console.log(result.data.data);
-      } catch (error) {
-        console.error("Помилка збереження прогресу:", error);
-      }
-    };
-
-    sendProgress();
+    dispatch(getProgress())
   }, []);
 
   return (
@@ -36,7 +34,7 @@ const Home = () => {
         </div>
         <WeekCal />
         <ul className={css.list}>
-          <ResultCards value={totalProgress} icon={"icon-yes"} text={"Вивчено"} />
+          <ResultCards value={0} icon={"icon-yes"} text={"Вивчено"} />
           <ResultCards value={0} icon={"icon-star"} text={"Бали"} />
           <ResultCards value={0} icon={"icon-fire"} text={"Досягнення"} />
         </ul>

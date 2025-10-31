@@ -28,6 +28,7 @@ const RegisterSchema = Yup.object().shape({
 
 const RegisterForm: React.FC = () => {
   const [emailInUse, setEmailInUse] = useState(false)
+  const [status, setStatus] = useState(0)
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate()
   // const error = useSelector(selectIsError)
@@ -41,6 +42,7 @@ const RegisterForm: React.FC = () => {
     actions.resetForm();
     navigate('/verify-email')
    }else{
+    setStatus(res.payload.status)
     setEmailInUse(true)
    }
     
@@ -57,7 +59,7 @@ const RegisterForm: React.FC = () => {
         <BaseButtonStart label="Зарееструватися"/>
         {emailInUse && (
           <ErrorMes
-            message={"wrongPassword"}
+            message={status}
             onClose={() => setEmailInUse(false)}
           />
         )}

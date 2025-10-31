@@ -25,7 +25,6 @@ export const register = createAsyncThunk(
     try {
       const { data } = await api.post("/auth/register", credentials);
       setAuthHeader(data.accessToken);
-      console.log(data)
       // const user = await api.get("/users")
       // const payload = {
       //   token: data.accessToken,
@@ -44,9 +43,7 @@ export const register = createAsyncThunk(
 export const verify = createAsyncThunk(
   "auth/verify", 
   async (token: string) => {
-    console.log(token)
   const res = await api.get(`/auth/verify-email?token=${token}`);
-  console.log(res);
   return res;
 });
 
@@ -55,7 +52,7 @@ export const login = createAsyncThunk(
   async (credentials: LogFormValues, thunkApi) => {
     try {
       const { data } = await api.post("/auth/login", credentials);
-      // console.log(data)
+      console.log("login data", data)
       setAuthHeader(data.accessToken);
       // const user = await api.get("/users")
       // const payload = {
@@ -63,10 +60,9 @@ export const login = createAsyncThunk(
       //   username: user.data.username,
       //   useremail: user.data.email
       // }
-        const res = await api.get('/progress');
-        console.log(res)
+      
         
-      return {accessToken: data.accessToken, userProgress: res.data.data};
+      return {accessToken: data.accessToken};
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
       return thunkApi.rejectWithValue(error || "Login failed");
@@ -78,20 +74,20 @@ export const logout = createAsyncThunk("auth/logout", async () => {});
 
 export const refreshUser = createAsyncThunk(
   "auth/refresh",
-  async () => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setAuthHeader(token);
-    }
+  async (_, thunkApi) => {
+    // const token = localStorage.getItem("token");
+    // if (token) {
+    //   setAuthHeader(token);
+    // }
 
     // Optional: actually hit refresh endpoint
-    // try {
-    //   const { data } = await api.post("/auth/refresh");
-    //   setAuthHeader(data.accessToken);
-    //   return data;
-    // } catch (error: unknown) {
-    //   return thunkApi.rejectWithValue("Refresh failed");
-    // }
+    try {
+      const { data } = await api.post("/auth/refresh");
+      setAuthHeader(data.accessToken);
+      return data;
+    } catch (error: unknown) {
+      return thunkApi.rejectWithValue("Refresh failed");
+    }
   },
   {
     condition: () => {

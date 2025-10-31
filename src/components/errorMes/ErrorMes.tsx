@@ -3,7 +3,7 @@ import css from "./ErrorMes.module.css";
 import { createPortal } from "react-dom";
 
 type PrankModalProps = {
-  message: string;
+  message: number;
   onClose?: () => void;
 };
 const ErrorMes: React.FC<PrankModalProps> = ({ message, onClose }) => {
@@ -44,9 +44,9 @@ const ErrorMes: React.FC<PrankModalProps> = ({ message, onClose }) => {
       <div className={css.backdrop}></div>
       <div className={css.errorMess}>
         <button onClick={() => onClose?.()} className={css.button}>X</button>
-        {message === "wrongPassword" ? (
+        {message === 400 ? (
           <h3>Ви ввели невірні данні, спробуйте ще раз</h3>
-        ) : (
+        ) : message === 401 ? <h3>Вибачте, виникла помилка. Спробуйте ще раз</h3> : message === 403 ? <h3>Ваш аккаунт не підтверджений. Перевірте свою пошту.</h3> : (
           <h3>Ця пошта вже використовується, спробуйте іншу</h3>
         )}
       </div>

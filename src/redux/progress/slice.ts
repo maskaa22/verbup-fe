@@ -1,13 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { sendProgress } from "./operations";
+import { getProgress, sendProgress } from "./operations";
+import type { ProgressWord } from "../../utils/gameType";
 
-const progressSlice = createSlice({
-  name: "progress",
-  initialState: {
-    data: [],
+export interface ProgressState {
+  psProgress: ProgressWord[],
+    ppProgress: ProgressWord[],
+    loading: boolean,
+    error: boolean,
+}
+
+export const initialProgressState: ProgressState = {
+    psProgress: [],
+    ppProgress: [],
     loading: false,
     error: false,
-  },
+  }
+const progressSlice = createSlice({
+  name: "progress",
+  initialState: initialProgressState ,
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -17,9 +27,25 @@ const progressSlice = createSlice({
       })
       .addCase(sendProgress.fulfilled, (state, action) => {
         state.loading = false;
-        state.data = action.payload; // зберігаємо відповідь з бекенду
+        const psNew = action.payload.filter(word => word.type == "ps")
+        const ppNew = action.payload.filter(word => word.type === "pp")
+        // console.log("ps", psNew)
+        // console.log("pp", ppNew)
+        if(psNew.length > 0) state.psProgress = [...state.psProgress, ...psNew]
+        if(ppNew.length > 0) state.ppProgress = [...state.ppProgress, ...ppNew]
       })
-      .addCase(sendProgress.rejected, (state, action) => {
+      .addCase(sendProgress.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
+      })
+      .addCase(getProgress.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(getProgress.fulfilled, (state) => {
+        state.loading = false;
+      })
+      .addCase(getProgress.rejected, (state) => {
         state.loading = false;
         state.error = true;
       });

@@ -10,9 +10,9 @@ import { selectProgress } from "../../redux/auth/selectors";
 const DictItem: React.FC<Props> = ({
   word: { basic, pastSimple, pastParticiple, uk },
 }) => {
-  const progress = useSelector(selectProgress)
-  const psLearnt = progress?.progressPs.find(word => word.word.basic === basic)
-    const ppLearnt = progress?.progressPp.find(word => word.word.basic === basic)
+  // const progress = useSelector(selectProgress)
+  // const psLearnt = progress?.progressPs.find(word => word.word.basic === basic)
+    // const ppLearnt = progress?.progressPp.find(word => word.word.basic === basic)
 
   const [isOpen, setIsOpen] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);

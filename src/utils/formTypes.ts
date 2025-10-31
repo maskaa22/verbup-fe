@@ -64,7 +64,6 @@ export interface authState {
   user: {
     name: string | null;
     email: string | null;
-    progress: userProgress | null;
   };
   token: string | null;
   isLoggedIn: boolean;

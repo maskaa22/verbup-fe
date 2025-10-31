@@ -20,6 +20,7 @@ const SignInSchema = Yup.object().shape({
 });
 const SigninForm = () => {
   const [wrongPassword, setWrongPassword] = useState(false);
+  const [status, setStatus] = useState(0)
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const handleSubmit = async (
@@ -30,6 +31,7 @@ const SigninForm = () => {
     if (login.fulfilled.match(res)) {
       navigate("/home");
     }else{
+      setStatus(res.payload.status)
       setWrongPassword(true)
     }
     // if (error) {
@@ -65,7 +67,7 @@ const SigninForm = () => {
         <BaseButtonStart label="Увійти" />
         {wrongPassword && (
           <ErrorMes
-            message={"wrongPassword"}
+            message={status}
             onClose={() => setWrongPassword(false)}
           />
         )}
