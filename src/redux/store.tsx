@@ -28,7 +28,7 @@ const persistedAuthReducer = persistReducer(
   {
     key: "user",
     storage,
-    whitelist: ["isLoggedIn", "user", "token"],
+    whitelist: ["isLoggedIn"],
   },
   authReducer
 );

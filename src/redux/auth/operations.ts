@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { type LogFormValues, type RegFormValues, 
+import { type LogFormValues, type loginResponce, type RegFormValues, 
   // type UserPayload 
 } from "../../utils/formTypes";
 import {api} from "../../api/axios";
@@ -51,7 +51,7 @@ export const login = createAsyncThunk(
   "auth/login",
   async (credentials: LogFormValues, thunkApi) => {
     try {
-      const { data } = await api.post("/auth/login", credentials);
+      const { data } = await api.post<loginResponce>("/auth/login", credentials);
       console.log("login data", data)
       setAuthHeader(data.accessToken);
       // const user = await api.get("/users")
@@ -62,7 +62,7 @@ export const login = createAsyncThunk(
       // }
       
         
-      return {accessToken: data.accessToken};
+      return data;
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
       return thunkApi.rejectWithValue(error || "Login failed");
@@ -83,10 +83,12 @@ export const refreshUser = createAsyncThunk(
     // Optional: actually hit refresh endpoint
     try {
       const { data } = await api.post("/auth/refresh");
+      console.log("refresh new accessToken", data.accessToken)
       setAuthHeader(data.accessToken);
       return data;
     } catch (error: unknown) {
-      return thunkApi.rejectWithValue("Refresh failed");
+          const err = error as Error;
+      return thunkApi.rejectWithValue(`"Refresh failed" ${err}`);
     }
   },
   {

@@ -71,3 +71,14 @@ export interface authState {
   isRefreshing: boolean;
   isError: boolean;
 }
+
+export interface loginResponce {
+  accessToken: string;
+  message: string;
+  user: {
+    avatar: null;
+    id: string;
+    email: string;
+    username: string;
+  }
+}
