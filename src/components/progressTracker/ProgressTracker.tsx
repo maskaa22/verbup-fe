@@ -3,13 +3,19 @@ export interface ProgresProps {
     strokeWidth: number, 
     arcLength: number, 
     circumference: number, 
-    progressLength: number,
-    rotate: number
+    // progressLength: number,
+    top: number,
+    left: number,
+    rotate: number,
+    progress: number
 }
-const ProgressTracker: React.FC<ProgresProps> = ({radius, strokeWidth, arcLength, circumference, progressLength, rotate}) => {
+const ProgressTracker: React.FC<ProgresProps> = ({radius, strokeWidth, arcLength, circumference, top, left, rotate, progress}) => {
+    
+  const progressLength = arcLength * progress;
+
   return (
     <>
-     <svg style={{width: "300", height: '200', position: 'absolute', top: '0', left: '0', transform: `rotate(${rotate}deg)`}} viewBox="0 0 200 200">
+     <svg style={{width: "300", height: '300', position: 'absolute', top: `${top}px`, left: `${left}px`, transform: `rotate(${rotate}deg)`}} viewBox="0 0 250 250">
            {/* Background arc */}
            <circle
              cx="100"

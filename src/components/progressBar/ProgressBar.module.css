@@ -1,6 +1,11 @@
 .progressWrap{
     position: relative;
     text-align: center;
+    
+}
+
+.progressWrap * {
+    /* border: 1px solid red; */
 }
 
 .progress{
@@ -11,12 +16,13 @@
 .progressTrWrap{
     position: relative;
     /* border: 2px dashed green; */
-    height: 200px;
+    width: 100%;
+    height: 240px;
 }
 .astroHome{
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-40%);
     bottom: -15px;
     width: 100px;
     z-index: 111;

@@ -82,3 +82,10 @@ export interface loginResponce {
     username: string;
   }
 }
+
+export interface getProgressResponce {
+  data: {
+  progressPs: progressWord[],
+  progressPp: progressWord[]
+}
+}

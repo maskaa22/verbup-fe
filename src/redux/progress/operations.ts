@@ -6,6 +6,7 @@ import type {
   Question,
   SendProgressArgs,
 } from "../../utils/gameType";
+import {type getProgressResponce } from "../../utils/formTypes";
 
 export const sendProgress = createAsyncThunk<ProgressWord[], SendProgressArgs>(
   "progress/sendProgress",
@@ -37,10 +38,12 @@ export const sendProgress = createAsyncThunk<ProgressWord[], SendProgressArgs>(
 
 export const getProgress = createAsyncThunk("progress/getProgress", async (_, thunkApi) => {
 try {
-    const res = await api.get('/progress');
+    const res = await api.get<getProgressResponce>('/progress');
     console.log("get.progress res", res.data)
-    return res.data
+    return res.data.data
 } catch (error) {
   return thunkApi.rejectWithValue(error || "Progress could not be fetched")
 }
 })
+
+

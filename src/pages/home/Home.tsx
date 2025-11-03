@@ -10,16 +10,18 @@ import css from "./Home.module.css";
 import { useDispatch } from "react-redux";
 import { getProgress } from "../../redux/progress/operations";
 import type { AppDispatch } from "../../redux/store";
+import { useSelector } from "react-redux";
+import { selectppProgress, selectpsProgress } from "../../redux/progress/selectors";
 
 
 const Home = () => {
-  // const progress = useSelector(selectProgress)
+  const psProgress = useSelector(selectpsProgress)
+  const ppProgress = useSelector(selectppProgress)
   // useEffect(() => console.log(progress), [progress])
   const dispatch = useDispatch<AppDispatch>()
-  // const progress = useSelector(selectProgress)
-  // const ps = progress?.progressPs.length || 0
-  // const pp = progress?.progressPp.length || 0
-  // const totalProgress = ps + pp;
+  const ps = psProgress?.length || 0
+  const pp = ppProgress?.length || 0
+  const totalProgress = ps + pp;
   useEffect(() => {
     dispatch(getProgress())
   }, []);
@@ -34,7 +36,7 @@ const Home = () => {
         </div>
         <WeekCal />
         <ul className={css.list}>
-          <ResultCards value={0} icon={"icon-yes"} text={"Вивчено"} />
+          <ResultCards value={totalProgress} icon={"icon-yes"} text={"Вивчено"} />
           <ResultCards value={0} icon={"icon-star"} text={"Бали"} />
           <ResultCards value={0} icon={"icon-fire"} text={"Досягнення"} />
         </ul>
