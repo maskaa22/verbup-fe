@@ -24,7 +24,7 @@ export const sendProgress = createAsyncThunk<ProgressWord[], SendProgressArgs>(
       const { data } = await api.post("/progress", { words });
 
       // console.log("Готові дані:", words);
-      console.log("data in post progress", data.data)
+      // console.log("data in post progress", data.data)
       return data.data;
     } catch (err) {
       if (err instanceof Error) {

@@ -29,8 +29,8 @@ const progressSlice = createSlice({
         state.loading = false;
         const psNew = action.payload.filter((word) => word.type == "ps");
         const ppNew = action.payload.filter((word) => word.type === "pp");
-        // console.log("ps", psNew)
-        // console.log("pp", ppNew)
+        console.log("ps", psNew)
+        console.log("pp", ppNew)
         if (psNew.length > 0)
           state.psProgress = [...state.psProgress, ...psNew];
         if (ppNew.length > 0)
