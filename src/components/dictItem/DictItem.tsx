@@ -4,15 +4,17 @@ import css from "./DictItem.module.css";
 import clsx from "clsx";
 import { speakWordsIndividually } from "../../utils/dict/dictSound";
 import { useSelector } from "react-redux";
-import { selectProgress } from "../../redux/auth/selectors";
+import { selectppProgress, selectpsProgress } from "../../redux/progress/selectors";
 
 
 const DictItem: React.FC<Props> = ({
   word: { basic, pastSimple, pastParticiple, uk },
 }) => {
-  // const progress = useSelector(selectProgress)
-  // const psLearnt = progress?.progressPs.find(word => word.word.basic === basic)
-    // const ppLearnt = progress?.progressPp.find(word => word.word.basic === basic)
+  const psProgress = useSelector(selectpsProgress)
+    const ppProgress = useSelector(selectppProgress)
+
+  const psLearnt = psProgress.find(word => word.word?.basic === basic)
+    const ppLearnt = ppProgress.find(word => word.word?.basic === basic)
 
   const [isOpen, setIsOpen] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
@@ -57,7 +59,7 @@ const DictItem: React.FC<Props> = ({
           <span className={`${css.dot} ${psLearnt && css.learnt}`}></span>
           <p onClick={() => speakWordsIndividually([pastSimple], true, 1500)}>{pastSimple}</p></div>
           <div className={css.dotWrap}>
-          <span className={css.dot}></span>
+          <span className={`${css.dot} ${ppLearnt && css.learnt}`}></span>
           <p onClick={() => speakWordsIndividually([pastParticiple], true, 1500)}>{pastParticiple}</p></div>
         </div>
       )}

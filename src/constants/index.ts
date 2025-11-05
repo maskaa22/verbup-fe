@@ -192,5 +192,6 @@ export const dictInitState: InitialState = {
   allWords: null,
   word: "",
   letter: "",
+  learnt: false,
   isLoading: false,
 };

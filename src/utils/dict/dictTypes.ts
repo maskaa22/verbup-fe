@@ -25,5 +25,6 @@ export interface InitialState {
   allWords: myVerbs | null;
   word: string;
   letter: string;
+  learnt: boolean;
   isLoading: boolean
 }
