@@ -28,7 +28,9 @@ const Home = () => {
 
   return (
     <div className={css.homeWrap}>
+      <div className={css.progressOuterWrap}>
       <ProgressBar />
+      </div>
       <div className={css.card}>
         <div className={css.userInfo}>
           <h3>User</h3>

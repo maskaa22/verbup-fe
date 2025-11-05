@@ -2,13 +2,12 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../api/axios";
 import { PARTICIPLE, PP, PS, SIMPLE, SUCCESS } from "../../constants";
 import type {
-  ProgressWord,
   Question,
   SendProgressArgs,
 } from "../../utils/gameType";
-import {type getProgressResponce } from "../../utils/formTypes";
+import {type getProgressResponce, type progressWord } from "../../utils/formTypes";
 
-export const sendProgress = createAsyncThunk<ProgressWord[], SendProgressArgs>(
+export const sendProgress = createAsyncThunk<progressWord[], SendProgressArgs>(
   "progress/sendProgress",
   async ({ questions, gameSetting, answerStatuses }, { rejectWithValue }) => {
     try {
