@@ -12,12 +12,8 @@ const authSlice = createSlice({
         state.isLoading = true;
         state.isError = false;
       })
-      .addCase(register.fulfilled, (state, action) => {
+      .addCase(register.fulfilled, (state) => {
         state.isLoading = false;
-        state.token = action.payload.accessToken;
-        // state.token = action.payload.token;
-        // state.user.name = action.payload.username;
-        // state.user.email = action.payload.useremail
       })
       .addCase(register.rejected, (state) => {
         state.isLoading = false;
