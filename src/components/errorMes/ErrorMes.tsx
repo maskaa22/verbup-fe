@@ -38,15 +38,20 @@ const ErrorMes: React.FC<PrankModalProps> = ({ message, onClose }) => {
   //   }
   // }, [count, visible, onClose]);
 
-
   return createPortal(
     <div>
       <div className={css.backdrop}></div>
       <div className={css.errorMess}>
-        <button onClick={() => onClose?.()} className={css.button}>X</button>
+        <button onClick={() => onClose?.()} className={css.button}>
+          X
+        </button>
         {message === 400 ? (
           <h3>Ви ввели невірні данні, спробуйте ще раз</h3>
-        ) : message === 401 ? <h3>Вибачте, виникла помилка. Спробуйте ще раз</h3> : message === 403 ? <h3>Ваш аккаунт не підтверджений. Перевірте свою пошту.</h3> : (
+        ) : message === 401 || message === 500 ? (
+          <h3>Вибачте, виникла помилка. Спробуйте ще раз</h3>
+        ) : message === 403 ? (
+          <h3>Ваш аккаунт не підтверджений. Перевірте свою пошту.</h3>
+        ) : (
           <h3>Ця пошта вже використовується, спробуйте іншу</h3>
         )}
       </div>

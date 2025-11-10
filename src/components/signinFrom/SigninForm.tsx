@@ -30,13 +30,12 @@ const SigninForm = () => {
     const res = await dispatch(login(values));
     if (login.fulfilled.match(res)) {
       navigate("/home");
-    }else{
+    }else if(login.rejected.match(res) && res.payload){
       setStatus(res.payload.status)
       setWrongPassword(true)
+    }else{
+      setStatus(500);
     }
-    // if (error) {
-    //   setWrongPassword(true);
-    // }
     actions.resetForm();
   };
 

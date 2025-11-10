@@ -3,6 +3,7 @@ import { type LogFormValues, type loginResponce, type RegFormValues,
   // type UserPayload 
 } from "../../utils/formTypes";
 import {api} from "../../api/axios";
+import axios from "axios";
 
 
 export const setAuthHeader = (token: string): void => {
@@ -19,23 +20,22 @@ export const setAuthHeader = (token: string): void => {
 //   return rejectWithValue("Something went wrong");
 // };
 
-export const register = createAsyncThunk(
+export const register = createAsyncThunk<{message: string}, RegFormValues, {rejectValue: {status: number, message: string}}>(
   "auth/register",
-  async (credentials: RegFormValues, thunkApi) => {
+  async (credentials, {rejectWithValue}) => {
     try {
       const { data } = await api.post("/auth/register", credentials);
       setAuthHeader(data.accessToken);
-      // const user = await api.get("/users")
-      // const payload = {
-      //   token: data.accessToken,
-      //   username: user.data.username,
-      //   useremail: user.data.email
-      // }
-      // return payload;
+      console.log(data)
       return data;
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
-      return thunkApi.rejectWithValue(error || "Registration failed");
+      if(axios.isAxiosError(error) && error.response){
+        return rejectWithValue({status: error.response.status,
+          message: error.response.data.message
+        });
+      }
+      throw error;
     }
   }
 );
@@ -47,25 +47,22 @@ export const verify = createAsyncThunk(
   return res;
 });
 
-export const login = createAsyncThunk(
+export const login = createAsyncThunk<loginResponce, LogFormValues, {rejectValue: {status: number, message: string}}>(
   "auth/login",
-  async (credentials: LogFormValues, thunkApi) => {
+  async (credentials, {rejectWithValue}) => {
     try {
-      const { data } = await api.post<loginResponce>("/auth/login", credentials);
+      const { data } = await api.post("/auth/login", credentials);
       console.log("login data", data)
-      setAuthHeader(data.accessToken);
-      // const user = await api.get("/users")
-      // const payload = {
-      //   token: data.accessToken,
-      //   username: user.data.username,
-      //   useremail: user.data.email
-      // }
-      
-        
+      setAuthHeader(data.accessToken);   
       return data;
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
-      return thunkApi.rejectWithValue(error || "Login failed");
+      if(axios.isAxiosError(error) && error.response){
+        return rejectWithValue({status: error.response.status,
+          message: error.response.data.message
+        });
+      }
+      throw error;
     }
   }
 );

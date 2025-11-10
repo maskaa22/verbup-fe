@@ -12,9 +12,11 @@ import { getProgress } from "../../redux/progress/operations";
 import type { AppDispatch } from "../../redux/store";
 import { useSelector } from "react-redux";
 import { selectppProgress, selectpsProgress } from "../../redux/progress/selectors";
+import { selectUser } from "../../redux/auth/selectors";
 
 
 const Home = () => {
+  const user = useSelector(selectUser)
   const psProgress = useSelector(selectpsProgress)
   const ppProgress = useSelector(selectppProgress)
   // useEffect(() => console.log(progress), [progress])
@@ -33,7 +35,7 @@ const Home = () => {
       </div>
       <div className={css.card}>
         <div className={css.userInfo}>
-          <h3>User</h3>
+          <h3>{user ? user.name : "User"}</h3>
           <p>Level</p>
         </div>
         <WeekCal />
