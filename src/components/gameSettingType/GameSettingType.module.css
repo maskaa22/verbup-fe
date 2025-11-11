@@ -48,7 +48,7 @@
   right: 0;
 }
 .repair {
-  top: -28px;
+  top: -22px;
 }
 .text {
   font-size: 14px;
@@ -81,17 +81,17 @@
 
 @media screen and (max-height: 767px) {
   .icon {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
   }
   .img {
-    width: 110px;
+    width: 16vh;
   }
   .repair {
-    width: 90px;
+    width: 12vh;
   }
   .type {
-    margin-bottom: 35px;
+    margin-bottom: 4vh;
   }
   .text {
     font-size: 12px;
