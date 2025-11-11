@@ -8,7 +8,8 @@
 .btn {
   background: #ffffff;
   border-radius: 12px;
-  width: 150px;
+  /* width: 150px; */
+  width: 23vh;
   border: 1px solid #a2a2a2;
   align-items: center;
   display: flex;

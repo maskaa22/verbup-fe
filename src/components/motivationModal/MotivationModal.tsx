@@ -26,7 +26,7 @@ const MotivationModal: React.FC<MotivationModalProps> = ({ onClose }) => {
         <img src={item.image} alt="motivation" className={c.imgWrapper} />
 
         <button onClick={onClose} className={c.next}>
-          Закрити
+          Далі
         </button>
       </div>
     </div>
