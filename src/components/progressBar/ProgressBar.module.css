@@ -22,7 +22,7 @@
 .astroHome{
     position: absolute;
     left: 50%;
-    transform: translateX(-40%);
+    transform: translateX(-50%);
     bottom: -15px;
     width: 100px;
     z-index: 111;
@@ -45,14 +45,19 @@ width: 150px;
     }
     
 }
-@media (max-height: 610px) {
+@media (max-height: 640px) {
     .progressWrap{
         height: fit-content;
     }
-    .progress{
+    .progressTrWrap{
+visibility: hidden;    }
+.astroHome{
+    width: 150px;
+}
+    /* .progress{
         width: 300px;
         height: 300px;
-    }
+    } */
 }
 
 

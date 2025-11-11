@@ -3,3 +3,37 @@
     height: 200px;
     transform: rotate(80deg);
 } */
+
+.progress {
+  position: absolute;
+  width: 18.7em;
+  height: 18.7em;
+}
+.baseForm {
+  top: 1em;
+  left: 0.5em;
+  transform: rotate(100deg);
+}
+.psForm {
+  top: -2em;
+  left: 0;
+  transform: rotate(198deg);
+}
+.ppForm {
+  top: -1.6em;
+  left: 3em;
+  transform: rotate(290deg);
+}
+
+/* @media screen and (max-width: 600px) {
+  .progress {
+    width: 200px;
+    height: 200px;
+  }
+} */
+@media (max-width: 395px) {
+    .progress{
+        width: 16em;
+        height: 16em;
+    }
+}

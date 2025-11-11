@@ -20,9 +20,11 @@ const Home = () => {
   const psProgress = useSelector(selectpsProgress)
   const ppProgress = useSelector(selectppProgress)
   // useEffect(() => console.log(progress), [progress])
+  const psNoMistake = psProgress.filter(word => word.status !== "mistake")
+  const ppNoMistake = ppProgress.filter(word => word.status !== "mistake")
   const dispatch = useDispatch<AppDispatch>()
-  const ps = psProgress?.length || 0
-  const pp = ppProgress?.length || 0
+  const ps = psNoMistake?.length || 0
+  const pp = ppNoMistake?.length || 0
   const totalProgress = ps + pp;
   useEffect(() => {
     dispatch(getProgress())
@@ -30,13 +32,10 @@ const Home = () => {
 
   return (
     <div className={css.homeWrap}>
-      <div className={css.progressOuterWrap}>
       <ProgressBar />
-      </div>
       <div className={css.card}>
         <div className={css.userInfo}>
           <h3>{user ? user.name : "User"}</h3>
-          <p>Level</p>
         </div>
         <WeekCal />
         <ul className={css.list}>

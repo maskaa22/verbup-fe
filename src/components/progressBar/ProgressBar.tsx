@@ -28,10 +28,7 @@ const normPpProgress = ppProgress.length / 200;
           strokeWidth={strokeWidth}
           arcLength={arcLength}
           circumference={circumference}
-          // progressLength={progressLength}
-          top={20}
-          left={10}
-          rotate={100}
+          type="base"
           progress={0.01}
         />
         <ProgressTracker
@@ -39,10 +36,7 @@ const normPpProgress = ppProgress.length / 200;
           strokeWidth={strokeWidth}
           arcLength={arcLength}
           circumference={circumference}
-          // progressLength={progressLength}
-          top={-30}
-          left={0}
-          rotate={198}
+          type="ps"
           progress={normPsProgress}
         />
         <ProgressTracker
@@ -50,10 +44,7 @@ const normPpProgress = ppProgress.length / 200;
           strokeWidth={strokeWidth}
           arcLength={arcLength}
           circumference={circumference}
-          // progressLength={progressLength}
-          top={-20}
-          left={50}
-          rotate={290}
+          type='pp'
           progress={normPpProgress}
         />
       </div>
