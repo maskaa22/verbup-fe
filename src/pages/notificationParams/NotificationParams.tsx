@@ -6,6 +6,7 @@ import { setAllNotifications } from "../../redux/notify/slice";
 import { useSelector } from "react-redux";
 import { selectAllNotifications } from "../../redux/notify/selectors";
 import type { Notifications } from "../../utils/notify/notifyTypes";
+import { VIBRATION } from "../../constants";
 
 
 
@@ -81,6 +82,13 @@ const NotificationParams = () => {
           <NotificationCheckBox
             checked={notifications.sound}
             onChange={() => handleChange("sound")}
+          />
+        </li>
+        <li>
+          <p className={css.mainText}>Вібрація </p>
+          <NotificationCheckBox
+            checked={notifications.vibration}
+            onChange={() => handleChange(VIBRATION)}
           />
         </li>
       </ul>

@@ -28,6 +28,8 @@ export const PP = "pp";
 export const SIMPLE = "Past Simple";
 export const PARTICIPLE = "Past Participle";
 
+export const VIBRATION = "vibration";
+
 export const motivationData: MotivationItem[] = [
   {
     message: "Ти вже пройшов(-ла) більше, ніж половину — не зупиняйся!",
@@ -157,6 +159,7 @@ export const notifyInitialState: NotificationState = {
     specialOffers: false,
     motivateMe: false,
     sound: false,
+    vibration: localStorage.getItem(VIBRATION) !== "false",
   },
   darkTheme: "light",
 };
