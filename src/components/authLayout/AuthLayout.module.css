@@ -1,5 +1,5 @@
 .outerWrap{
-  overflow: auto;
+  overflow: hidden;
 }
 .wrap {
   position: relative;

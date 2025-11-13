@@ -41,7 +41,7 @@
     width: 60px;
   }
 }
-@media (max-height: 676px) {
+@media (max-height: 550px) {
     .link {
     margin-top: 8px;
     font-size: 16px;      
