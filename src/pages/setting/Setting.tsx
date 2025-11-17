@@ -30,7 +30,7 @@ const Setting = () => {
 
       <h3>Інше</h3>
       <ul className={css.list}>
-        <li >
+        <li className={css.disabled}>
           <Link to={"notification-params"}>Параметри сповіщень</Link>
           <svg>
             <use href="./icons.svg#icon-accordion-arrow"></use>

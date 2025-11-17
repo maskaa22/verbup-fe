@@ -10,7 +10,6 @@
   border-radius: 30px;
   margin-bottom: 48px;
   position: relative;
-  cursor: pointer;
 }
 .disabled {
   backdrop-filter: blur(40px);

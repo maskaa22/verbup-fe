@@ -8,33 +8,24 @@ import { selectAllNotifications } from "../../redux/notify/selectors";
 import type { Notifications } from "../../utils/notify/notifyTypes";
 import { VIBRATION } from "../../constants";
 
-
-
 const NotificationParams = () => {
   const dispatch = useDispatch();
   const notifications = useSelector(selectAllNotifications);
 
-  
-
   type NotificationKey = keyof Notifications;
 
-//   const [notifications, setNotifications] = useState<Notifications>({
-//     dailyTraining: false,
-//     achievsAndLevels: false,
-//     specialOffers: false,
-//     motivateMe: false,
-//     sound: false,
-//   });
-
   const handleChange = (name: NotificationKey) => {
-
-    dispatch(setAllNotifications({
+    dispatch(
+      setAllNotifications({
         ...notifications,
-[name]: !notifications[name]
-    }));
+        [name]: !notifications[name],
+      })
+    );
   };
 
-  useEffect(()=>{console.log(notifications)},[notifications])
+  useEffect(() => {
+    console.log(notifications);
+  }, [notifications]);
 
   return (
     <div className={css.wrap}>
