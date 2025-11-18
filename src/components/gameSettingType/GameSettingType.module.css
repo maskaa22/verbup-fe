@@ -99,3 +99,13 @@
     font-size: 22px;
   }
 }
+
+@media screen and (min-height: 768px) {
+  .img {
+    width: 14vh;
+    top: -32px;
+  }
+  .type {
+    margin-bottom: 4vh;
+  }
+}
