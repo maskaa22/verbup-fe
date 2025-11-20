@@ -10,7 +10,6 @@
   border-radius: 30px;
   margin-bottom: 48px;
   position: relative;
-  cursor: pointer;
 }
 .disabled {
   backdrop-filter: blur(40px);
@@ -48,7 +47,7 @@
   right: 0;
 }
 .repair {
-  top: -28px;
+  top: -22px;
 }
 .text {
   font-size: 14px;
@@ -81,22 +80,32 @@
 
 @media screen and (max-height: 767px) {
   .icon {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
   }
   .img {
-    width: 110px;
+    width: 15vh;
   }
   .repair {
-    width: 90px;
+    width: 12vh;
   }
   .type {
-    margin-bottom: 35px;
+    margin-bottom: 4vh;
   }
   .text {
     font-size: 12px;
   }
   .title {
     font-size: 22px;
+  }
+}
+
+@media screen and (min-height: 768px) {
+  .img {
+    width: 14vh;
+    top: -32px;
+  }
+  .type {
+    margin-bottom: 4vh;
   }
 }

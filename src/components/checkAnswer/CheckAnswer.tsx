@@ -11,6 +11,8 @@ import {
 } from "../../redux/game/selectors";
 import type React from "react";
 import { useEffect } from "react";
+import { useVibrationSettings } from "../../hooks/VibrationContext";
+import { useVibrate } from "../../hooks/useVibrate";
 
 const CheckAnswer: React.FC<checkAnswerType> = ({
   type,
@@ -22,6 +24,9 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
   const current = useSelector(selectCurrent);
   const correct = useSelector(selectCorrect);
   const wrong = useSelector(selectWrong);
+
+  const { vibrationEnabled } = useVibrationSettings();
+  const vibrate = useVibrate(vibrationEnabled);
 
   const handleNextQuestion = () => {
     const updatedIndex = current + 1;
@@ -51,6 +56,12 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
 
     sessionStorage.setItem(LAST_INDEX, current.toString());
   }, [active, correct, current, dispatch, type, wrong]);
+
+  useEffect(() => {
+  if (active && type !== SUCCESS) {
+    vibrate([100, 50, 150]); // вібрація тільки при неправильній відповіді
+  }
+}, [active, type, vibrate]);
 
   return (
     <div

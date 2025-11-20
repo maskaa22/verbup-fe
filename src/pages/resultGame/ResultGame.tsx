@@ -154,15 +154,13 @@ const ResultGame = () => {
         {rating > 0 && <Feedback rating={rating} />}
       </div>
       <div className={`${c.btnContainer} ${rating ? `${c.rating}` : ""}`}>
-        <div className={`${c.btnContainer}`}>
-          <button onClick={home} className={c.btn}>
-            На головну
-          </button>
+        <button onClick={home} className={c.btn}>
+          На головну
+        </button>
 
-          <button onClick={next} className={c.btn}>
-            Грати далі
-          </button>
-        </div>
+        <button onClick={next} className={c.btn}>
+          Грати далі
+        </button>
       </div>
     </div>
   );

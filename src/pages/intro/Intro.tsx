@@ -22,7 +22,7 @@ const Intro = () => {
           Що спільного в go, went і gone?{" "}
           <span> VerbUp знає відповідь — і ти скоро теж. </span>
         </p>
-        <NavLink className={css.link} onClick={handleClick} to="/setting/game">
+        <NavLink className={css.link} onClick={handleClick} to="/game">
           Почати
         </NavLink>
         <div className={css.signWrap}>

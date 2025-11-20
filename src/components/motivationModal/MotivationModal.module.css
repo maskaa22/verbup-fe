@@ -89,9 +89,8 @@
 .next {
   position: absolute;
   top: 110%;
-  width: fit-content;
-  padding: 0 80px;
-  left: 20%;
+  left: 50%;
+  transform: translateX(-50%);
 
   border-radius: 48px;
   padding: 16px 80px;
