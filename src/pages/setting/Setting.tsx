@@ -1,14 +1,13 @@
 // import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import css from "./Setting.module.css";
-import clsx from "clsx";
 import { sendGtagEvent } from "../../utils/googleAnalize";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
 import { logout, resetAll } from "../../redux/auth/operations";
 
 const Setting = () => {
-  const dispatch = useDispatch<AppDispatch>()
+  const dispatch = useDispatch<AppDispatch>();
   const handleClick = () => {
     sendGtagEvent("click", "send feedback", "continue");
   };
@@ -16,7 +15,7 @@ const Setting = () => {
     <div className={css.wrap}>
       <h2>Налаштування</h2>
 
-      <h3 className={css.disabled}>Профіль</h3>
+      {/* <h3 className={css.disabled}>Профіль</h3>
       <ul className={clsx(css.list, css.disabled)}>
         <li>
           <Link to={"#"}>Змінити Імя</Link>
@@ -30,34 +29,34 @@ const Setting = () => {
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>
         </li>
-      </ul>
+      </ul> */}
 
       <h3>Інше</h3>
       <ul className={css.list}>
-        <li className={css.disabled}>
+        {/* <li className={css.disabled}>
           <Link to={"notification-params"}>Параметри сповіщень</Link>
           <svg>
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>
-        </li>
-        <li className={css.disabled}>
+        </li> */}
+        {/* <li className={css.disabled}>
           <Link to={"/"}>Контакти</Link>
           <svg>
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>
-        </li>
-        <li className={css.disabled}>
+        </li> */}
+        {/* <li className={css.disabled}>
           <Link to={"/"}>Поділитись з друзями</Link>
           <svg>
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>
-        </li>
-        <li className={css.disabled}>
+        </li> */}
+        {/* <li className={css.disabled}>
           <Link to={"theme-switcher"}>Тема</Link>
           <svg>
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>
-        </li>
+        </li> */}
         <li>
           <Link to={"/setting/game"}>Обрати інший рівень</Link>
           <svg>
@@ -65,7 +64,15 @@ const Setting = () => {
           </svg>
         </li>
         <li>
-          <button onClick={() => {dispatch(logout()); dispatch(resetAll())}} className={css.button}>Вийти з акаунту</button>
+          <button
+            onClick={() => {
+              dispatch(logout());
+              dispatch(resetAll());
+            }}
+            className={css.button}
+          >
+            Вийти з акаунту
+          </button>
           <svg>
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>
@@ -79,14 +86,16 @@ const Setting = () => {
       >
         Надіслати відгук
       </a>
-<a target="_blank" href="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Aorganization%3A107940810&keywords=VerbUp&origin=ENTITY_SEARCH_HOME_HISTORY&sid=9!e" className={css.linkedInWrap}>
-  <span>Ми у Linked
-    
-  </span>
-  <svg className={css.linkedInIcon}>
-                <use href="./icons.svg#icon-linked-in"></use>
-              </svg>
-</a>
+      <a
+        target="_blank"
+        href="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Aorganization%3A107940810&keywords=VerbUp&origin=ENTITY_SEARCH_HOME_HISTORY&sid=9!e"
+        className={css.linkedInWrap}
+      >
+        <span>Ми у Linked</span>
+        <svg className={css.linkedInIcon}>
+          <use href="./icons.svg#icon-linked-in"></use>
+        </svg>
+      </a>
       <Outlet />
     </div>
   );

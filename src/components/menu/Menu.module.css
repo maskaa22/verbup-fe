@@ -69,9 +69,9 @@
   stroke: var(--primary-1);
 }
 
-.navigation ul li a .homeIcon{
-    fill: var(--primary-1) !important;
-  stroke: none !important;
+.navigation ul li a #homeIcon{
+    fill: var(--primary-1);
+  stroke: none;
 }
 .navigation ul li a .iconone {
   fill: var(--primary-1);
@@ -83,9 +83,9 @@
   stroke: var(--background-white-default) !important;
 }
 
-.active .homeIcon {
-  fill: var(--background-white-default) !important;
-  stroke: none !important;
+.active #homeIcon {
+  fill: var(--background-white-default);
+  stroke: none;
 }
 
 .indicator {

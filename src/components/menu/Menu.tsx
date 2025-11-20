@@ -105,8 +105,10 @@ const Menu = () => {
             </li>
             <li>
               <NavLink className={({ isActive }) => clsx(isActive && css.active)} to="/home" onClick={() => handleClick('home')}>
-                <svg className={`${css.icon} ${css.homeIcon}`}>
-                  <use href={`/icons.svg#${isLoggedIn? "icon-user-loggedin" : "icon-home"}`}></use>
+                <svg id="homeIcon" className={`${css.icon} ${css.homeIcon}`}>
+                  {/* <use href={`/icons.svg#${isLoggedIn? "icon-user-loggedin" : "icon-home"}`}></use> */}
+                  <use href="/icons.svg#icon-home"></use>
+
                 </svg>
               </NavLink>
             </li>
