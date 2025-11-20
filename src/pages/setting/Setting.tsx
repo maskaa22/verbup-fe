@@ -79,7 +79,14 @@ const Setting = () => {
       >
         Надіслати відгук
       </a>
-
+<a target="_blank" href="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Aorganization%3A107940810&keywords=VerbUp&origin=ENTITY_SEARCH_HOME_HISTORY&sid=9!e" className={css.linkedInWrap}>
+  <span>Ми у Linked
+    
+  </span>
+  <svg className={css.linkedInIcon}>
+                <use href="./icons.svg#icon-linked-in"></use>
+              </svg>
+</a>
       <Outlet />
     </div>
   );
