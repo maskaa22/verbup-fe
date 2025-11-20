@@ -1,20 +1,55 @@
-import css from "./ProgressBar.module.css"
+import { useSelector } from "react-redux";
+import ProgressTracker from "../progressTracker/ProgressTracker";
+import css from "./ProgressBar.module.css";
+import { selectppProgress, selectpsProgress } from "../../redux/progress/selectors";
 
-const ProgressBar = ({progress = 0.01}) => {
-    const radius = 80;
-    const strokeWidth = 30;
-    const circumference = 2 * Math.PI * radius;
+const ProgressBar = () => {
+  const radius = 100;
+  const strokeWidth = 30;
+  const circumference = 2 * Math.PI * radius;
+const psProgress = useSelector(selectpsProgress)
+const ppProgress = useSelector(selectppProgress)
+const normPsProgress = psProgress.length / 200;
+const normPpProgress = ppProgress.length / 200;
+  // quarter circle
+  const arcLength = (1 / 6) * circumference;
+  // const progressLength = arcLength * progress;
 
-    const arcLength = (1/4) * circumference;
-    const progressPrc = progress * 100;
-    const progressLength = Math.round(arcLength * progressPrc / 100);
-    // const offset = arcLength - progress * arcLength;
-    // const dashOffset = (1 - progress) * arcLength;
+  return (
+    <div className={css.progressWrap}>
+      <img
+        className={css.astroHome}
+        src="/image/cute-astronaut-home-page.png"
+        alt="cute astronaut is reading his journal"
+      />
+      <div className={css.progressTrWrap}>
+        <ProgressTracker
+          radius={radius}
+          strokeWidth={strokeWidth}
+          arcLength={arcLength}
+          circumference={circumference}
+          type="base"
+          progress={0.01}
+        />
+        <ProgressTracker
+          radius={radius}
+          strokeWidth={strokeWidth}
+          arcLength={arcLength}
+          circumference={circumference}
+          type="ps"
+          progress={normPsProgress}
+        />
+        <ProgressTracker
+          radius={radius}
+          strokeWidth={strokeWidth}
+          arcLength={arcLength}
+          circumference={circumference}
+          type='pp'
+          progress={normPpProgress}
+        />
+      </div>
 
-    return <div className={css.progressWrap}>
-    <img className={css.astroHome} src="/image/cute-astronaut-home-page.png" alt="cute astronaut is reading his journal" />
-     <svg className={css.progress} viewBox="0 0 200 200">
-        {/* Background arc */}
+      {/* <svg className={css.progress} viewBox="0 0 200 200">
       <circle
         cx="100"
         cy="100"
@@ -22,13 +57,11 @@ const ProgressBar = ({progress = 0.01}) => {
         stroke="#f0f0f0"
         strokeWidth={strokeWidth}
         fill="none"
-        strokeDasharray={arcLength}
+        strokeDasharray={`${arcLength} ${circumference}`}
         strokeDashoffset={0}
         strokeLinecap="round"
-        transform="rotate(135 100 100)" // makes it 3/4 circle
+        transform="rotate(45 100 100)" 
       />
-
-      {/* Progress arc */}
       <circle
         cx="100"
         cy="100"
@@ -36,25 +69,14 @@ const ProgressBar = ({progress = 0.01}) => {
         stroke="#5e909e"
         strokeWidth={strokeWidth}
         fill="none"
-        strokeDasharray={circumference}
-        strokeDashoffset={circumference - progressLength}
+        strokeDasharray={`${arcLength} ${circumference}`}
+        strokeDashoffset={arcLength - progressLength}
         strokeLinecap="round"
-        transform="rotate(135 100 100)"
+        transform="rotate(45 100 100)"
       />
-
-      {/* Text in the center */}
-      {/* <text
-        x="50%"
-        y="50%"
-        dominantBaseline="middle"
-        textAnchor="middle"
-        fontSize="24"
-        fontWeight="bold"
-      >
-        {Math.round(progress * 100)}%
-      </text> */}
-    </svg>
+    </svg> */}
     </div>
-}
+  );
+};
 
-export default ProgressBar
+export default ProgressBar;

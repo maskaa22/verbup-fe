@@ -7,7 +7,6 @@
   align-items: flex-end;
 }
 .navigation {
-
   width: 100%;
   height: 60px;
   position: relative;
@@ -49,7 +48,12 @@
 }
 
 .active {
-  background: linear-gradient(180deg, #5a8b96 11%, #9aa281 47%, #e2bb69 79%) !important;
+  background: linear-gradient(
+    180deg,
+    #5a8b96 11%,
+    #9aa281 47%,
+    #e2bb69 79%
+  ) !important;
   transform: translateY(-15px);
 }
 
@@ -65,14 +69,23 @@
   stroke: var(--primary-1);
 }
 
-.navigation ul li a .iconone{
+.navigation ul li a #homeIcon{
+    fill: var(--primary-1);
+  stroke: none;
+}
+.navigation ul li a .iconone {
   fill: var(--primary-1);
   stroke: transparent;
 }
-.active .icon{
+.active .icon {
   width: 55px !important;
   height: 55px !important;
   stroke: var(--background-white-default) !important;
+}
+
+.active #homeIcon {
+  fill: var(--background-white-default);
+  stroke: none;
 }
 
 .indicator {
@@ -122,22 +135,21 @@
   opacity: 0.7;
 }
 
-.disabled svg{
+.disabled svg {
   cursor: default;
 }
 
-@media screen and (max-width: 374px){
-  .background{
+@media screen and (max-width: 374px) {
+  .background {
     padding: 0 8px;
     width: 100%;
-}
+  }
 
-.navigation ul {
-      width: 100%;
-      justify-content: space-evenly;
-}
-.indicator{
-  width: 70px;
-}
-
+  .navigation ul {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .indicator {
+    width: 70px;
+  }
 }

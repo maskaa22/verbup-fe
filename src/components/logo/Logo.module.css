@@ -1,9 +1,11 @@
 .wrap{
+  display: block;
   position: relative;
-  z-index: -1;
   background-color: transparent;
   width: fit-content;
+  cursor: pointer;
 }
+
 .wrap img{
 width: 100px;
 height: 80px;

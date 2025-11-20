@@ -4,12 +4,12 @@
   justify-content: space-between;
   gap: 8px;
   cursor: pointer;
-  margin-top: 26px;
+  margin-top: .5rem;
 }
 
 .star {
-  width: 44px;
-  height: 44px;
+  width: 34px;
+  height: 34px;
   fill: #e4e5e9;
   transition: fill 0.2s ease;
 }

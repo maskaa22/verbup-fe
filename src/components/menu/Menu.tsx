@@ -3,8 +3,8 @@ import css from "./Menu.module.css";
 import { NavLink, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { useScreenWidth } from "../../utils/useScreenWidth";
-import { useSelector } from "react-redux";
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
+// import { useSelector } from "react-redux";
+// import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import { sendGtagEvent } from "../../utils/googleAnalize";
 
 const Menu = () => {
@@ -14,7 +14,7 @@ const Menu = () => {
   const screenWidth = useScreenWidth();
   const divider = screenWidth / 5 - 4
   const navWidth = screenWidth <= 374 ? divider : 72;
-  const isLoggedIn = useSelector(selectIsLoggedIn)
+  // const isLoggedIn = useSelector(selectIsLoggedIn)
 
     const handleClick = (goto: string) => {
         sendGtagEvent('click', `nav-menu-${goto}`, 'continue')
@@ -103,20 +103,22 @@ const Menu = () => {
                 </svg>
               </NavLink>
             </li>
-            {/* <li>
-              <NavLink className={({ isActive }) => clsx(isActive && css.active)} to="/home">
+            <li>
+              <NavLink className={({ isActive }) => clsx(isActive && css.active)} to="/home" onClick={() => handleClick('home')}>
+                <svg id="homeIcon" className={`${css.icon} ${css.homeIcon}`}>
+                  {/* <use href={`/icons.svg#${isLoggedIn? "icon-user-loggedin" : "icon-home"}`}></use> */}
+                  <use href="/icons.svg#icon-home"></use>
+
+                </svg>
+              </NavLink>
+            </li>
+            {/* <li className={css.disabled}>
+              <NavLink className={css.disabled} to="#" >
                 <svg className={css.icon}>
                   <use href={`/icons.svg#${isLoggedIn? "icon-user-loggedin" : "icon-home"}`}></use>
                 </svg>
               </NavLink>
             </li> */}
-            <li className={css.disabled}>
-              <NavLink className={css.disabled} to="#" onClick={() => handleClick('home')}>
-                <svg className={css.icon}>
-                  <use href={`/icons.svg#${isLoggedIn? "icon-user-loggedin" : "icon-home"}`}></use>
-                </svg>
-              </NavLink>
-            </li>
           </ul>
           <span
             className={clsx(css.indicator, noActive && css.noActive)}

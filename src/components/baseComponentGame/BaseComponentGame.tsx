@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import s from "./BaseComponentGame.module.css";
 import QuestionProgressBar from "../questionProgressBar/QuestionProgressBar";
 import type { baseComponentType, modalType } from "../../utils/gameType";
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import { resetCurrent } from "../../redux/game/slice";
 import { useDispatch } from "react-redux";
-import { ANSWER_STATUS, CORRECT, LAST_INDEX, WRONG } from "../../constants";
+import { ANSWER_STATUS, CORRECT, LAST_INDEX, MOTIVATION_SHOW, PARTICIPLE, PP, PS, SIMPLE, WRONG } from "../../constants";
 import { useSelector } from "react-redux";
 import { selectGameSetting } from "../../redux/game/selectors";
+import { speakText } from "../../utils/voiseFunction";
 
 const BaseComponentGame: React.FC<baseComponentType> = ({
   current,
@@ -15,18 +16,33 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
   question,
   answerStatuses,
   count,
-  translate
+  translate,
+  typePast
 }) => {
   const { setModalActive } = useOutletContext<modalType>();
+
+  const [voice, setVoice] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const {verbForm} = useSelector(selectGameSetting);
+  const { verbForm } = useSelector(selectGameSetting);
+
+  const location = useLocation();
+
+  const voiceFunction = () => {
+    setVoice(true);
+    speakText(question);
+  };
+
 
   return (
     <>
-      <div className={s.topContainer}>
+      <div
+        className={`${s.topContainer} ${
+          location.pathname === "/game/write-word" ? s.writeWord : ""
+        }`}
+      >
         <button
           className={s.close}
           onClick={() => {
@@ -34,6 +50,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
             sessionStorage.removeItem(LAST_INDEX);
             sessionStorage.removeItem(CORRECT);
             sessionStorage.removeItem(WRONG);
+            sessionStorage.removeItem(MOTIVATION_SHOW);
 
             setModalActive(false);
             dispatch(resetCurrent());
@@ -60,7 +77,18 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
       <p className={s.translate}>{translate}</p>
 
       <p className={s.title}>
-        Choose the correct {verbForm.toLowerCase()} of <span>{question}</span>
+        Choose the correct {verbForm !== "Змішаний" ? verbForm.toLowerCase() : typePast === PS ? SIMPLE.toLowerCase() :  typePast === PP && PARTICIPLE.toLowerCase()} of{" "}
+        <span className={s.word}>
+          {question}{" "}
+          {location.pathname === "/game/write-word" && (
+            <svg
+              className={`${s.voice} ${voice && s.speaking}`}
+              onClick={voiceFunction}
+            >
+              <use href="/icons.svg#icon-sound"></use>
+            </svg>
+          )}
+        </span>
       </p>
     </>
   );

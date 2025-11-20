@@ -1,19 +1,28 @@
-.homeWrap{
-    position: fixed;
+.homeWrap {
+  position: fixed;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
 }
-.card{
-    width: 100%;
-    border-radius: 20px 20px 0 0;
-padding: 12px 9px 115px 9px;
-    backdrop-filter: blur(40px);
-box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
-background: linear-gradient(180deg, rgba(232, 232, 232, 0.5) 0%, rgba(94, 144, 158, 0.5) 100%);
-z-index: -1;
+.progressOuterWrap {
+  height: 1000px;
+}
+.card {
+  margin: 0 auto;
+        width: 94%;
+  border-radius: 20px 20px 0 0;
+  padding: 12px 9px 115px 9px;
+  backdrop-filter: blur(40px);
+  box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    180deg,
+    rgba(232, 232, 232, 0.5) 0%,
+    rgba(94, 144, 158, 0.5) 100%
+  );
+  z-index: -1;
 }
 .list {
   display: flex;
@@ -22,35 +31,35 @@ z-index: -1;
   gap: 20px;
 }
 
-.userInfo{
-    text-align: center;
+.userInfo {
+  text-align: center;
 }
 
-.userInfo h3{
-    font-weight: 500;
-font-size: 20px;
-color: var(--text-primary);
+.userInfo h3 {
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--text-primary);
 }
 
-.userInfo p{
-    font-weight: 500;
-font-size: 12px;
-color: var(--text-secondary);
+.userInfo p {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-secondary);
 }
 
 @media (min-height: 1100px) {
-    .userInfo h3{
-        font-size: 48px;
-    }
+  .userInfo h3 {
+    font-size: 48px;
+  }
 
-    .userInfo p{
-        font-size: 32px;
-    }
+  .userInfo p {
+    font-size: 32px;
+  }
 }
-@media (max-height: 610px) {
-    .homeWrap{
-        flex-direction: row;
-        gap: 30px;
-    }
-    
-}
+/* @media (max-height: 676px) {
+  .homeWrap {
+    padding-bottom: 70px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+} */

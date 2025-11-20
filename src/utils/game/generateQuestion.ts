@@ -13,7 +13,7 @@ const generateFakeVariant = (word: string): string => {
 
 export const generateQuestion = (
   verb: Verb,
-  mode: "v2" | "v3" = "v2"
+  mode: "v2" | "v3" | "Змішаний" = "v2"
 ): Question => {
   //   const templates = questionTemplates[mode] || [];
   //   const templateFn = templates[Math.floor(Math.random() * templates.length)];
@@ -21,17 +21,17 @@ export const generateQuestion = (
 
   //   const question = templateFn
   //     ? templateFn(verb)
-  //     // : `What is the ${mode} of "${verb.base_form}"?`;
-  //     : verb.base_form;
+  //     // : `What is the ${mode} of "${verb.basic}"?`;
+  //     : verb.basic;
   
-  const question = verb.base_form;
+  const question = verb.basic;
 
-  const correctAnswer = mode === "v2" ? verb.past_simple : verb.past_participle;
+  const correctAnswer = mode === "v2" ? verb.pastSimple : verb.pastParticiple;
 
   const rawForms = [
-    verb.base_form,
-    verb.past_simple,
-    verb.past_participle,
+    verb.basic,
+    verb.pastSimple,
+    verb.pastParticiple,
     verb.fake
   ];
 
@@ -49,7 +49,51 @@ export const generateQuestion = (
     question,
     correctAnswer,
     variants: variants.sort(() => Math.random() - 0.5),
-    base_form: verb.base_form,
+    basic: verb.basic,
     translate: verb.uk
   };
 };
+
+export const generateQuestionForLogin = (
+  verb: Verb,
+  mode: "v2" | "v3" = "v2"
+): Question => {
+  //   const templates = questionTemplates[mode] || [];
+  //   const templateFn = templates[Math.floor(Math.random() * templates.length)];
+  // console.log(templateFn);
+
+  //   const question = templateFn
+  //     ? templateFn(verb)
+  //     // : `What is the ${mode} of "${verb.basic}"?`;
+  //     : verb.basic;
+  
+  const question = verb.basic;
+
+  const correctAnswer = mode === "v2" ? verb.pastSimple : verb.pastParticiple;
+
+  const rawForms = [
+    verb.basic,
+    verb.pastSimple,
+    verb.pastParticiple,
+    verb.fake
+  ];
+
+  const uniqueForms = new Set<string>();
+  const variants = rawForms.map((form) => {
+    let modified = form;
+    while (uniqueForms.has(modified)) {
+      modified = generateFakeVariant(modified);
+    }
+    uniqueForms.add(modified);
+    return { name: modified };
+  });
+
+  return {
+    question,
+    correctAnswer,
+    variants: variants.sort(() => Math.random() - 0.5),
+    basic: verb.basic,
+    translate: verb.uk
+  };
+};
+

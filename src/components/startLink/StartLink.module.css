@@ -1,43 +1,55 @@
-.wrap{
-    position: relative;
+.wrap {
+  position: relative;
 }
-.link{
-    display: block;
-border-radius: 48px;
-width: 100%;
-height: auto;
-line-height: 48px;
-text-align: center;
-font-size: 20px;
-box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
-background: var(--primary-1);
-color: var(--background-white-default);
-margin-top: 48px;
+.link {
+  display: block;
+  border-radius: 48px;
+  width: 100%;
+  height: auto;
+  line-height: 48px;
+  text-align: center;
+  font-size: 20px;
+  box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+  background: var(--primary-1);
+  color: var(--background-white-default);
+  margin-top: 48px;
 }
 
-.gameConsole{
-    position: absolute;
-    right: 0;
-    bottom: 34px;
+.gameConsole {
+  position: absolute;
+  right: 0;
+  bottom: 34px;
 }
 @media (min-height: 1100px) {
-    .link{
-        font-size: 48px;
-        padding: 12px;
-        margin-top: 60px;
-    }
-    .gameConsole{
-        width: 100px;
-        bottom: 50px;
-    }
+  .link {
+    font-size: 48px;
+    padding: 12px;
+    margin-top: 60px;
+  }
+  .gameConsole {
+    width: 100px;
+    bottom: 50px;
+  }
 }
 
 @media (max-height: 800px) {
-    .link{
-        margin-top: 32px;
-        font-size: 16px;
-    }
-    .gameConsole{
- width: 60px;
-    }
+  .link {
+    margin-top: 32px;
+    font-size: 16px;
+  }
+  .gameConsole {
+    width: 60px;
+  }
+}
+@media (max-height: 550px) {
+    .link {
+    margin-top: 8px;
+    font-size: 16px;      
+    line-height: 24px;
+
+  }
+  .gameConsole {
+    bottom: 0;
+
+  }
 }

@@ -22,17 +22,17 @@ const Intro = () => {
           Що спільного в go, went і gone?{" "}
           <span> VerbUp знає відповідь — і ти скоро теж. </span>
         </p>
-        <NavLink className={css.link} onClick={handleClick} to="/setting/game">
+        <NavLink className={css.link} onClick={handleClick} to="/game">
           Почати
         </NavLink>
-        {/* <div className={css.signWrap}>
+        <div className={css.signWrap}>
       <div>
         <span>Вже є акаунт?</span>
         <NavLink to="/signin"> Увійти</NavLink>
       </div>
       <span>або</span>
       <NavLink to="/signup">Зареєструватись</NavLink>
-    </div> */}
+    </div>
       </div>
     </>
   );

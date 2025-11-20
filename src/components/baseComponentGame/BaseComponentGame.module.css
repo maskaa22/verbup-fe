@@ -4,6 +4,9 @@
   align-items: center;
   padding: 12px 0;
 }
+.writeWord {
+  padding: 0 0 12px 0;
+}
 .close {
   width: 42px;
   height: 42px;
@@ -37,14 +40,17 @@
   margin: 14px 0 20px 0;
   text-align: center;
 }
-.title span {
+.word {
   font-weight: bold;
   display: block;
+  position: relative;
+  padding-right: 30px;
 }
 .icon {
   width: 16px;
   height: 16px;
-  z-index: 9999;
+  /* z-index: 9999; */
+  z-index: 10;
 }
 .img {
   width: 150px;
@@ -55,7 +61,22 @@
   color: var(--secondary);
 }
 
-@media screen and (min-height: 667px) and (max-height: 767px) {
+.voice {
+  fill: white;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  transition: fill 0.3s ease;
+  cursor: pointer;
+
+  top: 50%;
+  transform: translateY(-50%) translateX(12px);
+}
+.speaking {
+  fill: var(--primary-1);
+}
+
+@media screen and (min-height: 640px) and (max-height: 767px) {
   .close {
     width: 36px;
     height: 36px;
@@ -67,5 +88,14 @@
   .img {
     width: 100px;
     height: 100px;
+  }
+  .title {
+    margin: 14px 0;
+  }
+  .imgContainer {
+    margin-top: 1vh;
+  }
+  .topContainer {
+    padding: 12px 0 0;
   }
 }

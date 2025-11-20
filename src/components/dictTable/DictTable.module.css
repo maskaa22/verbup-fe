@@ -8,6 +8,7 @@
 
 .wrap{
    overflow-y: auto; 
+   overflow-x: hidden;
 }
 .table{
     width: 100%;

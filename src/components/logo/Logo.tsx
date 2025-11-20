@@ -1,9 +1,12 @@
-import css from "./Logo.module.css"
+import { NavLink } from "react-router-dom";
+import css from "./Logo.module.css";
 
 const Logo = () => {
-return <div className={css.wrap}>
-    <img src="/image/Logo-full-min.png" alt="planet above words verb up!" />
-    <p className={css.mvp}>MVP version</p>
-</div>
+  return (
+    <NavLink to="/game" className={css.wrap}>
+      <img src="/image/Logo-full-min.png" alt="planet above words verb up!" />
+      <p className={css.mvp}>Alfa version</p>
+    </NavLink>
+  );
 };
 export default Logo;

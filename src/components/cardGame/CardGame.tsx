@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import c from "./CardGame.module.css";
 import BaseComponentGame from "../baseComponentGame/BaseComponentGame";
 import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
-import { useOutletContext } from "react-router-dom";
+import { useLocation, useOutletContext } from "react-router-dom";
 import type {
   AnswerStatus,
   BtnType,
@@ -15,10 +15,20 @@ import { selectCurrent } from "../../redux/game/selectors";
 import { useCountWord } from "../../hooks/gameHooks";
 import { useDispatch } from "react-redux";
 import { setCurrent } from "../../redux/game/slice";
-import { ANSWER_STATUS, LAST_INDEX, PENDING } from "../../constants";
+import {
+  ANSWER_STATUS,
+  LAST_INDEX,
+  MOTIVATION_SHOW,
+  PENDING,
+} from "../../constants";
 import { useMobileOS } from "../../hooks/useMobileOS";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
-const CardGame: React.FC<CardGameProps> = ({ question }) => {
+const CardGame: React.FC<CardGameProps> = ({
+  question,
+  answerStatusesWrite,
+  setShowMotivation,
+}) => {
   const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
     useOutletContext<cardGameType>();
 
@@ -32,6 +42,8 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
   const [isChecked, setIsChecked] = useState(false);
   const [visibility, setVisibility] = useState(false);
 
+  const isLogin = useSelector(selectIsLoggedIn);
+
   const count = useCountWord();
 
   const [answerStatuses, setAnswerStatuses] = useState<AnswerStatus[]>(() => {
@@ -40,12 +52,12 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
     return Array(count).fill(PENDING);
   });
 
-  const imgWrite = `/image/game/${question.base_form}.png`;
+  const imgWrite = `/image/game/${question.basic}.png`;
 
   const handleWordClick = (wordName: string) => {
     setWord(wordName);
     setActiveWord(wordName);
-    if(iOS === "iOS") return;
+    if (iOS === "iOS") return;
     speakText(wordName, true); // озвучування вибраної відповіді
   };
 
@@ -85,67 +97,89 @@ const CardGame: React.FC<CardGameProps> = ({ question }) => {
     if (current !== newIndex) {
       dispatch(setCurrent(newIndex));
     }
-
   }, []);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const half = Math.floor(count / 2);
+
+    // якщо ще не показували — показуємо
+    const wasShown = sessionStorage.getItem(MOTIVATION_SHOW);
+
+    if (count >= 10 && current === half && !wasShown) {
+      setShowMotivation(true);
+      sessionStorage.setItem(MOTIVATION_SHOW, "true");
+    }
+  }, [current, count, setShowMotivation]);
 
   return (
     <>
       <BaseComponentGame
         current={current}
         img={imgWrite}
-        question={question.question}
-        answerStatuses={answerStatuses}
+        question={isLogin ? question.basic : question.question}
+        answerStatuses={
+          answerStatusesWrite ? answerStatusesWrite : answerStatuses
+        }
         count={count}
         translate={question.translate}
+        typePast={question.typePast}
       />
 
-      <ul className={c.buttonContainer}>
-        {question?.variants?.map((btn: BtnType, i: number) => {
-          const isCorrect = btn.name === question.correctAnswer;
-          const isSelected = btn.name === activeWord;
+      {location.pathname === "/game/check-word" && (
+        <ul className={c.buttonContainer}>
+          {question?.variants?.map((btn: BtnType, i: number) => {
+            const isCorrect = btn.name === question.correctAnswer;
+            const isSelected = btn.name === activeWord;
 
-          let btnClass = c.btn;
+            let btnClass = c.btn;
 
-          if (isChecked) {
-            if (isSelected && isCorrect) {
-              btnClass += ` ${c.correct}`; // вибрав правильно
-            } else if (isSelected && !isCorrect) {
-              btnClass += ` ${c.wrong}`; // вибрав неправильно
-            } else if (!isSelected && isCorrect) {
-              btnClass += ` ${c.showCorrect}`; // показати правильний варіант
+            if (isChecked) {
+              if (isSelected && isCorrect) {
+                btnClass += ` ${c.correct}`; // вибрав правильно
+              } else if (isSelected && !isCorrect) {
+                btnClass += ` ${c.wrong}`; // вибрав неправильно
+              } else if (!isSelected && isCorrect) {
+                btnClass += ` ${c.showCorrect}`; // показати правильний варіант
+              }
+            } else {
+              if (isSelected) btnClass += ` ${c.activeBtn}`; // просто вибір
             }
-          } else {
-            if (isSelected) btnClass += ` ${c.activeBtn}`; // просто вибір
-          }
 
-          return (
-            <li
-              key={i}
-              className={btnClass}
-              onClick={() => {
-                if (!isChecked) handleWordClick(btn.name); // заблокувати зміну після перевірки
-              }}
-            >
-              {btn.name}
-            </li>
-          );
-        })}
-      </ul>
+            return (
+              <li
+                key={i}
+                className={btnClass}
+                onClick={() => {
+                  if (!isChecked) handleWordClick(btn.name); // заблокувати зміну після перевірки
+                }}
+              >
+                {btn.name}
+              </li>
+            );
+          })}
+        </ul>
+      )}
 
-      {visibility && <p className={c.checkAnswer}>Обери правильну відповідь</p>}
+      {location.pathname === "/game/check-word" && visibility && (
+        <p className={c.checkAnswer}>Обери правильну відповідь</p>
+      )}
 
-      <BaseButtonGame
-        setVisibility={setVisibility}
-        word={word}
-        setShowCheckAnswer={setShowCheckAnswer}
-        setCheckAnswerType={setCheckAnswerType}
-        setModalActive={setModalActive}
-        correctAnswer={question.correctAnswer}
-        answerStatuses={answerStatuses}
-        setAnswerStatuses={setAnswerStatuses}
-        current={current}
-        setIsChecked={setIsChecked}
-      />
+      {location.pathname === "/game/check-word" && (
+        <BaseButtonGame
+          setVisibility={setVisibility}
+          word={word}
+          setShowCheckAnswer={setShowCheckAnswer}
+          setCheckAnswerType={setCheckAnswerType}
+          setModalActive={setModalActive}
+          correctAnswer={question.correctAnswer}
+          answerStatuses={answerStatuses}
+          setAnswerStatuses={setAnswerStatuses}
+          current={current}
+          setIsChecked={setIsChecked}
+        />
+      )}
     </>
   );
 };

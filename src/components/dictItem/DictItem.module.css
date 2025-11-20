@@ -42,34 +42,20 @@
   align-items: center;
   gap: 20px;
 }
-.dotWrap span {
-  display: inline-block;
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: var(--other-1);
-}
+
 .irrForm p {
   font-weight: 400;
   font-size: 14px;
 }
-.irrForm p::before {
+.dot {
   display: inline-block;
   content: "";
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--other-1);
-  margin-right: 20px;
+  background-color: var(--secondary);
 }
-
-.baseFrom::before {
-  display: inline-block;
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+.learnt{
   background-color: var(--other-1);
 }
 .sound {

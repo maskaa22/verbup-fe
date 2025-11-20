@@ -4,7 +4,12 @@ import css from "./GameSetting.module.css";
 import BaseButtonStart from "../../components/baseButtonStart/BaseButtonStart";
 import { useDispatch } from "react-redux";
 import { setSetting } from "../../redux/game/slice";
-import { ADVANCED, BEGGINER, GAME_SETTING, INTERMEDIATE } from "../../constants";
+import {
+  ADVANCED,
+  BEGGINER,
+  GAME_SETTING,
+  INTERMEDIATE,
+} from "../../constants";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectGameSetting } from "../../redux/game/selectors";
@@ -13,11 +18,8 @@ import { selectIsLoggedIn } from "../../redux/auth/selectors";
 const GameSetting = () => {
   const navigate = useNavigate();
 
-  const {level, numQuest, verbForm} = useSelector(selectGameSetting);
+  const { level, numQuest, verbForm } = useSelector(selectGameSetting);
   const login = useSelector(selectIsLoggedIn);
-
-
-  
 
   const [formData, setFormData] = useState({
     level: level,
@@ -50,7 +52,11 @@ const GameSetting = () => {
             setFormData((prev) => ({ ...prev, level: value }))
           }
           needSpan={false}
-          disabled={true}
+          disabled={false}
+          disabledOption={(option) =>
+            (option === INTERMEDIATE && !login) ||
+            (option === ADVANCED && !login)
+          }
         />
         <p className={css.variant}>Вибір режиму гри</p>
         <GameSettingRadio
@@ -74,6 +80,7 @@ const GameSetting = () => {
           }}
           needSpan={false}
           disabled={false}
+          disabledOption={(option) => option === "20 питань" && !login}
         />
       </div>
       <BaseButtonStart label="Зберегти" onClick={() => saveGameSetting()} />

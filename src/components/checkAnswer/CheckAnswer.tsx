@@ -11,16 +11,22 @@ import {
 } from "../../redux/game/selectors";
 import type React from "react";
 import { useEffect } from "react";
+import { useVibrationSettings } from "../../hooks/VibrationContext";
+import { useVibrate } from "../../hooks/useVibrate";
 
 const CheckAnswer: React.FC<checkAnswerType> = ({
   type,
   active,
   setActive,
+  questions,
 }) => {
   const dispatch = useDispatch();
   const current = useSelector(selectCurrent);
   const correct = useSelector(selectCorrect);
   const wrong = useSelector(selectWrong);
+
+  const { vibrationEnabled } = useVibrationSettings();
+  const vibrate = useVibrate(vibrationEnabled);
 
   const handleNextQuestion = () => {
     const updatedIndex = current + 1;
@@ -50,6 +56,12 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
 
     sessionStorage.setItem(LAST_INDEX, current.toString());
   }, [active, correct, current, dispatch, type, wrong]);
+
+  useEffect(() => {
+  if (active && type !== SUCCESS) {
+    vibrate([100, 50, 150]); // вібрація тільки при неправильній відповіді
+  }
+}, [active, type, vibrate]);
 
   return (
     <div
@@ -87,7 +99,11 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
               >
                 {type === SUCCESS
                   ? "Ти дуже наполегливий"
-                  : "В наступний раз все вийде"}
+                  : location.pathname === "/game/check-word"
+                  ? "В наступний раз все вийде"
+                  : questions && questions[current]
+                  ? `Правильна відповідь - "${questions[current].correctAnswer}"`
+                  : ""}
               </p>
             </div>
           </div>

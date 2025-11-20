@@ -9,36 +9,42 @@ import FormInput from "../formInput/FormInput";
 import FormInputPassword from "../formInputPassword/FormInputPassword";
 import type { LogFormValues } from "../../utils/formTypes";
 import * as Yup from "yup";
-import { useSelector } from "react-redux";
-import { selectIsError } from "../../redux/auth/selectors";
+import ErrorMes from "../errorMes/ErrorMes";
+import { useState } from "react";
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string()
     .email("This is not a valid email address")
     .required("Please enter your email"),
-    password: Yup.string().min(8).max(60).required("Please enter your password")
+  password: Yup.string().min(8).max(60).required("Please enter your password"),
 });
 const SigninForm = () => {
-  // const [visible, setVisible] = useState(false)
+  const [wrongPassword, setWrongPassword] = useState(false);
+  const [status, setStatus] = useState(0)
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
-  const error = useSelector(selectIsError)
-
   const handleSubmit = async (
     values: LogFormValues,
     actions: FormikHelpers<LogFormValues>
   ): Promise<void> => {
     const res = await dispatch(login(values));
-    
     if (login.fulfilled.match(res)) {
-      
       navigate("/home");
+    }else if(login.rejected.match(res) && res.payload){
+      setStatus(res.payload.status)
+      setWrongPassword(true)
+    }else{
+      setStatus(500);
     }
     actions.resetForm();
   };
 
   return (
-    <Formik initialValues={{ email: "", password: "" }} onSubmit={handleSubmit} validationSchema={SignInSchema}>
+    <Formik
+      initialValues={{ email: "", password: "" }}
+      onSubmit={handleSubmit}
+      validationSchema={SignInSchema}
+    >
       <Form className={css.form}>
         <FormInput
           label={"Email"}
@@ -47,12 +53,23 @@ const SigninForm = () => {
           placeholder={"your@email.com"}
           icon={"icon-email"}
         />
-        <FormInputPassword isFor="signin" label="Пароль" placeholder={error? 'натисніть “Забули пароль”' : "***********"} />
+        <FormInputPassword
+          isFor="signin"
+          label="Пароль"
+          // placeholder={error ? "натисніть “Забули пароль”" : "***********"}
+          placeholder="**************"
+        />
 
         <Link className={css.forgotPassword} to="/">
           Забули пароль?
         </Link>
         <BaseButtonStart label="Увійти" />
+        {wrongPassword && (
+          <ErrorMes
+            message={status}
+            onClose={() => setWrongPassword(false)}
+          />
+        )}
       </Form>
     </Formik>
   );

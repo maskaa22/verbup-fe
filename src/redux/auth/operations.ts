@@ -1,7 +1,11 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { type LogFormValues, type RegFormValues } from "../../utils/formTypes";
-import { api } from "../../api/axios";
-import { type RootState } from "../store";
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { type LogFormValues, type loginResponce, type RegFormValues, 
+  // type UserPayload 
+} from "../../utils/formTypes";
+import {api} from "../../api/axios";
+import axios from "axios";
+
+
 export const setAuthHeader = (token: string): void => {
   api.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
@@ -16,72 +20,83 @@ export const setAuthHeader = (token: string): void => {
 //   return rejectWithValue("Something went wrong");
 // };
 
-export const register = createAsyncThunk(
+export const register = createAsyncThunk<{message: string}, RegFormValues, {rejectValue: {status: number, message: string}}>(
   "auth/register",
-  async (credentials: RegFormValues, thunkApi) => {
+  async (credentials, {rejectWithValue}) => {
     try {
       const { data } = await api.post("/auth/register", credentials);
-      console.log(data);
       setAuthHeader(data.accessToken);
-      // const user = await api.get("/users")
-      // const payload = {
-      //   token: data.accessToken,
-      //   username: user.data.username,
-      //   useremail: user.data.email
-      // }
-      // return payload;
+      console.log(data)
       return data;
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
-      return thunkApi.rejectWithValue(error || "Registration failed");
+      if(axios.isAxiosError(error) && error.response){
+        return rejectWithValue({status: error.response.status,
+          message: error.response.data.message
+        });
+      }
+      throw error;
     }
   }
 );
-//createAsyncThunk<UserPayload, LogFormValues>
-export const login = createAsyncThunk(
+
+export const verify = createAsyncThunk(
+  "auth/verify", 
+  async (token: string) => {
+  const res = await api.get(`/auth/verify-email?token=${token}`);
+  return res;
+});
+
+export const login = createAsyncThunk<loginResponce, LogFormValues, {rejectValue: {status: number, message: string}}>(
   "auth/login",
-  async (credentials: LogFormValues, thunkApi) => {
+  async (credentials, {rejectWithValue}) => {
     try {
       const { data } = await api.post("/auth/login", credentials);
-      // console.log(data)
-      setAuthHeader(data.accessToken);
-      // const user = await api.get("/users")
-      // const payload = {
-      //   token: data.accessToken,
-      //   username: user.data.username,
-      //   useremail: user.data.email
-      // }
+      console.log("login data", data)
+      setAuthHeader(data.accessToken);   
       return data;
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
-      return thunkApi.rejectWithValue(error || "Login failed");
+      if(axios.isAxiosError(error) && error.response){
+        return rejectWithValue({status: error.response.status,
+          message: error.response.data.message
+        });
+      }
+      throw error;
     }
   }
 );
 
-export const logout = createAsyncThunk("auth/logout", async () => {});
+export const logout = createAsyncThunk("auth/logout", async () => {
+  await api.post("/auth/logout")
+  return null;
+});
 
-export const refreshUser = createAsyncThunk<void, void, {state: RootState}>(
+export const resetAll = createAction("app/resetAll")
+export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkApi) => {
-    const {auth} = thunkApi.getState();
-    if(auth.token){
-      setAuthHeader(auth.token);
-    }
-    
-    // try {
-    //   const { data } = await api.post("/auth/refresh");
-    //   // console.log(data)
-    //     if(data) {
-    //       setAuthHeader(data.accessToken)};
-    //       return data;
-    // } catch (error: unknown) {
-    //   return handleError(error,  thunkApi.rejectWithValue);
+    // const token = localStorage.getItem("token");
+    // if (token) {
+    //   setAuthHeader(token);
     // }
-  },{
-    condition: (_, thunkApi) => {
-    const reduxState = thunkApi.getState();
-    return reduxState.auth.token !== null;
+
+    // Optional: actually hit refresh endpoint
+    try {
+      const { data } = await api.post("/auth/refresh");
+      console.log("refresh new accessToken", data.accessToken)
+      setAuthHeader(data.accessToken);
+      return data;
+    } catch (error: unknown) {
+          const err = error as Error;
+      return thunkApi.rejectWithValue(`"Refresh failed" ${err}`);
     }
+  },
+  {
+    condition: () => {
+      // Don’t run if no token in storage
+      return localStorage.getItem("token") !== null;
+    },
   }
 );
+

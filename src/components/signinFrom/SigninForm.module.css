@@ -44,6 +44,7 @@ color: rgba(0, 0, 0, 0.4)
     font-size: 14px;
 }
 .forgotPassword{
+    visibility: hidden;
         font-weight: 400;
     font-size: 14px;
     color: var(--primary-1);
@@ -52,3 +53,4 @@ color: rgba(0, 0, 0, 0.4)
     margin-bottom: 16px;
     margin-top: 4px;
 }
+

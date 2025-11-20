@@ -25,7 +25,8 @@
   color: var(--primary-1);
 }
 .img {
-  margin: 10px auto;
+  margin: 0 auto;
+      width: 20vh;
 }
 .text {
   font-weight: 400;
@@ -33,12 +34,17 @@
   line-height: 130%;
   text-align: center;
   color: var(--primary-1);
+  margin-top: 10px;
+}
+.strongText {
+  font-weight: 700;
+  font-size: 16px;
 }
 .list {
   display: flex;
   justify-content: center;
   gap: 11px;
-  margin-top: 20px;
+  margin-top: 0.5rem;
 }
 .item {
   background-color: var(--background-white-default);
@@ -54,11 +60,10 @@
 }
 .btnContainer {
   justify-content: space-between;
-  max-width: 335px;
   z-index: 1;
   display: flex;
   align-items: center;
-  position: fixed;
+  position: absolute;
   bottom: 40px;
   width: 100%;
 }

@@ -13,6 +13,9 @@ const dictSlice = createSlice({
     setLetter(state, action) {
       state.letter = action.payload;
     },
+    setLearnt(state){
+      state.learnt = !state.learnt;
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchWords.fulfilled, (state, action) => {
@@ -21,5 +24,5 @@ const dictSlice = createSlice({
   },
 });
 
-export const { setLetter, setWord } = dictSlice.actions;
+export const { setLetter, setWord, setLearnt } = dictSlice.actions;
 export default dictSlice.reducer;

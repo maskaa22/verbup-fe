@@ -30,7 +30,7 @@ const Keyboard: React.FC<Props> = ({ onKeyPress, onBackspace }) => {
           {rowIndex === 2 && (
             <>
               <button className={c.special} onClick={onBackspace}>
-                <img src="./image/game/delete-icon.svg" />
+                <img src={'/image/game/delete-icon.svg'} alt="del"/>
               </button>
             </>
           )}

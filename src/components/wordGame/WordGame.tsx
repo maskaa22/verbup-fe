@@ -1,13 +1,14 @@
-import { useNavigate, useOutletContext } from "react-router-dom";
+import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import c from "./WordGame.module.css";
 import CardGame from "../cardGame/CardGame";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import type { currentAnswerAndQuestions } from "../../utils/gameType";
 import { useSelector } from "react-redux";
 import { selectCurrent } from "../../redux/game/selectors";
 import {
   ANSWER_STATUS,
   CORRECT,
+  CURRENT_GAME,
   ERROR,
   LAST_INDEX,
   SUCCESS,
@@ -16,6 +17,7 @@ import {
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
 import { hydrateFromStorage } from "../../redux/game/slice";
+import MotivationModal from "../motivationModal/MotivationModal";
 
 const WordGame: React.FC = () => {
   const { questions } = useOutletContext<currentAnswerAndQuestions>();
@@ -25,6 +27,9 @@ const WordGame: React.FC = () => {
   const question = questions[current];
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const [showMotivation, setShowMotivation] = useState(false);
 
   const dispatch = useDispatch<AppDispatch>();
 
@@ -57,9 +62,19 @@ const WordGame: React.FC = () => {
     }
   }, [current, questions, navigate]);
 
+  useEffect(() => {
+    sessionStorage.setItem(CURRENT_GAME, location.pathname);
+  }, [location.pathname]);
+
   return (
     <div className={c.gameContainer}>
-      {question && <CardGame question={question} />}
+      {question && (
+        <CardGame question={question} setShowMotivation={setShowMotivation} />
+      )}
+
+      {showMotivation && (
+        <MotivationModal onClose={() => setShowMotivation(false)} />
+      )}
     </div>
   );
 };
