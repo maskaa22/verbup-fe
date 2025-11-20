@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { type LogFormValues, type loginResponce, type RegFormValues, 
   // type UserPayload 
 } from "../../utils/formTypes";
@@ -67,8 +67,12 @@ export const login = createAsyncThunk<loginResponce, LogFormValues, {rejectValue
   }
 );
 
-export const logout = createAsyncThunk("auth/logout", async () => {});
+export const logout = createAsyncThunk("auth/logout", async () => {
+  await api.post("/auth/logout")
+  return null;
+});
 
+export const resetAll = createAction("app/resetAll")
 export const refreshUser = createAsyncThunk(
   "auth/refresh",
   async (_, thunkApi) => {

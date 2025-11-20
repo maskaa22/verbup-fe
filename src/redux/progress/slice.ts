@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getProgress, sendProgress } from "./operations";
 // import type { ProgressWord } from "../../utils/gameType";
 import type { progressWord } from "../../utils/formTypes";
+import { resetAll } from "../auth/operations";
 export interface ProgressState {
   psProgress: progressWord[];
   ppProgress: progressWord[];
@@ -52,7 +53,7 @@ const progressSlice = createSlice({
       .addCase(getProgress.rejected, (state) => {
         state.loading = false;
         state.error = true;
-      });
+      }).addCase(resetAll, () => initialProgressState);
   },
 });
 

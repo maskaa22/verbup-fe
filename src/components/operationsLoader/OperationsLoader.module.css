@@ -1,0 +1,18 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(33, 37, 41, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+.loading {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 8px;
+}

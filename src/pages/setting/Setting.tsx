@@ -3,8 +3,12 @@ import { Link, Outlet } from "react-router-dom";
 import css from "./Setting.module.css";
 import clsx from "clsx";
 import { sendGtagEvent } from "../../utils/googleAnalize";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "../../redux/store";
+import { logout, resetAll } from "../../redux/auth/operations";
 
 const Setting = () => {
+  const dispatch = useDispatch<AppDispatch>()
   const handleClick = () => {
     sendGtagEvent("click", "send feedback", "continue");
   };
@@ -60,8 +64,8 @@ const Setting = () => {
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>
         </li>
-        <li className={css.disabled}>
-          <button className={css.button}>Вийти з акаунту</button>
+        <li>
+          <button onClick={() => {dispatch(logout()); dispatch(resetAll())}} className={css.button}>Вийти з акаунту</button>
           <svg>
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>

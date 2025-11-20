@@ -35,8 +35,8 @@ export const api = axios.create({
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    console.log("Interceptor caught an error:", error);
-    console.log("error.config:", error.config);
+    // console.log("Interceptor caught an error:", error);
+    // console.log("error.config:", error.config);
 
     const originalRequest = error.config as CustomAxiosRequestConfig;
 
@@ -65,9 +65,9 @@ api.interceptors.response.use(
 
       try {
         const res = await api.post("/auth/refresh", {});
-        console.log("post /refresh and isRefreshing = true", res);
+        // console.log("post /refresh and isRefreshing = true", res);
         const newAccessToken = res.data.accessToken;
-        console.log("new accessToken", newAccessToken);
+        // console.log("new accessToken", newAccessToken);
         setAuthHeader(newAccessToken);
 
         processQueue(null, newAccessToken);

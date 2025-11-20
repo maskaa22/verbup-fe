@@ -7,7 +7,12 @@ import clsx from "clsx";
 
 import LogoIntroNew from "../logoIntroNew/LogoIntroNew";
 import Menu from "../menu/Menu";
+import { useSelector } from "react-redux";
+import { selectLoading } from "../../redux/auth/selectors";
+import { createPortal } from "react-dom";
+import OperationsLoader from "../operationsLoader/OperationsLoader";
 const AuthLayout = () => {
+  const loadingAuth = useSelector(selectLoading);
   const [glass, setGlass] = useState(false);
   const [planets, setPlantes] = useState(false);
   const [navigation, setNavigation] = useState(false);
@@ -15,7 +20,6 @@ const AuthLayout = () => {
   const [logoIntro, setLogoIntro] = useState(false);
   const [scroll, setScroll] = useState(false);
   const location = useLocation().pathname;
-
   useEffect(() => {
     switch (true) {
       case location === "/setting/game":
@@ -148,6 +152,9 @@ const AuthLayout = () => {
         <div className={`${glass ? css.glass : css.noClass} ${scroll && css.scrollBar}`}>{<Outlet />}</div>
       </div>
       {navigation && <Menu />}
+      {
+        loadingAuth && createPortal(<OperationsLoader/>, document.body)
+      }
     </div>
   );
 };
