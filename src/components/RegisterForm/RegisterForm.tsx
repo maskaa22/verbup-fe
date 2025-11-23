@@ -8,12 +8,12 @@ import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
 import FormInput from "../formInput/FormInput";
 import FormInputPassword from "../formInputPassword/FormInputPassword";
 import { useNavigate } from "react-router-dom";
-// import { selectIsError } from "../../redux/auth/selectors";
-// import { useSelector } from "react-redux";
 import * as Yup from "yup";
-import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectIsError } from "../../redux/auth/selectors";
+import Modal from "../modal/Modal";
 import ErrorMes from "../errorMes/ErrorMes";
-
+import { setErrorNull } from "../../redux/auth/slice";
 const RegisterSchema = Yup.object().shape({
   username: Yup.string().required("Please enter your nick-name"),
   email: Yup.string()
@@ -29,12 +29,11 @@ const RegisterSchema = Yup.object().shape({
 });
 
 const RegisterForm: React.FC = () => {
-  const [emailInUse, setEmailInUse] = useState(false);
-  const [status, setStatus] = useState(0);
+  // const [emailInUse, setEmailInUse] = useState(false);
+  // const [status, setStatus] = useState(0);
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
-  // const error = useSelector(selectIsError)
-
+  const error = useSelector(selectIsError)
   const handleSubmit = async (
     values: RegFormValues,
     actions: FormikHelpers<RegFormValues>
@@ -43,12 +42,15 @@ const RegisterForm: React.FC = () => {
     if (register.fulfilled.match(res)) {
       actions.resetForm();
       navigate("/verify-email");
-    } else if (register.rejected.match(res) && res.payload) {
-      setStatus(res.payload.status);
-      setEmailInUse(true);
-    } else {
-      setStatus(500);
-    }
+    } 
+    // else if (register.rejected.match(res) && res.payload) {
+    //   setStatus(res.payload.status);
+    //   setEmailInUse(true);
+    //   console.log(emailInUse)
+    //   console.log(status)
+    // } else {
+    //   setStatus(500);
+    // }
   };
   return (
     <Formik
@@ -77,9 +79,7 @@ const RegisterForm: React.FC = () => {
           placeholder="Мінімум 8 символів"
         />
         <BaseButtonStart label="Зарееструватися" />
-        {emailInUse && (
-          <ErrorMes message={status} onClose={() => setEmailInUse(false)} />
-        )}
+        {error && <Modal onClose={() => dispatch(setErrorNull())}>{<ErrorMes/>}</Modal>}
       </Form>
     </Formik>
   );

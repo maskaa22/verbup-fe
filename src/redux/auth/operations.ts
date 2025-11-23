@@ -31,8 +31,8 @@ export const register = createAsyncThunk<{message: string}, RegFormValues, {reje
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
       if(axios.isAxiosError(error) && error.response){
-        return rejectWithValue({status: error.response.status,
-          message: error.response.data.message
+        return rejectWithValue({status: error.response.status ?? 0,
+          message: error.response.data.message || "something went wrong"
         });
       }
       throw error;
@@ -58,8 +58,8 @@ export const login = createAsyncThunk<loginResponce, LogFormValues, {rejectValue
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
       if(axios.isAxiosError(error) && error.response){
-        return rejectWithValue({status: error.response.status,
-          message: error.response.data.message
+        return rejectWithValue({status: error.response.status ?? 0,
+          message: error.response.data.message || "something went wrong"
         });
       }
       throw error;
@@ -67,15 +67,25 @@ export const login = createAsyncThunk<loginResponce, LogFormValues, {rejectValue
   }
 );
 
-export const logout = createAsyncThunk("auth/logout", async () => {
-  await api.post("/auth/logout")
+export const logout = createAsyncThunk<null, void, {rejectValue: {status: number; message: string}}>("auth/logout", async (_, {rejectWithValue}) => {
+  try {
+    await api.post("/auth/logout")
   return null;
+  } catch (error: unknown) {
+    if(axios.isAxiosError(error) && error.response){
+        return rejectWithValue({status: error.response.status ?? 0,
+          message: error.response.data.message || "something went wrong"
+        });
+      }
+      throw error;
+  }
+  
 });
 
 export const resetAll = createAction("app/resetAll")
-export const refreshUser = createAsyncThunk(
+export const refreshUser = createAsyncThunk<null, void, {rejectValue: {status: number; message: string}}>(
   "auth/refresh",
-  async (_, thunkApi) => {
+  async (_, {rejectWithValue}) => {
     // const token = localStorage.getItem("token");
     // if (token) {
     //   setAuthHeader(token);
@@ -86,10 +96,16 @@ export const refreshUser = createAsyncThunk(
       const { data } = await api.post("/auth/refresh");
       console.log("refresh new accessToken", data.accessToken)
       setAuthHeader(data.accessToken);
-      return data;
+      return null;
     } catch (error: unknown) {
-          const err = error as Error;
-      return thunkApi.rejectWithValue(`"Refresh failed" ${err}`);
+      //     const err = error as Error;
+      // return thunkApi.rejectWithValue(`"Refresh failed" ${err}`);
+      if(axios.isAxiosError(error) && error.response){
+        return rejectWithValue({status: error.response.status ?? 0,
+          message: error.response.data.message || "something went wrong"
+        });
+      }
+      throw error;
     }
   },
   {

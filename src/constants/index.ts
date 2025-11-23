@@ -188,7 +188,7 @@ export const initialStateAuth: authState = {
   isLoggedIn: false,
   isLoading: false,
   isRefreshing: false,
-  isError: false,
+  isError: null,
 };
 
 export const dictInitState: InitialState = {

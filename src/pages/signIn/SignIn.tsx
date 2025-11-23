@@ -18,6 +18,7 @@ const SignIn = () => {
         <Link to="/signup">Зареєструватися</Link>
       </div>
       {/* <ExtraSignup /> */}
+      
     </div>
   );
 };

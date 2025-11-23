@@ -10,7 +10,10 @@ import FormInputPassword from "../formInputPassword/FormInputPassword";
 import type { LogFormValues } from "../../utils/formTypes";
 import * as Yup from "yup";
 import ErrorMes from "../errorMes/ErrorMes";
-import { useState } from "react";
+import Modal from "../modal/Modal";
+import { useSelector } from "react-redux";
+import { selectIsError } from "../../redux/auth/selectors";
+import { setErrorNull } from "../../redux/auth/slice";
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string()
@@ -19,8 +22,9 @@ const SignInSchema = Yup.object().shape({
   password: Yup.string().min(8).max(60).required("Please enter your password"),
 });
 const SigninForm = () => {
-  const [wrongPassword, setWrongPassword] = useState(false);
-  const [status, setStatus] = useState(0)
+  // const [wrongPassword, setWrongPassword] = useState(false);
+  // const [status, setStatus] = useState(0)
+  const error = useSelector(selectIsError)
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const handleSubmit = async (
@@ -30,12 +34,14 @@ const SigninForm = () => {
     const res = await dispatch(login(values));
     if (login.fulfilled.match(res)) {
       navigate("/home");
-    }else if(login.rejected.match(res) && res.payload){
-      setStatus(res.payload.status)
-      setWrongPassword(true)
-    }else{
-      setStatus(500);
     }
+    // else if(login.rejected.match(res) && res.payload){
+    //   // setStatus(res.payload.status)
+    //   // setWrongPassword(true)
+    // }else{
+    //   // setStatus(500);
+    //   console.log("error in singin", error)
+    // }
     actions.resetForm();
   };
 
@@ -64,45 +70,12 @@ const SigninForm = () => {
           Забули пароль?
         </Link>
         <BaseButtonStart label="Увійти" />
-        {wrongPassword && (
-          <ErrorMes
-            message={status}
-            onClose={() => setWrongPassword(false)}
-          />
-        )}
+        {
+       error && <Modal onClose={() => dispatch(setErrorNull())}>{<ErrorMes/>}</Modal>
+      }
       </Form>
     </Formik>
   );
 };
 
 export default SigninForm;
-
-//{"username": "Fine",
-//     "email": "missFine@gmail.com",
-//     "password": "missFine@gmail.com"
-// }
-
-// {
-//     "message": "Registration successful",
-//     "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjE1LCJpYXQiOjE3NTAyMjc3NDYsImV4cCI6MTc1MDIyODY0Nn0.SmKvlxlAhey1E6WnnRt_2-p5__i2p7SSN_HQDWrLfqI"
-// }
-
-// <label htmlFor="password">Пароль</label>
-//         <div className={css.inputwrap}>
-//         <Field type={visible ? "text" : "password"} name="password" className={css.input} autoComplete="off"/>
-//         <span className={css.password}>
-//           <svg className={css.icon}>
-//                       <use href="./icons.svg#icon-password"></use>
-//                     </svg>
-//                     <svg className={css.icon}>
-//                       <use href="./icons.svg#icon-password-star"></use>
-//                     </svg>
-//           </span>
-
-//         {/* <label htmlFor="password" className={css.label}>Password</label> */}
-//         <span className={css.eye} onClick={() => setVisible(!visible)} >
-//           <svg className={css.icon}>
-//                       <use href={`./icons.svg#${visible ? "icon-password-see" : "icon-password-see"}`}></use>
-//                     </svg>
-//           </span>
-//         </div>

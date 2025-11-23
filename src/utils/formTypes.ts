@@ -71,7 +71,10 @@ export interface authState {
   isLoggedIn: boolean;
   isLoading: boolean;
   isRefreshing: boolean;
-  isError: boolean;
+  isError: {
+    status: number;
+    message: string;
+  } | null;
 }
 
 export interface loginResponce {
