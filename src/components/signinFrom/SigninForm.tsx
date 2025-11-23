@@ -8,23 +8,18 @@ import BaseButtonStart from "../baseButtonStart/BaseButtonStart";
 import FormInput from "../formInput/FormInput";
 import FormInputPassword from "../formInputPassword/FormInputPassword";
 import type { LogFormValues } from "../../utils/formTypes";
-import * as Yup from "yup";
 import ErrorMes from "../errorMes/ErrorMes";
 import Modal from "../modal/Modal";
 import { useSelector } from "react-redux";
 import { selectIsError } from "../../redux/auth/selectors";
 import { setErrorNull } from "../../redux/auth/slice";
+import { SignInSchema } from "../../schemas/schmas";
 
-const SignInSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("This is not a valid email address")
-    .required("Please enter your email"),
-  password: Yup.string().min(8).max(60).required("Please enter your password"),
-});
+
 const SigninForm = () => {
   // const [wrongPassword, setWrongPassword] = useState(false);
   // const [status, setStatus] = useState(0)
-  const error = useSelector(selectIsError)
+  const error = useSelector(selectIsError);
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
   const handleSubmit = async (
@@ -70,9 +65,9 @@ const SigninForm = () => {
           Забули пароль?
         </Link>
         <BaseButtonStart label="Увійти" />
-        {
-       error && <Modal onClose={() => dispatch(setErrorNull())}>{<ErrorMes/>}</Modal>
-      }
+        {error && (
+          <Modal onClose={() => dispatch(setErrorNull())}>{<ErrorMes />}</Modal>
+        )}
       </Form>
     </Formik>
   );

@@ -7,14 +7,14 @@ export interface ProgressState {
   psProgress: progressWord[];
   ppProgress: progressWord[];
   loading: boolean;
-  error: boolean;
+  error: {status: number; message: string} | null;
 }
 
 export const initialProgressState: ProgressState = {
   psProgress: [],
   ppProgress: [],
   loading: false,
-  error: false,
+  error: null,
 };
 const progressSlice = createSlice({
   name: "progress",
@@ -24,7 +24,7 @@ const progressSlice = createSlice({
     builder
       .addCase(sendProgress.pending, (state) => {
         state.loading = true;
-        state.error = false;
+        state.error = null;
       })
       .addCase(sendProgress.fulfilled, (state) => {
         state.loading = false;
@@ -37,22 +37,22 @@ const progressSlice = createSlice({
         // if (ppNew.length > 0)
         //   state.ppProgress = [...state.ppProgress, ...ppNew];
       })
-      .addCase(sendProgress.rejected, (state) => {
+      .addCase(sendProgress.rejected, (state, action) => {
         state.loading = false;
-        state.error = true;
+        state.error = action.payload || null;
       })
       .addCase(getProgress.pending, (state) => {
         state.loading = true;
-        state.error = false;
+        state.error = null;
       })
       .addCase(getProgress.fulfilled, (state, action) => {
         state.loading = false;
         state.psProgress = action.payload.progressPs;
         state.ppProgress = action.payload.progressPp;
       })
-      .addCase(getProgress.rejected, (state) => {
+      .addCase(getProgress.rejected, (state, action) => {
         state.loading = false;
-        state.error = true;
+        state.error = action.payload || null;
       }).addCase(resetAll, () => initialProgressState);
   },
 });

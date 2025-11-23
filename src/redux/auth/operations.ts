@@ -26,7 +26,7 @@ export const register = createAsyncThunk<{message: string}, RegFormValues, {reje
     try {
       const { data } = await api.post("/auth/register", credentials);
       setAuthHeader(data.accessToken);
-      console.log(data)
+      // console.log(data)
       return data;
     } catch (error: unknown) {
       // return handleError(error, thunkApi.rejectWithValue);
@@ -52,7 +52,7 @@ export const login = createAsyncThunk<loginResponce, LogFormValues, {rejectValue
   async (credentials, {rejectWithValue}) => {
     try {
       const { data } = await api.post("/auth/login", credentials);
-      console.log("login data", data)
+      // console.log("login data", data)
       setAuthHeader(data.accessToken);   
       return data;
     } catch (error: unknown) {
@@ -94,7 +94,7 @@ export const refreshUser = createAsyncThunk<null, void, {rejectValue: {status: n
     // Optional: actually hit refresh endpoint
     try {
       const { data } = await api.post("/auth/refresh");
-      console.log("refresh new accessToken", data.accessToken)
+      // console.log("refresh new accessToken", data.accessToken)
       setAuthHeader(data.accessToken);
       return null;
     } catch (error: unknown) {

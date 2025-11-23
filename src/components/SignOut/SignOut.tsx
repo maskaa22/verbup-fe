@@ -1,4 +1,4 @@
-// import css from "./SignOut.module.css";
+import css from "./SignOut.module.css";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
 import { logout, resetAll } from "../../redux/auth/operations";
@@ -18,16 +18,7 @@ const SignOut = ({ onClose }: { onClose: () => void }) => {
   };
   return (
     <>
-      <h3>Are you sure you want to leave?</h3>
-      {/* <button
-                  onClick={() => {
-                    dispatch(logout());
-                    dispatch(resetAll());
-                  }}
-                  className={css.button}
-                >
-                  Вийти з акаунту
-                </button> */}
+      <h3 className={css.header}>Are you sure you want to leave?</h3>
       <BaseButtonStart label="Вийти з акаунту" onClick={handleSignOut} />
     </>
   );
