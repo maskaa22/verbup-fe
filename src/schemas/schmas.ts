@@ -15,7 +15,7 @@ export const SignInSchema = Yup.object().shape({
 
 export const RegisterSchema = Yup.object().shape({
   username: Yup.string().max(30)
-    .trim()
+    .trim().test("Not-latin-letters", "Username must contain standard Latin characters", value => !!value && /[A-Za-z]/.test(value))
     .matches(/[A-Za-z]/, "Username must contain at least one letter")
     .required("Please enter a username"),
   email: Yup.string()
@@ -25,7 +25,7 @@ export const RegisterSchema = Yup.object().shape({
     .email("This is not a valid email address")
     .required("Please enter your email"),
   password: Yup.string()
-    .trim()
+    .trim().test("no-spaces", "spaces are not allowed", value => !/\s/.test(value || ""))
     .min(8, "Password must be 8 characters long")
     .matches(/[0-9]/, "Password requires a number")
     .matches(/[a-z]/, "Password requires a lowercase letter")
