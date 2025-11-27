@@ -2,7 +2,7 @@
 import { Link, Outlet } from "react-router-dom";
 import css from "./Setting.module.css";
 import { sendGtagEvent } from "../../utils/googleAnalize";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SignOut from "../../components/SignOut/SignOut";
 import Modal from "../../components/modal/Modal";
 import { useSelector } from "react-redux";
@@ -66,7 +66,7 @@ const Setting = () => {
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>
         </li>
-        <li className={!loggedin && css.disabled}>
+        <li className={!loggedin ? css.disabled : ""}>
           <button onClick={() => setModal(true)} className={css.button}>
             Вийти з акаунту
           </button>
