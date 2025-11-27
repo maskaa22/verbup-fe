@@ -45,7 +45,7 @@ color: rgba(0, 0, 0, 0.4)
 }
 .forgotPassword{
     visibility: hidden;
-        font-weight: 400;
+    font-weight: 400;
     font-size: 14px;
     color: var(--primary-1);
     display: block;

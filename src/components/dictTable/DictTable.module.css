@@ -9,6 +9,7 @@
 .wrap{
    overflow-y: auto; 
    overflow-x: hidden;
+   margin-bottom: 4rem;
 }
 .table{
     width: 100%;

@@ -2,12 +2,15 @@
 import { Link, Outlet } from "react-router-dom";
 import css from "./Setting.module.css";
 import { sendGtagEvent } from "../../utils/googleAnalize";
-import { useDispatch } from "react-redux";
-import type { AppDispatch } from "../../redux/store";
-import { logout, resetAll } from "../../redux/auth/operations";
+import { useState } from "react";
+import SignOut from "../../components/SignOut/SignOut";
+import Modal from "../../components/modal/Modal";
+import { useSelector } from "react-redux";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 const Setting = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const [modal, setModal] = useState(false);
+  const loggedin = useSelector(selectIsLoggedIn);
   const handleClick = () => {
     sendGtagEvent("click", "send feedback", "continue");
   };
@@ -63,14 +66,8 @@ const Setting = () => {
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>
         </li>
-        <li>
-          <button
-            onClick={() => {
-              dispatch(logout());
-              dispatch(resetAll());
-            }}
-            className={css.button}
-          >
+        <li className={!loggedin ? css.disabled : ""}>
+          <button onClick={() => setModal(true)} className={css.button}>
             Вийти з акаунту
           </button>
           <svg>
@@ -96,6 +93,11 @@ const Setting = () => {
           <use href="./icons.svg#icon-linked-in"></use>
         </svg>
       </a>
+      {modal && (
+        <Modal onClose={() => setModal(false)}>
+          {<SignOut onClose={() => setModal(false)} />}
+        </Modal>
+      )}
       <Outlet />
     </div>
   );

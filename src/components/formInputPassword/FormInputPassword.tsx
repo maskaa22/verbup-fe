@@ -7,10 +7,12 @@ import type { InputPswProps } from "../../utils/formTypes";
 import { useSelector } from "react-redux";
 import { selectIsError } from "../../redux/auth/selectors";
 
-
-
-const FormInputPassword: React.FC<InputPswProps> = ({isFor, label, placeholder}) => {
-  const error = useSelector(selectIsError)
+const FormInputPassword: React.FC<InputPswProps> = ({
+  isFor,
+  label,
+  placeholder,
+}) => {
+  const error = useSelector(selectIsError);
   const [field] = useField("password");
   const [valid, setValid] = useState({
     a: false,
@@ -21,7 +23,6 @@ const FormInputPassword: React.FC<InputPswProps> = ({isFor, label, placeholder})
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    
     const value = field.value;
     setValid({
       a: /[a-z]/.test(value),
@@ -36,28 +37,34 @@ const FormInputPassword: React.FC<InputPswProps> = ({isFor, label, placeholder})
         {label}
       </label>
       <div className={css.inputWrap}>
-      <input
-        {...field}
-        type={visible ? "text" : "password"}
-        className={`${css.input} ${error && css.errorClass}`}
-        placeholder={placeholder || "Мінімум 8 символів"}
-        autoComplete="off"
-        required
-      />
-      <ErrorMessage name="password" component="span" />
-      <svg className={css.icon}>
-        <use href="./icons.svg#icon-password"></use>
-      </svg>
-      <span className={css.eye} onClick={() => setVisible(!visible)}>
-        <svg className={clsx(css.iconEye, visible ? css.iconEyeSee : css.iconEyeHide) }>
-          <use
-            href={`./icons.svg#${
-              visible ? "icon-password-hide" : "icon-password-see"
-            }`}
-          ></use>
+        <input
+          {...field}
+          type={visible ? "text" : "password"}
+          className={`${css.input} ${error && css.errorClass}`}
+          placeholder={placeholder || "Мінімум 8 символів"}
+          autoComplete="off"
+          required
+        />
+        
+        <svg className={css.icon}>
+          <use href="./icons.svg#icon-password"></use>
         </svg>
-      </span>
+        <span className={css.eye} onClick={() => setVisible(!visible)}>
+          <svg
+            className={clsx(
+              css.iconEye,
+              visible ? css.iconEyeSee : css.iconEyeHide
+            )}
+          >
+            <use
+              href={`./icons.svg#${
+                visible ? "icon-password-hide" : "icon-password-see"
+              }`}
+            ></use>
+          </svg>
+        </span>
       </div>
+      <ErrorMessage className={css.errorMessage} name="password" component="span" />
       {isFor === "reg" && <ValidPassword isValid={valid} />}
     </div>
   );

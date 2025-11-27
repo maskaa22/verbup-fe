@@ -27,3 +27,21 @@
   font-weight: 400;
   font-size: 12px;
 }
+
+.errorMessage{
+  color: var(--other-3);
+  /* transform: translateY(-4);
+  animation: errorMessageBounce 1s ease-in-out forwards; */
+}
+
+/* @keyframes errorMessageBounce {
+  0%{
+    transform: translateY(-4px);
+  }
+  50%{
+    transform: translateY(0);
+  }
+100%{
+  transform: translateY(-4px);
+}
+} */

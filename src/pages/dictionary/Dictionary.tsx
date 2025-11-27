@@ -9,10 +9,12 @@ import type { AppDispatch } from "../../redux/store";
 import { setLearnt } from "../../redux/dict/slice";
 import { useSelector } from "react-redux";
 import { selectLearntVerbs } from "../../redux/dict/selectors";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 // import CuteAstronautWithLaptop from 
 
 const Dictionary = () => {
  const showLearnt = useSelector(selectLearntVerbs)
+ const loggedin = useSelector(selectIsLoggedIn)
   const dispatch = useDispatch<AppDispatch>()
   useEffect(() => {
     dispatch(fetchWords())
@@ -25,11 +27,12 @@ const Dictionary = () => {
     <h2 className={css.dicheadline}>словник</h2>
     <DicSearchBox/>
     <DictABCFilter/>
-    <div className={css.checkboxLearntWrap}>
+    {
+      loggedin && <div className={css.checkboxLearntWrap}>
       <span>Show learnt only:</span>
       <span className={`${css.checkboxLearnt} ${showLearnt && css.checked}`} onClick={handleToggle}></span>
-
     </div>
+    }
     <DictTable/>
   </div>;
 };

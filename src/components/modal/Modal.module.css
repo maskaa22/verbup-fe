@@ -1,0 +1,57 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3); /* Darkens the background */
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+.errorMess {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
+  padding: 60px 20px 40px;
+  width: 335px;
+  height: auto;
+  backdrop-filter: blur(40px);
+  box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    180deg,
+    rgba(232, 232, 232, 0.7) 0%,
+    rgba(232, 232, 232, 0.7) 50%,
+    rgba(94, 144, 158, 0.7) 100%
+  );
+}
+
+.errorMess h3 {
+    position: relative;
+    z-index: 3;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: var(--primary-1);
+}
+
+.button {
+    border-radius: 100%;
+    width: 24px;
+    height: 24px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    color: var(--primary-1);
+    background-color: rgba(232, 232, 232, 0.5);
+    z-index: 1111111111;
+}
