@@ -30,10 +30,10 @@ import { hydrateFromStorage } from "../../redux/game/slice";
 import MotivationModal from "../motivationModal/MotivationModal";
 
 const WriteGame = () => {
-  const { setCheckAnswerType, setShowCheckAnswer, setModalActive } =
+  const { setCheckAnswerType, setShowCheckAnswer, setModalActive, word, setWord } =
     useOutletContext<cardGameType>();
 
-  const [text, setText] = useState("");
+  // const [text, setText] = useState("");
   // const [isChecked, setIsChecked] = useState(false);
   const [visibility, setVisibility] = useState(false);
   const [showMotivation, setShowMotivation] = useState(false);
@@ -106,7 +106,7 @@ const WriteGame = () => {
         <div className={s.inputContainer}>
           <input
             type="text"
-            value={text}
+            value={word}
             readOnly
             className={`${s.gameInput} ${visibility && s.borderInput}`}
           />
@@ -114,13 +114,13 @@ const WriteGame = () => {
       </div>
 
       <Keyboard
-        onKeyPress={(e) => handleKeyPress(e, setText)}
-        onBackspace={() => handleBackspace(setText)}
+        onKeyPress={(e) => handleKeyPress(e, setWord)}
+        onBackspace={() => handleBackspace(setWord)}
       />
 
       {question && (
         <BaseButtonGame
-          word={text}
+          word={word}
           setVisibility={setVisibility}
           setShowCheckAnswer={setShowCheckAnswer}
           setCheckAnswerType={setCheckAnswerType}
@@ -130,7 +130,7 @@ const WriteGame = () => {
           setAnswerStatuses={setAnswerStatuses}
           current={current}
           // setIsChecked={setIsChecked}
-          setText={setText}
+          // setText={setText}
         />
       )}
 
