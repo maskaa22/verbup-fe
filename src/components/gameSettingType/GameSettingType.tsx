@@ -30,7 +30,7 @@ const GameSettingType: React.FC<GameSettingTypeProps> = ({
         <p className={`${c.title} ${disabled ? c.disTitle : ""}`}>{title}</p>
         <div className={`${c.iconContainer} ${disabled ? c.iconDisabled : ""}`}>
           <svg
-            className={c.icon}
+            className={`${c.icon} ${c.iconNext}`}
             onClick={
               !disabled
                 ? () => {handleClick('play')

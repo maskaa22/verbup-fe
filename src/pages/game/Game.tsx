@@ -4,7 +4,7 @@ import CheckAnswer from "../../components/checkAnswer/CheckAnswer.js";
 import { Outlet } from "react-router-dom";
 import GameOptions from "../../components/gameOptions/GameOptions.js";
 import { useDispatch } from "react-redux";
-import { generateQuestions} from "../../redux/game/operations.js";
+import { generateQuestions } from "../../redux/game/operations.js";
 import { useSelector } from "react-redux";
 import { selectQueries } from "../../redux/game/selectors.js";
 import type { AppDispatch } from "../../redux/store.js";
@@ -13,6 +13,7 @@ import type { AppDispatch } from "../../redux/store.js";
 const Game: React.FC = () => {
   const [checkAnswerType, setCheckAnswerType] = useState("");
   const [showCheckAnswer, setShowCheckAnswer] = useState(false);
+  const [word, setWord] = useState<string>("");
 
   const [modalActive, setModalActive] = useState(false);
 
@@ -20,10 +21,6 @@ const Game: React.FC = () => {
   const questions = useSelector(selectQueries);
   // const login = useSelector(selectIsLoggedIn);
   // const setting = useSelector(selectGameSetting);
-
-
-  
-  
 
   useEffect(() => {
     dispatch(generateQuestions());
@@ -42,6 +39,8 @@ const Game: React.FC = () => {
           modalActive,
           setModalActive,
           questions,
+          word,
+          setWord,
         }}
       />
 
@@ -51,6 +50,7 @@ const Game: React.FC = () => {
           active={modalActive}
           setActive={setModalActive}
           questions={questions}
+          setWord={setWord}
         />
       )}
     </div>

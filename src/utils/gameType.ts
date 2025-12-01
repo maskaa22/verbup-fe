@@ -41,6 +41,8 @@ export type cardGameType = {
   setCheckAnswerType: React.Dispatch<React.SetStateAction<string>>;
   setShowCheckAnswer: React.Dispatch<React.SetStateAction<boolean>>;
   setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+  word: string;
+  setWord: React.Dispatch<React.SetStateAction<string>>;
 };
 export type BtnType = {
   name: string;
@@ -73,6 +75,7 @@ export type checkAnswerType = {
   active: boolean;
   setActive: React.Dispatch<React.SetStateAction<boolean>>;
   questions?: Question[];
+  setWord: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export type gameOptions = {

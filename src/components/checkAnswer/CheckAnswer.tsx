@@ -19,6 +19,7 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
   active,
   setActive,
   questions,
+  setWord
 }) => {
   const dispatch = useDispatch();
   const current = useSelector(selectCurrent);
@@ -33,8 +34,10 @@ const CheckAnswer: React.FC<checkAnswerType> = ({
 
     dispatch(setCurrent(updatedIndex));
     sessionStorage.setItem(LAST_INDEX, updatedIndex.toString());
-
+    
+    setWord('');
     setActive(false);
+
   };
 
   useEffect(() => {
