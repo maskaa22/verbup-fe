@@ -19,7 +19,6 @@ const DictItem: React.FC<Props> = ({
   const [isOpen, setIsOpen] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const handleSound = () => {
-    // const wordList = `${basic} ${pastSimple} ${pastParticiple}`;
     const wordList = [basic, pastSimple, pastParticiple]
     setIsSpeaking(true);
     speakWordsIndividually(wordList, true, 1500);

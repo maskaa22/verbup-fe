@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import RestrictedRoute from "./components/RestrictedRoute";
 import { lazy, useEffect, useState } from "react";
 import usePageTracking from "./utils/googleAnalize";
@@ -36,8 +35,6 @@ const LoaderDinamic = lazy(
 function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch<AppDispatch>();
-
-  // useEffect(() => {console.log(isLoggedin)}, [isLoggedin])
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 3000); // 2.5s splash
@@ -92,7 +89,7 @@ function App() {
             />
             <Route path="/setting/theme-switcher" element={<ThemeSwitcher />} />
           </Route>
-          <Route path="/hom" element={<ProgressBar/>}/>
+          <Route path="/hom" element={<ProgressBar />} />
           <Route path="/loader" element={<SpaceLoader />} />
         </Routes>
       )}

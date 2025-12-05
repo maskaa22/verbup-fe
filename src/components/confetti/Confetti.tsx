@@ -8,7 +8,7 @@ const Confetti = () => {
     const retina = window.devicePixelRatio || 1;
     const PI = Math.PI;
     const sqrt = Math.sqrt;
-    // const round = Math.round;
+
     const random = Math.random;
     const cos = Math.cos;
     const sin = Math.sin;

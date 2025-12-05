@@ -2,11 +2,6 @@
   margin-bottom: 20px;
   display: flex;
 }
-/* .disabled {
-  background-color: var(--soft);
-  opacity: 0.5;
-  border-radius: 29px;
-} */
 
 .inputWrap {
   display: flex;
@@ -32,7 +27,7 @@
   cursor: pointer;
 }
 .inputWrapDisabled {
-  background-color: var(--soft); /* можна сіро зробити */
+  background-color: var(--soft); 
   opacity: 0.5;
   cursor: not-allowed;
 }

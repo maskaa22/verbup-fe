@@ -20,13 +20,11 @@
 
 .keyboardKey,
 .special {
-  /* padding: 4px 7px; */
   font-size: 18px;
   border: none;
   background: var(--background-soft);
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  /* flex: 1; */
   max-width: 40px;
   text-align: center;
   width: 28px;
