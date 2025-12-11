@@ -10,7 +10,6 @@ import { setLearnt } from "../../redux/dict/slice";
 import { useSelector } from "react-redux";
 import { selectLearntVerbs } from "../../redux/dict/selectors";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
-// import CuteAstronautWithLaptop from 
 
 const Dictionary = () => {
  const showLearnt = useSelector(selectLearntVerbs)

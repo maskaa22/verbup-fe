@@ -17,8 +17,6 @@ import { RegisterSchema } from "../../schemas/schmas";
 
 
 const RegisterForm: React.FC = () => {
-  // const [emailInUse, setEmailInUse] = useState(false);
-  // const [status, setStatus] = useState(0);
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const error = useSelector(selectIsError)
@@ -31,14 +29,6 @@ const RegisterForm: React.FC = () => {
       actions.resetForm();
       navigate("/verify-email");
     } 
-    // else if (register.rejected.match(res) && res.payload) {
-    //   setStatus(res.payload.status);
-    //   setEmailInUse(true);
-    //   console.log(emailInUse)
-    //   console.log(status)
-    // } else {
-    //   setStatus(500);
-    // }
   };
   return (
     <Formik

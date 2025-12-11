@@ -12,12 +12,6 @@ const ExtraSignup = ( ) => {
             <use href="/icons.svg#icon-google"></use>
           </svg>
         </div>
-        {/* <div>
-        <button >Продовжити з Facebook</button>
-        <svg className={css.icon}>
-            <use href="./icons.svg#icon-facebook"></use>
-          </svg>
-        </div> */}
     </div>
 }
 export default ExtraSignup;

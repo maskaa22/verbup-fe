@@ -6,7 +6,6 @@ import SpaceLoader from "./components/spaceLoader/SpaceLoader";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "./redux/store";
 import { refreshUser } from "./redux/auth/operations";
-import ProgressBar from "./components/progressBar/ProgressBar";
 
 const Intro = lazy(() => import("./pages/intro/Intro"));
 const VerifyEmail = lazy(() => import("./pages/verifyEmail/VerifyEmail"));
@@ -89,8 +88,7 @@ function App() {
             />
             <Route path="/setting/theme-switcher" element={<ThemeSwitcher />} />
           </Route>
-          <Route path="/hom" element={<ProgressBar />} />
-          <Route path="/loader" element={<SpaceLoader />} />
+          {/* <Route path="/test" element={<NotificationParams/>}/> */}
         </Routes>
       )}
     </>

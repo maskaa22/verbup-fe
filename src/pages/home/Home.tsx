@@ -5,8 +5,6 @@ import ResultCards from "../../components/resultCards/ResultCards";
 import StartLink from "../../components/startLink/StartLink";
 import WeekCal from "../../components/weekCal/WeekCal";
 import css from "./Home.module.css";
-// import { useSelector } from "react-redux";
-// import { selectProgress } from "../../redux/progress/selectors";
 import { useDispatch } from "react-redux";
 import { getProgress } from "../../redux/progress/operations";
 import type { AppDispatch } from "../../redux/store";
@@ -19,7 +17,6 @@ const Home = () => {
   const user = useSelector(selectUser)
   const psProgress = useSelector(selectpsProgress)
   const ppProgress = useSelector(selectppProgress)
-  // useEffect(() => console.log(progress), [progress])
   const psNoMistake = psProgress.filter(word => word.status !== "mistake")
   const ppNoMistake = ppProgress.filter(word => word.status !== "mistake")
   const dispatch = useDispatch<AppDispatch>()

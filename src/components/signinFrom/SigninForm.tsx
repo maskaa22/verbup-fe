@@ -17,8 +17,6 @@ import { SignInSchema } from "../../schemas/schmas";
 
 
 const SigninForm = () => {
-  // const [wrongPassword, setWrongPassword] = useState(false);
-  // const [status, setStatus] = useState(0)
   const error = useSelector(selectIsError);
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
@@ -30,13 +28,6 @@ const SigninForm = () => {
     if (login.fulfilled.match(res)) {
       navigate("/home");
     }
-    // else if(login.rejected.match(res) && res.payload){
-    //   // setStatus(res.payload.status)
-    //   // setWrongPassword(true)
-    // }else{
-    //   // setStatus(500);
-    //   console.log("error in singin", error)
-    // }
     actions.resetForm();
   };
 

@@ -1,12 +1,7 @@
-// import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-// import css from "./ErrorMes.module.css";
 import { selectIsError } from "../../redux/auth/selectors";
 
-// type PrankModalProps = {
-//   message: number;
-//   onClose?: () => void;
-// };
+
 const ErrorMes = () => {
   const error = useSelector(selectIsError)
   const message = error?.status
