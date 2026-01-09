@@ -10,12 +10,12 @@ const Menu = () => {
   const [noActive, setNoActive] = useState(true);
   const location = useLocation().pathname;
   const screenWidth = useScreenWidth();
-  const divider = screenWidth / 5 - 4
+  const divider = screenWidth / 5 - 4;
   const navWidth = screenWidth <= 374 ? divider : 72;
 
-    const handleClick = (goto: string) => {
-        sendGtagEvent('click', `nav-menu-${goto}`, 'continue')
-      }
+  const handleClick = (goto: string) => {
+    sendGtagEvent("click", `nav-menu-${goto}`, "continue");
+  };
 
   useEffect(() => {
     switch (true) {
@@ -57,7 +57,7 @@ const Menu = () => {
               <NavLink
                 className={({ isActive }) => clsx(isActive && css.active)}
                 to="/game"
-                onClick={() => handleClick('game')}
+                onClick={() => handleClick("game")}
               >
                 <svg className={css.icon}>
                   <use href="/icons.svg#icon-game"></use>
@@ -65,7 +65,11 @@ const Menu = () => {
               </NavLink>
             </li>
             <li className={css.disabled}>
-              <NavLink className={css.disabled} to="#" onClick={() => handleClick('achive')}>
+              <NavLink
+                className={css.disabled}
+                to="#"
+                onClick={() => handleClick("achive")}
+              >
                 <svg className={clsx(css.icon, css.iconone)}>
                   <use href="/icons.svg#icon-achievements"></use>
                 </svg>
@@ -75,7 +79,7 @@ const Menu = () => {
               <NavLink
                 className={({ isActive }) => clsx(isActive && css.active)}
                 to="/voc"
-                onClick={() => handleClick('voc')}
+                onClick={() => handleClick("voc")}
               >
                 <svg className={css.icon}>
                   <use href="/icons.svg#icon-vocabulary"></use>
@@ -91,7 +95,7 @@ const Menu = () => {
                   )
                 }
                 to="/setting"
-                onClick={() => handleClick('settings')}
+                onClick={() => handleClick("settings")}
               >
                 <svg className={clsx(css.icon)}>
                   <use href="/icons.svg#icon-setting"></use>
@@ -99,11 +103,14 @@ const Menu = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink className={({ isActive }) => clsx(isActive && css.active)} to="/home" onClick={() => handleClick('home')}>
+              <NavLink
+                className={({ isActive }) => clsx(isActive && css.active)}
+                to="/home"
+                onClick={() => handleClick("home")}
+              >
                 <svg id="homeIcon" className={`${css.icon} ${css.homeIcon}`}>
                   {/* <use href={`/icons.svg#${isLoggedIn? "icon-user-loggedin" : "icon-home"}`}></use> */}
                   <use href="/icons.svg#icon-home"></use>
-
                 </svg>
               </NavLink>
             </li>

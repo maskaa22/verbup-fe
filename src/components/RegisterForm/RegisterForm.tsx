@@ -15,11 +15,10 @@ import ErrorMes from "../errorMes/ErrorMes";
 import { setErrorNull } from "../../redux/auth/slice";
 import { RegisterSchema } from "../../schemas/schmas";
 
-
 const RegisterForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
-  const error = useSelector(selectIsError)
+  const error = useSelector(selectIsError);
   const handleSubmit = async (
     values: RegFormValues,
     actions: FormikHelpers<RegFormValues>
@@ -28,7 +27,7 @@ const RegisterForm: React.FC = () => {
     if (register.fulfilled.match(res)) {
       actions.resetForm();
       navigate("/verify-email");
-    } 
+    }
   };
   return (
     <Formik
@@ -57,7 +56,9 @@ const RegisterForm: React.FC = () => {
           placeholder="Мінімум 8 символів"
         />
         <BaseButtonStart label="Зарееструватися" />
-        {error && <Modal onClose={() => dispatch(setErrorNull())}>{<ErrorMes/>}</Modal>}
+        {error && (
+          <Modal onClose={() => dispatch(setErrorNull())}>{<ErrorMes />}</Modal>
+        )}
       </Form>
     </Formik>
   );

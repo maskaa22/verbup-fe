@@ -16,35 +16,35 @@ const ThemeSwitcher = () => {
       <div className={css.theme}>
         <div className={css.option}>
           <p>Світла тема</p>
-          
+
           <label htmlFor="light" className={css.switch}>
             <input
-            id="light"
-            className={css.input}
-            type="radio"
-            name="themeSwitcher"
-            value="light"
-            checked={theme === "light"}
-            onChange={(e) => dispatch(setTheme(e.target.value))}
-            //    disabled={disabled}
-          />
+              id="light"
+              className={css.input}
+              type="radio"
+              name="themeSwitcher"
+              value="light"
+              checked={theme === "light"}
+              onChange={(e) => dispatch(setTheme(e.target.value))}
+              //    disabled={disabled}
+            />
             <span className={clsx(css.slider, css.round)}></span>
           </label>
         </div>
         <div className={css.option}>
           <p>Темна тема</p>
-          
+
           <label htmlFor="dark" className={css.switch}>
             <input
-            id="dark"
-            className={css.input}
-            type="radio"
-            name="themeSwitcher"
-            value="dark"
-            checked={theme === "dark"}
-            onChange={(e) => dispatch(setTheme(e.target.value))}
-            //    disabled={disabled}
-          />
+              id="dark"
+              className={css.input}
+              type="radio"
+              name="themeSwitcher"
+              value="dark"
+              checked={theme === "dark"}
+              onChange={(e) => dispatch(setTheme(e.target.value))}
+              //    disabled={disabled}
+            />
             <span className={clsx(css.slider, css.round)}></span>
           </label>
         </div>

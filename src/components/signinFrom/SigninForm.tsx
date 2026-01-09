@@ -15,7 +15,6 @@ import { selectIsError } from "../../redux/auth/selectors";
 import { setErrorNull } from "../../redux/auth/slice";
 import { SignInSchema } from "../../schemas/schmas";
 
-
 const SigninForm = () => {
   const error = useSelector(selectIsError);
   const navigate = useNavigate();

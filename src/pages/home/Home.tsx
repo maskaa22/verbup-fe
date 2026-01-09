@@ -1,4 +1,3 @@
-
 import { useEffect } from "react";
 import ProgressBar from "../../components/progressBar/ProgressBar";
 import ResultCards from "../../components/resultCards/ResultCards";
@@ -9,22 +8,24 @@ import { useDispatch } from "react-redux";
 import { getProgress } from "../../redux/progress/operations";
 import type { AppDispatch } from "../../redux/store";
 import { useSelector } from "react-redux";
-import { selectppProgress, selectpsProgress } from "../../redux/progress/selectors";
+import {
+  selectppProgress,
+  selectpsProgress,
+} from "../../redux/progress/selectors";
 import { selectUser } from "../../redux/auth/selectors";
 
-
 const Home = () => {
-  const user = useSelector(selectUser)
-  const psProgress = useSelector(selectpsProgress)
-  const ppProgress = useSelector(selectppProgress)
-  const psNoMistake = psProgress.filter(word => word.status !== "mistake")
-  const ppNoMistake = ppProgress.filter(word => word.status !== "mistake")
-  const dispatch = useDispatch<AppDispatch>()
-  const ps = psNoMistake?.length || 0
-  const pp = ppNoMistake?.length || 0
+  const user = useSelector(selectUser);
+  const psProgress = useSelector(selectpsProgress);
+  const ppProgress = useSelector(selectppProgress);
+  const psNoMistake = psProgress.filter((word) => word.status !== "mistake");
+  const ppNoMistake = ppProgress.filter((word) => word.status !== "mistake");
+  const dispatch = useDispatch<AppDispatch>();
+  const ps = psNoMistake?.length || 0;
+  const pp = ppNoMistake?.length || 0;
   const totalProgress = ps + pp;
   useEffect(() => {
-    dispatch(getProgress())
+    dispatch(getProgress());
   }, []);
 
   return (
@@ -36,7 +37,11 @@ const Home = () => {
         </div>
         <WeekCal />
         <ul className={css.list}>
-          <ResultCards value={totalProgress} icon={"icon-yes"} text={"Вивчено"} />
+          <ResultCards
+            value={totalProgress}
+            icon={"icon-yes"}
+            text={"Вивчено"}
+          />
           <ResultCards value={0} icon={"icon-star"} text={"Бали"} />
           <ResultCards value={0} icon={"icon-fire"} text={"Досягнення"} />
         </ul>

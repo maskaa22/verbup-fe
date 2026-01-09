@@ -1,4 +1,4 @@
-.wrap{
+.wrap {
   display: block;
   position: relative;
   background-color: transparent;
@@ -6,29 +6,16 @@
   cursor: pointer;
 }
 
-.wrap img{
-width: 100px;
-height: 80px;
+.wrap img {
+  width: 100px;
+  height: 80px;
 }
 
-.mvp{
+.mvp {
   width: 100%;
   text-align: center;
   background: var(--other-2);
   padding: 2px 8px;
   font-weight: 500;
-font-size: 12px;
+  font-size: 12px;
 }
-/* .wrap h4 {
-  color: var(--base-color-blue);
-  font-weight: 400;
-  font-size: 32px;
-}
-.wrap h4 span {
-  color: var(--base-color-yellow);
-}
-.wrap p {
-  color: var(--base-color-blue);
-  font-weight: 400;
-  font-size: 13px;
-} */

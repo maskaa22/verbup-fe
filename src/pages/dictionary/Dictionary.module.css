@@ -14,21 +14,19 @@
   color: var(--primary-1);
   text-transform: capitalize;
 }
-.checkboxLearntWrap{
+.checkboxLearntWrap {
   display: flex;
   gap: 4px;
 }
-.checkboxLearntWrap span{
-  
-}
-.checkboxLearnt{
+
+.checkboxLearnt {
   display: block;
   width: 20px;
   height: 20px;
   border: 1px solid var(--text-secondary);
   border-radius: 8px;
 }
-.checked{
+.checked {
   background-color: green;
 }
 /* .markup ul {

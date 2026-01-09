@@ -139,19 +139,23 @@ const AuthLayout = () => {
       className={clsx(
         css.outerWrap,
         planets ? css.planets : css.noPlanets,
-        bgGame && css.bgGame,
+        bgGame && css.bgGame
       )}
     >
       {logoIntro && <LogoIntroNew />}
 
       <div className={`${css.wrap} container`}>
         {logo && <Logo />}
-        <div className={`${glass ? css.glass : css.noClass} ${scroll && css.scrollBar}`}>{<Outlet />}</div>
+        <div
+          className={`${glass ? css.glass : css.noClass} ${
+            scroll && css.scrollBar
+          }`}
+        >
+          {<Outlet />}
+        </div>
       </div>
       {navigation && <Menu />}
-      {
-        loadingAuth && createPortal(<OperationsLoader/>, document.body)
-      }
+      {loadingAuth && createPortal(<OperationsLoader />, document.body)}
     </div>
   );
 };
