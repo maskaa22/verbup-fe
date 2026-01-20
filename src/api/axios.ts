@@ -10,7 +10,7 @@ let isRefreshing = false;
 
 const processQueue = (
   error: AxiosError | null,
-  token: string | null = null
+  token: string | null = null,
 ) => {
   failedQueue.forEach((prom) => {
     if (error) {
@@ -35,16 +35,10 @@ export const api = axios.create({
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    // console.log("Interceptor caught an error:", error);
-    // console.log("error.config:", error.config);
-
     const originalRequest = error.config as CustomAxiosRequestConfig;
 
     // Prevent infinite loop
-    if (
-      (error.response?.status === 401 || error.response?.status === 400) &&
-      !originalRequest._retry
-    ) {
+    if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
       if (isRefreshing) {
@@ -65,9 +59,9 @@ api.interceptors.response.use(
 
       try {
         const res = await api.post("/auth/refresh", {});
-        // console.log("post /refresh and isRefreshing = true", res);
+
         const newAccessToken = res.data.accessToken;
-        // console.log("new accessToken", newAccessToken);
+
         setAuthHeader(newAccessToken);
 
         processQueue(null, newAccessToken);
@@ -90,7 +84,7 @@ api.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 export default api;

@@ -1,5 +1,4 @@
 import type { Question, Verb } from "../gameType";
-// import { questionTemplates } from "./questionTemplates";
 
 const generateFakeVariant = (word: string): string => {
   const variations = [
@@ -15,15 +14,6 @@ export const generateQuestion = (
   verb: Verb,
   mode: "v2" | "v3" | "Змішаний" = "v2"
 ): Question => {
-  //   const templates = questionTemplates[mode] || [];
-  //   const templateFn = templates[Math.floor(Math.random() * templates.length)];
-  // console.log(templateFn);
-
-  //   const question = templateFn
-  //     ? templateFn(verb)
-  //     // : `What is the ${mode} of "${verb.basic}"?`;
-  //     : verb.basic;
-  
   const question = verb.basic;
 
   const correctAnswer = mode === "v2" ? verb.pastSimple : verb.pastParticiple;
@@ -32,7 +22,7 @@ export const generateQuestion = (
     verb.basic,
     verb.pastSimple,
     verb.pastParticiple,
-    verb.fake
+    verb.fake,
   ];
 
   const uniqueForms = new Set<string>();
@@ -50,7 +40,7 @@ export const generateQuestion = (
     correctAnswer,
     variants: variants.sort(() => Math.random() - 0.5),
     basic: verb.basic,
-    translate: verb.uk
+    translate: verb.uk,
   };
 };
 
@@ -58,15 +48,6 @@ export const generateQuestionForLogin = (
   verb: Verb,
   mode: "v2" | "v3" = "v2"
 ): Question => {
-  //   const templates = questionTemplates[mode] || [];
-  //   const templateFn = templates[Math.floor(Math.random() * templates.length)];
-  // console.log(templateFn);
-
-  //   const question = templateFn
-  //     ? templateFn(verb)
-  //     // : `What is the ${mode} of "${verb.basic}"?`;
-  //     : verb.basic;
-  
   const question = verb.basic;
 
   const correctAnswer = mode === "v2" ? verb.pastSimple : verb.pastParticiple;
@@ -75,7 +56,7 @@ export const generateQuestionForLogin = (
     verb.basic,
     verb.pastSimple,
     verb.pastParticiple,
-    verb.fake
+    verb.fake,
   ];
 
   const uniqueForms = new Set<string>();
@@ -93,7 +74,6 @@ export const generateQuestionForLogin = (
     correctAnswer,
     variants: variants.sort(() => Math.random() - 0.5),
     basic: verb.basic,
-    translate: verb.uk
+    translate: verb.uk,
   };
 };
-

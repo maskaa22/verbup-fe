@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import RestrictedRoute from "./components/RestrictedRoute";
-import { lazy, useEffect, useState } from "react";
+import { lazy, useEffect, useRef, useState } from "react";
 import usePageTracking from "./utils/googleAnalize";
 import SpaceLoader from "./components/spaceLoader/SpaceLoader";
 import { useDispatch } from "react-redux";
-import type { AppDispatch } from "./redux/store";
+import type { AppDispatch, RootState } from "./redux/store";
 import { refreshUser } from "./redux/auth/operations";
+import { useSelector } from "react-redux";
 
 const Intro = lazy(() => import("./pages/intro/Intro"));
 const VerifyEmail = lazy(() => import("./pages/verifyEmail/VerifyEmail"));
@@ -16,10 +17,10 @@ const AuthLayout = lazy(() => import("./components/authLayout/AuthLayout"));
 const GameSetting = lazy(() => import("./pages/gameSetting/GameSetting"));
 const Setting = lazy(() => import("./pages/setting/Setting"));
 const ChangeUserData = lazy(
-  () => import("./pages/changeUserData/ChangeUserData")
+  () => import("./pages/changeUserData/ChangeUserData"),
 );
 const NotificationParams = lazy(
-  () => import("./pages/notificationParams/NotificationParams")
+  () => import("./pages/notificationParams/NotificationParams"),
 );
 const ThemeSwitcher = lazy(() => import("./pages/themeSwitcher/ThemeSwitcher"));
 const Dictionary = lazy(() => import("./pages/dictionary/Dictionary"));
@@ -28,21 +29,31 @@ const WordGame = lazy(() => import("./components/wordGame/WordGame"));
 const WriteGame = lazy(() => import("./components/writeGame/WriteGame"));
 const ResultGame = lazy(() => import("./pages/resultGame/ResultGame"));
 const LoaderDinamic = lazy(
-  () => import("./components/loaderDinamic/LoaderDinamic")
+  () => import("./components/loaderDinamic/LoaderDinamic"),
 );
 
 function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch<AppDispatch>();
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+  const didRefresh = useRef(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000); // 2.5s splash
-    return () => clearTimeout(timer);
-  }, []);
+    const timer = new Promise((res) => setTimeout(res, 1500));
 
-  useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+    if (!isLoggedIn) {
+      timer.finally(() => setLoading(false));
+      return;
+    }
+
+    if (didRefresh.current) return;
+
+    didRefresh.current = true;
+
+    Promise.all([dispatch(refreshUser()), timer]).finally(() =>
+      setLoading(false),
+    );
+  }, [dispatch, isLoggedIn]);
 
   usePageTracking();
 

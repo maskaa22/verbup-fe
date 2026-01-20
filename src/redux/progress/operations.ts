@@ -8,7 +8,11 @@ import {
 } from "../../utils/formTypes";
 import axios from "axios";
 
-export const sendProgress = createAsyncThunk<progressWord[], SendProgressArgs, {rejectValue: {status: number; message: string}}>(
+export const sendProgress = createAsyncThunk<
+  progressWord[],
+  SendProgressArgs,
+  { rejectValue: { status: number; message: string } }
+>(
   "progress/sendProgress",
   async ({ questions, gameSetting, answerStatuses }, { rejectWithValue }) => {
     try {
@@ -22,7 +26,6 @@ export const sendProgress = createAsyncThunk<progressWord[], SendProgressArgs, {
       }));
       const { data } = await api.post("/progress", { words });
 
-      // console.log("Готові дані:", words);
       return data.data;
     } catch (error: unknown) {
       if (axios.isAxiosError(error) && error.response) {
@@ -37,27 +40,27 @@ export const sendProgress = createAsyncThunk<progressWord[], SendProgressArgs, {
         message: "Progress could not be posted",
       });
     }
-  }
+  },
 );
 
-export const getProgress = createAsyncThunk<getProgressResponce, void, {rejectValue: {status: number; message: string}}>(
-  "progress/getProgress",
-  async (_, { rejectWithValue }) => {
-    try {
-      const res = await api.get("/progress");
-      return res.data.data;
-    } catch (error: unknown) {
-      if (axios.isAxiosError(error) && error.response) {
-        return rejectWithValue({
-          status: error.response.status,
-          message:
-            error.response.data.message || "Progress could not be fetched",
-        });
-      }
+export const getProgress = createAsyncThunk<
+  getProgressResponce,
+  void,
+  { rejectValue: { status: number; message: string } }
+>("progress/getProgress", async (_, { rejectWithValue }) => {
+  try {
+    const res = await api.get("/progress");
+    return res.data.data;
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error) && error.response) {
       return rejectWithValue({
-        status: 0,
-        message: "Progress could not be fetched",
+        status: error.response.status,
+        message: error.response.data.message || "Progress could not be fetched",
       });
     }
+    return rejectWithValue({
+      status: 0,
+      message: "Progress could not be fetched",
+    });
   }
-);
+});
