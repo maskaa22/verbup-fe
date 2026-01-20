@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import css from "./Intro.module.css";
-import cuteAstro from "../../assets/cute astronaut sitting with flag.png";
 import LogoIntroNew from "../../components/logoIntroNew/LogoIntroNew";
 import { sendGtagEvent } from "../../utils/googleAnalize";
 
@@ -17,7 +16,7 @@ const Intro = () => {
         <p>
           Щоденна практика — твій ключ до <span> справжнього прогресу.</span>
         </p>
-        <img className={css.image} src={cuteAstro} alt="" />
+        <img className={css.image} src="/cute-astro-christmas-min.png" alt="cute astro in Christmas hat" />
         <p>
           Що спільного в go, went і gone?{" "}
           <span> VerbUp знає відповідь — і ти скоро теж. </span>
