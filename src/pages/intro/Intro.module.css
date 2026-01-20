@@ -7,15 +7,12 @@
 
 /* --------------------------------------------------------------------------------------------- */
 .headlineWrap{
-    /* border: 1px solid red; */
     box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.25);
     position: relative;
     padding: 10px;
     margin-bottom: 40px;
     width: 100%;
     background-color: var(--background-white-default);
-   
-    /* background-color: wheat; */
 }
 
 .headline{

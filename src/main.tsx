@@ -1,4 +1,3 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
@@ -8,13 +7,11 @@ import { store } from "./redux/store.tsx";
 import { VibrationProvider } from "./hooks/VibrationContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <VibrationProvider>
-          <App />
-        </VibrationProvider>
-      </BrowserRouter>
-    </Provider>
-  </StrictMode>
+  <Provider store={store}>
+    <BrowserRouter>
+      <VibrationProvider>
+        <App />
+      </VibrationProvider>
+    </BrowserRouter>
+  </Provider>,
 );

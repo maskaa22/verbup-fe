@@ -8,7 +8,6 @@ import { generateQuestions } from "../../redux/game/operations.js";
 import { useSelector } from "react-redux";
 import { selectQueries } from "../../redux/game/selectors.js";
 import type { AppDispatch } from "../../redux/store.js";
-// import { selectIsLoggedIn } from "../../redux/auth/selectors.js";
 
 const Game: React.FC = () => {
   const [checkAnswerType, setCheckAnswerType] = useState("");
@@ -19,8 +18,6 @@ const Game: React.FC = () => {
 
   const dispatch = useDispatch<AppDispatch>();
   const questions = useSelector(selectQueries);
-  // const login = useSelector(selectIsLoggedIn);
-  // const setting = useSelector(selectGameSetting);
 
   useEffect(() => {
     dispatch(generateQuestions());

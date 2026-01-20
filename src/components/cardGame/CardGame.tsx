@@ -37,7 +37,6 @@ const CardGame: React.FC<CardGameProps> = ({
 
   const iOS = useMobileOS();
 
-  // const [word, setWord] = useState<string>("");
   const [activeWord, setActiveWord] = useState<string | null>(null);
   const [isChecked, setIsChecked] = useState(false);
   const [visibility, setVisibility] = useState(false);
@@ -61,11 +60,6 @@ const CardGame: React.FC<CardGameProps> = ({
     speakText(wordName, true); // озвучування вибраної відповіді
   };
 
-  // useEffect(() => {
-  //   setWord("");
-  //   setActiveWord(null);
-  //   setIsChecked(false);
-  // }, [current, setWord]);
   useEffect(() => {
   if (word === '') {
     setActiveWord(null);
@@ -185,7 +179,6 @@ const CardGame: React.FC<CardGameProps> = ({
           setAnswerStatuses={setAnswerStatuses}
           current={current}
           setIsChecked={setIsChecked}
-          // setText={setWord}
         />
       )}
     </>

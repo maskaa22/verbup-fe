@@ -6,24 +6,22 @@ interface Props {
 }
 
 const ChangeUserData: React.FC<Props> = ({ userData }) => {
-
-  
-  return     <div>
+  return (
+    <div>
       <h2 className={css.title}>Зміна паролю</h2>
-      {
-        userData === "password" ? <FromChangePsw/> : "change name"
-      }
+      {userData === "password" ? <FromChangePsw /> : "change name"}
     </div>
-
+  );
 };
 
 export default ChangeUserData;
 
-
-{/* <div>
+{
+  /* <div>
       <h2 className={css.title}>{`${"Пароль"} успішно змінено!`}</h2>
       <img
         src="/image/cute-astronaut-with-flag-min.png"
         alt="successfully submitted the form and the astronaut with flag is greating you"
       />
-    </div> */}
+    </div> */
+}

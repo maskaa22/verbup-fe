@@ -1,60 +1,44 @@
-.wrap{
-    position: relative;
-height: 70dvh; 
+.wrap {
+  position: relative;
+  height: 70dvh;
 }
-.title{
-            color: var(--primary-1);
-            text-align: center;
-        font-size: 30px;
+.title {
+  color: var(--primary-1);
+  text-align: center;
+  font-size: 30px;
 }
-.iconArrowBack{
-    width: 28px;
-    height: 28px;
-    fill: var(--primary-1);
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-
-.instructions p{
-    margin: 0 auto;
-    text-align: center;
-    color: var(--primary-1);
+.iconArrowBack {
+  width: 28px;
+  height: 28px;
+  fill: var(--primary-1);
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
-.instructions p:nth-child(1){
-    font-size: 30px;
-    font-weight: 700;
+.instructions p {
+  margin: 0 auto;
+  text-align: center;
+  color: var(--primary-1);
 }
-.instructions p:nth-child(2){
-    font-size: 14px;
-    font-weight: 400;
+
+.instructions p:nth-child(1) {
+  font-size: 30px;
+  font-weight: 700;
 }
-/* .or{
-display: flex;
-margin-top: 12px;
+.instructions p:nth-child(2) {
+  font-size: 14px;
+  font-weight: 400;
 }
-.or hr{
-    flex-grow: 1;
-    border: none;
-    border-top: 1px solid var(--third-color-gray);
-    height: 0;
+
+.bottomlink {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  color: var(--primary-1);
+  font-weight: 400;
+  font-size: 14px;
 }
-.or p{
-    color: var(--base-color-blue);
-    font-weight: 400;
-    font-size: 14px;
-    margin: 0 20px;
-} */
-.bottomlink{
-    margin-top: 12px;
-    display: flex;
-    justify-content: center;
-    color: var(--primary-1);
-    font-weight: 400;
-    font-size: 14px;
-}
-.bottomlink a{
-    text-decoration: underline;
+.bottomlink a {
+  text-decoration: underline;
 }

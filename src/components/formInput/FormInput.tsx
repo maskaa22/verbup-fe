@@ -23,7 +23,11 @@ const FormInput: React.FC<FromInputProps> = ({
         <svg className={css.icon}>
           <use href={`/icons.svg#${icon}`}></use>
         </svg>
-        <ErrorMessage className={css.errorMessage} name={name} component="span" />
+        <ErrorMessage
+          className={css.errorMessage}
+          name={name}
+          component="span"
+        />
       </div>
     </div>
   );

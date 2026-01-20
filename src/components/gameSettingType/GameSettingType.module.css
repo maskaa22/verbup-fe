@@ -54,7 +54,6 @@
   line-height: 130%;
   color: var(--background-white-default);
   max-width: 205px;
-  /* margin-top: 8px; */
 }
 .flex {
   display: flex;

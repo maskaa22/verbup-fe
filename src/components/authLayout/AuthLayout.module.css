@@ -1,4 +1,4 @@
-.outerWrap{
+.outerWrap {
   overflow: hidden;
 }
 .wrap {
@@ -58,7 +58,7 @@
   -webkit-backdrop-filter: blur(8px); /* for Safari */
   border-radius: 12px;
 }
-.scrollBar{
+.scrollBar {
   overflow-y: scroll;
 }
 
@@ -80,8 +80,7 @@
   }
 }
 
-
-
-
 /* without these classes div gets undefined or false */
-.noClass{background: transparent;}
+.noClass {
+  background: transparent;
+}

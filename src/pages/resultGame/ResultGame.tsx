@@ -2,16 +2,12 @@ import c from "./ResultGame.module.css";
 // import Star from "../../components/star/Star";
 import { useNavigate, useOutletContext } from "react-router-dom";
 import { useSelector } from "react-redux";
-import {
-  // selectCorrect,
-  selectGameSetting,
-  // selectWrong,
-} from "../../redux/game/selectors";
+import { selectGameSetting } from "../../redux/game/selectors";
 import { useDispatch } from "react-redux";
 import { baseQuestion, resetCurrent } from "../../redux/game/slice";
 import { generateQuestions } from "../../redux/game/operations";
 import type { AppDispatch } from "../../redux/store";
-// import Feedback from "../../components/feedback/Feedback";
+
 import Confetti from "../../components/confetti/Confetti";
 import {
   CORRECT,
@@ -32,14 +28,8 @@ const ResultGame = () => {
   const navigation = useNavigate();
   const gameSetting = useSelector(selectGameSetting);
 
-  // const correctRedux = useSelector(selectCorrect);
-  // const wrongRedux = useSelector(selectWrong);
-
   const correctLS = Number(sessionStorage.getItem(CORRECT)) || 0;
   const wrongLS = Number(sessionStorage.getItem(WRONG)) || 0;
-
-  // const correct = correctRedux ?? correctLS;
-  // const wrong = wrongRedux ?? wrongLS;
 
   const numQuest = gameSetting.numQuest;
   const count = Number(numQuest.split(" ")[0]);
@@ -53,31 +43,6 @@ const ResultGame = () => {
   const answerStatuses = JSON.parse(
     sessionStorage.getItem(ANSWER_STATUS) || "[]"
   );
-
-  // useEffect(() => {
-  //   if (!isLogin) return;
-
-  //   const sendProgress = async () => {
-  //     try {
-  //       const words = questions.map((q, idx) => ({
-  //         wordId: q.id,
-  //         type:
-  //           (gameSetting.verbForm === SIMPLE && PS) ||
-  //           (gameSetting.verbForm === PARTICIPLE && PP),
-  //         correct: answerStatuses[idx] === SUCCESS ? true : false,
-  //       }));
-
-  //       console.log("Готові дані:", words);
-
-  //       await api.post("/progress", { words });
-  //       console.log("Прогрес відправлено:", words);
-  //     } catch (error) {
-  //       console.error("Помилка збереження прогресу:", error);
-  //     }
-  //   };
-
-  //   sendProgress();
-  // }, [isLogin, questions, gameSetting, answerStatuses]);
 
   useEffect(() => {
     if (!isLogin) return;
@@ -120,9 +85,6 @@ const ResultGame = () => {
         <h3 className={c.title}>Тренування завершено</h3>
         <img src={"/image/game/planet-rezult.png"} className={c.img} />
         <p className={`${c.text} ${!isLogin && c.strongText}`}>
-          {/* {correctLS === 0 
-            ? "Наступний раз - вийде!"
-            : "Супер! Твої дієслова прокачались на новий рівень"} */}
           {correctLS === 0 && isLogin && "Наступний раз - вийде!"}
           {!isLogin &&
             "Увага! Якщо ти не зареєстрований, твій прогрес не зберігається!"}

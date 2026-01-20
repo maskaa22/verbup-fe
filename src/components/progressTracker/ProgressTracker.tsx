@@ -26,10 +26,7 @@ const ProgressTracker: React.FC<ProgresProps> = ({
   };
   return (
     <>
-      <svg
-      className={handleClass()}
-        viewBox="0 0 250 250"
-      >
+      <svg className={handleClass()} viewBox="0 0 250 250">
         {/* Background arc */}
         <circle
           cx="100"

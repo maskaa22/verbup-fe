@@ -1,8 +1,8 @@
 .homeWrap {
   position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   max-height: 600px;
@@ -12,7 +12,7 @@
 }
 .card {
   margin: 0 auto;
-        width: 94%;
+  width: 94%;
   border-radius: 20px 20px 0 0;
   padding: 12px 9px 115px 9px;
   backdrop-filter: blur(40px);

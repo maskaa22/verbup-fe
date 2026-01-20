@@ -3,7 +3,7 @@ import authReducer from "./auth/slice";
 import dictReducer from "./dict/slice";
 import gameSlice from "./game/slice";
 import progressReducer from "./progress/slice";
-import notifyReducer from "./notify/slice"
+import notifyReducer from "./notify/slice";
 
 import {
   persistStore,
@@ -16,13 +16,6 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-// import type { GameState } from "../utils/gameType";
-
-// const persistConfig = {
-//   key: "game",
-//   version: 1,
-//   storage,
-// };
 
 const persistedAuthReducer = persistReducer(
   {
@@ -38,9 +31,8 @@ export const store = configureStore({
     auth: persistedAuthReducer,
     dict: dictReducer,
     notify: notifyReducer,
-    // game: persistReducer<GameState>(persistConfig, gameSlice),
-      game: gameSlice,
-      progress: progressReducer,
+    game: gameSlice,
+    progress: progressReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

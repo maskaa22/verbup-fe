@@ -5,8 +5,6 @@ import css from "./DictABCFilter.module.css";
 import clsx from "clsx";
 import { useDispatch } from "react-redux";
 import { setLetter } from "../../redux/dict/slice";
-// import { useSelector } from "react-redux";
-// import { letterFilter } from "../../redux/dict/selectors";
 
 //----------------------------------------ABC----------------------------------------------------
 const alphabet = Array.from({ length: 26 }, (_, i) =>
@@ -19,34 +17,22 @@ const DictABCFilter = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
 
-
-  const handleDispatch = (letter: string) =>    letter === active ? dispatch(setLetter("")) : dispatch(setLetter(letter));   
-  // useEffect(() => {
-  //   const handleClickOutside = (event: MouseEvent) => {
-  //     if (
-  //       dropdownRef.current &&
-  //       !dropdownRef.current.contains(event.target as Node)
-  //     ) {
-  //       dispatch(setLetter(""));
-  //       setActive("");
-  //     }
-  //   };
-
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, [dispatch]);
+  const handleDispatch = (letter: string) =>
+    letter === active ? dispatch(setLetter("")) : dispatch(setLetter(letter));
   return (
     <div className={css.wrap} ref={dropdownRef}>
       <Swiper loop={false} slidesPerView={9} className={css.list}>
         {alphabet.map((letter, idx) => (
           <SwiperSlide
             className={clsx(css.li, active === letter && css.actv)}
-            onClick={() => letter === active ? setActive("") : setActive(letter)}
+            onClick={() =>
+              letter === active ? setActive("") : setActive(letter)
+            }
             key={idx}
           >
-            <div className={css.letter} onClick={() => handleDispatch(letter)}>{letter}</div>
+            <div className={css.letter} onClick={() => handleDispatch(letter)}>
+              {letter}
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

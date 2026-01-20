@@ -2,7 +2,6 @@ import type React from "react";
 import s from "./Feedback.module.css";
 import { useState } from "react";
 import api from "../../api/axios";
-import { getTokenFromStorage } from "../../redux/game/operations";
 
 type FeedbackProps = {
   rating: number;
@@ -12,11 +11,7 @@ const Feedback: React.FC<FeedbackProps> = ({ rating }) => {
   const [comment, setComment] = useState<string>("");
 
   const message = async () => {
-    console.log(comment);
-    console.log(rating);
-const token = getTokenFromStorage();
-
-    const send = await api.post("/feedback", { headers: { Authorization: `Bearer ${token}`}, comment, rating });
+    const send = await api.post("/feedback", { comment, rating });
 
     if (send) {
       console.log("GOOD");

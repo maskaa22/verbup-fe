@@ -1,5 +1,4 @@
 import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
-import c from "./WordGame.module.css";
 import CardGame from "../cardGame/CardGame";
 import React, { useEffect, useState } from "react";
 import type { currentAnswerAndQuestions } from "../../utils/gameType";
@@ -67,7 +66,7 @@ const WordGame: React.FC = () => {
   }, [location.pathname]);
 
   return (
-    <div className={c.gameContainer}>
+    <div>
       {question && (
         <CardGame question={question} setShowMotivation={setShowMotivation} />
       )}

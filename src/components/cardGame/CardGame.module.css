@@ -3,13 +3,11 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
-  /* margin-bottom: 80px; */
 }
 .btn {
   background: #ffffff;
   border-radius: 12px;
   max-width: 150px;
-  /* width: 20vh; */
   border: 1px solid #a2a2a2;
   align-items: center;
   display: flex;
@@ -44,7 +42,6 @@
 
 @media screen and (min-height: 640px) {
   .btn {
-    /* width: 20vh; */
     width: 35vw;
   }
 }

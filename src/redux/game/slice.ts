@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { generateQuestions} from "./operations";
+import { generateQuestions } from "./operations";
 import { GAME_SETTING, initialStateGame } from "../../constants";
 
 const gameSlice = createSlice({
@@ -29,7 +29,11 @@ const gameSlice = createSlice({
     },
     hydrateFromStorage(
       state,
-      action: PayloadAction<{ current: number; correct: number; wrong: number }>
+      action: PayloadAction<{
+        current: number;
+        correct: number;
+        wrong: number;
+      }>,
     ) {
       state.current = action.payload.current;
       state.correct = action.payload.correct;
@@ -43,8 +47,7 @@ const gameSlice = createSlice({
       })
       .addCase(generateQuestions.pending, (state) => {
         state.items = [];
-      })
-
+      });
   },
 });
 
@@ -55,6 +58,6 @@ export const {
   resetCurrent,
   setCorrect,
   setWrong,
-  hydrateFromStorage
+  hydrateFromStorage,
 } = gameSlice.actions;
 export default gameSlice.reducer;

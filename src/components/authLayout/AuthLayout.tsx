@@ -132,29 +132,30 @@ const AuthLayout = () => {
         setScroll(false);
     }
   }, [location]);
-  // const showNavBar = pathname !== "/signin" && pathname !== "/signup";
   const bgGame = location.includes("/game/check-word");
-  // const game = location.includes("/game");
 
   return (
     <div
       className={clsx(
         css.outerWrap,
         planets ? css.planets : css.noPlanets,
-        bgGame && css.bgGame,
-        // game && css.wrapper
+        bgGame && css.bgGame
       )}
     >
       {logoIntro && <LogoIntroNew />}
 
       <div className={`${css.wrap} container`}>
         {logo && <Logo />}
-        <div className={`${glass ? css.glass : css.noClass} ${scroll && css.scrollBar}`}>{<Outlet />}</div>
+        <div
+          className={`${glass ? css.glass : css.noClass} ${
+            scroll && css.scrollBar
+          }`}
+        >
+          {<Outlet />}
+        </div>
       </div>
       {navigation && <Menu />}
-      {
-        loadingAuth && createPortal(<OperationsLoader/>, document.body)
-      }
+      {loadingAuth && createPortal(<OperationsLoader />, document.body)}
     </div>
   );
 };

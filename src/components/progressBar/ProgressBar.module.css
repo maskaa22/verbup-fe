@@ -1,64 +1,49 @@
-.progressWrap{
-    position: relative;
-    text-align: center;
-    
+.progressWrap {
+  position: relative;
+  text-align: center;
 }
 
-.progressWrap * {
-    /* border: 1px solid red; */
+.progress {
+  width: 300px;
+  height: 300px;
+  transform: rotate(90deg);
 }
+.progressTrWrap {
+  position: relative;
 
-.progress{
-    width: 300px;
-    height: 300px;
-    transform: rotate(90deg);
+  width: 100%;
+  height: 240px;
 }
-.progressTrWrap{
-    position: relative;
-    /* border: 2px dashed green; */
-    width: 100%;
-    height: 240px;
-}
-.astroHome{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -15px;
-    width: 100px;
-    z-index: 111;
+.astroHome {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -15px;
+  width: 100px;
+  z-index: 111;
 }
 
 @media (min-height: 1000px) {
-    .progress{
-        width: 400px;
-        height: 400px;
-    }
+  .progress {
+    width: 400px;
+    height: 400px;
+  }
 
-    .astroHome{
-width: 150px;
-    }
+  .astroHome {
+    width: 150px;
+  }
 }
 @media (max-height: 800px) {
-    .progress{
-        width: 200px;
-        height: 200px;
-    }
-    
+  .progress {
+    width: 200px;
+    height: 200px;
+  }
 }
 @media (max-height: 640px) {
-    .progressWrap{
-        height: fit-content;
-    }
-    .progressTrWrap{
-visibility: hidden;    }
-/* .astroHome{
-    width: 150px;
-} */
-    /* .progress{
-        width: 300px;
-        height: 300px;
-    } */
+  .progressWrap {
+    height: fit-content;
+  }
+  .progressTrWrap {
+    visibility: hidden;
+  }
 }
-
-
-

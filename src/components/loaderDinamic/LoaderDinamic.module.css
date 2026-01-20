@@ -1,12 +1,10 @@
-.logoWrap{
+.logoWrap {
   height: 100dvh;
 }
-.logoWrap img{
-    margin: 0 auto;
-    width: 72px;
-    height: 72px;
-    /* transform: translateY(-300%); */
-    /* transition: all 2000ms ease-in-out; */
+.logoWrap img {
+  margin: 0 auto;
+  width: 72px;
+  height: 72px;
 }
 
 @keyframes float {
@@ -17,10 +15,10 @@
   20% {
     transform: translateY(200px) scale(1); /* arrived but not scaled yet */
   }
- 30% {
+  30% {
     transform: translateY(200px) scale(2); /* arrived but not scaled yet */
   }
-   40% {
+  40% {
     transform: translateY(200px) scale(3); /* arrived but not scaled yet */
   }
   50% {
@@ -30,13 +28,12 @@
   60% {
     transform: translateY(200px) scale(3); /* scale back down */
   }
-  70%{
+  70% {
     transform: translateY(200px) scale(2);
   }
-80%{
-     transform: translateY(200px) scale(1);
-
-}
+  80% {
+    transform: translateY(200px) scale(1);
+  }
   100% {
     transform: translateY(1000%) scale(1); /* fall down and exit */
   }

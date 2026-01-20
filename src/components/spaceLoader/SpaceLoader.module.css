@@ -1,37 +1,39 @@
-.wrap{
-    background-image: linear-gradient(black, blue);
-display: flex;
-justify-content: center;
-align-items: center;
-position: relative;
-height: 100dvh;
-/* perspective: 800px; */
+.wrap {
+  background-image: linear-gradient(black, blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100dvh;
+  /* perspective: 800px; */
 }
 
-.planet{
-width: 200px;
-height: 200px;
+.planet {
+  width: 200px;
+  height: 200px;
 }
-.track{
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    transform-style: preserve-3d;
-            animation: spin3d 10s linear infinite;
-
+.track {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  animation: spin3d 10s linear infinite;
 }
 
-.spaceship{
-    position: absolute;
-    top: 50%;
-    width: 60px;
-    height: 60px;
-
+.spaceship {
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 60px;
 }
 @keyframes spin3d {
-  0%   { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 /* @keyframes scroll-left {
   0% {
@@ -52,6 +54,3 @@ height: 200px;
             transform: rotate(360deg);
         }
     } */
-
-
-   

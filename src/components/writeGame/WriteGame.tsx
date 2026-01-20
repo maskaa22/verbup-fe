@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import s from "./WriteGame.module.css";
-// import BaseComponentGame from "../baseComponentGame/BaseComponentGame";
+
 import Keyboard from "../keyboard/Keyboard";
 import { handleBackspace, handleKeyPress } from "../../utils/gameFunctions";
 import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
@@ -30,11 +30,14 @@ import { hydrateFromStorage } from "../../redux/game/slice";
 import MotivationModal from "../motivationModal/MotivationModal";
 
 const WriteGame = () => {
-  const { setCheckAnswerType, setShowCheckAnswer, setModalActive, word, setWord } =
-    useOutletContext<cardGameType>();
+  const {
+    setCheckAnswerType,
+    setShowCheckAnswer,
+    setModalActive,
+    word,
+    setWord,
+  } = useOutletContext<cardGameType>();
 
-  // const [text, setText] = useState("");
-  // const [isChecked, setIsChecked] = useState(false);
   const [visibility, setVisibility] = useState(false);
   const [showMotivation, setShowMotivation] = useState(false);
 
@@ -129,8 +132,6 @@ const WriteGame = () => {
           answerStatuses={answerStatuses}
           setAnswerStatuses={setAnswerStatuses}
           current={current}
-          // setIsChecked={setIsChecked}
-          // setText={setText}
         />
       )}
 
