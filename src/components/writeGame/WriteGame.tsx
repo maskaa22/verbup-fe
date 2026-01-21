@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import s from "./WriteGame.module.css";
 
 import Keyboard from "../keyboard/Keyboard";
@@ -62,6 +62,17 @@ const WriteGame = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const blurActiveElement = () => {
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+  };
+
+  const handleBackspaceUnified = useCallback(() => {
+    blurActiveElement();
+    handleBackspace(setWord);
+  }, [setWord]);
+
   useEffect(() => {
     const correct = Number(sessionStorage.getItem(CORRECT)) || 0;
     const wrong = Number(sessionStorage.getItem(WRONG)) || 0;
@@ -74,7 +85,7 @@ const WriteGame = () => {
     if (questions.length === 0) return;
 
     const answerStatuses = JSON.parse(
-      sessionStorage.getItem(ANSWER_STATUS) || "[]"
+      sessionStorage.getItem(ANSWER_STATUS) || "[]",
     );
     const isLastQuestion = current === questions.length - 1;
     const lastAnswered = answerStatuses[current];
@@ -94,6 +105,64 @@ const WriteGame = () => {
   useEffect(() => {
     sessionStorage.setItem(CURRENT_GAME, location.pathname);
   }, [location.pathname]);
+
+  const checkAnswer = useCallback(() => {
+    blurActiveElement();
+
+    if (!word) {
+      setVisibility(true);
+      return;
+    }
+
+    setVisibility(false);
+
+    const isCorrect = word === question.correctAnswer;
+
+    setCheckAnswerType(isCorrect ? SUCCESS : ERROR);
+
+    const newStatuses = [...answerStatuses];
+    newStatuses[current] = isCorrect ? SUCCESS : ERROR;
+
+    sessionStorage.setItem(ANSWER_STATUS, JSON.stringify(newStatuses));
+
+    setAnswerStatuses(newStatuses);
+    setShowCheckAnswer(true);
+    setModalActive(true);
+  }, [
+    word,
+    question.correctAnswer,
+    current,
+    answerStatuses,
+    setVisibility,
+    setCheckAnswerType,
+    setShowCheckAnswer,
+    setModalActive,
+    setAnswerStatuses,
+  ]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        checkAnswer();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [checkAnswer]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Backspace") {
+        e.preventDefault();
+        handleBackspaceUnified();
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [handleBackspaceUnified]);
 
   return (
     <>
@@ -118,7 +187,8 @@ const WriteGame = () => {
 
       <Keyboard
         onKeyPress={(e) => handleKeyPress(e, setWord)}
-        onBackspace={() => handleBackspace(setWord)}
+        onBackspace={handleBackspaceUnified}
+        onEnter={checkAnswer}
       />
 
       {question && (

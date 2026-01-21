@@ -14,6 +14,7 @@ const layout = [
 ];
 
 const Keyboard: React.FC<Props> = ({ onKeyPress, onBackspace }) => {
+  
   return (
     <div className={c.keyboard}>
       {layout.map((row, rowIndex) => (
@@ -30,7 +31,7 @@ const Keyboard: React.FC<Props> = ({ onKeyPress, onBackspace }) => {
           {rowIndex === 2 && (
             <>
               <button className={c.special} onClick={onBackspace}>
-                <img src={'/image/game/delete-icon.svg'} alt="del"/>
+                <img src={"/image/game/delete-icon.svg"} alt="del" />
               </button>
             </>
           )}

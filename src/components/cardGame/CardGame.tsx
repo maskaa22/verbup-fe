@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import c from "./CardGame.module.css";
 import BaseComponentGame from "../baseComponentGame/BaseComponentGame";
-import BaseButtonGame from "../baseButtonGame/BaseButtonGame";
 import { useLocation, useOutletContext } from "react-router-dom";
 import type {
   AnswerStatus,
@@ -17,9 +16,11 @@ import { useDispatch } from "react-redux";
 import { setCurrent } from "../../redux/game/slice";
 import {
   ANSWER_STATUS,
+  ERROR,
   LAST_INDEX,
   MOTIVATION_SHOW,
   PENDING,
+  SUCCESS,
 } from "../../constants";
 import { useMobileOS } from "../../hooks/useMobileOS";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
@@ -29,8 +30,13 @@ const CardGame: React.FC<CardGameProps> = ({
   answerStatusesWrite,
   setShowMotivation,
 }) => {
-  const { setCheckAnswerType, setShowCheckAnswer, setModalActive, word, setWord } =
-    useOutletContext<cardGameType>();
+  const {
+    setCheckAnswerType,
+    setShowCheckAnswer,
+    setModalActive,
+    word,
+    setWord,
+  } = useOutletContext<cardGameType>();
 
   const current = useSelector(selectCurrent);
   const dispatch = useDispatch();
@@ -39,7 +45,6 @@ const CardGame: React.FC<CardGameProps> = ({
 
   const [activeWord, setActiveWord] = useState<string | null>(null);
   const [isChecked, setIsChecked] = useState(false);
-  const [visibility, setVisibility] = useState(false);
 
   const isLogin = useSelector(selectIsLoggedIn);
 
@@ -53,20 +58,12 @@ const CardGame: React.FC<CardGameProps> = ({
 
   const imgWrite = `/image/game/${question.basic}.png`;
 
-  const handleWordClick = (wordName: string) => {
-    setWord(wordName);
-    setActiveWord(wordName);
-    if (iOS === "iOS") return;
-    speakText(wordName, true); // озвучування вибраної відповіді
-  };
-
   useEffect(() => {
-  if (word === '') {
-    setActiveWord(null);
-    setIsChecked(false);
-  }
-}, [word]);
-
+    if (word === "") {
+      setActiveWord(null);
+      setIsChecked(false);
+    }
+  }, [word]);
 
   useEffect(() => {
     sessionStorage.setItem(ANSWER_STATUS, JSON.stringify(answerStatuses));
@@ -114,6 +111,35 @@ const CardGame: React.FC<CardGameProps> = ({
     }
   }, [current, count, setShowMotivation]);
 
+  const handleCheckAnswer = (selectedWord: string) => {
+    setWord(selectedWord);
+    setActiveWord(selectedWord);
+
+    if (iOS !== "iOS") {
+      speakText(selectedWord, true); // озвучування вибраної відповіді
+    }
+
+    const isCorrect = selectedWord === question.correctAnswer;
+
+    setCheckAnswerType(isCorrect ? SUCCESS : ERROR);
+
+    const newStatuses = [...answerStatuses];
+    newStatuses[current] = isCorrect ? SUCCESS : ERROR;
+
+    sessionStorage.setItem(ANSWER_STATUS, JSON.stringify(newStatuses));
+
+    if (current + 1 < newStatuses.length) {
+      sessionStorage.setItem(LAST_INDEX, (current + 1).toString());
+    } else {
+      sessionStorage.removeItem(LAST_INDEX);
+    }
+
+    setAnswerStatuses(newStatuses);
+    setShowCheckAnswer(true);
+    setModalActive(true);
+    setIsChecked(true);
+  };
+
   return (
     <>
       <BaseComponentGame
@@ -153,7 +179,7 @@ const CardGame: React.FC<CardGameProps> = ({
                 key={i}
                 className={btnClass}
                 onClick={() => {
-                  if (!isChecked) handleWordClick(btn.name); // заблокувати зміну після перевірки
+                  if (!isChecked) handleCheckAnswer(btn.name);
                 }}
               >
                 {btn.name}
@@ -161,25 +187,6 @@ const CardGame: React.FC<CardGameProps> = ({
             );
           })}
         </ul>
-      )}
-
-      {location.pathname === "/game/check-word" && visibility && (
-        <p className={c.checkAnswer}>Обери правильну відповідь</p>
-      )}
-
-      {location.pathname === "/game/check-word" && (
-        <BaseButtonGame
-          setVisibility={setVisibility}
-          word={word}
-          setShowCheckAnswer={setShowCheckAnswer}
-          setCheckAnswerType={setCheckAnswerType}
-          setModalActive={setModalActive}
-          correctAnswer={question.correctAnswer}
-          answerStatuses={answerStatuses}
-          setAnswerStatuses={setAnswerStatuses}
-          current={current}
-          setIsChecked={setIsChecked}
-        />
       )}
     </>
   );
