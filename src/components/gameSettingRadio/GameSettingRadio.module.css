@@ -1,23 +1,38 @@
+/* контейнер радіо групи */
 .rset {
-  margin-bottom: 20px;
   display: flex;
+  margin-bottom: 20px;
 }
 
+/* базовий стиль опції */
 .inputWrap {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 100%;
-  width: 100%;
   border: 1px solid var(--text-secondary);
   cursor: pointer;
-  height: 56px;
   width: 105px;
+  height: 56px;
   font-weight: 500;
   font-size: 12px;
+  transition: all 0.2s ease;
 }
+
+/* активна опція */
+.inputWrapChecked {
+  border: 2px solid var(--primary-1);
+}
+
+/* заблокована опція */
+.inputWrapDisabled {
+  background-color: var(--soft);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* лейбл */
 .label {
   display: flex;
   flex-direction: column;
@@ -26,49 +41,36 @@
   height: 100%;
   cursor: pointer;
 }
-.inputWrapDisabled {
-  background-color: var(--soft); 
-  opacity: 0.5;
-  cursor: not-allowed;
-}
 
-.inputWrap:first-child {
-  border-radius: 48px 0 0 48px;
-}
-
-.inputWrap:last-child {
-  border-radius: 0 48px 48px 0;
-}
-
+/* приховуємо стандартний радіо інпут */
 .input[type="radio"] {
   display: none;
 }
 
-.inputWrapChecked {
-  border: 2px solid var(--primary-1);
+/* скруглення першої та останньої опції */
+.rset > *:first-child > .inputWrap {
+  border-radius: 48px 0 0 48px;
 }
 
+.rset > *:last-child > .inputWrap {
+  border-radius: 0 48px 48px 0;
+}
 
+/* адаптивні стилі */
 @media screen and (max-height: 767px) {
   .inputWrap {
-      height: 3rem;
+    height: 3rem;
   }
-  .form {
-    margin-bottom: 24px;
-  }
-  .rset{
+  .rset {
     margin-bottom: 0.05rem;
   }
 }
 
 @media screen and (max-height: 660px) {
   .inputWrap {
-      padding: 16px 0;
+    padding: 16px 0;
   }
-  .form {
-    margin-bottom: 2rem;
-  }
-  .label{
+  .label {
     font-size: 0.7rem;
   }
 }
