@@ -1,0 +1,57 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+}
+
+/* сам тултіп */
+.tooltip {
+  position: absolute;
+  background: #6ea5b0;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px) scale(0.95);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  z-index: 100;
+}
+
+/* стрілочка */
+.tooltip::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+}
+
+/* позиції */
+.top {
+  bottom: calc(100% + 8px);
+}
+
+.top::after {
+  top: 100%;
+  border-top-color: #6ea5b0;
+}
+
+.bottom {
+  top: calc(100% + 8px);
+}
+
+.bottom::after {
+  bottom: 100%;
+  border-bottom-color: #6ea5b0;
+}
+
+/* hover */
+.wrapper:hover .tooltip {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}

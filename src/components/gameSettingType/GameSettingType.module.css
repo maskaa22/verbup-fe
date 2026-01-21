@@ -10,6 +10,7 @@
   border-radius: 30px;
   margin-bottom: 48px;
   position: relative;
+  width: 100%;
 }
 .disabled {
   backdrop-filter: blur(40px);
@@ -20,7 +21,6 @@
     #d1d1d2 55.54%,
     #adadb1 93.47%
   );
-  cursor: none;
 }
 .type:last-child {
   margin-bottom: 0;

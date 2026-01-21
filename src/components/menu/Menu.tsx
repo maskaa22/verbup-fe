@@ -4,6 +4,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { useScreenWidth } from "../../utils/useScreenWidth";
 import { sendGtagEvent } from "../../utils/googleAnalize";
+import Tooltip from "../tooltip/Tooltip";
 
 const Menu = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -64,7 +65,7 @@ const Menu = () => {
                 </svg>
               </NavLink>
             </li>
-            <li className={css.disabled}>
+            {/* <li className={css.disabled}>
               <NavLink
                 className={css.disabled}
                 to="#"
@@ -74,7 +75,26 @@ const Menu = () => {
                   <use href="/icons.svg#icon-achievements"></use>
                 </svg>
               </NavLink>
+            </li> */}
+            <li className={css.disabled}>
+              <Tooltip text="В розробці">
+                <NavLink
+                  to="/achievements"
+                  className={clsx(css.disabledLink)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClick("achive");
+                  }}
+                  tabIndex={0}
+                  aria-disabled="true"
+                >
+                  <svg className={clsx(css.icon, css.iconone)}>
+                    <use href="/icons.svg#icon-achievements"></use>
+                  </svg>
+                </NavLink>
+              </Tooltip>
             </li>
+
             <li>
               <NavLink
                 className={({ isActive }) => clsx(isActive && css.active)}
@@ -91,7 +111,7 @@ const Menu = () => {
                 className={({ isActive }) =>
                   clsx(
                     isActive && css.active,
-                    location.startsWith("/change") && css.active
+                    location.startsWith("/change") && css.active,
                   )
                 }
                 to="/setting"
