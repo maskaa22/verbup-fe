@@ -141,28 +141,28 @@ const WriteGame = () => {
   ]);
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        checkAnswer();
-      }
-    };
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      checkAnswer();
+    }
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [checkAnswer]);
+    // 🔹 Забороняємо пробіл
+    if (e.key === " " || e.code === "Space") {
+      e.preventDefault();
+      return;
+    }
 
-  useEffect(() => {
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Backspace") {
-        e.preventDefault();
-        handleBackspaceUnified();
-      }
-    };
+    if (e.key === "Backspace") {
+      e.preventDefault();
+      handleBackspaceUnified();
+      return;
+    }
+  };
 
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [handleBackspaceUnified]);
+  window.addEventListener("keydown", handleKeyDown);
+  return () => window.removeEventListener("keydown", handleKeyDown);
+}, [checkAnswer, handleBackspaceUnified]);
 
   return (
     <>
