@@ -139,7 +139,7 @@ const CardGame: React.FC<CardGameProps> = ({
     setModalActive(true);
     setIsChecked(true);
   };
-
+// console.log(question)
   return (
     <>
       <BaseComponentGame

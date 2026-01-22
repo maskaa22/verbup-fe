@@ -94,6 +94,7 @@ export type Question = {
   basic: string;
   translate: string;
   id?: number;
+  typePast?: typeof PS | typeof PP;
 };
 export type Verb = {
   basic: string;
