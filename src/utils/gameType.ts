@@ -10,6 +10,7 @@ export type baseComponentType = {
   count: number;
   translate: string;
   typePast: string;
+  setWord: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export type baseButtonType = {

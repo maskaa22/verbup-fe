@@ -28,6 +28,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
   count,
   translate,
   typePast,
+  setWord,
 }) => {
   const { setModalActive } = useOutletContext<modalType>();
 
@@ -44,7 +45,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
     setVoice(true);
     speakText(question);
   };
-// console.log(verbForm)
+
   return (
     <>
       <div
@@ -61,6 +62,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
             sessionStorage.removeItem(WRONG);
             sessionStorage.removeItem(MOTIVATION_SHOW);
 
+            setWord("");
             setModalActive(false);
             dispatch(resetCurrent());
             navigate("/game");

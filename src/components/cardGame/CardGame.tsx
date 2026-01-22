@@ -139,7 +139,7 @@ const CardGame: React.FC<CardGameProps> = ({
     setModalActive(true);
     setIsChecked(true);
   };
-// console.log(question)
+
   return (
     <>
       <BaseComponentGame
@@ -152,6 +152,7 @@ const CardGame: React.FC<CardGameProps> = ({
         count={count}
         translate={question.translate}
         typePast={question.typePast}
+        setWord={setWord}
       />
 
       {location.pathname === "/game/check-word" && (
