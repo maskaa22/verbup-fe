@@ -32,9 +32,9 @@
   font-size: 20px;
   background: linear-gradient(
     180deg,
-    rgba(90, 139, 150, 0.8) 11%,
-    rgba(154, 162, 129, 0.8) 47%,
-    rgba(226, 187, 105, 0.8) 79%
+    rgba(138, 184, 194, 0.8) 11%,
+    rgba(191, 197, 174, 0.8) 47%,
+    rgba(234, 202, 135, 0.8) 79%
   );
 }
 .inputContainer {
