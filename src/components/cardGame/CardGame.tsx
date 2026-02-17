@@ -22,7 +22,7 @@ import {
   PENDING,
   SUCCESS,
 } from "../../constants";
-import { useMobileOS } from "../../hooks/useMobileOS";
+// import { useMobileOS } from "../../hooks/useMobileOS";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 // import { selectAllNotifications } from "../../redux/notify/selectors";
 
@@ -42,7 +42,7 @@ const CardGame: React.FC<CardGameProps> = ({
   const current = useSelector(selectCurrent);
   const dispatch = useDispatch();
 
-  const iOS = useMobileOS();
+  // const iOS = useMobileOS();
 
   const [activeWord, setActiveWord] = useState<string | null>(null);
   const [isChecked, setIsChecked] = useState(false);
@@ -117,9 +117,9 @@ const CardGame: React.FC<CardGameProps> = ({
     setWord(selectedWord);
     setActiveWord(selectedWord);
 
-    if (iOS !== "iOS") {
+    
       speakText(selectedWord); // озвучування вибраної відповіді
-    }
+   
 
     const isCorrect = selectedWord === question.correctAnswer;
 

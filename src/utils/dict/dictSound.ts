@@ -6,7 +6,7 @@ export const speakWordsIndividually = (wordList: string[], soundEnabled = true, 
 
   const speakNext = () => {
     if(index >= wordList.length) return;
-    speakText(wordList[index], soundEnabled);
+    speakText(wordList[index]);
     index++;
     setTimeout(speakNext, pauseMs);
   };

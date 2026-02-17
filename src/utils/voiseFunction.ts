@@ -17,7 +17,7 @@ const FIXED_VOICES_APPLE = {
 export const speakText = (
   text: string,
   voiceKey?: VoiceKey,
-  os?: MobileOS
+  os?: MobileOS,
 ) => {
   const notifications = getSavedNotifications();
   if (!notifications?.sound) return;

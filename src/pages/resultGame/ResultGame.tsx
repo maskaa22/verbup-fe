@@ -21,7 +21,7 @@ import { useEffect, useState } from "react";
 import Star from "../../components/star/Star";
 import Feedback from "../../components/feedback/Feedback";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
-import type { currentAnswerAndQuestions } from "../../utils/gameType";
+import type { SendProgressArgs } from "../../utils/gameType";
 import { sendProgress } from "../../redux/progress/operations";
 
 const ResultGame = () => {
@@ -36,7 +36,7 @@ const ResultGame = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const isLogin = useSelector(selectIsLoggedIn);
-  const { questions } = useOutletContext<currentAnswerAndQuestions>();
+  const { questions } = useOutletContext<SendProgressArgs>();
 
   const [rating, setRating] = useState<number>(0);
 
