@@ -66,14 +66,16 @@ const Setting = () => {
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>
         </li>
-        <li className={!loggedin ? css.disabled : ""}>
-          <button onClick={() => setModal(true)} className={css.button}>
-            Вийти з акаунту
-          </button>
-          <svg>
-            <use href="./icons.svg#icon-accordion-arrow"></use>
-          </svg>
-        </li>
+        {loggedin && (
+          <li className={!loggedin ? css.disabled : ""}>
+            <button onClick={() => setModal(true)} className={css.button}>
+              Вийти з акаунту
+            </button>
+            <svg>
+              <use href="./icons.svg#icon-accordion-arrow"></use>
+            </svg>
+          </li>
+        )}
       </ul>
       <a
         className={css.reviewLink}

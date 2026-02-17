@@ -28,7 +28,6 @@ const NotificationParams = () => {
       }),
     );
   };
-  console.log(os)
 
   const handleVoiceChange = (value: VoiceKey) => {
   speakText("Hello!", value, os);
