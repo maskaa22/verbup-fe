@@ -176,3 +176,4 @@ export interface SendProgressArgs {
   gameSetting: GameSetting;
   answerStatuses: AnswerStatus[];
 }
+export type VoiceKey = "1" | "2" | "3";

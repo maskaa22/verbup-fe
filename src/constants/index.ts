@@ -73,14 +73,16 @@ export const initialStateGame: GameState = {
 };
 
 export const notifyInitialState: NotificationState = {
-  notifications: {
-    dailyTraining: false,
-    achievsAndLevels: false,
-    specialOffers: false,
-    motivateMe: false,
-    sound: false,
-    vibration: localStorage.getItem(VIBRATION) !== "false",
-  },
+  notifications:
+    JSON.parse(localStorage.getItem("notifications") || "null") || {
+      dailyTraining: false,
+      achievsAndLevels: false,
+      specialOffers: false,
+      motivateMe: false,
+      sound: false,
+      vibration: true,
+      voice: "1",
+    },
   darkTheme: "light",
 };
 

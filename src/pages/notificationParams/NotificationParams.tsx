@@ -1,16 +1,21 @@
 import { useDispatch } from "react-redux";
 import NotificationCheckBox from "../../components/notificatioCheckBox/NotificationCheckBox";
 import css from "./NotificationParams.module.css";
-import { useEffect } from "react";
-import { setAllNotifications } from "../../redux/notify/slice";
+// import { useEffect, useState } from "react";
+import { setAllNotifications, setVoice } from "../../redux/notify/slice";
 import { useSelector } from "react-redux";
 import { selectAllNotifications } from "../../redux/notify/selectors";
 import type { Notifications } from "../../utils/notify/notifyTypes";
 import { VIBRATION } from "../../constants";
+import RadioButton from "../../components/radioButton/RadioButton";
+import { speakText } from "../../utils/voiseFunction";
+import type { VoiceKey } from "../../utils/gameType";
 
 const NotificationParams = () => {
   const dispatch = useDispatch();
   const notifications = useSelector(selectAllNotifications);
+
+  // const [voice, setVoice] = useState("1");
 
   type NotificationKey = keyof Notifications;
 
@@ -19,13 +24,14 @@ const NotificationParams = () => {
       setAllNotifications({
         ...notifications,
         [name]: !notifications[name],
-      })
+      }),
     );
   };
 
-  useEffect(() => {
-    console.log(notifications);
-  }, [notifications]);
+  const handleVoiceChange = (value: VoiceKey) => {
+    speakText("Hello!", value);
+    dispatch(setVoice(value));
+  };
 
   return (
     <div className={css.wrap}>
@@ -69,7 +75,34 @@ const NotificationParams = () => {
           />
         </li>
         <li>
-          <p className={css.mainText}>Озвучування дієслів </p>
+          <div>
+            <p className={css.mainText}>Озвучування дієслів</p>
+            {notifications.sound && (
+              <div className={css.voiceGroup}>
+                <RadioButton
+                  name="voice"
+                  value="1"
+                  label="Голос 1"
+                  checked={notifications.voice === "1"}
+                  onChange={handleVoiceChange}
+                />
+                <RadioButton
+                  name="voice"
+                  value="2"
+                  label="Голос 2"
+                  checked={notifications.voice === "2"}
+                  onChange={handleVoiceChange}
+                />
+                <RadioButton
+                  name="voice"
+                  value="3"
+                  label="Голос 3"
+                  checked={notifications.voice === "3"}
+                  onChange={handleVoiceChange}
+                />
+              </div>
+            )}
+          </div>
           <NotificationCheckBox
             checked={notifications.sound}
             onChange={() => handleChange("sound")}

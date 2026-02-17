@@ -1,0 +1,68 @@
+.radioItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+
+  p {
+    font-family: var(--font-family-messiri);
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 130%;
+    color: var(--text-primary);
+  }
+}
+
+/* ховаємо стандартний radio */
+.radioItem input {
+  display: none;
+}
+
+/* зовнішнє коло */
+.customRadio {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #bfc4c9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #f2f3f4; */
+  fill: linear-gradient(
+    180deg,
+    rgba(232, 232, 232, 0.3) 0%,
+    rgba(94, 144, 158, 0.5) 100%
+  );
+  transition: 0.2s ease;
+}
+
+/* внутрішня точка */
+.customRadio::after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #1abc9c;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.2s ease;
+}
+
+/* checked */
+.radioItem input:checked + .customRadio::after {
+  transform: scale(1);
+}
+
+.radioItem input:checked + .customRadio {
+  border-color: #1abc9c;
+}
+
+.iconWrapper {
+  position: relative;
+}
+.innerCircle {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}

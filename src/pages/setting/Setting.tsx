@@ -36,12 +36,12 @@ const Setting = () => {
 
       <h3>Інше</h3>
       <ul className={css.list}>
-        {/* <li className={css.disabled}>
+        <li>
           <Link to={"notification-params"}>Параметри сповіщень</Link>
           <svg>
             <use href="./icons.svg#icon-accordion-arrow"></use>
           </svg>
-        </li> */}
+        </li>
         {/* <li className={css.disabled}>
           <Link to={"/"}>Контакти</Link>
           <svg>

@@ -24,6 +24,7 @@ import {
 } from "../../constants";
 import { useMobileOS } from "../../hooks/useMobileOS";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
+// import { selectAllNotifications } from "../../redux/notify/selectors";
 
 const CardGame: React.FC<CardGameProps> = ({
   question,
@@ -45,6 +46,7 @@ const CardGame: React.FC<CardGameProps> = ({
 
   const [activeWord, setActiveWord] = useState<string | null>(null);
   const [isChecked, setIsChecked] = useState(false);
+  // const soundEnabled = useSelector(selectAllNotifications).sound;
 
   const isLogin = useSelector(selectIsLoggedIn);
 
@@ -116,7 +118,7 @@ const CardGame: React.FC<CardGameProps> = ({
     setActiveWord(selectedWord);
 
     if (iOS !== "iOS") {
-      speakText(selectedWord, true); // озвучування вибраної відповіді
+      speakText(selectedWord); // озвучування вибраної відповіді
     }
 
     const isCorrect = selectedWord === question.correctAnswer;

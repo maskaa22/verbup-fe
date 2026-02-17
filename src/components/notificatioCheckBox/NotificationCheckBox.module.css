@@ -6,8 +6,10 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 26px;
+  /* width: 50px;
+  height: 26px; */
+  width: 35px;
+  height: 15px;
 }
 
 /* Hide default HTML checkbox */
@@ -34,32 +36,33 @@
 
 .slider:before {
   position: absolute;
-  content: "\1F609";
-  top: 1px;
-  background-color: #d9dad7;
-  -webkit-transition: 0.4s;
+  content: "";
+  /* width: 20px;
+  height: 20px; */
+  width: 12px;
+  height: 12px;
+  left: 3px;
+  bottom: 2px;
+  background-color: #f0f0f0; /* сірий */
+  border-radius: 50%;
   transition: 0.4s;
+  box-shadow: 2px 1px 6px 0 rgba(0, 0, 0, 0.25);
 }
 
 input:checked + .slider {
   background-color: var(--other-1);
 }
 
-input:hover + .slider {
-  box-shadow: 0 0 2px var(--other-3);
-}
-
 input:checked + .slider:before {
-  content: "\1F60E";
-  background-color: #222831;
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
   transform: translateX(26px);
+  background-color: #f0f0f0; /* той самий сірий */
+  box-shadow: 2px 1px 6px 0 rgba(0, 0, 0, 0.25);
+  left: -5px;
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 34px;
+  border-radius: 50px;
 }
 
 .slider.round:before {

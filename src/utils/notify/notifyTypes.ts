@@ -6,6 +6,7 @@ export interface NotificationState {
     motivateMe: boolean;
     sound: boolean;
     vibration: boolean;
+    voice: string,
   };
   darkTheme: string;
 }
