@@ -10,12 +10,13 @@ import { VIBRATION } from "../../constants";
 import RadioButton from "../../components/radioButton/RadioButton";
 import { speakText } from "../../utils/voiseFunction";
 import type { VoiceKey } from "../../utils/gameType";
+import { useMobileOS } from "../../hooks/useMobileOS";
 
 const NotificationParams = () => {
   const dispatch = useDispatch();
   const notifications = useSelector(selectAllNotifications);
 
-  // const [voice, setVoice] = useState("1");
+  const os = useMobileOS();
 
   type NotificationKey = keyof Notifications;
 
@@ -27,11 +28,12 @@ const NotificationParams = () => {
       }),
     );
   };
+  console.log(os)
 
   const handleVoiceChange = (value: VoiceKey) => {
-    speakText("Hello!", value);
-    dispatch(setVoice(value));
-  };
+  speakText("Hello!", value, os);
+  dispatch(setVoice(value));
+};
 
   return (
     <div className={css.wrap}>

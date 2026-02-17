@@ -1,1 +1,1 @@
-export type MobileOS = "iOS" | "Android" | "Other" | "Desktop";
+export type MobileOS = "iOS" | "Android" | "Other" | "Desktop" | "Mac" | "Windows";
