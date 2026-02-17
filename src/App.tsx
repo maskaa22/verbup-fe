@@ -55,6 +55,19 @@ function App() {
     );
   }, [dispatch, isLoggedIn]);
 
+  useEffect(() => {
+    const loadVoices = () => {
+      speechSynthesis.getVoices();
+    };
+
+    loadVoices();
+    speechSynthesis.addEventListener("voiceschanged", loadVoices);
+
+    return () => {
+      speechSynthesis.removeEventListener("voiceschanged", loadVoices);
+    };
+  }, []);
+
   usePageTracking();
 
   return (

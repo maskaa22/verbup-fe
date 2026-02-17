@@ -23,6 +23,8 @@ const Game: React.FC = () => {
     dispatch(generateQuestions());
   }, [dispatch]);
 
+
+
   return (
     <div className={s.baseContainer}>
       <GameOptions />

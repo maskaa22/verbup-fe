@@ -72,17 +72,27 @@ export const initialStateGame: GameState = {
   wrong: 0,
 };
 
+
+const defaultNotifications = {
+  dailyTraining: false,
+  achievsAndLevels: false,
+  specialOffers: false,
+  motivateMe: false,
+  sound: true,
+  vibration: true,
+  voice: "1",
+};
+
+const saved = localStorage.getItem("notifications");
+
+if (!saved) {
+  localStorage.setItem("notifications", JSON.stringify(defaultNotifications));
+}
+
 export const notifyInitialState: NotificationState = {
-  notifications:
-    JSON.parse(localStorage.getItem("notifications") || "null") || {
-      dailyTraining: false,
-      achievsAndLevels: false,
-      specialOffers: false,
-      motivateMe: false,
-      sound: false,
-      vibration: true,
-      voice: "1",
-    },
+  notifications: saved
+    ? JSON.parse(saved)
+    : defaultNotifications,
   darkTheme: "light",
 };
 

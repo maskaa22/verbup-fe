@@ -7,8 +7,6 @@ const FIXED_VOICES = {
   "3": { name: "Google UK English Male", lang: "en-GB" },
 } as const;
 
-
-
 export const speakText = (text: string, voiceKey?: VoiceKey) => {
   const notifications = getSavedNotifications();
   if (!notifications?.sound) return;
@@ -28,8 +26,8 @@ export const speakText = (text: string, voiceKey?: VoiceKey) => {
     voiceKey && FIXED_VOICES[voiceKey]
       ? voiceKey
       : (notifications.voice as VoiceKey) in FIXED_VOICES
-      ? (notifications.voice as VoiceKey)
-      : "1";
+        ? (notifications.voice as VoiceKey)
+        : "1";
 
   const targetVoice = FIXED_VOICES[key];
 
@@ -42,16 +40,33 @@ export const speakText = (text: string, voiceKey?: VoiceKey) => {
     }
 
     // шукаємо точне співпадіння
+    // let selected = voices.find(
+    //   (v) => v.name === targetVoice.name && v.lang === targetVoice.lang
+    // );
     let selected = voices.find(
-      (v) => v.name === targetVoice.name && v.lang === targetVoice.lang
+      (v) =>
+        v.name.includes(targetVoice.name) &&
+        v.lang.startsWith(targetVoice.lang),
     );
 
-    // fallback по lang
+    // // fallback по lang
+    // if (!selected) {
+    //   selected = voices.find((v) => v.lang === targetVoice.lang);
+    // }
+
+    // // остаточний fallback
+    // if (!selected) {
+    //   selected = voices[0];
+    // }
+
     if (!selected) {
-      selected = voices.find((v) => v.lang === targetVoice.lang);
+      selected = voices.find((v) => v.lang.startsWith(targetVoice.lang));
     }
 
-    // остаточний fallback
+    if (!selected) {
+      selected = voices.find((v) => v.default);
+    }
+
     if (!selected) {
       selected = voices[0];
     }
