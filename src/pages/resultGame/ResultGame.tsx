@@ -112,6 +112,7 @@ const ResultGame = () => {
             <p>56</p>
           </li> */}
         </ul>
+        <p className={c.like}>Сподобалась гра? Оцініть додаток!</p>
         <Star setRating={setRating} rating={rating} />
         {rating > 0 && <Feedback rating={rating} />}
       </div>
