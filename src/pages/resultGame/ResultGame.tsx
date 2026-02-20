@@ -23,6 +23,7 @@ import Feedback from "../../components/feedback/Feedback";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import type { SendProgressArgs } from "../../utils/gameType";
 import { sendProgress } from "../../redux/progress/operations";
+import Modal from "../../components/modal/Modal";
 
 const ResultGame = () => {
   const navigation = useNavigate();
@@ -39,9 +40,10 @@ const ResultGame = () => {
   const { questions } = useOutletContext<SendProgressArgs>();
 
   const [rating, setRating] = useState<number>(0);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const answerStatuses = JSON.parse(
-    sessionStorage.getItem(ANSWER_STATUS) || "[]"
+    sessionStorage.getItem(ANSWER_STATUS) || "[]",
   );
 
   useEffect(() => {
@@ -114,7 +116,7 @@ const ResultGame = () => {
         </ul>
         <p className={c.like}>Сподобалась гра? Оцініть додаток!</p>
         <Star setRating={setRating} rating={rating} />
-        {rating > 0 && <Feedback rating={rating} />}
+        {rating > 0 && <Feedback rating={rating} setShowModal={setShowModal} />}
       </div>
       <div className={`${c.btnContainer} ${rating ? `${c.rating}` : ""}`}>
         <button onClick={home} className={c.btn}>
@@ -125,6 +127,21 @@ const ResultGame = () => {
           Грати далі
         </button>
       </div>
+
+      {showModal && (
+        <Modal
+          autoClose={2000}
+          onClose={() => setShowModal(false)}
+          showCloseButton={false}
+        >
+          <h2 className={c.titleModal}>Дякуємо за відгук!</h2>
+
+          <img src="/image/cool.png" alt="cool" className={c.imgModal} />
+          <p className={c.pModal}>
+            Ваша думка важлива для нас! З нею ми покращуємось далі...
+          </p>
+        </Modal>
+      )}
     </div>
   );
 };

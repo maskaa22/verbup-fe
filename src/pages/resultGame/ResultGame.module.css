@@ -91,3 +91,24 @@
   text-align: center;
   color: var(--primary-1);
 }
+.titleModal {
+  font-family: var(--font-family-messiri);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  text-align: center;
+  color: var(--primary-1);
+}
+.imgModal {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  display: block;
+}
+.pModal {
+  font-family: var(--font-family-messiri);
+  font-size: 14px;
+  line-height: 130%;
+  text-align: center;
+  color: var(--primary-1);
+}
