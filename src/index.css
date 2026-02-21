@@ -102,3 +102,8 @@ input {
     width: 100%;
   }
 }
+@media (min-width: 2560px) {
+  .container {
+        width: 650px;
+  }
+}

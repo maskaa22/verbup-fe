@@ -36,10 +36,20 @@
 .icon {
   width: 36px;
   height: 36px;
+
+  @media (min-width: 2560px) {
+    width: 4vh;
+    height: 4vh;
+  }
 }
 .settings {
   width: 24px;
   height: 24px;
+
+  @media (min-width: 2560px) {
+    width: 3.5vh;
+    height: 3.5vh;
+  }
 }
 .img {
   position: absolute;
@@ -87,6 +97,7 @@
   }
   .img {
     width: 15vh;
+    /* width: 9vw; */
   }
   .repair {
     width: 12vh;
@@ -107,7 +118,27 @@
     width: 14vh;
     top: -32px;
   }
+  .repair {
+    width: 12vh;
+  }
   .type {
     margin-bottom: 4vh;
+  }
+}
+
+@media (min-width: 2560px) {
+  .img {
+    width: 12vh;
+    top: -47px;
+  }
+  .repair {
+    width: 10vh;
+  }
+  .title {
+    font-size: 3rem;
+  }
+  .text {
+    font-size: 1.5rem;
+    max-width: 350px;
   }
 }

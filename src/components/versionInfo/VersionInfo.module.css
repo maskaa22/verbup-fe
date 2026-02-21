@@ -1,21 +1,21 @@
 .marquee {
-    position: relative;
+  position: relative;
   overflow: hidden;
   white-space: nowrap;
   box-sizing: border-box;
   background: var(--other-2);
   margin-bottom: 1rem;
-z-index: -2;
+  z-index: -2;
 }
 .track {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scroll-left 10s linear infinite;
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left 10s linear infinite;
 }
 .track span {
   display: inline-block;
   font-weight: 500;
-font-size: 12px;
+  font-size: 12px;
 }
 
 @keyframes scroll-left {
@@ -24,5 +24,14 @@ font-size: 12px;
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@media (min-width: 2560px) {
+  .track span {
+    font-size: 20px;
+  }
+  .marquee {
+    margin-bottom: 2rem;
   }
 }

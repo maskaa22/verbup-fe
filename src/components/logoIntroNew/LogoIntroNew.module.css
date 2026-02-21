@@ -115,3 +115,11 @@
     font-size: 56px;
   }
 }
+@media (min-width: 2560px) {
+  .headline {
+    font-size: 88px;
+  }
+  .realUp {
+    font-size: 98px;
+  }
+}
