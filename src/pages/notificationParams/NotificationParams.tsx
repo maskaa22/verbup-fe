@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux";
 import NotificationCheckBox from "../../components/notificatioCheckBox/NotificationCheckBox";
 import css from "./NotificationParams.module.css";
-// import { useEffect, useState } from "react";
 import { setAllNotifications, setVoice } from "../../redux/notify/slice";
 import { useSelector } from "react-redux";
 import { selectAllNotifications } from "../../redux/notify/selectors";
@@ -30,15 +29,15 @@ const NotificationParams = () => {
   };
 
   const handleVoiceChange = (value: VoiceKey) => {
-  speakText("Hello!", value, os);
-  dispatch(setVoice(value));
-};
+    speakText("Hello!", value, os);
+    dispatch(setVoice(value));
+  };
 
   return (
     <div className={css.wrap}>
       <h2 className={css.title}>Параметри сповіщень</h2>
       <ul className={css.allnotifi}>
-        <li>
+        {/* <li>
           <div>
             <p className={css.mainText}>Щоденне тренування </p>
             <p className={css.addText}>Нагадування тренувати дієслова щодня</p>
@@ -67,7 +66,7 @@ const NotificationParams = () => {
             checked={notifications.specialOffers}
             onChange={() => handleChange("specialOffers")}
           />
-        </li>
+        </li> */}
         <li>
           <p className={css.mainText}>Мотиваційні повідомнення </p>
           <NotificationCheckBox
@@ -107,6 +106,13 @@ const NotificationParams = () => {
           <NotificationCheckBox
             checked={notifications.sound}
             onChange={() => handleChange("sound")}
+          />
+        </li>
+        <li>
+          <p className={css.mainText}>Звукові ефекти в результатах</p>
+          <NotificationCheckBox
+            checked={notifications.soundEffects}
+            onChange={() => handleChange("soundEffects")}
           />
         </li>
         <li>

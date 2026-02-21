@@ -17,17 +17,19 @@ import {
   MOTIVATION_SHOW,
   CURRENT_GAME,
 } from "../../constants";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Star from "../../components/star/Star";
 import Feedback from "../../components/feedback/Feedback";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import type { SendProgressArgs } from "../../utils/gameType";
 import { sendProgress } from "../../redux/progress/operations";
 import Modal from "../../components/modal/Modal";
+import { selectAllNotifications } from "../../redux/notify/selectors";
 
 const ResultGame = () => {
   const navigation = useNavigate();
   const gameSetting = useSelector(selectGameSetting);
+  const notifications = useSelector(selectAllNotifications);
 
   const correctLS = Number(sessionStorage.getItem(CORRECT)) || 0;
   const wrongLS = Number(sessionStorage.getItem(WRONG)) || 0;
@@ -42,6 +44,8 @@ const ResultGame = () => {
   const [rating, setRating] = useState<number>(0);
   const [showModal, setShowModal] = useState<boolean>(false);
 
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
   const answerStatuses = JSON.parse(
     sessionStorage.getItem(ANSWER_STATUS) || "[]",
   );
@@ -50,6 +54,25 @@ const ResultGame = () => {
     if (!isLogin) return;
     dispatch(sendProgress({ questions, gameSetting, answerStatuses }));
   }, [isLogin, questions, gameSetting, answerStatuses, dispatch]);
+
+ useEffect(() => {
+  if (!notifications.soundEffects) return;
+  if (correctLS === 0) return;
+
+  const audio = new Audio("/sounds/fanfare.mp3");
+  audio.volume = 0.6;
+  audioRef.current = audio;
+
+  audio.play().catch(() => {});
+
+  return () => {
+    // 🔥 це виконається при переході на іншу сторінку
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+}, [correctLS, notifications.soundEffects]);
 
   const resetSetting = () => {
     sessionStorage.removeItem(CORRECT);

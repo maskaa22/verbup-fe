@@ -81,6 +81,7 @@ const defaultNotifications = {
   sound: true,
   vibration: true,
   voice: "1",
+  soundEffects: true,
 };
 
 const saved = localStorage.getItem("notifications");
