@@ -115,7 +115,7 @@
     font-size: 56px;
   }
 }
-@media (min-width: 2560px) {
+@media (min-width: 2560px) and (min-height: 1300px)  {
   .headline {
     font-size: 88px;
   }

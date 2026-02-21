@@ -37,7 +37,7 @@
   width: 36px;
   height: 36px;
 
-  @media (min-width: 2560px) {
+  @media (min-width: 2560px) and (min-height: 1300px)  {
     width: 4vh;
     height: 4vh;
   }
@@ -46,7 +46,7 @@
   width: 24px;
   height: 24px;
 
-  @media (min-width: 2560px) {
+  @media (min-width: 2560px) and (min-height: 1300px)  {
     width: 3.5vh;
     height: 3.5vh;
   }
@@ -126,7 +126,7 @@
   }
 }
 
-@media (min-width: 2560px) {
+@media (min-width: 2560px) and (min-height: 1300px)  {
   .img {
     width: 12vh;
     top: -47px;
