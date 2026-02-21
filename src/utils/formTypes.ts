@@ -75,6 +75,7 @@ export interface authState {
     status: number;
     message: string;
   } | null;
+  userNameOnly: string,
 }
 
 export interface loginResponce {

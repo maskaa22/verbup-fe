@@ -12,10 +12,10 @@ import {
   selectppProgress,
   selectpsProgress,
 } from "../../redux/progress/selectors";
-import { selectUser } from "../../redux/auth/selectors";
+import { selectUserName } from "../../redux/auth/selectors";
 
 const Home = () => {
-  const user = useSelector(selectUser);
+  const userName = useSelector(selectUserName);
   const psProgress = useSelector(selectpsProgress);
   const ppProgress = useSelector(selectppProgress);
   const psNoMistake = psProgress.filter((word) => word.status !== "mistake");
@@ -33,7 +33,7 @@ const Home = () => {
       <ProgressBar />
       <div className={css.card}>
         <div className={css.userInfo}>
-          <h3>{user ? user.name : "User"}</h3>
+          <h3>{userName ? userName : "User"}</h3>
         </div>
         <WeekCal />
         <ul className={css.list}>

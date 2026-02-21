@@ -122,6 +122,7 @@ export const initialStateAuth: authState = {
   isLoading: false,
   isRefreshing: false,
   isError: null,
+  userNameOnly: "",
 };
 
 export const dictInitState: InitialState = {
