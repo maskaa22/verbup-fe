@@ -1,29 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Props } from "../../utils/dict/dictTypes";
 import css from "./DictItem.module.css";
 import clsx from "clsx";
 import { speakWordsIndividually } from "../../utils/dict/dictSound";
 import { useSelector } from "react-redux";
-import { selectppProgress, selectpsProgress } from "../../redux/progress/selectors";
-
+import {
+  selectppProgress,
+  selectpsProgress,
+} from "../../redux/progress/selectors";
+import { stopSpeech } from "../../utils/dict/speechController";
 
 const DictItem: React.FC<Props> = ({
   word: { basic, pastSimple, pastParticiple, uk },
 }) => {
-  const psProgress = useSelector(selectpsProgress)
-    const ppProgress = useSelector(selectppProgress)
+  const psProgress = useSelector(selectpsProgress);
+  const ppProgress = useSelector(selectppProgress);
 
-  const psLearnt = psProgress.find(word => word.word?.basic === basic)
-    const ppLearnt = ppProgress.find(word => word.word?.basic === basic)
+  const psLearnt = psProgress.find((word) => word.word?.basic === basic);
+  const ppLearnt = ppProgress.find((word) => word.word?.basic === basic);
 
   const [isOpen, setIsOpen] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
-  const handleSound = () => {
-    const wordList = [basic, pastSimple, pastParticiple]
+
+  const handleSound = async () => {
+    if (isSpeaking) return;
+
+    const wordList = [basic, pastSimple, pastParticiple];
+
     setIsSpeaking(true);
-    speakWordsIndividually(wordList, true, 1500);
-    setTimeout(() => setIsSpeaking(false), 3000);
+
+    await speakWordsIndividually(wordList, 700);
+
+    setIsSpeaking(false);
   };
+  useEffect(() => {
+    return () => {
+      stopSpeech();
+    };
+  }, []);
+
   const handleToggle = () => setIsOpen(!isOpen);
   return (
     <div className={css.wordWrap}>
@@ -55,11 +70,17 @@ const DictItem: React.FC<Props> = ({
       {isOpen && (
         <div className={css.irrForm}>
           <div className={css.dotWrap}>
-          <span className={`${css.dot} ${psLearnt && css.learnt}`}></span>
-          <p onClick={() => speakWordsIndividually([pastSimple], true, 1500)}>{pastSimple}</p></div>
+            <span className={`${css.dot} ${psLearnt && css.learnt}`}></span>
+            <p onClick={() => speakWordsIndividually([pastSimple], 1500)}>
+              {pastSimple}
+            </p>
+          </div>
           <div className={css.dotWrap}>
-          <span className={`${css.dot} ${ppLearnt && css.learnt}`}></span>
-          <p onClick={() => speakWordsIndividually([pastParticiple], true, 1500)}>{pastParticiple}</p></div>
+            <span className={`${css.dot} ${ppLearnt && css.learnt}`}></span>
+            <p onClick={() => speakWordsIndividually([pastParticiple], 1500)}>
+              {pastParticiple}
+            </p>
+          </div>
         </div>
       )}
     </div>

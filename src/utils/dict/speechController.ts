@@ -1,5 +1,3 @@
-import { speakText } from "../voiseFunction";
-
 let isSpeaking = false;
 let timeoutIds: number[] = [];
 
@@ -12,7 +10,7 @@ export const stopSpeech = () => {
 
 export const speakWordsIndividually = (
   wordList: string[],
-  pauseMs: number = 300,
+  pauseMs = 500,
 ): Promise<void> => {
   return new Promise((resolve) => {
     if (isSpeaking) return;
@@ -29,14 +27,18 @@ export const speakWordsIndividually = (
         return;
       }
 
-      speakText(wordList[index]);
+      const utterance = new SpeechSynthesisUtterance(wordList[index]);
 
-      const id = window.setTimeout(() => {
-        index++;
-        speakNext();
-      }, pauseMs);
+      utterance.onend = () => {
+        const id = window.setTimeout(() => {
+          index++;
+          speakNext();
+        }, pauseMs);
 
-      timeoutIds.push(id);
+        timeoutIds.push(id);
+      };
+
+      speechSynthesis.speak(utterance);
     };
 
     speakNext();

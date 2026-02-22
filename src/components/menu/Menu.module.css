@@ -24,6 +24,7 @@
   justify-content: space-evenly;
   width: 375px;
   background-color: var(--background-white-default);
+  height: 60px;
 }
 
 .navigation ul li {
