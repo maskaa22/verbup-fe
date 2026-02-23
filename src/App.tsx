@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import type { AppDispatch, RootState } from "./redux/store";
 import { refreshUser } from "./redux/auth/operations";
 import { useSelector } from "react-redux";
+import NotFound from "./pages/notFound/NotFound";
 
 const Intro = lazy(() => import("./pages/intro/Intro"));
 const VerifyEmail = lazy(() => import("./pages/verifyEmail/VerifyEmail"));
@@ -112,6 +113,7 @@ function App() {
             />
             <Route path="/setting/theme-switcher" element={<ThemeSwitcher />} />
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       )}
     </>
