@@ -112,7 +112,6 @@ function App() {
             />
             <Route path="/setting/theme-switcher" element={<ThemeSwitcher />} />
           </Route>
-          {/* <Route path="/test" element={<NotificationParams/>}/> */}
         </Routes>
       )}
     </>

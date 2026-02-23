@@ -79,11 +79,12 @@
   transform: scale(2);
   animation: scaleAndBounce 2s ease forwards;
 }
-.linkedInWrap {
+.linkedInWrap,
+.shapeInWrap {
   display: flex;
   align-items: center;
   position: absolute;
-  right: 0;
+  right: 40px;
   bottom: 0;
   cursor: pointer;
 }
@@ -97,10 +98,18 @@
   color: var(--primary-1);
 }
 .linkedInWrap .linkedInIcon {
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
   fill: var(--primary-1);
   padding-bottom: 6px;
+}
+.shapeInWrap {
+  right: 0;
+  bottom: 0;
+}
+.shapeInIcon {
+  width: 36px;
+  height: 36px;
 }
 @keyframes scaleAndBounce {
   0% {
