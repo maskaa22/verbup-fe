@@ -1,5 +1,12 @@
 import { createSelector } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
+import {
+  ADVANCED,
+  BEGGINER,
+  GAME_SETTING,
+  INTERMEDIATE,
+} from "../../constants";
+import { loadSettingFromStorage } from "../../utils/game/loadSettingFromStorage";
 
 export const selectletterFilter = (state: RootState) => state.dict.letter;
 export const selectallWordsStore = (state: RootState) => state.dict.allWords;
@@ -24,15 +31,27 @@ export const visibleWordsStore = createSelector(
     wordFilter,
     showLearnt,
     psProgress,
-    ppProgress
+    ppProgress,
   ) => {
-    const filteredWords = allWordsStore?.easy;
+    const setting = loadSettingFromStorage();
+
+    type Level = "easy" | "medium" | "hard";
+
+    const levelMap: Record<string, Level> = {
+      [BEGGINER]: "easy",
+      [INTERMEDIATE]: "medium",
+      [ADVANCED]: "hard",
+    };
+
+    const level: Level = levelMap[setting.level] ?? "easy";
+
+    const filteredWords = level && allWordsStore ? allWordsStore[level] : [];
     if (wordFilter !== "") {
       return filteredWords?.filter(
         (word) =>
           word.basic.startsWith(wordFilter.toLowerCase()) ||
           word.pastSimple.startsWith(wordFilter.toLocaleLowerCase()) ||
-          word.pastParticiple.startsWith(wordFilter.toLocaleLowerCase())
+          word.pastParticiple.startsWith(wordFilter.toLocaleLowerCase()),
       );
     }
     if (letterFilter !== "") {
@@ -42,10 +61,10 @@ export const visibleWordsStore = createSelector(
       return filteredWords?.filter(
         (word) =>
           psProgress.some((ps) => ps.word?.basic === word.basic) ||
-          ppProgress.some((pp) => pp.word?.basic === word.basic)
+          ppProgress.some((pp) => pp.word?.basic === word.basic),
       );
     }
 
-    return allWordsStore?.easy;
-  }
+    return filteredWords;
+  },
 );
