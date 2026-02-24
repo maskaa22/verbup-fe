@@ -16,7 +16,9 @@
 }
 .checkboxLearntWrap {
   display: flex;
-  gap: 4px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px 0 0;
 }
 
 .checkboxLearnt {
@@ -57,3 +59,10 @@
 .markup ul li:nth-child(3) .color {
   background: linear-gradient(180deg, #c43d28 0%, #ff8c7a 100%);
 } */
+.icon {
+  width: 36px;
+  height: 36px;
+  path {
+    fill: #a0a2a3;
+  }
+}
