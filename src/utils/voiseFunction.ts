@@ -30,7 +30,7 @@ export const speakText = (
   speechSynthesis.cancel();
 
   const utterance = new SpeechSynthesisUtterance(text);
-  utterance.rate = 0.95;
+  utterance.rate = 0.75;
 
   // 🔥 Apple detection
   const isApple = os === "iOS" || os === "Mac";

@@ -29,7 +29,7 @@ const DictItem: React.FC<Props> = ({
 
     setIsSpeaking(true);
 
-    await speakWordsIndividually(wordList, 700);
+    await speakWordsIndividually(wordList, 1000);
 
     setIsSpeaking(false);
   };
