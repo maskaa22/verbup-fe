@@ -3,6 +3,10 @@
   flex-direction: column;
   height: 85vh;
   height: 85dvh;
+  position: relative;
+}
+.filterWrapper {
+  position: relative;
 }
 
 .dicheadline {
@@ -64,5 +68,11 @@
   height: 36px;
   path {
     fill: #a0a2a3;
+  }
+}
+.icon:hover {
+  cursor: pointer;
+  path {
+    fill: var(--primary-1);
   }
 }
