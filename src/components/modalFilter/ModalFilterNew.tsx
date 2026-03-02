@@ -9,7 +9,7 @@ type Props = {
   wrapperRef: React.RefObject<HTMLDivElement | null>;
 };
 
-const ModalFilter = ({
+const ModalFilterNew = ({
   isOpen,
   onClose,
   value,
@@ -123,4 +123,4 @@ const ModalFilter = ({
   );
 };
 
-export default ModalFilter;
+export default ModalFilterNew;

@@ -8,7 +8,10 @@ import { fetchWords } from "../../redux/dict/operations";
 import type { AppDispatch } from "../../redux/store";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
-import ModalFilter from "../../components/modalFilter/modalFilter";
+import ModalFilterNew from "../../components/modalFilter/ModalFilterNew";
+
+
+
 
 const Dictionary = () => {
   const [open, setOpen] = useState(false);
@@ -40,12 +43,12 @@ const Dictionary = () => {
             </svg>
           </div>
 
-          <ModalFilter
+          <ModalFilterNew
             isOpen={open}
             onClose={() => setOpen(false)}
             value={filter}
             wrapperRef={wrapperRef}
-            onChange={(value) => {
+            onChange={(value: string) => {
               setFilter(value);
             }}
           />
