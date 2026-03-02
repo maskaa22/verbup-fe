@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import css from "./Intro.module.css";
 import LogoIntroNew from "../../components/logoIntroNew/LogoIntroNew";
 import { sendGtagEvent } from "../../utils/googleAnalize";
+import PetalsCanvas from "../../components/petalsCanvas/PetalsCanvas";
 
 
 const Intro = () => {
@@ -11,8 +12,10 @@ const Intro = () => {
 
   return (
     <>
+   
       <LogoIntroNew />
       <div className={`${css.intro} container`}>
+         <PetalsCanvas />
         <p>
           Щоденна практика — твій ключ до <span> справжнього прогресу.</span>
         </p>
