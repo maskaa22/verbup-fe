@@ -3,7 +3,6 @@ import type { RootState } from "../store";
 import {
   ADVANCED,
   BEGGINER,
-  GAME_SETTING,
   INTERMEDIATE,
 } from "../../constants";
 import { loadSettingFromStorage } from "../../utils/game/loadSettingFromStorage";

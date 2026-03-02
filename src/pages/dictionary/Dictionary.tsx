@@ -6,22 +6,22 @@ import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchWords } from "../../redux/dict/operations";
 import type { AppDispatch } from "../../redux/store";
-import { setLearnt } from "../../redux/dict/slice";
+// import { setLearnt } from "../../redux/dict/slice";
 import { useSelector } from "react-redux";
-import { selectLearntVerbs } from "../../redux/dict/selectors";
+// import { selectLearntVerbs } from "../../redux/dict/selectors";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 const Dictionary = () => {
-  const showLearnt = useSelector(selectLearntVerbs);
+  // const showLearnt = useSelector(selectLearntVerbs);
   const loggedin = useSelector(selectIsLoggedIn);
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(fetchWords());
   }, [dispatch]);
 
-  const handleToggle = () => {
-    dispatch(setLearnt());
-  };
+  // const handleToggle = () => {
+  //   dispatch(setLearnt());
+  // };
   return (
     <div className={css.div}>
       <h2 className={css.dicheadline}>словник</h2>

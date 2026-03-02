@@ -115,11 +115,11 @@
 
 @media screen and (min-height: 768px) {
   .img {
-    width: 14vh;
+    width: 120px;
     top: -32px;
   }
   .repair {
-    width: 12vh;
+    width: 100px;
   }
   .type {
     margin-bottom: 4vh;
@@ -128,11 +128,11 @@
 
 @media (min-width: 2560px) and (min-height: 1300px)  {
   .img {
-    width: 12vh;
+    width: 120px;
     top: -47px;
   }
   .repair {
-    width: 10vh;
+    width: 100px;
   }
   .title {
     font-size: 3rem;
