@@ -45,6 +45,7 @@ const ModalFilterNew = ({
 
   return (
     <div ref={modalRef} className={css.modal}>
+      <p className={css.title}>Сортування</p>
       <label className={css.radioItem}>
         <input
           type="radio"
