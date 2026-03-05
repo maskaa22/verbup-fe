@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import css from "./ModalFilter.module.css";
-import { ALPHABET, FAVORITE, INFINITIVE, LEARNED, NOT_STUDIED, PP, PS } from "../../constants";
+import { ALPHABET, FAVORITE, LEARNED, NOT_STUDIED} from "../../constants";
 
 type Props = {
   isOpen: boolean;
@@ -90,7 +90,7 @@ const ModalFilterNew = ({
         не вивчені
       </label>
 
-      <label className={css.radioItem}>
+      {/* <label className={css.radioItem}>
         <input
           type="radio"
           name="filter"
@@ -120,7 +120,7 @@ const ModalFilterNew = ({
           onChange={(e) => onChange(e.target.value)}
         />
         третя форма (Past Participle)
-      </label>
+      </label> */}
     </div>
   );
 };

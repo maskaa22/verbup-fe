@@ -42,9 +42,12 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
   const location = useLocation();
 
   const voiceFunction = () => {
-    setVoice(true);
-    speakText(question);
-  };
+  setVoice(true);
+
+  speakText(question, undefined, undefined, () => {
+    setVoice(false);
+  });
+};
 
   return (
     <>

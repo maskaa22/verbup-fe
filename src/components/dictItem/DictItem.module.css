@@ -61,6 +61,7 @@
   width: 24px;
   height: 24px;
   transition: fill 2s ease;
+  cursor: pointer;
 }
 .speaking {
   fill: var(--primary-1);
@@ -91,6 +92,7 @@
 .heardWrapper {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 .iconHeard {
   stroke: #a0a2a3;

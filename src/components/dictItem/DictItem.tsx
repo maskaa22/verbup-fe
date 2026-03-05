@@ -11,6 +11,7 @@ import {
 import { stopSpeech } from "../../utils/dict/speechController";
 import { selectFavorites } from "../../redux/dict/selectors";
 import { toggleFavorite } from "../../redux/dict/slice";
+import { selectIsLoggedIn } from "../../redux/auth/selectors";
 
 const DictItem: React.FC<Props> = ({
   word: { basic, pastSimple, pastParticiple, uk },
@@ -18,6 +19,7 @@ const DictItem: React.FC<Props> = ({
   const psProgress = useSelector(selectpsProgress);
   const ppProgress = useSelector(selectppProgress);
   const favorites = useSelector(selectFavorites);
+  const loggedin = useSelector(selectIsLoggedIn);
 
   const dispatch = useDispatch();
 
@@ -70,16 +72,20 @@ const DictItem: React.FC<Props> = ({
             </svg>
           </div>
 
-          <div className={css.heardWrapper} onClick={handleFavorite}>
-            <svg className={`${css.iconHeard} ${isFavorite && css.favorite} `}>
-              <path
-                d="M10 6.6665C10 6.6665 10 6.6665 9.36667 5.83317C8.63333 4.8665 7.55 4.1665 6.25 4.1665C4.175 4.1665 2.5 5.8415 2.5 7.9165C2.5 8.6915 2.73333 9.40817 3.13333 9.99984C3.80833 11.0082 10 17.4998 10 17.4998M10 6.6665C10 6.6665 10 6.6665 10.6333 5.83317C11.3667 4.8665 12.45 4.1665 13.75 4.1665C15.825 4.1665 17.5 5.8415 17.5 7.9165C17.5 8.6915 17.2667 9.40817 16.8667 9.99984C16.1917 11.0082 10 17.4998 10 17.4998"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </div>
+          {loggedin && (
+            <div className={css.heardWrapper} onClick={handleFavorite}>
+              <svg
+                className={`${css.iconHeard} ${isFavorite && css.favorite} `}
+              >
+                <path
+                  d="M10 6.6665C10 6.6665 10 6.6665 9.36667 5.83317C8.63333 4.8665 7.55 4.1665 6.25 4.1665C4.175 4.1665 2.5 5.8415 2.5 7.9165C2.5 8.6915 2.73333 9.40817 3.13333 9.99984C3.80833 11.0082 10 17.4998 10 17.4998M10 6.6665C10 6.6665 10 6.6665 10.6333 5.83317C11.3667 4.8665 12.45 4.1665 13.75 4.1665C15.825 4.1665 17.5 5.8415 17.5 7.9165C17.5 8.6915 17.2667 9.40817 16.8667 9.99984C16.1917 11.0082 10 17.4998 10 17.4998"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          )}
 
           <div onClick={() => handleToggle()} className={css.openBtn}>
             <svg

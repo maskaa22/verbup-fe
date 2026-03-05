@@ -18,6 +18,7 @@ export const speakText = (
   text: string,
   voiceKey?: VoiceKey,
   os?: MobileOS,
+  onEnd?: () => void
 ) => {
   const notifications = getSavedNotifications();
   if (!notifications?.sound) return;
@@ -31,6 +32,14 @@ export const speakText = (
 
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.rate = 0.75;
+
+  utterance.onend = () => {
+  onEnd?.();
+};
+
+utterance.onerror = () => {
+  onEnd?.();
+};
 
   // 🔥 Apple detection
   const isApple = os === "iOS" || os === "Mac";

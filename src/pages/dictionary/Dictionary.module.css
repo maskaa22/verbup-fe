@@ -69,10 +69,14 @@
   path {
     fill: #a0a2a3;
   }
-}
-.icon:hover {
   cursor: pointer;
+}
+.icon:hover, .iconFocus {
   path {
     fill: var(--primary-1);
   }
+}
+.iconCard {
+  width: 36px;
+  height: 36px;
 }
