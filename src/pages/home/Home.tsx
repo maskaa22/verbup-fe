@@ -26,7 +26,7 @@ const Home = () => {
   const totalProgress = ps + pp;
   useEffect(() => {
     dispatch(getProgress());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={css.homeWrap}>

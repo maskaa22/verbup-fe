@@ -9,17 +9,24 @@ import type { AppDispatch } from "../../redux/store";
 import { useSelector } from "react-redux";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import ModalFilterNew from "../../components/modalFilter/ModalFilterNew";
+import { selectSort } from "../../redux/dict/selectors";
+import { setSort } from "../../redux/dict/slice";
+import { getProgress } from "../../redux/progress/operations";
 
 const Dictionary = () => {
   const [open, setOpen] = useState(false);
-  const [filter, setFilter] = useState("alphabet");
+
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   const loggedin = useSelector(selectIsLoggedIn);
+  const sort = useSelector(selectSort);
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(fetchWords());
   }, [dispatch]);
+    useEffect(() => {
+      dispatch(getProgress());
+    }, [dispatch]);
 
   return (
     <div className={css.div}>
@@ -41,10 +48,10 @@ const Dictionary = () => {
           <ModalFilterNew
             isOpen={open}
             onClose={() => setOpen(false)}
-            value={filter}
+            value={sort}
             wrapperRef={wrapperRef}
             onChange={(value: string) => {
-              setFilter(value);
+              dispatch(setSort(value))
             }}
           />
 
@@ -58,7 +65,7 @@ const Dictionary = () => {
                 d="M16.0621 28.0799L10.1791 30.5204C10.003 30.5925 9.80557 30.5919 9.62991 30.5188C9.45424 30.4458 9.31464 30.3061 9.24161 30.1304L1.55411 11.5724C1.48206 11.3964 1.48264 11.1989 1.55572 11.0232C1.62879 10.8476 1.76843 10.708 1.94411 10.6349L10.1086 7.25244"
                 stroke="#A0A2A3"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M12.3209 25.3453H10.8269C10.6365 25.3449 10.4539 25.2691 10.3193 25.1344C10.1846 24.9997 10.1088 24.8172 10.1084 24.6268V4.54028C10.1088 4.34984 10.1846 4.16732 10.3193 4.03266C10.4539 3.898 10.6365 3.82217 10.8269 3.82178H25.1744C25.3646 3.82257 25.5467 3.89857 25.681 4.03319C25.8154 4.1678 25.891 4.3501 25.8914 4.54028V8.85578"
@@ -68,14 +75,14 @@ const Dictionary = () => {
                 d="M12.3209 25.3453H10.8269C10.6365 25.3449 10.4539 25.2691 10.3193 25.1344C10.1846 24.9997 10.1088 24.8172 10.1084 24.6268V4.54028C10.1088 4.34984 10.1846 4.16732 10.3193 4.03266C10.4539 3.898 10.6365 3.82217 10.8269 3.82178H25.1744C25.3646 3.82257 25.5467 3.89857 25.681 4.03319C25.8154 4.1678 25.891 4.3501 25.8914 4.54028V8.85578"
                 stroke="#A0A2A3"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M19.8631 7.13548L12.1786 25.6965C12.1063 25.8722 12.1065 26.0693 12.179 26.2449C12.2515 26.4205 12.3904 26.5604 12.5656 26.634L25.8226 32.1225C25.9985 32.1946 26.1958 32.1943 26.3714 32.1215C26.547 32.0487 26.6868 31.9094 26.7601 31.734L34.4446 13.173C34.5167 12.9971 34.5163 12.7998 34.4436 12.6242C34.3708 12.4485 34.2315 12.3088 34.0561 12.2355L20.8006 6.74698C20.6245 6.67493 20.427 6.67551 20.2514 6.74859C20.0757 6.82166 19.9361 6.9598 19.8631 7.13548Z"
                 fill="white"
                 stroke="#A0A2A3"
                 strokeLinecap="round"
-                stroke-linejoin="round"
+                strokeLinejoin="round"
               />
             </svg>
           </div>

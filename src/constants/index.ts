@@ -30,6 +30,14 @@ export const PARTICIPLE = "Past Participle";
 
 export const VIBRATION = "vibration";
 
+export const FAVORITE_WORDS = "favoriteWords";
+
+export const ALPHABET = "alphabet";
+export const FAVORITE = "favorite";
+export const LEARNED = "learned";
+export const NOT_STUDIED = "notStudied";
+export const INFINITIVE = "infinitive";
+
 export const motivationData: MotivationItem[] = [
   {
     message: "Ти вже пройшов(-ла) більше, ніж половину — не зупиняйся!",
@@ -61,7 +69,6 @@ export const motivationData: MotivationItem[] = [
   },
 ];
 
-
 export const verbFrom = ["(V2, V3)", "(V2)", "(V3)"];
 
 export const initialStateGame: GameState = {
@@ -71,7 +78,6 @@ export const initialStateGame: GameState = {
   correct: 0,
   wrong: 0,
 };
-
 
 const defaultNotifications = {
   dailyTraining: false,
@@ -91,9 +97,7 @@ if (!saved) {
 }
 
 export const notifyInitialState: NotificationState = {
-  notifications: saved
-    ? JSON.parse(saved)
-    : defaultNotifications,
+  notifications: saved ? JSON.parse(saved) : defaultNotifications,
   darkTheme: "light",
 };
 
@@ -131,4 +135,6 @@ export const dictInitState: InitialState = {
   letter: "",
   learnt: false,
   isLoading: false,
+  sort: ALPHABET,
+  favoriteWords: JSON.parse(localStorage.getItem(FAVORITE_WORDS) || "[]"),
 };

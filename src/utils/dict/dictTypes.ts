@@ -28,4 +28,6 @@ export interface InitialState {
   letter: string;
   learnt: boolean;
   isLoading: boolean;
+  sort: string;
+  favoriteWords: string[];
 }

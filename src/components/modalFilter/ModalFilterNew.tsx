@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import css from "./ModalFilter.module.css";
+import { ALPHABET, FAVORITE, INFINITIVE, LEARNED, NOT_STUDIED, PP, PS } from "../../constants";
 
 type Props = {
   isOpen: boolean;
@@ -50,8 +51,8 @@ const ModalFilterNew = ({
         <input
           type="radio"
           name="filter"
-          value="alphabet"
-          checked={value === "alphabet"}
+          value={ALPHABET}
+          checked={value === ALPHABET}
           onChange={(e) => onChange(e.target.value)}
         />
         абетка
@@ -61,8 +62,8 @@ const ModalFilterNew = ({
         <input
           type="radio"
           name="filter"
-          value="favorite"
-          checked={value === "favorite"}
+          value={FAVORITE}
+          checked={value === FAVORITE}
           onChange={(e) => onChange(e.target.value)}
         />
         улюблені
@@ -72,8 +73,8 @@ const ModalFilterNew = ({
         <input
           type="radio"
           name="filter"
-          value="learned"
-          checked={value === "learned"}
+          value={LEARNED}
+          checked={value === LEARNED}
           onChange={(e) => onChange(e.target.value)}
         />
         вивчені
@@ -82,8 +83,8 @@ const ModalFilterNew = ({
         <input
           type="radio"
           name="filter"
-          value="notStudied"
-          checked={value === "notStudied"}
+          value={NOT_STUDIED}
+          checked={value === NOT_STUDIED}
           onChange={(e) => onChange(e.target.value)}
         />
         не вивчені
@@ -93,8 +94,8 @@ const ModalFilterNew = ({
         <input
           type="radio"
           name="filter"
-          value="infinitive"
-          checked={value === "infinitive"}
+          value={INFINITIVE}
+          checked={value === INFINITIVE}
           onChange={(e) => onChange(e.target.value)}
         />
         перша форма (Infinitive)
@@ -104,8 +105,8 @@ const ModalFilterNew = ({
         <input
           type="radio"
           name="filter"
-          value="ps"
-          checked={value === "ps"}
+          value={PS}
+          checked={value === PS}
           onChange={(e) => onChange(e.target.value)}
         />
         друга форма (Past Simple)
@@ -114,8 +115,8 @@ const ModalFilterNew = ({
         <input
           type="radio"
           name="filter"
-          value="pp"
-          checked={value === "pp"}
+          value={PP}
+          checked={value === PP}
           onChange={(e) => onChange(e.target.value)}
         />
         третя форма (Past Participle)
