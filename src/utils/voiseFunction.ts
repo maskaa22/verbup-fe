@@ -2,16 +2,10 @@ import { getSavedNotifications } from "../hooks/getSavedNotifications";
 import type { VoiceKey } from "./gameType";
 import type { MobileOS } from "../utils/utils";
 
-const FIXED_VOICES_GOOGLE = {
-  "1": { name: "Google US English", lang: "en-US" },
-  "2": { name: "Google UK English", lang: "en-GB" },
-  "3": { name: "Google UK English Male", lang: "en-GB" },
-} as const;
-
-const FIXED_VOICES_APPLE = {
-  "1": { name: "Samantha", lang: "en-US" }, // 🇺🇸 найприємніший
-  "2": { name: "Daniel", lang: "en-GB" },   // 🇬🇧 британський
-  "3": { name: "Karen", lang: "en-AU" },    // 🇦🇺 австралійський
+const VOICE_LANG = {
+  "1": "en-US",
+  "2": "en-GB",
+  "3": "en-AU",
 } as const;
 
 export const speakText = (
@@ -21,6 +15,7 @@ export const speakText = (
   onEnd?: () => void
 ) => {
   const notifications = getSavedNotifications();
+
   if (!notifications?.sound) return;
 
   if (!("speechSynthesis" in window)) {
@@ -28,56 +23,50 @@ export const speakText = (
     return;
   }
 
-  speechSynthesis.cancel();
+  const synth = window.speechSynthesis;
+
+  // 🔊 якщо щось уже говорить — зупиняємо
+  if (synth.speaking) {
+    synth.cancel();
+  }
 
   const utterance = new SpeechSynthesisUtterance(text);
+
   utterance.rate = 0.75;
+  utterance.pitch = 1;
 
   utterance.onend = () => {
-  onEnd?.();
-};
+    onEnd?.();
+  };
 
-utterance.onerror = () => {
-  onEnd?.();
-};
+  utterance.onerror = () => {
+    onEnd?.();
+  };
 
-  // 🔥 Apple detection
-  const isApple = os === "iOS" || os === "Mac";
-
-  const VOICES = isApple
-    ? FIXED_VOICES_APPLE
-    : FIXED_VOICES_GOOGLE;
-
-  // 🔐 гарантуємо валідний ключ
+  // 🔐 визначаємо мову
   const key: VoiceKey =
-    voiceKey && VOICES[voiceKey]
+    voiceKey && VOICE_LANG[voiceKey]
       ? voiceKey
-      : (notifications.voice as VoiceKey) in VOICES
-        ? (notifications.voice as VoiceKey)
-        : "1";
+      : (notifications.voice as VoiceKey) in VOICE_LANG
+      ? (notifications.voice as VoiceKey)
+      : "1";
 
-  const targetVoice = VOICES[key];
+  const targetLang = VOICE_LANG[key];
 
   const play = () => {
-    const voices = speechSynthesis.getVoices();
+    const voices = synth.getVoices();
 
     if (!voices.length) {
       console.warn("No voices available");
       return;
     }
 
-    // 1️⃣ точне співпадіння по імені + мові
+    // 1️⃣ голос потрібної мови
     const selected =
-      voices.find(
-        (v) =>
-          v.name.toLowerCase().includes(targetVoice.name.toLowerCase()) &&
-          v.lang.startsWith(targetVoice.lang)
-      ) ||
+      voices.find((v) => v.lang.startsWith(targetLang)) ||
 
-      // 2️⃣ fallback по мові
-      voices.find((v) =>
-        v.lang.startsWith(targetVoice.lang)
-      ) ||
+      // 2️⃣ будь-який англійський
+      voices.find((v) => v.lang.startsWith("en")) ||
 
       // 3️⃣ системний дефолт
       voices.find((v) => v.default) ||
@@ -88,13 +77,17 @@ utterance.onerror = () => {
     utterance.voice = selected;
     utterance.lang = selected.lang;
 
-    speechSynthesis.speak(utterance);
+    synth.speak(utterance);
   };
 
-  // ⚡ Safari fix
-  if (speechSynthesis.getVoices().length > 0) {
+  // ⚡ Safari / iOS fix
+  if (synth.getVoices().length > 0) {
     play();
   } else {
-    speechSynthesis.addEventListener("voiceschanged", play, { once: true });
+    synth.addEventListener("voiceschanged", play, { once: true });
   }
+
+   const isApple = os === "iOS" || os === "Mac";
+
+   console.log(isApple)
 };
