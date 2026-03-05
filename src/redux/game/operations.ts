@@ -56,6 +56,14 @@ function buildVariants(localVerb: Verb): { name: string }[] {
     .sort(() => Math.random() - 0.5);
 }
 
+export const getPastType = (verbForm: string): typeof PS | typeof PP => {
+  if (verbForm === SIMPLE) return PS;
+  if (verbForm === PARTICIPLE) return PP;
+
+  // 🔥 MIXED
+  return Math.random() < 0.5 ? PS : PP;
+};
+
 export const generateQuestions = createAsyncThunk<
   Question[],
   void,
@@ -78,14 +86,27 @@ export const generateQuestions = createAsyncThunk<
       const mode = verbForm === SIMPLE ? "v2" : PARTICIPLE ? "v3" : "Змішаний";
 
       let questions: Question[] = [];
+
       if (count > 0) {
-        if (level === BEGGINER) {
-          questions = generateQuestionsList(data.easy, count, mode);
-        } else if (level === INTERMEDIATE) {
-          questions = generateQuestionsList(data.medium, count, mode);
-        } else if (level === ADVANCED) {
-          questions = generateQuestionsList(data.hard, count, mode);
-        }
+        const source =
+          level === BEGGINER
+            ? data.easy
+            : level === INTERMEDIATE
+              ? data.medium
+              : data.hard;
+
+        const rawQuestions = generateQuestionsList(source, count, mode);
+
+        // 🔥 ДОЗБАГАЧУЄМО typePast ДЛЯ MIXED
+        questions = rawQuestions.map((q) => {
+          const pastType = getPastType(verbForm);
+
+          return {
+            ...q,
+            typePast: pastType,
+            // correctAnswer: pastType === PS ? q.pastSimple : q.pastParticiple,
+          };
+        });
       }
 
       return questions;
@@ -125,9 +146,10 @@ export const generateQuestions = createAsyncThunk<
     // 🔹 збагачуємо бекенд-слова локальними даними
     const enriched: Question[] = backendWords.map((word) => {
       const localVerb = allLocal.find((lv) => lv.basic === word.basic);
+      const pastType = getPastType(verbForm);
 
       const correctAnswer =
-        verbForm === SIMPLE
+        pastType === PS
           ? localVerb?.pastSimple || word.correctAnswer
           : localVerb?.pastParticiple || word.correctAnswer;
 
@@ -144,12 +166,12 @@ export const generateQuestions = createAsyncThunk<
 
       return {
         question: word.basic,
-        correctAnswer: correctAnswer,
+        correctAnswer,
         variants: buildVariants(localVerb),
         basic: localVerb.basic,
         translate: localVerb.uk,
         id: word.id,
-        typePast: word.type,
+        typePast: pastType,
       };
     });
 

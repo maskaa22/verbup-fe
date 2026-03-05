@@ -61,14 +61,14 @@ const GameSetting = () => {
         <p className={css.variant}>Вибір режиму гри</p>
         <GameSettingRadio
           name="verbForm"
-          options={["Past Simple", "Past Participle", "Змішаний"]}
+          options={["Змішаний","Past Simple", "Past Participle"]}
           selectedValue={formData.verbForm}
           onChange={(value) =>
             setFormData((prev) => ({ ...prev, verbForm: value }))
           }
           needSpan={true}
           disabled={false}
-          disabledOption={(option) => option === "Змішаний" && !login}
+          disabledOption={(option) => option === "Past Participle" && !login}
         />
         <p>Вибір кількості питань у грі</p>
         <GameSettingRadio

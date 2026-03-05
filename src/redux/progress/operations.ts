@@ -19,10 +19,12 @@ export const sendProgress = createAsyncThunk<
       const words = questions.map((q: Question, idx: number) => ({
         wordId: q.id,
         type:
-          (gameSetting.verbForm === SIMPLE && PS) ||
-          (gameSetting.verbForm === PARTICIPLE && PP) ||
-          (gameSetting.verbForm === "Змішаний" && "mixed"),
-        correct: answerStatuses[idx] === SUCCESS ? true : false,
+          gameSetting.verbForm === SIMPLE
+            ? PS
+            : gameSetting.verbForm === PARTICIPLE
+              ? PP
+              : q.typePast,
+        correct: answerStatuses[idx] === SUCCESS,
       }));
       const { data } = await api.post("/progress", { words });
 

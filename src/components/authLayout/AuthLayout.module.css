@@ -7,13 +7,20 @@
 
 .planets {
   height: 100dvh;
-  background-image: url("/image/planets/planetThree.png"),
-    url("/image/planets/planetTwo.png"), url("/image/planets/planetOne.png");
+  background-image:
+    url("/image/planets/planetThree.png"), url("/image/planets/planetTwo.png"),
+    url("/image/planets/planetOne.png");
 
-  background-position: top 37px right, bottom 95px left, bottom 35px center;
+  background-position:
+    top 37px right,
+    bottom 95px left,
+    bottom 35px center;
 
   background-repeat: no-repeat;
-  background-size: 178px 178px, 140px 140px, 59px 59px;
+  background-size:
+    178px 178px,
+    140px 140px,
+    59px 59px;
 }
 .planet {
   border-radius: 100%;
@@ -45,7 +52,7 @@
   margin-top: 24px;
   border-radius: 20px;
   padding: 12px;
-  box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
+  /* box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
   background: linear-gradient(
     180deg,
     rgba(232, 232, 232, 0.5) 0%,
@@ -53,8 +60,14 @@
     rgba(94, 144, 158, 0.3) 50%,
     rgba(94, 144, 158, 0.3) 100%
   );
-  /* backdrop-filter: blur(40px); */
+  backdrop-filter: blur(10px); */
   backdrop-filter: blur(10px);
+  box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    180deg,
+    rgba(232, 232, 232, 0.5) 0%,
+    rgb(137 169 178 / 50%) 100%
+  );
   -webkit-backdrop-filter: blur(8px); /* for Safari */
   border-radius: 12px;
 }

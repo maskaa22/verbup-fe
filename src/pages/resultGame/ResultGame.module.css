@@ -7,12 +7,12 @@
 .innerContainer {
   padding: 16px 32px;
   border-radius: 12px;
-  backdrop-filter: blur(40px);
+  backdrop-filter: blur(10px);
   box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
   background: linear-gradient(
     180deg,
     rgba(232, 232, 232, 0.5) 0%,
-    rgba(94, 144, 158, 0.5) 100%
+    rgb(137 169 178 / 50%) 100%
   );
   position: relative;
   z-index: 1;
@@ -26,7 +26,7 @@
 }
 .img {
   margin: 0 auto;
-      width: 20vh;
+  width: 20vh;
 }
 .text {
   font-weight: 400;
@@ -81,4 +81,34 @@
   background: var(--primary-1);
   border: none;
   border-radius: 48px;
+}
+.like {
+  margin-top: 10px;
+  font-family: var(--font-family-messiri);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 130%;
+  text-align: center;
+  color: var(--primary-1);
+}
+.titleModal {
+  font-family: var(--font-family-messiri);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  text-align: center;
+  color: var(--primary-1);
+}
+.imgModal {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  display: block;
+}
+.pModal {
+  font-family: var(--font-family-messiri);
+  font-size: 14px;
+  line-height: 130%;
+  text-align: center;
+  color: var(--primary-1);
 }

@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import type { AppDispatch, RootState } from "./redux/store";
 import { refreshUser } from "./redux/auth/operations";
 import { useSelector } from "react-redux";
+import NotFound from "./pages/notFound/NotFound";
 
 const Intro = lazy(() => import("./pages/intro/Intro"));
 const VerifyEmail = lazy(() => import("./pages/verifyEmail/VerifyEmail"));
@@ -55,6 +56,19 @@ function App() {
     );
   }, [dispatch, isLoggedIn]);
 
+  useEffect(() => {
+    const loadVoices = () => {
+      speechSynthesis.getVoices();
+    };
+
+    loadVoices();
+    speechSynthesis.addEventListener("voiceschanged", loadVoices);
+
+    return () => {
+      speechSynthesis.removeEventListener("voiceschanged", loadVoices);
+    };
+  }, []);
+
   usePageTracking();
 
   return (
@@ -99,7 +113,7 @@ function App() {
             />
             <Route path="/setting/theme-switcher" element={<ThemeSwitcher />} />
           </Route>
-          {/* <Route path="/test" element={<NotificationParams/>}/> */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       )}
     </>

@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import css from "./Intro.module.css";
 import LogoIntroNew from "../../components/logoIntroNew/LogoIntroNew";
 import { sendGtagEvent } from "../../utils/googleAnalize";
+import PetalsCanvas from "../../components/petalsCanvas/PetalsCanvas";
 
 
 const Intro = () => {
@@ -11,12 +12,14 @@ const Intro = () => {
 
   return (
     <>
+   
       <LogoIntroNew />
       <div className={`${css.intro} container`}>
+         <PetalsCanvas />
         <p>
           Щоденна практика — твій ключ до <span> справжнього прогресу.</span>
         </p>
-        <img className={css.image} src="/cute-astro-christmas-min.png" alt="cute astro in Christmas hat" />
+        <img className={css.image} src="/cute-astronaut-sitting-with-flag.png" alt="astro" />
         <p>
           Що спільного в go, went і gone?{" "}
           <span> VerbUp знає відповідь — і ти скоро теж. </span>

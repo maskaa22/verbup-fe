@@ -30,6 +30,14 @@ export const PARTICIPLE = "Past Participle";
 
 export const VIBRATION = "vibration";
 
+export const FAVORITE_WORDS = "favoriteWords";
+
+export const ALPHABET = "alphabet";
+export const FAVORITE = "favorite";
+export const LEARNED = "learned";
+export const NOT_STUDIED = "notStudied";
+export const INFINITIVE = "infinitive";
+
 export const motivationData: MotivationItem[] = [
   {
     message: "Ти вже пройшов(-ла) більше, ніж половину — не зупиняйся!",
@@ -61,88 +69,7 @@ export const motivationData: MotivationItem[] = [
   },
 ];
 
-// export const arrOfNamesSignup = [
-//   {
-//     label: "Ім'я",
-//     name: "username",
-//     type: "text",
-//     placeholder: "Введіть ваше ім'я",
-//     icon: "icon-user",
-//   },
-//   {
-//     label: "Email",
-//     name: "email",
-//     type: "email",
-//     placeholder: "your@email.com",
-//     icon: "icon-email",
-//   },
-//   {
-//     label: "Пароль",
-//     name: "password",
-//     type: "password",
-//     placeholder: "Мінімум 8 символів",
-//     icon: "icon-password",
-//   },
-// ];
-
-// export const arrOfNamesSignin = [
-//   {
-//     label: "Email",
-//     name: "email",
-//     type: "email",
-//     placeholder: "your@email.com",
-//     icon: "icon-email",
-//   },
-//   {
-//     label: "Пароль",
-//     name: "password",
-//     type: "password",
-//     placeholder: "Мінімум 8 символів",
-//     icon: "icon-password",
-//   },
-// ];
-// export const arrOfNamesPassword = [
-//   {
-//     label: "Поточний пароль",
-//     name: "current",
-//     type: "password",
-//     placeholder: "Мінімум 8 символів",
-//     icon: "icon-password",
-//   },
-//   {
-//     label: "Новий пароль",
-//     name: "new",
-//     type: "password",
-//     placeholder: "Мінімум 8 символів",
-//     icon: "icon-password",
-//   },
-//   {
-//     label: "Підтвердити новий пароль",
-//     name: "repeat",
-//     type: "password",
-//     placeholder: "Мінімум 8 символів",
-//     icon: "icon-password",
-//   },
-// ];
-
-// export const arrOfNamesUser = [
-//   {
-//     label: "Поточне ім’я",
-//     name: "current",
-//     type: "text",
-//     placeholder: "Введіть ваше ім'я",
-//     icon: "icon-user",
-//   },
-//   {
-//     label: "Нове ім’я",
-//     name: "new",
-//     type: "text",
-//     placeholder: "Введіть ваше ім'я",
-//     icon: "icon-user",
-//   },
-// ];
-
-export const verbFrom = ["(V2)", "(V3)", "(V2, V3)"];
+export const verbFrom = ["(V2, V3)", "(V2)", "(V3)"];
 
 export const initialStateGame: GameState = {
   setting: loadSettingFromStorage(),
@@ -152,15 +79,25 @@ export const initialStateGame: GameState = {
   wrong: 0,
 };
 
+const defaultNotifications = {
+  dailyTraining: false,
+  achievsAndLevels: false,
+  specialOffers: false,
+  motivateMe: false,
+  sound: true,
+  vibration: true,
+  voice: "1",
+  soundEffects: true,
+};
+
+const saved = localStorage.getItem("notifications");
+
+if (!saved) {
+  localStorage.setItem("notifications", JSON.stringify(defaultNotifications));
+}
+
 export const notifyInitialState: NotificationState = {
-  notifications: {
-    dailyTraining: false,
-    achievsAndLevels: false,
-    specialOffers: false,
-    motivateMe: false,
-    sound: false,
-    vibration: localStorage.getItem(VIBRATION) !== "false",
-  },
+  notifications: saved ? JSON.parse(saved) : defaultNotifications,
   darkTheme: "light",
 };
 
@@ -189,6 +126,7 @@ export const initialStateAuth: authState = {
   isLoading: false,
   isRefreshing: false,
   isError: null,
+  userNameOnly: "",
 };
 
 export const dictInitState: InitialState = {
@@ -197,4 +135,6 @@ export const dictInitState: InitialState = {
   letter: "",
   learnt: false,
   isLoading: false,
+  sort: ALPHABET,
+  favoriteWords: JSON.parse(localStorage.getItem(FAVORITE_WORDS) || "[]"),
 };

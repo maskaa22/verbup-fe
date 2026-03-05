@@ -12,6 +12,6 @@ export function loadSettingFromStorage() {
   return {
     level: BEGGINER,
     numQuest: "5 питань",
-    verbForm: "Past Simple",
+    verbForm: "Змішаний",
   };
 }

@@ -10,6 +10,7 @@ export type baseComponentType = {
   count: number;
   translate: string;
   typePast: string;
+  setWord: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export type baseButtonType = {
@@ -94,6 +95,7 @@ export type Question = {
   basic: string;
   translate: string;
   id?: number;
+  typePast?: typeof PS | typeof PP;
 };
 export type Verb = {
   basic: string;
@@ -174,3 +176,4 @@ export interface SendProgressArgs {
   gameSetting: GameSetting;
   answerStatuses: AnswerStatus[];
 }
+export type VoiceKey = "1" | "2" | "3";

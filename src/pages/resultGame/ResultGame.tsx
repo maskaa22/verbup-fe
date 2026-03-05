@@ -17,16 +17,19 @@ import {
   MOTIVATION_SHOW,
   CURRENT_GAME,
 } from "../../constants";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Star from "../../components/star/Star";
 import Feedback from "../../components/feedback/Feedback";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
-import type { currentAnswerAndQuestions } from "../../utils/gameType";
+import type { SendProgressArgs } from "../../utils/gameType";
 import { sendProgress } from "../../redux/progress/operations";
+import Modal from "../../components/modal/Modal";
+import { selectAllNotifications } from "../../redux/notify/selectors";
 
 const ResultGame = () => {
   const navigation = useNavigate();
   const gameSetting = useSelector(selectGameSetting);
+  const notifications = useSelector(selectAllNotifications);
 
   const correctLS = Number(sessionStorage.getItem(CORRECT)) || 0;
   const wrongLS = Number(sessionStorage.getItem(WRONG)) || 0;
@@ -36,18 +39,40 @@ const ResultGame = () => {
   const dispatch: AppDispatch = useDispatch();
 
   const isLogin = useSelector(selectIsLoggedIn);
-  const { questions } = useOutletContext<currentAnswerAndQuestions>();
+  const { questions } = useOutletContext<SendProgressArgs>();
 
   const [rating, setRating] = useState<number>(0);
+  const [showModal, setShowModal] = useState<boolean>(false);
+
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const answerStatuses = JSON.parse(
-    sessionStorage.getItem(ANSWER_STATUS) || "[]"
+    sessionStorage.getItem(ANSWER_STATUS) || "[]",
   );
 
   useEffect(() => {
     if (!isLogin) return;
     dispatch(sendProgress({ questions, gameSetting, answerStatuses }));
   }, [isLogin, questions, gameSetting, answerStatuses, dispatch]);
+
+ useEffect(() => {
+  if (!notifications.soundEffects) return;
+  if (correctLS === 0) return;
+
+  const audio = new Audio("/sounds/fanfare.mp3");
+  audio.volume = 0.6;
+  audioRef.current = audio;
+
+  audio.play().catch(() => {});
+
+  return () => {
+    // 🔥 це виконається при переході на іншу сторінку
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+  };
+}, [correctLS, notifications.soundEffects]);
 
   const resetSetting = () => {
     sessionStorage.removeItem(CORRECT);
@@ -112,8 +137,9 @@ const ResultGame = () => {
             <p>56</p>
           </li> */}
         </ul>
+        <p className={c.like}>Сподобалась гра? Оцініть додаток!</p>
         <Star setRating={setRating} rating={rating} />
-        {rating > 0 && <Feedback rating={rating} />}
+        {rating > 0 && <Feedback rating={rating} setShowModal={setShowModal} />}
       </div>
       <div className={`${c.btnContainer} ${rating ? `${c.rating}` : ""}`}>
         <button onClick={home} className={c.btn}>
@@ -124,6 +150,21 @@ const ResultGame = () => {
           Грати далі
         </button>
       </div>
+
+      {showModal && (
+        <Modal
+          autoClose={2000}
+          onClose={() => setShowModal(false)}
+          showCloseButton={false}
+        >
+          <h2 className={c.titleModal}>Дякуємо за відгук!</h2>
+
+          <img src="/image/cool.png" alt="cool" className={c.imgModal} />
+          <p className={c.pModal}>
+            Ваша думка важлива для нас! З нею ми покращуємось далі...
+          </p>
+        </Modal>
+      )}
     </div>
   );
 };

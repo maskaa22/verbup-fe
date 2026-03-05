@@ -123,6 +123,7 @@ const AuthLayout = () => {
         setLogoIntro(false);
 
         break;
+
       default:
         setGlass(false);
         setPlantes(false);
@@ -139,7 +140,7 @@ const AuthLayout = () => {
       className={clsx(
         css.outerWrap,
         planets ? css.planets : css.noPlanets,
-        bgGame && css.bgGame
+        bgGame && css.bgGame,
       )}
     >
       {logoIntro && <LogoIntroNew />}

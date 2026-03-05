@@ -5,7 +5,17 @@ import type { baseComponentType, modalType } from "../../utils/gameType";
 import { useLocation, useNavigate, useOutletContext } from "react-router-dom";
 import { resetCurrent } from "../../redux/game/slice";
 import { useDispatch } from "react-redux";
-import { ANSWER_STATUS, CORRECT, LAST_INDEX, MOTIVATION_SHOW, PARTICIPLE, PP, PS, SIMPLE, WRONG } from "../../constants";
+import {
+  ANSWER_STATUS,
+  CORRECT,
+  LAST_INDEX,
+  MOTIVATION_SHOW,
+  PARTICIPLE,
+  PP,
+  PS,
+  SIMPLE,
+  WRONG,
+} from "../../constants";
 import { useSelector } from "react-redux";
 import { selectGameSetting } from "../../redux/game/selectors";
 import { speakText } from "../../utils/voiseFunction";
@@ -17,7 +27,8 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
   answerStatuses,
   count,
   translate,
-  typePast
+  typePast,
+  setWord,
 }) => {
   const { setModalActive } = useOutletContext<modalType>();
 
@@ -31,10 +42,12 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
   const location = useLocation();
 
   const voiceFunction = () => {
-    setVoice(true);
-    speakText(question);
-  };
+  setVoice(true);
 
+  speakText(question, undefined, undefined, () => {
+    setVoice(false);
+  });
+};
 
   return (
     <>
@@ -52,6 +65,7 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
             sessionStorage.removeItem(WRONG);
             sessionStorage.removeItem(MOTIVATION_SHOW);
 
+            setWord("");
             setModalActive(false);
             dispatch(resetCurrent());
             navigate("/game");
@@ -77,7 +91,13 @@ const BaseComponentGame: React.FC<baseComponentType> = ({
       <p className={s.translate}>{translate}</p>
 
       <p className={s.title}>
-        Choose the correct {verbForm !== "Змішаний" ? verbForm.toLowerCase() : typePast === PS ? SIMPLE.toLowerCase() :  typePast === PP && PARTICIPLE.toLowerCase()} of{" "}
+        Choose the correct{" "}
+        {verbForm !== "Змішаний"
+          ? verbForm.toLowerCase()
+          : typePast === PS
+            ? SIMPLE.toLowerCase()
+            : typePast === PP && PARTICIPLE.toLowerCase()}{" "}
+        of{" "}
         <span className={s.word}>
           {question}{" "}
           {location.pathname === "/game/write-word" && (

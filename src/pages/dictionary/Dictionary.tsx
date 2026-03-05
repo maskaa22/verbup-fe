@@ -3,25 +3,32 @@ import DicSearchBox from "../../components/dicSearchBox/DicSearchBox";
 import css from "./Dictionary.module.css";
 import DictABCFilter from "../../components/dictABCFilter/DictABCFilter";
 import { useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchWords } from "../../redux/dict/operations";
 import type { AppDispatch } from "../../redux/store";
-import { setLearnt } from "../../redux/dict/slice";
 import { useSelector } from "react-redux";
-import { selectLearntVerbs } from "../../redux/dict/selectors";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import ModalFilterNew from "../../components/modalFilter/ModalFilterNew";
+import { selectSort } from "../../redux/dict/selectors";
+import { setSort } from "../../redux/dict/slice";
+import { getProgress } from "../../redux/progress/operations";
+import Tooltip from "../../components/tooltip/Tooltip";
 
 const Dictionary = () => {
-  const showLearnt = useSelector(selectLearntVerbs);
+  const [open, setOpen] = useState(false);
+
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+
   const loggedin = useSelector(selectIsLoggedIn);
+  const sort = useSelector(selectSort);
   const dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
     dispatch(fetchWords());
   }, [dispatch]);
+  useEffect(() => {
+    dispatch(getProgress());
+  }, [dispatch]);
 
-  const handleToggle = () => {
-    dispatch(setLearnt());
-  };
   return (
     <div className={css.div}>
       <h2 className={css.dicheadline}>словник</h2>
@@ -29,11 +36,33 @@ const Dictionary = () => {
       <DictABCFilter />
       {loggedin && (
         <div className={css.checkboxLearntWrap}>
-          <span>Show learnt only:</span>
-          <span
-            className={`${css.checkboxLearnt} ${showLearnt && css.checked}`}
-            onClick={handleToggle}
-          ></span>
+          <div className={css.filterWrapper} ref={wrapperRef}>
+            <svg
+              viewBox="0 0 36 36"
+              className={`${css.icon} ${open && css.iconFocus}`}
+              onClick={() => setOpen((prev) => !prev)}
+            >
+              <path d="M7.87496 5.625C7.87496 5.32663 7.75643 5.04048 7.54545 4.82951C7.33447 4.61853 7.04832 4.5 6.74996 4.5C6.45159 4.5 6.16544 4.61853 5.95446 4.82951C5.74348 5.04048 5.62496 5.32663 5.62496 5.625V25.4093L3.04646 22.8285C2.83521 22.6173 2.5487 22.4986 2.24996 22.4986C1.95121 22.4986 1.6647 22.6173 1.45346 22.8285C1.24221 23.0397 1.12354 23.3263 1.12354 23.625C1.12354 23.9237 1.24221 24.2103 1.45346 24.4215L5.95346 28.9192L5.96921 28.935C6.18043 29.141 6.46448 29.2551 6.75949 29.2526C7.05449 29.2501 7.33655 29.1311 7.54421 28.9215L12.0442 24.4215C12.1488 24.3171 12.2318 24.193 12.2885 24.0565C12.3451 23.92 12.3744 23.7736 12.3745 23.6258C12.3746 23.478 12.3455 23.3316 12.2891 23.195C12.2326 23.0584 12.1498 22.9342 12.0453 22.8296C11.9409 22.725 11.8169 22.642 11.6803 22.5854C11.5438 22.5287 11.3974 22.4995 11.2496 22.4994C11.1018 22.4993 10.9554 22.5283 10.8188 22.5848C10.6822 22.6412 10.5581 22.724 10.4535 22.8285L7.87496 25.4093V5.625ZM15.75 7.875C15.75 7.57663 15.8685 7.29048 16.0795 7.07951C16.2904 6.86853 16.5766 6.75 16.875 6.75H32.625C32.9233 6.75 33.2095 6.86853 33.4205 7.07951C33.6314 7.29048 33.75 7.57663 33.75 7.875C33.75 8.17337 33.6314 8.45952 33.4205 8.67049C33.2095 8.88147 32.9233 9 32.625 9H16.875C16.5766 9 16.2904 8.88147 16.0795 8.67049C15.8685 8.45952 15.75 8.17337 15.75 7.875ZM16.875 13.5C16.5766 13.5 16.2904 13.6185 16.0795 13.8295C15.8685 14.0405 15.75 14.3266 15.75 14.625C15.75 14.9234 15.8685 15.2095 16.0795 15.4205C16.2904 15.6315 16.5766 15.75 16.875 15.75H28.125C28.4233 15.75 28.7095 15.6315 28.9205 15.4205C29.1314 15.2095 29.25 14.9234 29.25 14.625C29.25 14.3266 29.1314 14.0405 28.9205 13.8295C28.7095 13.6185 28.4233 13.5 28.125 13.5H16.875ZM16.875 20.25C16.5766 20.25 16.2904 20.3685 16.0795 20.5795C15.8685 20.7905 15.75 21.0766 15.75 21.375C15.75 21.6734 15.8685 21.9595 16.0795 22.1705C16.2904 22.3815 16.5766 22.5 16.875 22.5H23.625C23.9233 22.5 24.2095 22.3815 24.4205 22.1705C24.6314 21.9595 24.75 21.6734 24.75 21.375C24.75 21.0766 24.6314 20.7905 24.4205 20.5795C24.2095 20.3685 23.9233 20.25 23.625 20.25H16.875ZM16.875 27C16.5766 27 16.2904 27.1185 16.0795 27.3295C15.8685 27.5405 15.75 27.8266 15.75 28.125C15.75 28.4234 15.8685 28.7095 16.0795 28.9205C16.2904 29.1315 16.5766 29.25 16.875 29.25H19.125C19.4233 29.25 19.7095 29.1315 19.9205 28.9205C20.1314 28.7095 20.25 28.4234 20.25 28.125C20.25 27.8266 20.1314 27.5405 19.9205 27.3295C19.7095 27.1185 19.4233 27 19.125 27H16.875Z" />
+            </svg>
+          </div>
+
+          <ModalFilterNew
+            isOpen={open}
+            onClose={() => setOpen(false)}
+            value={sort}
+            wrapperRef={wrapperRef}
+            onChange={(value: string) => {
+              dispatch(setSort(value));
+            }}
+          />
+
+          <div>
+            <Tooltip text="В розробці">
+              <svg className={css.iconCard}>
+                <use href="./icons2.svg#icon-streamline-ultimate-color_card-game-cards"></use>
+              </svg>
+            </Tooltip>
+          </div>
         </div>
       )}
       <DictTable />

@@ -10,6 +10,7 @@
   border-radius: 30px;
   margin-bottom: 48px;
   position: relative;
+  width: 100%;
 }
 .disabled {
   backdrop-filter: blur(40px);
@@ -20,7 +21,6 @@
     #d1d1d2 55.54%,
     #adadb1 93.47%
   );
-  cursor: none;
 }
 .type:last-child {
   margin-bottom: 0;
@@ -36,10 +36,20 @@
 .icon {
   width: 36px;
   height: 36px;
+
+  @media (min-width: 2560px) and (min-height: 1300px)  {
+    width: 4vh;
+    height: 4vh;
+  }
 }
 .settings {
   width: 24px;
   height: 24px;
+
+  @media (min-width: 2560px) and (min-height: 1300px)  {
+    width: 3.5vh;
+    height: 3.5vh;
+  }
 }
 .img {
   position: absolute;
@@ -87,6 +97,7 @@
   }
   .img {
     width: 15vh;
+    /* width: 9vw; */
   }
   .repair {
     width: 12vh;
@@ -104,10 +115,30 @@
 
 @media screen and (min-height: 768px) {
   .img {
-    width: 14vh;
+    width: 120px;
     top: -32px;
+  }
+  .repair {
+    width: 100px;
   }
   .type {
     margin-bottom: 4vh;
+  }
+}
+
+@media (min-width: 2560px) and (min-height: 1300px)  {
+  .img {
+    width: 120px;
+    top: -47px;
+  }
+  .repair {
+    width: 100px;
+  }
+  .title {
+    font-size: 3rem;
+  }
+  .text {
+    font-size: 1.5rem;
+    max-width: 350px;
   }
 }

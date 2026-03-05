@@ -1,0 +1,50 @@
+.outerWrap {
+  height: 100vh;
+}
+.wrapper {
+  min-height: 84vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--primary-1);
+
+  p {
+    font-size: 128px;
+    position: absolute;
+    bottom: -4%;
+  }
+  p:nth-child(1) {
+    left: -12%;
+  }
+  .lastP {
+    right: -14%;
+  }
+
+  img {
+    width: 210px;
+  }
+}
+.introText {
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+}
+.textWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: var(--primary-1);
+}

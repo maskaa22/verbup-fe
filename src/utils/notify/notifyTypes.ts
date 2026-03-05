@@ -6,6 +6,8 @@ export interface NotificationState {
     motivateMe: boolean;
     sound: boolean;
     vibration: boolean;
+    voice: string,
+    soundEffects: boolean
   };
   darkTheme: string;
 }
@@ -17,4 +19,5 @@ export interface Notifications {
   motivateMe: boolean;
   sound: boolean;
   vibration: boolean;
+   soundEffects: boolean
 }

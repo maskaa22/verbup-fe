@@ -19,6 +19,7 @@ interface myVerbs {
   easy: Verb[];
   medium: Verb[];
   hard: Verb[];
+  setting?: { level: string };
 }
 
 export interface InitialState {
@@ -26,5 +27,7 @@ export interface InitialState {
   word: string;
   letter: string;
   learnt: boolean;
-  isLoading: boolean
+  isLoading: boolean;
+  sort: string;
+  favoriteWords: string[];
 }

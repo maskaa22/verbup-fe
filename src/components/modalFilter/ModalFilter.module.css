@@ -1,0 +1,43 @@
+.modal {
+  position: absolute;
+  top: 160px;
+  left: 0;
+  margin-top: 8px;
+  padding: 16px;
+  border-radius: 12px;
+min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 10;
+
+  backdrop-filter: blur(40px);
+  box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
+
+  background: linear-gradient(
+    186deg,
+    rgb(255 255 255 / 50%) 0%,
+    rgb(94, 144, 158, 0.5) 100%
+  );
+  border: 1px solid var(--primary-1);
+}
+.title {
+  font-family: var(--font-family-messiri);
+  font-size: 16px;
+  line-height: 130%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--primary-1);
+}
+.radioItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--primary-1);
+}
+input[type="radio"] {
+  accent-color: var(--primary-1);
+  width: 16px;
+  height: 16px;
+}

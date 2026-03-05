@@ -7,7 +7,7 @@
   background: linear-gradient(
     180deg,
     rgba(232, 232, 232, 0.5) 0%,
-    rgba(94, 144, 158, 0.5) 100%
+    rgba(94, 144, 158, 0.5) 200%
   );
 }
 
@@ -16,12 +16,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 .bsWrap > * {
-    flex: 1;
+  flex: 1;
 }
-
 
 .baseForm {
   font-family: var(--font-family-messiri);
@@ -55,7 +53,7 @@
   border-radius: 50%;
   background-color: var(--secondary);
 }
-.learnt{
+.learnt {
   background-color: var(--other-1);
 }
 .sound {
@@ -63,8 +61,9 @@
   width: 24px;
   height: 24px;
   transition: fill 2s ease;
+  cursor: pointer;
 }
-.speaking{
+.speaking {
   fill: var(--primary-1);
 }
 .arrow {
@@ -72,16 +71,36 @@
   height: 16px;
   fill: var(--primary-1);
 }
-
-.soundBtn{
+.iconsWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.soundBtn {
   background: transparent;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.openBtn{
-    display: flex;
+.openBtn {
+  display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+.heardWrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.iconHeard {
+  stroke: #a0a2a3;
+  width: 24px;
+  height: 24px;
+  fill: none;
+}
+.favorite {
+  stroke: none;
+  fill: var(--primary-1);
 }
