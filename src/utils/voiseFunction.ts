@@ -86,4 +86,8 @@ export const speakText = (
   } else {
     synth.addEventListener("voiceschanged", play, { once: true });
   }
+
+   const isApple = os === "iOS" || os === "Mac";
+
+   console.log(isApple)
 };
