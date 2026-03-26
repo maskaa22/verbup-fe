@@ -1,0 +1,143 @@
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.textWrapper {
+  max-width: 222px;
+}
+.title {
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 120%;
+  color: var(--primary-1);
+  margin-top: 13px;
+}
+.text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  color: var(--text-primary);
+  margin-top: 7px;
+}
+.img {
+  width: 150px;
+  height: auto;
+  position: absolute;
+  top: -58px;
+  right: 0;
+}
+
+.achieve {
+  width: 100%;
+  height: 500px;
+  margin-top: 28px;
+}
+.achieve {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 12px;
+  row-gap: 8px;
+}
+.achieve {
+  overflow-y: auto;
+
+  /* ховає скрол в Firefox */
+  scrollbar-width: none;
+
+  /* ховає скрол в IE / Edge (старі) */
+  -ms-overflow-style: none;
+}
+
+/* ховає скрол в Chrome / Safari */
+.achieve::-webkit-scrollbar {
+  display: none;
+}
+
+/* контейнер */
+.card {
+  /* perspective: 1000px; */
+}
+
+/* обгортка для flip */
+.cardInner {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* hover = переворот */
+.card:hover .cardInner {
+  transform: rotateY(180deg);
+}
+
+/* спільні стилі */
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 34px;
+
+  background-image: url("/image/achievement/bg.png");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  backface-visibility: hidden;
+}
+
+/* задня сторона */
+.cardBack {
+  transform: rotateY(180deg);
+  padding: 10px;
+  text-align: center;
+}
+.card.flipped .cardInner {
+  transform: rotateY(180deg);
+}
+.icon {
+  width: 140px;
+  height: auto;
+  filter: grayscale(100%);
+}
+
+.cardBack {
+  position: relative;
+  padding: 16px;
+}
+
+/* текст */
+.cardText {
+  font-size: 13px;
+  line-height: 130%;
+  text-align: center;
+  color: #000;
+}
+
+/* контейнер прогресу */
+.progressBar {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 32px; /* 👈 як ти і хотіла */
+
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* сам прогрес */
+.progress {
+  height: 100%;
+  width: 100%; /* зараз повний */
+  background: var(--other-1);
+  border-radius: 10px;
+}

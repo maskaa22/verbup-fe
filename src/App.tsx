@@ -8,6 +8,7 @@ import type { AppDispatch, RootState } from "./redux/store";
 import { refreshUser } from "./redux/auth/operations";
 import { useSelector } from "react-redux";
 import NotFound from "./pages/notFound/NotFound";
+import PetalsCanvas from "./components/petalsCanvas/PetalsCanvas";
 
 const Intro = lazy(() => import("./pages/intro/Intro"));
 const VerifyEmail = lazy(() => import("./pages/verifyEmail/VerifyEmail"));
@@ -32,6 +33,7 @@ const ResultGame = lazy(() => import("./pages/resultGame/ResultGame"));
 const LoaderDinamic = lazy(
   () => import("./components/loaderDinamic/LoaderDinamic"),
 );
+const Achievement = lazy(() => import("./pages/achievement/Achievement"));
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -73,7 +75,7 @@ function App() {
 
   return (
     <>
-      {" "}
+      <PetalsCanvas />{" "}
       {loading ? (
         <SpaceLoader />
       ) : (
@@ -112,6 +114,7 @@ function App() {
               element={<NotificationParams />}
             />
             <Route path="/setting/theme-switcher" element={<ThemeSwitcher />} />
+            <Route path="/achievements" element={<Achievement />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -4,7 +4,6 @@ import { NavLink, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { useScreenWidth } from "../../utils/useScreenWidth";
 import { sendGtagEvent } from "../../utils/googleAnalize";
-import Tooltip from "../tooltip/Tooltip";
 
 const Menu = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -24,12 +23,12 @@ const Menu = () => {
         setActiveIndex(0);
         setNoActive(false);
         break;
-      case location === "/cup":
-        setActiveIndex(1);
-        setNoActive(false);
-        break;
       case location === "/voc":
         setActiveIndex(2);
+        setNoActive(false);
+        break;
+      case location === "/achievements":
+        setActiveIndex(1);
         setNoActive(false);
         break;
       case location.startsWith("/setting"):
@@ -65,34 +64,17 @@ const Menu = () => {
                 </svg>
               </NavLink>
             </li>
-            {/* <li className={css.disabled}>
+
+            <li>
               <NavLink
-                className={css.disabled}
-                to="#"
-                onClick={() => handleClick("achive")}
+                to="/achievements"
+                className={({ isActive }) => clsx(isActive ? css.active : css.noActive)}
+                onClick={() => handleClick("achievements")}
               >
-                <svg className={clsx(css.icon, css.iconone)}>
+                <svg className={clsx(css.icon, css.icononeAchieve)}>
                   <use href="/icons.svg#icon-achievements"></use>
                 </svg>
               </NavLink>
-            </li> */}
-            <li className={css.disabled}>
-              <Tooltip text="В розробці">
-                <NavLink
-                  to="/achievements"
-                  className={clsx(css.disabledLink)}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleClick("achive");
-                  }}
-                  tabIndex={0}
-                  aria-disabled="true"
-                >
-                  <svg className={clsx(css.icon, css.iconone)}>
-                    <use href="/icons.svg#icon-achievements"></use>
-                  </svg>
-                </NavLink>
-              </Tooltip>
             </li>
 
             <li>
