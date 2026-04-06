@@ -1,3 +1,4 @@
+import PetalsCanvas from "../../components/petalsCanvas/PetalsCanvas";
 import css from "./Achievement.module.css";
 
 const achievements = [
@@ -71,6 +72,7 @@ const achievements = [
 const Achievement: React.FC = () => {
   return (
     <div>
+      <PetalsCanvas />
       <div className={css.headerWrapper}>
         <div className={css.textWrapper}>
           <h2 className={css.title}>Твої досягнення</h2>

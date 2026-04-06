@@ -5,6 +5,7 @@ import type React from "react";
 import GameSettingType from "../gameSettingType/GameSettingType";
 import c from "./GameOptions.module.css";
 import Tooltip from "../tooltip/Tooltip";
+import PetalsCanvas from "../petalsCanvas/PetalsCanvas";
 
 const GameOptions: React.FC = () => {
   const location = useLocation();
@@ -17,7 +18,7 @@ const GameOptions: React.FC = () => {
   const count = Number(numQuest.split(" ")[0]);
 
   return (
-    <>
+    <><PetalsCanvas />
       {!hideSelect && (
         <>
           <div className={c.innerContainer}>

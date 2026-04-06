@@ -13,6 +13,7 @@ import {
   selectpsProgress,
 } from "../../redux/progress/selectors";
 import { selectUserName } from "../../redux/auth/selectors";
+import PetalsCanvas from "../../components/petalsCanvas/PetalsCanvas";
 
 const Home = () => {
   const userName = useSelector(selectUserName);
@@ -29,6 +30,8 @@ const Home = () => {
   }, [dispatch]);
 
   return (
+    <>
+    <PetalsCanvas />
     <div className={css.homeWrap}>
       <ProgressBar />
       <div className={css.card}>
@@ -49,6 +52,8 @@ const Home = () => {
         <StartLink />
       </div>
     </div>
+    </>
+    
   );
 };
 

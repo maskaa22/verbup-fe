@@ -8,7 +8,7 @@ import type { AppDispatch, RootState } from "./redux/store";
 import { refreshUser } from "./redux/auth/operations";
 import { useSelector } from "react-redux";
 import NotFound from "./pages/notFound/NotFound";
-import PetalsCanvas from "./components/petalsCanvas/PetalsCanvas";
+
 
 const Intro = lazy(() => import("./pages/intro/Intro"));
 const VerifyEmail = lazy(() => import("./pages/verifyEmail/VerifyEmail"));
@@ -75,7 +75,7 @@ function App() {
 
   return (
     <>
-      <PetalsCanvas />{" "}
+     
       {loading ? (
         <SpaceLoader />
       ) : (
