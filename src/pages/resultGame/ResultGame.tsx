@@ -25,6 +25,8 @@ import type { SendProgressArgs } from "../../utils/gameType";
 import { sendProgress } from "../../redux/progress/operations";
 import Modal from "../../components/modal/Modal";
 import { selectAllNotifications } from "../../redux/notify/selectors";
+import { achievements } from "../../constants/chievements";
+import ModalAchivements from "../../components/modalAchivements/ModalAchivements";
 
 const ResultGame = () => {
   const navigation = useNavigate();
@@ -43,6 +45,7 @@ const ResultGame = () => {
 
   const [rating, setRating] = useState<number>(0);
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [newAchievements, setNewAchievements] = useState<number[]>([]);
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -55,24 +58,32 @@ const ResultGame = () => {
     dispatch(sendProgress({ questions, gameSetting, answerStatuses }));
   }, [isLogin, questions, gameSetting, answerStatuses, dispatch]);
 
- useEffect(() => {
-  if (!notifications.soundEffects) return;
-  if (correctLS === 0) return;
+  useEffect(() => {
+    if (!notifications.soundEffects) return;
+    if (correctLS === 0) return;
 
-  const audio = new Audio("/sounds/fanfare.mp3");
-  audio.volume = 0.6;
-  audioRef.current = audio;
+    const audio = new Audio("/sounds/fanfare.mp3");
+    audio.volume = 0.6;
+    audioRef.current = audio;
 
-  audio.play().catch(() => {});
+    audio.play().catch(() => {});
 
-  return () => {
-    // 🔥 це виконається при переході на іншу сторінку
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
+    return () => {
+      // 🔥 це виконається при переході на іншу сторінку
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+    };
+  }, [correctLS, notifications.soundEffects]);
+
+  useEffect(() => {
+    const newAch = checkAchievements();
+
+    if (newAch.length > 0) {
+      setNewAchievements(newAch);
     }
-  };
-}, [correctLS, notifications.soundEffects]);
+  }, []);
 
   const resetSetting = () => {
     sessionStorage.removeItem(CORRECT);
@@ -102,6 +113,42 @@ const ResultGame = () => {
       console.error("Помилка при генерації питань:", error);
     }
   };
+
+  const checkAchievements = () => {
+    const data = JSON.parse(localStorage.getItem("achievements") || "{}");
+
+    const unlocked: number[] = [];
+
+    // 🎯 1. Перша гра
+    if (!data[1]) {
+      data[1] = true;
+      unlocked.push(1);
+    }
+
+    // 🎯 2. Без помилок
+    if (wrongLS === 0 && correctLS > 0 && !data[8]) {
+      data[8] = true;
+      unlocked.push(8);
+    }
+
+    // 🎯 3. Серія без помилок (приклад)
+    if (wrongLS === 0) {
+      data[12] = (data[12] || 0) + 1;
+
+      if (data[12] >= 3 && data[12] !== true) {
+        data[12] = true;
+        unlocked.push(12);
+      }
+    }
+
+    localStorage.setItem("achievements", JSON.stringify(data));
+
+    return unlocked;
+  };
+
+  const currentAchievement = achievements.find(
+    (a) => a.id === newAchievements[0],
+  );
 
   return (
     <div className={c.rezult}>
@@ -164,6 +211,30 @@ const ResultGame = () => {
             Ваша думка важлива для нас! З нею ми покращуємось далі...
           </p>
         </Modal>
+      )}
+      {newAchievements.length > 0 && currentAchievement && (
+        <ModalAchivements
+          autoClose={5000}
+          onClose={() => setNewAchievements([])}
+          showCloseButton={false}
+        >
+          <div className={c.positionWrapper}>
+            <img
+              src={currentAchievement.icon}
+              className={c.imgModalAchiements}
+              alt="achievement"
+            />
+
+            <div className={c.bgImg}></div>
+          </div>
+
+          <div className={c.textWrapper}>
+            <p className={c.firstText}>
+              Тобі вдалося отримати нове досягнення!
+            </p>
+            <p className={c.pModal}>{currentAchievement.text}</p>
+          </div>
+        </ModalAchivements>
       )}
     </div>
   );

@@ -106,8 +106,50 @@
   display: block;
 }
 .pModal {
-  font-family: var(--font-family-messiri);
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 120%;
+  text-align: center;
+  margin-top: 25px;
+  color: var(--primary-1);
+}
+.positionWrapper {
+  position: relative;
+}
+
+.bgImg {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #5a8b96 11%, #9aa281 47%, #e2bb69 79%);
+
+  margin: 0 auto;
+}
+.imgModalAchiements {
+  width: 240px;
+  height: auto;
+  position: absolute;
+  top: -50px;
+  left: 50px;
+}
+.textWrapper {
+  backdrop-filter: blur(20px);
+  box-shadow: -4px -4px 10px 0 rgba(0, 0, 0, 0.15);
+  background: linear-gradient(
+    186deg,
+    rgb(255 255 255 / 50%) 0%,
+    rgb(223 245 252 / 50%) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 50px;
+}
+.firstText {
+  font-weight: 500;
+  font-size: 20px;
   line-height: 130%;
   text-align: center;
   color: var(--primary-1);

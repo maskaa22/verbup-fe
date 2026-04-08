@@ -126,7 +126,7 @@
   position: absolute;
   left: 12px;
   right: 12px;
-  bottom: 32px; /* 👈 як ти і хотіла */
+  bottom: 32px; 
 
   height: 4px;
   background-color: rgba(255, 255, 255, 0.3);
